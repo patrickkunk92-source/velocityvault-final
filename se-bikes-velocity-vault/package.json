@@ -1,8 +1,0 @@
-{
-  "name": "velocity-vault",
-  "version": "1.0.0",
-  "description": "VelocityVault - The Ultimate SE Bikes & BMX Knowledge Hub",
-  "scripts": {
-    "build": "node build.js"
-  }
-}
