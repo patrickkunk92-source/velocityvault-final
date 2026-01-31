@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelocityVault Blog - BMX Tips, Reviews & Tricks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+        .blog-hero { background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; padding: 80px 0; }
+        .post-card { border: none; overflow: hidden; transition: all 0.3s; }
+        .post-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .post-image { height: 200px; background: linear-gradient(135deg, #ddd, #f0f0f0); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+        .post-category { display: inline-block; padding: 4px 12px; background: #ff6b35; color: white; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
+        .post-meta { font-size: 0.9rem; color: #999; margin: 0.5rem 0; }
+        .read-more { color: #ff6b35; font-weight: bold; }
+        .sidebar { position: sticky; top: 100px; }
+        .sidebar-widget { background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
+        .sidebar-widget h5 { color: #ff6b35; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html"><img src="../assets/logo.svg" alt="Logo" height="40"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../products.html">Shop</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="index.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../membership-signup.html">Membership</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-2">VelocityVault Blog</h1>
+            <p class="lead">Tips, tricks, reviews & culture from the BMX community</p>
+        </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <!-- Post 1 -->
+                    <article class="card post-card mb-4">
+                        <div class="post-image">
+                            <i class="fas fa-wheelchair" style="color: #ff6b35;"></i>
+                        </div>
+                        <div class="card-body">
+                            <span class="post-category">Tricks</span>
+                            <h2 class="card-title">How to Land Your First Wheelie: Complete Beginner Guide</h2>
+                            <div class="post-meta">
+                                <i class="fas fa-calendar"></i> January 15, 2026 |
+                                <i class="fas fa-user"></i> BMX Coach |
+                                <i class="fas fa-clock"></i> 5 min read
+                            </div>
+                            <p class="card-text">
+                                Wheelies are the ultimate BMX flex. In this comprehensive guide, we break down the physics, technique, and progression needed to nail your first wheelie. From picking the right bike to building muscle memory, learn everything from pro rider tips.
+                            </p>
+                            <p class="card-text small text-muted">
+                                <strong>Topics covered:</strong> Body positioning, brake technique, balance point, progression exercises, common mistakes
+                            </p>
+                            <a href="#" class="read-more">Read Full Article →</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 2 -->
+                    <article class="card post-card mb-4">
+                        <div class="post-image">
+                            <i class="fas fa-bicycle" style="color: #1e90ff;"></i>
+                        </div>
+                        <div class="card-body">
+                            <span class="post-category" style="background: #1e90ff;">Reviews</span>
+                            <h2 class="card-title">SE Big Ripper 29" Review: The Ultimate Cruiser Bike</h2>
+                            <div class="post-meta">
+                                <i class="fas fa-calendar"></i> January 10, 2026 |
+                                <i class="fas fa-user"></i> Product Reviewer |
+                                <i class="fas fa-clock"></i> 6 min read
+                            </div>
+                            <p class="card-text">
+                                The legendary SE Big Ripper has been a staple since the 1980s. But does the modern 29" version hold up? We spent 3 weeks riding, testing tricks, and cruising to give you our honest review. The results might surprise you.
+                            </p>
+                            <p class="card-text small text-muted">
+                                <strong>Reviewed:</strong> Build quality | Performance | Trick capability | Value | Where to buy
+                            </p>
+                            <a href="#" class="read-more">Read Full Review →</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 3 -->
+                    <article class="card post-card mb-4">
+                        <div class="post-image">
+                            <i class="fas fa-wrench" style="color: #28a745;"></i>
+                        </div>
+                        <div class="card-body">
+                            <span class="post-category" style="background: #28a745;">Maintenance</span>
+                            <h2 class="card-title">BMX Bike Maintenance 101: Keep Your Ride Fresh</h2>
+                            <div class="post-meta">
+                                <i class="fas fa-calendar"></i> January 5, 2026 |
+                                <i class="fas fa-user"></i> Tech Expert |
+                                <i class="fas fa-clock"></i> 8 min read
+                            </div>
+                            <p class="card-text">
+                                Your BMX bike is an investment. Regular maintenance extends its life and keeps it performing at peak level. Learn the essential maintenance tasks you can do yourself, tools you'll need, and when to visit a shop.
+                            </p>
+                            <p class="card-text small text-muted">
+                                <strong>Learn:</strong> Chain care | Bearing maintenance | Brake adjustment | Tire pressure | Cleaning | Storage
+                            </p>
+                            <a href="#" class="read-more">Read Full Guide →</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 4 -->
+                    <article class="card post-card mb-4">
+                        <div class="post-image">
+                            <i class="fas fa-chart-bar" style="color: #ffc107;"></i>
+                        </div>
+                        <div class="card-body">
+                            <span class="post-category" style="background: #ffc107; color: black;">Buying Guide</span>
+                            <h2 class="card-title">Choosing Your First BMX Bike: Size, Style & Budget</h2>
+                            <div class="post-meta">
+                                <i class="fas fa-calendar"></i> December 28, 2025 |
+                                <i class="fas fa-user"></i> Buyer's Guide |
+                                <i class="fas fa-clock"></i> 10 min read
+                            </div>
+                            <p class="card-text">
+                                First BMX bike overwhelming? We cut through the noise. This guide walks you through wheel sizes (why 20" dominates), frame materials, components to care about, and how much you should spend. Plus recommendations for every budget.
+                            </p>
+                            <p class="card-text small text-muted">
+                                <strong>Covers:</strong> Sizing | Wheel types | Brands comparison | Price tiers | What NOT to buy
+                            </p>
+                            <a href="#" class="read-more">Start Shopping Smart →</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 5 -->
+                    <article class="card post-card mb-4">
+                        <div class="post-image">
+                            <i class="fas fa-users" style="color: #dc3545;"></i>
+                        </div>
+                        <div class="card-body">
+                            <span class="post-category" style="background: #dc3545;">Community</span>
+                            <h2 class="card-title">Best BMX Spots in Major Cities: Where to Ride</h2>
+                            <div class="post-meta">
+                                <i class="fas fa-calendar"></i> December 20, 2025 |
+                                <i class="fas fa-user"></i> Street Scout |
+                                <i class="fas fa-clock"></i> 7 min read
+                            </div>
+                            <p class="card-text">
+                                Looking for the best spots to ride in your city? We've compiled the legendary spots, hidden gems, and emerging skate parks across North America. From street sessions to park riding, find your next session.
+                            </p>
+                            <p class="card-text small text-muted">
+                                <strong>Includes:</strong> NYC | LA | Chicago | San Francisco | Toronto | Miami + Local favorites
+                            </p>
+                            <a href="#" class="read-more">Explore Spots Near You →</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 6 -->
+                    <article class="card post-card mb-4">
+                        <div class="post-image">
+                            <i class="fas fa-video" style="color: #6f42c1;"></i>
+                        </div>
+                        <div class="card-body">
+                            <span class="post-category" style="background: #6f42c1;">Video Tutorials</span>
+                            <h2 class="card-title">Master the Manual: Step-by-Step Video Guide</h2>
+                            <div class="post-meta">
+                                <i class="fas fa-calendar"></i> December 12, 2025 |
+                                <i class="fas fa-user"></i> Trick Master |
+                                <i class="fas fa-clock"></i> 4 min read
+                            </div>
+                            <p class="card-text">
+                                The manual is the foundation of intermediate BMX. This post links to our full video series breaking down the mechanics, progression, and advanced variations. Watch pros explain what they look for in their body position.
+                            </p>
+                            <p class="card-text small text-muted">
+                                <strong>Video Series:</strong> Basic setup | Finding your balance point | Progression drills | Linking tricks
+                            </p>
+                            <a href="#" class="read-more">Watch Video Series →</a>
+                        </div>
+                    </article>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Blog pagination" class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#">← Previous</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next →</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <!-- Newsletter -->
+                    <div class="sidebar-widget">
+                        <h5><i class="fas fa-envelope"></i> Newsletter</h5>
+                        <p>Get weekly BMX tips, new product reviews, and exclusive discounts.</p>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email" id="blog-email">
+                            <button class="btn btn-warning" onclick="subscribeBlog()">Subscribe</button>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="sidebar-widget">
+                        <h5><i class="fas fa-folder"></i> Categories</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-decoration-none">Tricks & Tips</a> (12)</li>
+                            <li><a href="#" class="text-decoration-none">Product Reviews</a> (8)</li>
+                            <li><a href="#" class="text-decoration-none">Maintenance</a> (6)</li>
+                            <li><a href="#" class="text-decoration-none">Buying Guides</a> (4)</li>
+                            <li><a href="#" class="text-decoration-none">Community</a> (9)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Popular Posts -->
+                    <div class="sidebar-widget">
+                        <h5><i class="fas fa-fire"></i> Trending</h5>
+                        <ul class="list-unstyled small">
+                            <li><a href="#" class="text-decoration-none">← 10 Best BMX Brands Ranked</a></li>
+                            <li><a href="#" class="text-decoration-none">← Complete Wheelie Guide</a></li>
+                            <li><a href="#" class="text-decoration-none">← SE Bikes History</a></li>
+                            <li><a href="#" class="text-decoration-none">← DIY Bike Customization</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="sidebar-widget" style="background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; border: none;">
+                        <h5><i class="fas fa-star"></i> Join Our Community</h5>
+                        <p>Earn rewards on every bike you buy. Free membership.</p>
+                        <a href="../membership-signup.html" class="btn btn-light btn-sm w-100">
+                            Join Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <h5>VelocityVault Blog</h5>
+                    <p>The ultimate resource for BMX enthusiasts and riders.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="../index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="../products.html" class="text-white text-decoration-none">Shop</a></li>
+                        <li><a href="../membership-signup.html" class="text-white text-decoration-none">Membership</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p><a href="mailto:velocityvaultse@gmail.com" class="text-white">velocityvaultse@gmail.com</a></p>
+                </div>
+            </div>
+            <hr style="border-color: #555;">
+            <div class="text-center small text-muted">
+                <p>&copy; 2026 VelocityVault Blog. All rights reserved. | <a href="../affiliate-disclosure.html" class="text-muted">Affiliate Disclosure</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/tracking.js"></script>
+    <script>
+        function subscribeBlog() {
+            const email = document.getElementById('blog-email').value;
+            if (email) {
+                trackEvent('email_capture', {
+                    email,
+                    source: 'blog_newsletter'
+                });
+                alert('Thanks for subscribing! Check your email.');
+                document.getElementById('blog-email').value = '';
+            }
+        }
+    </script>
+</body>
+</html>

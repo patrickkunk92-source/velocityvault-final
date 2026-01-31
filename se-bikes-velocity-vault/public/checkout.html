@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Velocity Vault</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/logo.svg" alt="Velocity Vault Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">
+                            <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Header -->
+    <header class="bg-primary text-white py-5">
+        <div class="container py-5">
+            <h1 class="display-4 fw-bold"><i class="fas fa-lock"></i> Secure Checkout</h1>
+            <p class="lead">Complete your order securely</p>
+        </div>
+    </header>
+
+    <!-- Checkout Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Checkout Form -->
+                <div class="col-lg-7">
+                    <div class="card mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="fas fa-user"></i> Contact Information</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="checkout-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName" class="form-label">First Name *</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName" class="form-label">Last Name *</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                    <small class="text-muted">Order confirmation will be sent here</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone *</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="fas fa-truck"></i> Shipping Address</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="shipping-form">
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Street Address *</label>
+                                    <input type="text" class="form-control" id="address" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address2" class="form-label">Apartment, Suite, etc. (optional)</label>
+                                    <input type="text" class="form-control" id="address2">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="city" class="form-label">City *</label>
+                                        <input type="text" class="form-control" id="city" required>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="state" class="form-label">State *</label>
+                                        <input type="text" class="form-control" id="state" required>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="zip" class="form-label">ZIP Code *</label>
+                                        <input type="text" class="form-control" id="zip" required>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="fas fa-credit-card"></i> Payment Method</h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Payment Options -->
+                            <div class="payment-options mb-4">
+                                <div class="btn-group w-100" role="group">
+                                    <input type="radio" class="btn-check" name="paymentMethod" id="stripe" value="stripe" checked>
+                                    <label class="btn btn-outline-primary" for="stripe">
+                                        <i class="fas fa-credit-card"></i> Credit/Debit Card
+                                    </label>
+
+                                    <input type="radio" class="btn-check" name="paymentMethod" id="paypal" value="paypal">
+                                    <label class="btn btn-outline-primary" for="paypal">
+                                        <i class="fab fa-paypal"></i> PayPal
+                                    </label>
+
+                                    <input type="radio" class="btn-check" name="paymentMethod" id="cashapp" value="cashapp">
+                                    <label class="btn btn-outline-primary" for="cashapp">
+                                        <i class="fas fa-dollar-sign"></i> Cash App
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Stripe Payment Form -->
+                            <div id="stripe-payment" class="payment-form">
+                                <div id="card-element" class="form-control mb-3" style="height: 40px; padding: 10px;">
+                                    <!-- Stripe card element will be inserted here -->
+                                </div>
+                                <div id="card-errors" role="alert" class="text-danger mb-3"></div>
+                                <button id="stripe-submit-btn" class="btn btn-success btn-lg w-100" type="button">
+                                    <i class="fas fa-lock"></i> Pay Securely with Stripe
+                                </button>
+                            </div>
+
+                            <!-- PayPal Payment -->
+                            <div id="paypal-payment" class="payment-form" style="display: none;">
+                                <div id="paypal-button-container"></div>
+                                <p class="text-muted text-center mt-3">
+                                    <i class="fas fa-shield-alt"></i> Secure payment via PayPal
+                                </p>
+                            </div>
+
+                            <!-- Cash App Payment -->
+                            <div id="cashapp-payment" class="payment-form" style="display: none;">
+                                <div class="alert alert-info">
+                                    <h5><i class="fas fa-dollar-sign"></i> Pay with Cash App</h5>
+                                    <p class="mb-2">Send payment to: <strong>$VelocityVault</strong></p>
+                                    <p class="mb-2">Amount: <strong id="cashapp-amount">$0.00</strong></p>
+                                    <p class="mb-0 text-danger">⚠️ Include your order number in the payment note!</p>
+                                </div>
+                                <button id="cashapp-submit-btn" class="btn btn-success btn-lg w-100" type="button">
+                                    <i class="fas fa-check"></i> I've Sent Payment via Cash App
+                                </button>
+                            </div>
+
+                            <div class="text-center mt-3">
+                                <small class="text-muted">
+                                    <i class="fas fa-lock"></i> Your payment information is encrypted and secure
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="col-lg-5">
+                    <div class="card sticky-top" style="top: 100px;">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="fas fa-receipt"></i> Order Summary</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="order-items" class="mb-3">
+                                <!-- Order items will be loaded here -->
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <strong id="summary-subtotal">$0.00</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2" id="discount-row" style="display: none !important;">
+                                <span>Discount:</span>
+                                <strong class="text-success" id="summary-discount">-$0.00</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Shipping:</span>
+                                <strong id="summary-shipping">$0.00</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Tax (8%):</span>
+                                <strong id="summary-tax">$0.00</strong>
+                            </div>
+
+                            <hr class="my-3">
+
+                            <div class="d-flex justify-content-between mb-3">
+                                <h4>Total:</h4>
+                                <h4 class="text-primary" id="summary-total">$0.00</h4>
+                            </div>
+
+                            <div class="alert alert-success">
+                                <i class="fas fa-shield-alt"></i> <strong>Secure Checkout</strong><br>
+                                <small>SSL encrypted • PCI compliant • 100% safe</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Velocity Vault</h5>
+                    <p>Premium SE Bikes for the streets. Urban culture meets high-performance cycling.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="products.html" class="text-white">Products</a></li>
+                        <li><a href="about.html" class="text-white">About Us</a></li>
+                        <li><a href="contact.html" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <address>
+                        <strong>Velocity Vault</strong><br>
+                        Hudson, Florida<br>
+                        <br>
+                        <i class="fas fa-phone"></i> <a href="tel:5803241069" class="text-white">(580) 324-1069</a><br>
+                        <i class="fas fa-envelope"></i> <a href="mailto:velocityvaultse@gmail.com" class="text-white">velocityvaultse@gmail.com</a>
+                    </address>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>&copy; 2026 Velocity Vault. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join VelocityVault Membership - Earn Rewards & Cashback</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .hero { background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; padding: 100px 0; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0; }
+        .benefit-card { background: #f8f9fa; padding: 2rem; border-radius: 10px; text-align: center; transition: all 0.3s; }
+        .benefit-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .benefit-icon { font-size: 3rem; color: #ff6b35; margin-bottom: 1rem; }
+        .signup-form { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .form-control { border-radius: 5px; border: 1px solid #ddd; }
+        .form-control:focus { border-color: #ff6b35; box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.25); }
+        .btn-signup { background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); border: none; padding: 12px 30px; font-weight: bold; }
+        .btn-signup:hover { color: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,107,53,0.3); }
+        .pricing-table { background: #f8f9fa; padding: 2rem; border-radius: 10px; }
+        .tier { background: white; padding: 2rem; border-radius: 8px; text-align: center; margin: 1rem 0; border-left: 4px solid #ff6b35; }
+        .tier-price { font-size: 2.5rem; color: #ff6b35; font-weight: bold; }
+        .tier-name { font-size: 1.3rem; font-weight: bold; margin: 1rem 0; }
+        .faq-item { background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; }
+        .faq-question { font-weight: bold; color: #ff6b35; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { display: none; margin-top: 1rem; color: #666; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="assets/logo.svg" alt="Logo" height="40"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog/index.html">Blog</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="membership-signup.html">Membership</a></li>
+                    <li class="nav-item"><a class="nav-link" href="referral-program.html">Referral</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-3">Join VelocityVault Membership</h1>
+                    <p class="lead mb-4">Unlock exclusive rewards, earn cashback on every purchase, and join an elite community of BMX enthusiasts.</p>
+                    <div class="d-flex gap-3">
+                        <div>
+                            <h3 style="font-size: 2.5rem;">6%</h3>
+                            <p>Cashback on purchases</p>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 2.5rem;">∞</h3>
+                            <p>Earning potential</p>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 2.5rem;">FREE</h3>
+                            <p>To join</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="signup-form">
+                        <h2 class="mb-4">Create Your Account</h2>
+                        <form id="membership-form">
+                            <div class="mb-3">
+                                <label for="fullname" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="fullname" placeholder="John Doe" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Min 8 characters" required>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    I agree to the terms and <a href="affiliate-disclosure.html">affiliate disclosure</a>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-signup w-100 text-white">
+                                <i class="fas fa-user-plus"></i> Join for Free
+                            </button>
+                        </form>
+                        <p class="text-center text-muted mt-3">No credit card required • Instant activation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Membership Perks</h2>
+                <p class="lead text-muted">Exclusive benefits for VelocityVault members</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-percent"></i></div>
+                    <h4>6% Cashback</h4>
+                    <p>Earn 6% on every qualifying purchase through our affiliate partners</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-star"></i></div>
+                    <h4>Loyalty Points</h4>
+                    <p>Collect points on every purchase redeemable for exclusive gear</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-link"></i></div>
+                    <h4>Referral Bonuses</h4>
+                    <p>Earn commissions when friends join and make purchases</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-bell"></i></div>
+                    <h4>Early Access</h4>
+                    <p>Be first to know about new products, sales, and exclusive offers</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-trophy"></i></div>
+                    <h4>VIP Status</h4>
+                    <p>Unlock VIP tier benefits after $500 in annual purchases</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Buyer Protection</h4>
+                    <p>Full protection on purchases with easy dispute resolution</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Tiers -->
+    <section class="py-5" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Membership Tiers</h2>
+                <p class="lead text-muted">Choose the tier that fits your lifestyle</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="tier">
+                        <div class="tier-name">Bronze</div>
+                        <div class="tier-price">Free</div>
+                        <ul class="list-unstyled my-3">
+                            <li>✓ 5% Cashback</li>
+                            <li>✓ Basic Points</li>
+                            <li>✓ Referral Program</li>
+                            <li>✓ Email Newsletter</li>
+                        </ul>
+                        <button class="btn btn-outline-secondary w-100" onclick="selectTier('bronze')">Current Plan</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tier" style="border-left-color: #ffa500; transform: scale(1.05);">
+                        <div class="tier-name">Silver</div>
+                        <div class="tier-price">$0</div>
+                        <p class="text-muted small">Automatic at $250/year spend</p>
+                        <ul class="list-unstyled my-3">
+                            <li>✓ 6% Cashback</li>
+                            <li>✓ 2x Loyalty Points</li>
+                            <li>✓ Premium Referral Bonuses</li>
+                            <li>✓ Early Access Sales</li>
+                        </ul>
+                        <button class="btn btn-warning w-100" onclick="selectTier('silver')">Upgrade Path</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tier" style="border-left-color: #ffd700;">
+                        <div class="tier-name">Gold</div>
+                        <div class="tier-price">$0</div>
+                        <p class="text-muted small">Automatic at $500/year spend</p>
+                        <ul class="list-unstyled my-3">
+                            <li>✓ 7% Cashback</li>
+                            <li>✓ 3x Loyalty Points</li>
+                            <li>✓ VIP Support</li>
+                            <li>✓ Exclusive Events</li>
+                        </ul>
+                        <button class="btn btn-outline-secondary w-100" onclick="selectTier('gold')">Goal to Reach</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rewards Program Details -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">How It Works</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h3 class="mb-3"><i class="fas fa-shopping-cart text-warning"></i> Earning Cashback</h3>
+                    <ol class="lh-lg">
+                        <li><strong>Shop:</strong> Browse our 50+ BMX bikes from premium brands</li>
+                        <li><strong>Purchase:</strong> Click your personal affiliate link and complete purchase on Amazon</li>
+                        <li><strong>Earn:</strong> 5-7% cashback credited to your VelocityVault wallet</li>
+                        <li><strong>Redeem:</strong> Use points for exclusive merchandise or referral bonuses</li>
+                    </ol>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <h3 class="mb-3"><i class="fas fa-users text-warning"></i> Referral Earnings</h3>
+                    <ol class="lh-lg">
+                        <li><strong>Share:</strong> Get your unique referral code from your dashboard</li>
+                        <li><strong>Invite:</strong> Share with friends via link, email, or social media</li>
+                        <li><strong>Track:</strong> See real-time clicks and conversions in your analytics</li>
+                        <li><strong>Earn:</strong> Recurring commissions on all their purchases</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-5" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Do I need a credit card to join?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            No! VelocityVault membership is completely free. No credit card required for activation. We only collect payment if you choose to redeem rewards for merchandise.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>How long until I get my cashback?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Cashback is credited to your VelocityVault wallet within 30 days of the confirmed purchase on Amazon. Some brands offer faster approval (7-14 days).
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Can I earn on my own purchases?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes! As a member, every purchase you make through your personal VelocityVault links earns you 5-7% cashback, depending on your tier level.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>What if a purchase doesn't track?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            If a purchase doesn't track within 30 days, contact our support team with your order number. We'll investigate with the brand and manually credit your account if eligible.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>How do I withdraw my earnings?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Earnings can be redeemed as: (1) Exclusive VelocityVault merchandise, (2) Donated to BMX charities, (3) Stored as credit for future purchases.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Is there a minimum payout?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            You can redeem as soon as you have $10 in your account. There's no upper limit on earnings or number of transactions.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-5" style="background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white;">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-4">Ready to Start Earning?</h2>
+            <p class="lead mb-4">Join thousands of BMX riders earning rewards on every purchase</p>
+            <a href="#membership-form" class="btn btn-light btn-lg fw-bold">
+                <i class="fas fa-rocket"></i> Join Free Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h5>VelocityVault Membership</h5>
+                    <p>Earn rewards on every BMX purchase. Free to join, unlimited earning potential.</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Questions?</h5>
+                    <p>Contact us at <a href="mailto:velocityvaultse@gmail.com" class="text-white">velocityvaultse@gmail.com</a></p>
+                </div>
+            </div>
+            <hr style="border-color: #555;">
+            <div class="text-center small text-muted">
+                <p>&copy; 2026 VelocityVault. <a href="affiliate-disclosure.html" class="text-muted">Affiliate Disclosure</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/tracking.js"></script>
+    <script>
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+            icon.style.transform = icon.style.transform === 'rotate(180deg)' ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+
+        function selectTier(tier) {
+            alert(`Tier selected: ${tier}`);
+        }
+
+        document.getElementById('membership-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullname = document.getElementById('fullname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Track membership signup
+            trackEvent('member_signup', {
+                email,
+                name: fullname
+            });
+
+            // Capture email
+            trackEvent('email_capture', {
+                email,
+                source: 'membership_signup'
+            });
+
+            // Show success message
+            alert(`Welcome to VelocityVault, ${fullname}! 🎉\n\nYour member dashboard is ready at the top right.\n\nShare your referral code with friends to start earning commissions!`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Get analytics on load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Membership Page Analytics:', getAnalyticsDashboard());
+        });
+    </script>
+</body>
+</html>

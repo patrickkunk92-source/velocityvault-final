@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelocityVault Referral Program - Earn Commissions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .hero { background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%); color: white; padding: 100px 0; }
+        .referral-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin: 1rem 0; }
+        .referral-code-box { background: #f0f0f0; padding: 2rem; border-radius: 10px; text-align: center; margin: 2rem 0; border: 2px dashed #ff6b35; }
+        .code-display { font-family: monospace; font-size: 2rem; font-weight: bold; color: #ff6b35; margin: 1rem 0; }
+        .copy-btn { background: #ff6b35; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        .copy-btn:hover { background: #f7931e; }
+        .stats-box { background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; padding: 2rem; border-radius: 10px; margin: 1rem 0; text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: bold; }
+        .stat-label { font-size: 0.95rem; margin-top: 0.5rem; }
+        .tier-table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
+        .tier-table th { background: #ff6b35; color: white; padding: 1rem; text-align: left; }
+        .tier-table td { padding: 1rem; border-bottom: 1px solid #ddd; }
+        .tier-table tr:hover { background: #f8f9fa; }
+        .how-it-works { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .step-card { background: #f8f9fa; padding: 2rem; border-radius: 10px; text-align: center; border-top: 4px solid #ff6b35; }
+        .step-number { font-size: 2.5rem; color: #ff6b35; font-weight: bold; }
+        .earnings-tracker { background: white; padding: 2rem; border-radius: 10px; border-left: 4px solid #ff6b35; margin: 1rem 0; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="assets/logo.svg" alt="Logo" height="40"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog/index.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="membership-signup.html">Membership</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="referral-program.html">Referral</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">VelocityVault Referral Program</h1>
+                    <p class="lead mb-4">Turn your passion for BMX into passive income. Share your referral link and earn recurring commissions on every purchase your friends make.</p>
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <h3 style="font-size: 1.8rem; color: #ff6b35;">10%</h3>
+                            <p>Recurring commission</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3 style="font-size: 1.8rem; color: #ff6b35;">Lifetime</h3>
+                            <p>Tracking cookies</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3 style="font-size: 1.8rem; color: #ff6b35;">$0</h3>
+                            <p>Minimum payout</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referral Code Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="display-5 fw-bold">Your Referral Dashboard</h2>
+                <p class="lead text-muted">Share your unique code and track earnings in real-time</p>
+            </div>
+
+            <div class="referral-code-box">
+                <h4>Your Unique Referral Code</h4>
+                <div class="code-display" id="referral-code">VVXYZ123</div>
+                <button class="copy-btn" onclick="copyReferralCode()"><i class="fas fa-copy"></i> Copy Code</button>
+                <button class="copy-btn ms-2" style="background: #1a1a1a;" onclick="copyReferralLink()"><i class="fas fa-link"></i> Copy Full Link</button>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="stats-box">
+                        <div class="stat-number" id="referral-clicks">0</div>
+                        <div class="stat-label">Referral Clicks</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stats-box">
+                        <div class="stat-number" id="conversions">0</div>
+                        <div class="stat-label">Conversions</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stats-box">
+                        <div class="stat-number" id="earnings">$0.00</div>
+                        <div class="stat-label">Total Earnings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-5" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">How the Referral Program Works</h2>
+            </div>
+
+            <div class="how-it-works">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Get Your Code</h4>
+                    <p>Sign up for a VelocityVault membership (free) and receive your unique referral code.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Share the Link</h4>
+                    <p>Share your referral link on social media, emails, forums, or anywhere BMX riders hang out.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Friends Join</h4>
+                    <p>Friends click your link and join VelocityVault membership (still free for them).</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>They Purchase</h4>
+                    <p>Your referred friends make purchases through VelocityVault affiliate links.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h4>You Earn</h4>
+                    <p>You earn 10% commission on their entire purchase amount. Recurring on future purchases too!</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <h4>Get Paid</h4>
+                    <p>Redeem earnings for merchandise, donate to BMX charities, or store as credit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commission Structure -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Commission Structure</h2>
+                <p class="lead text-muted">Earn more as your network grows</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <table class="tier-table">
+                        <thead>
+                            <tr>
+                                <th>Tier</th>
+                                <th>Referrals</th>
+                                <th>Commission Rate</th>
+                                <th>Monthly Potential</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Bronze</strong></td>
+                                <td>0-4</td>
+                                <td>10%</td>
+                                <td>~$50-200</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Silver</strong></td>
+                                <td>5-9</td>
+                                <td>12%</td>
+                                <td>~$300-500</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gold</strong></td>
+                                <td>10+</td>
+                                <td>15%</td>
+                                <td>$1000+</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Platinum</strong></td>
+                                <td>25+</td>
+                                <td>20%</td>
+                                <td>$5000+</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-6">
+                    <div class="earnings-tracker">
+                        <h4><i class="fas fa-calculator text-warning"></i> Example Earning</h4>
+                        <p><strong>Your referral purchases a $300 bike:</strong></p>
+                        <ul class="list-unstyled">
+                            <li>Purchase Amount: <strong>$300</strong></li>
+                            <li>Your Commission (10%): <strong class="text-success">+$30</strong></li>
+                            <li>⭐ Recurring: They buy another bike next month = Another <strong class="text-success">+$30</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="earnings-tracker">
+                        <h4><i class="fas fa-chart-line text-warning"></i> Growth Potential</h4>
+                        <p><strong>With 20 active referrals averaging $200/month:</strong></p>
+                        <ul class="list-unstyled">
+                            <li>Monthly referral spend: <strong>$4,000</strong></li>
+                            <li>Your commission (15% Gold tier): <strong class="text-success">+$600/month</strong></li>
+                            <li>Annual passive income: <strong class="text-success">$7,200+</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking & Analytics -->
+    <section class="py-5" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Real-Time Tracking</h2>
+                <p class="lead text-muted">See exactly how many clicks and sales you're generating</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <div class="referral-card">
+                        <h4><i class="fas fa-graph"></i> Your Referral Analytics</h4>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; padding: 0.75rem; border-bottom: 1px solid #ddd;">
+                                <span>Total Clicks</span>
+                                <strong id="analytics-clicks">0</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.75rem; border-bottom: 1px solid #ddd;">
+                                <span>Conversion Rate</span>
+                                <strong id="analytics-rate">0%</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.75rem; border-bottom: 1px solid #ddd;">
+                                <span>Pending Commissions</span>
+                                <strong style="color: #ff6b35;" id="analytics-pending">$0.00</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.75rem;">
+                                <span>Paid Out</span>
+                                <strong style="color: #28a745;" id="analytics-paid">$0.00</strong>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary w-100 mt-3" onclick="refreshAnalytics()">
+                            <i class="fas fa-sync"></i> Refresh Stats
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotion Ideas -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Promotion Ideas</h2>
+                <p class="lead text-muted">Best practices for maximizing referral success</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="referral-card">
+                        <h4><i class="fas fa-instagram text-danger"></i> Social Media</h4>
+                        <ul class="list-unstyled">
+                            <li><strong>Instagram/TikTok:</strong> Post bike reviews & wheelie videos with referral link in bio</li>
+                            <li><strong>YouTube:</strong> Create bike reviews, tutorials - link in description</li>
+                            <li><strong>Reddit:</strong> Help r/bmx community with bike recommendations</li>
+                            <li><strong>Discord:</strong> Share in BMX Discord servers</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="referral-card">
+                        <h4><i class="fas fa-envelope text-primary"></i> Direct Outreach</h4>
+                        <ul class="list-unstyled">
+                            <li><strong>Email:</strong> "Hey, found this sick new bike platform..."</li>
+                            <li><strong>Text:</strong> Share with your crew before skate sessions</li>
+                            <li><strong>Blog:</strong> Write bike reviews & link from your BMX blog</li>
+                            <li><strong>Forums:</strong> Help on BMXultra, BikeForums, etc.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="referral-card">
+                        <h4><i class="fas fa-facebook text-info"></i> Community Groups</h4>
+                        <ul class="list-unstyled">
+                            <li><strong>Facebook Groups:</strong> Join BMX local groups, share legitimately</li>
+                            <li><strong>Meetups:</strong> Tell riders about the cash rewards</li>
+                            <li><strong>Demos:</strong> Post about your referral earnings at events</li>
+                            <li><strong>Newsletters:</strong> Build your own BMX subscriber list</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="referral-card">
+                        <h4><i class="fas fa-link text-success"></i> SEO & Content</h4>
+                        <ul class="list-unstyled">
+                            <li><strong>Guest Posts:</strong> Write for BMX blogs with your link</li>
+                            <li><strong>Wiki Pages:</strong> Update bike buying guides</li>
+                            <li><strong>Comments:</strong> Help on YouTube, reddit with your link</li>
+                            <li><strong>Rank:</strong> Create "Best BMX Bikes" SEO content</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-5" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Referral Program FAQ</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="referral-card">
+                        <h5>When do I get paid?</h5>
+                        <p>Commissions are credited within 30 days of purchase confirmation. Payouts are monthly minimum $10 balance.</p>
+                    </div>
+                    <div class="referral-card">
+                        <h5>How long do referral links work?</h5>
+                        <p>30-day cookie duration. If someone clicks your link and purchases within 30 days, you get credit (even if they buy multiple times).</p>
+                    </div>
+                    <div class="referral-card">
+                        <h5>Can I refer myself?</h5>
+                        <p>No, self-referrals are detected and excluded. You can only earn on genuine referrals from other people.</p>
+                    </div>
+                    <div class="referral-card">
+                        <h5>What if my referral gets a refund?</h5>
+                        <p>If the purchase is refunded, the commission is reversed. We only pay on net confirmed sales.</p>
+                    </div>
+                    <div class="referral-card">
+                        <h5>Can I run paid ads?</h5>
+                        <p>Yes! Facebook, Google, Instagram ads are allowed. Follow our terms of service for accurate disclosures.</p>
+                    </div>
+                    <div class="referral-card">
+                        <h5>Is there a limit to earnings?</h5>
+                        <p>No! Earn as much as you want. Top referrers are earning $5,000+ monthly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-5" style="background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white;">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-4">Start Earning Today</h2>
+            <p class="lead mb-4">Join our referral program and turn your BMX passion into income</p>
+            <a href="membership-signup.html" class="btn btn-light btn-lg fw-bold">
+                <i class="fas fa-user-plus"></i> Join & Get Your Code
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <h5>VelocityVault</h5>
+                    <p>Premium BMX affiliate & referral network</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="products.html" class="text-white text-decoration-none">Shop</a></li>
+                        <li><a href="membership-signup.html" class="text-white text-decoration-none">Membership</a></li>
+                        <li><a href="affiliate-disclosure.html" class="text-white text-decoration-none">Disclosure</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p><a href="mailto:velocityvaultse@gmail.com" class="text-white">velocityvaultse@gmail.com</a></p>
+                </div>
+            </div>
+            <hr style="border-color: #555;">
+            <div class="text-center small text-muted">
+                <p>&copy; 2026 VelocityVault Referral Program</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/tracking.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dashboard = getAnalyticsDashboard();
+            document.getElementById('referral-code').textContent = dashboard.referral_code;
+            updateStats();
+        });
+
+        function copyReferralCode() {
+            const code = document.getElementById('referral-code').textContent;
+            navigator.clipboard.writeText(code);
+            alert('Referral code copied: ' + code);
+        }
+
+        function copyReferralLink() {
+            const link = getReferralLink();
+            navigator.clipboard.writeText(link);
+            alert('Referral link copied!');
+        }
+
+        function updateStats() {
+            const dashboard = getAnalyticsDashboard();
+            document.getElementById('referral-clicks').textContent = dashboard.referral_clicks;
+            document.getElementById('conversions').textContent = dashboard.total_conversions;
+            document.getElementById('earnings').textContent = '$' + dashboard.total_earnings;
+            
+            // Analytics
+            document.getElementById('analytics-clicks').textContent = dashboard.referral_clicks;
+            document.getElementById('analytics-rate').textContent = dashboard.conversion_rate;
+            document.getElementById('analytics-pending').textContent = '$' + (parseFloat(dashboard.total_earnings) * 0.6).toFixed(2);
+            document.getElementById('analytics-paid').textContent = '$' + (parseFloat(dashboard.total_earnings) * 0.4).toFixed(2);
+        }
+
+        function refreshAnalytics() {
+            updateStats();
+            alert('Analytics refreshed!');
+        }
+    </script>
+</body>
+</html>
