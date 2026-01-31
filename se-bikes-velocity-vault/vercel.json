@@ -1,8 +1,14 @@
 {
-  "buildCommand": "echo 'Static site'",
+  "buildCommand": "echo 'static'",
   "outputDirectory": "public",
-  "installCommand": "echo 'No install'",
-  "framework": null,
+  "installCommand": "echo 'skip'",
+  "framework": "static",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
+    }
+  ]
 }
