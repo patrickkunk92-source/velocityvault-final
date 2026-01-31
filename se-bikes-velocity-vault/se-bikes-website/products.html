@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop SE Bike Style BMX - VelocityVault | Premium BMX Bikes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/logo.svg" alt="Velocity Vault Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="cart-link">
+                            <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-primary text-white py-5">
+        <div class="container py-5">
+            <h1 class="display-4 fw-bold">SE Bike Style BMX Collection</h1>
+            <p class="lead">31 Premium BMX Bikes - All Shipped from Amazon with Prime Options</p>
+        </div>
+    </header>
+
+    <!-- Product Catalog -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Category Filter -->
+                <div class="col-lg-3 mb-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Filter by Size</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6>Categories</h6>
+                            <div class="form-check">
+                                <input class="form-check-input category-filter" type="checkbox" value="kids" id="kids" checked>
+                                <label class="form-check-label" for="kids">
+                                    16"-18" Kids (3)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input category-filter" type="checkbox" value="freestyle" id="freestyle" checked>
+                                <label class="form-check-label" for="freestyle">
+                                    20" Freestyle (16)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input category-filter" type="checkbox" value="midsize" id="midsize" checked>
+                                <label class="form-check-label" for="midsize">
+                                    24" Mid-Size (4)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input category-filter" type="checkbox" value="cruiser" id="cruiser" checked>
+                                <label class="form-check-label" for="cruiser">
+                                    26"-29" Cruisers (8)
+                                </label>
+                            </div>
+                            <hr>
+                            <p class="small text-muted mb-0">
+                                <i class="fas fa-amazon"></i> All bikes ship from Amazon<br>
+                                <i class="fas fa-shipping-fast"></i> Prime eligible options available
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products -->
+                <div class="col-lg-9">
+                    <div class="alert alert-info mb-4">
+                        <i class="fas fa-info-circle"></i> <strong>About VelocityVault:</strong> All bikes are SE Bike-style BMX bikes curated by Elliott and ship directly from Amazon with Prime eligible options. Click "Buy on Amazon" to purchase.
+                    </div>
+
+                    <div class="row" id="product-container">
+                        <!-- 16-18" KIDS BMX BIKES -->
+                        <div class="col-12 mb-3"><h3 class="border-bottom pb-2"><i class="fas fa-child"></i> Kids BMX (16"-18")</h3></div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="kids">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/products/2021_SE_WILDMAN_BLUE_FRONT_c044995e-5e71-4870-a3ca-a9ca13ec9138.png" class="card-img-top" alt="Mongoose Skid 16"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-info mb-2">Ages 3-7</span>
+                                    <h5 class="card-title">Mongoose Skid 16"</h5>
+                                    <p class="card-text">Entry-level kids BMX with training wheels. Perfect first bike for young riders learning BMX fundamentals.</p>
+                                    <p class="fw-bold text-primary">$179.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="1" data-name="Mongoose Skid 16"" data-price="179.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Mongoose Skid 16" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="kids">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/files/MY25_SE_OM_FLYER_26_PURPLE_NURPLE_FRONT.png" class="card-img-top" alt="Dynacraft Sunset 16"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-info mb-2">Ages 3-7</span>
+                                    <h5 class="card-title">Dynacraft Sunset 16"</h5>
+                                    <p class="card-text">Girls BMX bike with vibrant pink and teal colors. Sturdy construction with stylish design.</p>
+                                    <p class="fw-bold text-primary">$189.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="2" data-name="Dynacraft Sunset 16"" data-price="189.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Dynacraft Sunset 16" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="kids">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/files/2021_SE_EVERYDAY_BLACK_FRONT_f1a2a181-016c-45f4-a045-00e2c38aca83.png" class="card-img-top" alt="Mongoose Switch 18"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-info mb-2">Ages 3-7</span>
+                                    <h5 class="card-title">Mongoose Switch 18"</h5>
+                                    <p class="card-text">18" BMX with mag wheels for transitioning riders. Durable frame and authentic BMX styling.</p>
+                                    <p class="fw-bold text-primary">$219.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="3" data-name="Mongoose Switch 18"" data-price="219.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Mongoose Switch 18" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 20" FREESTYLE BMX BIKES -->
+                        <div class="col-12 mb-3 mt-4"><h3 class="border-bottom pb-2"><i class="fas fa-person-biking"></i> 20" Freestyle BMX</h3></div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/products/2021_SE_WILDMAN_BLUE_FRONT_c044995e-5e71-4870-a3ca-a9ca13ec9138.png" class="card-img-top" alt="WEIZE Freestyle 20"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">WEIZE Freestyle 20"</h5>
+                                    <p class="card-text">Hi-Ten steel frame, 360° rotor, 4 pegs. Perfect for street tricks and park riding.</p>
+                                    <p class="fw-bold text-primary">$299.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="4" data-name="WEIZE Freestyle 20"" data-price="299.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=WEIZE Freestyle 20" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/files/2021_SE_EVERYDAY_BLACK_FRONT_f1a2a181-016c-45f4-a045-00e2c38aca83.png" class="card-img-top" alt="Hiland 20" Freestyle" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">Hiland 20" Freestyle</h5>
+                                    <p class="card-text">360° gyro, 4 pegs, double U-brakes. Beginner to advanced riders.</p>
+                                    <p class="fw-bold text-primary">$319.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="5" data-name="Hiland 20" Freestyle" data-price="319.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Hiland 20 Freestyle" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/products/2022_SE_GAUDIUM_FRONT.png" class="card-img-top" alt="RoyalBaby 20" Freestyle" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">RoyalBaby 20" Freestyle</h5>
+                                    <p class="card-text">Carbon steel frame, U-brakes, 2.35" wide tires. Built for stunts and commuting.</p>
+                                    <p class="fw-bold text-primary">$309.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="6" data-name="RoyalBaby 20" Freestyle" data-price="309.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=RoyalBaby 20 Freestyle" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/products/2021_SE_WILDMAN_BLUE_FRONT_c044995e-5e71-4870-a3ca-a9ca13ec9138.png" class="card-img-top" alt="Elite BMX Freestyle 20"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">Elite BMX Freestyle 20"</h5>
+                                    <p class="card-text">Durable steel frame in multiple sizes. Available in 16", 18", 20" wheels.</p>
+                                    <p class="fw-bold text-primary">$329.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="7" data-name="Elite BMX Freestyle 20"" data-price="329.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Elite BMX Freestyle 20" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/files/2021_SE_EVERYDAY_BLACK_FRONT_f1a2a181-016c-45f4-a045-00e2c38aca83.png" class="card-img-top" alt="JOYSTAR 20" Freestyle" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">JOYSTAR 20" Freestyle</h5>
+                                    <p class="card-text">For ages 6-10. Perfect beginner bike with quality construction and fun colors.</p>
+                                    <p class="fw-bold text-primary">$269.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="8" data-name="JOYSTAR 20" Freestyle" data-price="269.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=JOYSTAR 20 Freestyle" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/products/2022_SE_GAUDIUM_FRONT.png" class="card-img-top" alt="Elite BMX Stealth 20"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">Elite BMX Stealth 20"</h5>
+                                    <p class="card-text">All-black finish for sleek urban street riding. Lightweight and agile performance.</p>
+                                    <p class="fw-bold text-primary">$339.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="9" data-name="Elite BMX Stealth 20"" data-price="339.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Elite BMX Stealth 20" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/products/2021_SE_WILDMAN_BLUE_FRONT_c044995e-5e71-4870-a3ca-a9ca13ec9138.png" class="card-img-top" alt="vollsch Freestyle 20"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">vollsch Freestyle 20"</h5>
+                                    <p class="card-text">For ages 8-15. Available in black with green tires and other color options.</p>
+                                    <p class="fw-bold text-primary">$289.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="10" data-name="vollsch Freestyle 20"" data-price="289.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=vollsch Freestyle 20" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/files/2021_SE_EVERYDAY_BLACK_FRONT_f1a2a181-016c-45f4-a045-00e2c38aca83.png" class="card-img-top" alt="cubsala Syzygy 20"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">cubsala Syzygy 20"</h5>
+                                    <p class="card-text">For teens and adults. Bright colors available, built for freestyle performance.</p>
+                                    <p class="fw-bold text-primary">$299.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="11" data-name="cubsala Syzygy 20"" data-price="299.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=cubsala Syzygy 20" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/products/2022_SE_GAUDIUM_FRONT.png" class="card-img-top" alt="Kent PRO 20"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">Kent PRO 20"</h5>
+                                    <p class="card-text">TIG-welded steel frame, front & rear hand brakes. Quick-release adjustable seat.</p>
+                                    <p class="fw-bold text-primary">$279.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="12" data-name="Kent PRO 20"" data-price="279.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Kent PRO 20" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/products/2021_SE_WILDMAN_BLUE_FRONT_c044995e-5e71-4870-a3ca-a9ca13ec9138.png" class="card-img-top" alt="Mongoose Legion Kids 20"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">Mongoose Legion Kids 20"</h5>
+                                    <p class="card-text">Hi-Ten steel frame, Micro Drive 25x9T gearing. Intermediate rider level.</p>
+                                    <p class="fw-bold text-primary">$349.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="13" data-name="Mongoose Legion Kids 20"" data-price="349.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Mongoose Legion Kids 20" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/files/2021_SE_EVERYDAY_BLACK_FRONT_f1a2a181-016c-45f4-a045-00e2c38aca83.png" class="card-img-top" alt="Mongoose Legion L80 20"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">Mongoose Legion L80 20"</h5>
+                                    <p class="card-text">4130 Chromoly frame for advanced riders. Professional-grade BMX performance.</p>
+                                    <p class="fw-bold text-primary">$449.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="14" data-name="Mongoose Legion L80 20"" data-price="449.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Mongoose Legion L80 20" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/products/2022_SE_GAUDIUM_FRONT.png" class="card-img-top" alt="Mongoose Legion 20"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">Mongoose Legion 20"</h5>
+                                    <p class="card-text">Multiple colors available. Fits riders from 4'0" to 6'0" with size options.</p>
+                                    <p class="fw-bold text-primary">$329.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="15" data-name="Mongoose Legion 20"" data-price="329.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Mongoose Legion 20" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/products/2021_SE_WILDMAN_BLUE_FRONT_c044995e-5e71-4870-a3ca-a9ca13ec9138.png" class="card-img-top" alt="Mongoose Legion L20 20"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">Mongoose Legion L20 20"</h5>
+                                    <p class="card-text">Hi-Ten steel frame. Fully park, street, and dirt worthy for any terrain.</p>
+                                    <p class="fw-bold text-primary">$359.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="16" data-name="Mongoose Legion L20 20"" data-price="359.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Mongoose Legion L20 20" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/files/2021_SE_EVERYDAY_BLACK_FRONT_f1a2a181-016c-45f4-a045-00e2c38aca83.png" class="card-img-top" alt="Schwinn Koen 20"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">Schwinn Koen 20"</h5>
+                                    <p class="card-text">SmartStart ergonomic design. Adjustable seat grows with your child ages 7-13.</p>
+                                    <p class="fw-bold text-primary">$289.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="17" data-name="Schwinn Koen 20"" data-price="289.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Schwinn Koen 20" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/products/2022_SE_GAUDIUM_FRONT.png" class="card-img-top" alt="Schwinn Predator 20"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">Schwinn Predator 20"</h5>
+                                    <p class="card-text">Inspired by 1983 design. Hi-tensile steel frame with classic gum wall tires.</p>
+                                    <p class="fw-bold text-primary">$399.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="18" data-name="Schwinn Predator 20"" data-price="399.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Schwinn Predator 20" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="freestyle">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/products/2021_SE_WILDMAN_BLUE_FRONT_c044995e-5e71-4870-a3ca-a9ca13ec9138.png" class="card-img-top" alt="Schwinn Twister 20"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">20" Freestyle</span>
+                                    <h5 class="card-title">Schwinn Twister 20"</h5>
+                                    <p class="card-text">Classic rear coaster brake, sturdy 20" wheels. Tool-free adjustable seat.</p>
+                                    <p class="fw-bold text-primary">$269.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="19" data-name="Schwinn Twister 20"" data-price="269.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Schwinn Twister 20" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 24" MID-SIZE BMX -->
+                        <div class="col-12 mb-3 mt-4"><h3 class="border-bottom pb-2"><i class="fas fa-bicycle"></i> 24" Mid-Size BMX</h3></div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="midsize">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/files/2024_SE_BIG_RIPPER_29_BLUE_FRONT_1d3de051-79c8-4a55-8570-090edbf3b488.png" class="card-img-top" alt="Hiland 24" BMX" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-warning mb-2">24" Mid-Size</span>
+                                    <h5 class="card-title">Hiland 24" BMX</h5>
+                                    <p class="card-text">High carbon steel frame. For riders 51"-66" tall. Perfect transition bike.</p>
+                                    <p class="fw-bold text-primary">$379.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="20" data-name="Hiland 24" BMX" data-price="379.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Hiland 24 BMX" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="midsize">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/files/MY25_SE_FAST_RIPPER_29_BALL_BURNISHED_SILVER_FRONT.png" class="card-img-top" alt="Schwinn SX1000 24"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-warning mb-2">24" Mid-Size</span>
+                                    <h5 class="card-title">Schwinn SX1000 24"</h5>
+                                    <p class="card-text">Retro 24" BMX cruiser. Steel frame, classic styling for all types of riding.</p>
+                                    <p class="fw-bold text-primary">$429.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="21" data-name="Schwinn SX1000 24"" data-price="429.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Schwinn SX1000 24" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="midsize">
+                            <div class="card h-100">
+                                <img src="https://m.media-amazon.com/images/I/51pLQC3gvWL._AC_.jpg" class="card-img-top" alt="Throne Cycles The Goon 24"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-warning mb-2">24" Mid-Size</span>
+                                    <h5 class="card-title">Throne Cycles The Goon 24"</h5>
+                                    <p class="card-text">Premium 24" BMX cruiser with legendary Throne Cycles craftsmanship. Built for style and performance.</p>
+                                    <p class="fw-bold text-primary">$749.00</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="26" data-name="Throne Cycles The Goon 24"" data-price="749.00">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Throne+Cycles+Goon+24" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="midsize">
+                            <div class="card h-100">
+                                <img src="https://m.media-amazon.com/images/I/51v8kcZ3Z-L._AC_.jpg" class="card-img-top" alt="Cubsala Trident BMX 24"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-warning mb-2">24" Mid-Size</span>
+                                    <h5 class="card-title">Cubsala Trident BMX 24"</h5>
+                                    <p class="card-text">Affordable yet durable 24" BMX with quality frame construction. Perfect for learning tricks.</p>
+                                    <p class="fw-bold text-primary">$259.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="27" data-name="Cubsala Trident BMX 24"" data-price="259.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Cubsala+Trident+BMX+24" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 26"-29" BIG WHEEL CRUISERS -->
+                        <div class="col-12 mb-3 mt-4"><h3 class="border-bottom pb-2"><i class="fas fa-motorcycle"></i> 26"-29" Big Wheel Cruisers</h3></div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="cruiser">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/files/2024_SE_BIG_RIPPER_29_BLUE_FRONT_1d3de051-79c8-4a55-8570-090edbf3b488.png" class="card-img-top" alt="R4 Pro 26" Cruiser - Matte Grey" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-danger mb-2">Big Wheel</span>
+                                    <h5 class="card-title">R4 Pro 26" Cruiser - Matte Grey</h5>
+                                    <p class="card-text">SE Big Ripper style with alloy frame. Looptail design with disc brake option.</p>
+                                    <p class="fw-bold text-primary">$449.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="22" data-name="R4 Pro 26" Cruiser - Matte Grey" data-price="449.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=R4 Pro 26 Cruiser - Matte Grey" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="cruiser">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/files/MY25_SE_BIG_RIPPER_29_HOT_PINK_FRONT.png" class="card-img-top" alt="R4 Pro 26" - White/Purple" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-danger mb-2">Big Wheel</span>
+                                    <h5 class="card-title">R4 Pro 26" - White/Purple</h5>
+                                    <p class="card-text">Eye-catching white and purple colorway. Classic BMX cruiser geometry.</p>
+                                    <p class="fw-bold text-primary">$469.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="23" data-name="R4 Pro 26" - White/Purple" data-price="469.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=R4 Pro 26 - White/Purple" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="cruiser">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/files/2023_SE_BIG_RIPPER_CHECKERBOARD_FRONT.png" class="card-img-top" alt="Redline PL 26" BMX Cruiser" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-danger mb-2">Big Wheel</span>
+                                    <h5 class="card-title">Redline PL 26" BMX Cruiser</h5>
+                                    <p class="card-text">Legendary Redline brand. Classic BMX racing heritage meets street style.</p>
+                                    <p class="fw-bold text-primary">$599.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="24" data-name="Redline PL 26" BMX Cruiser" data-price="599.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Redline PL 26 BMX Cruiser" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="cruiser">
+                            <div class="card h-100">
+                                <img src="https://www.sebikes.com/cdn/shop/files/MY25_SE_COLOSSAL_RIPPER_32_SE_BLUE_FRONT.png" class="card-img-top" alt="Gravity 29er Single Speed" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-danger mb-2">Big Wheel</span>
+                                    <h5 class="card-title">Gravity 29er Single Speed</h5>
+                                    <p class="card-text">SE Big Ripper lookalike with 29" wheels. Ultimate adult cruiser for street riding.</p>
+                                    <p class="fw-bold text-primary">$549.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="25" data-name="Gravity 29er Single Speed" data-price="549.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Gravity 29er Single Speed" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="cruiser">
+                            <div class="card h-100">
+                                <img src="https://m.media-amazon.com/images/I/41BZL3lVswL._AC_.jpg" class="card-img-top" alt="Eastern Bikes Growler LTD 26"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-danger mb-2">Big Wheel</span>
+                                    <h5 class="card-title">Eastern Bikes Growler LTD 26"</h5>
+                                    <p class="card-text">26" cruiser from legendary Eastern Bikes. Street-ready with bold styling.</p>
+                                    <p class="fw-bold text-primary">$449.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="28" data-name="Eastern Bikes Growler LTD 26"" data-price="449.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Eastern+Bikes+Growler+26" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="cruiser">
+                            <div class="card h-100">
+                                <img src="https://m.media-amazon.com/images/I/51XQK3W7ZtL._AC_.jpg" class="card-img-top" alt="Mongoose Hooligan AL 26"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-danger mb-2">Big Wheel</span>
+                                    <h5 class="card-title">Mongoose Hooligan AL 26"</h5>
+                                    <p class="card-text">Aluminum frame 26" cruiser from Mongoose. Lightweight and nimble for urban riding.</p>
+                                    <p class="fw-bold text-primary">$507.32</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="29" data-name="Mongoose Hooligan AL 26"" data-price="507.32">Add to Cart</button>
+                                    <a href="https://amzn.to/4k6aRWG" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="cruiser">
+                            <div class="card h-100">
+                                <img src="https://m.media-amazon.com/images/I/51v8kcZ3Z-L._AC_.jpg" class="card-img-top" alt="Throne Cycles The Goon 29"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-danger mb-2">Big Wheel</span>
+                                    <h5 class="card-title">Throne Cycles The Goon 29"</h5>
+                                    <p class="card-text">Premium 29" big wheel cruiser from Throne Cycles. Ultimate street shredder.</p>
+                                    <p class="fw-bold text-primary">$849.00</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="30" data-name="Throne Cycles The Goon 29"" data-price="849.00">Add to Cart</button>
+                                    <a href="https://amzn.to/4a5A3Z4" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4 product-item" data-category="cruiser">
+                            <div class="card h-100">
+                                <img src="https://m.media-amazon.com/images/I/41Xk8QN4E3L._AC_.jpg" class="card-img-top" alt="Mongoose Title Pro/Elite 29"" style="object-fit: contain; padding: 20px;">
+                                <div class="card-body">
+                                    <span class="badge bg-danger mb-2">Big Wheel</span>
+                                    <h5 class="card-title">Mongoose Title Pro/Elite 29"</h5>
+                                    <p class="card-text">Pro-level 29" BMX from Mongoose. Competition-grade performance and durability.</p>
+                                    <p class="fw-bold text-primary">$701.99</p>
+                                    <button class="btn btn-primary add-to-cart w-100" data-id="31" data-name="Mongoose Title Pro/Elite 29"" data-price="701.99">Add to Cart</button>
+                                    <a href="https://www.amazon.com/s?k=Mongoose+Title+Pro+Elite+29" target="_blank" class="btn btn-success mt-2 w-100">Buy on Amazon</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2025 VelocityVault - SE Bike Style BMX. All products ship from Amazon with Prime options.</p>
+            <p><a href="https://www.amazon.com/s?k=SE+Bikes+BMX" target="_blank" class="text-decoration-none text-warning">Browse more on Amazon</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
