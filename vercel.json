@@ -1,6 +1,3 @@
 {
-  "buildCommand": "echo 'Static site'",
-  "installCommand": "echo 'Skip'",
-  "framework": "static",
-  "cleanUrls": true
+  "framework": "static"
 }
