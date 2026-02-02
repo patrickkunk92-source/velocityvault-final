@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelocityVault - The Ultimate SE Bikes & BMX Knowledge Hub | Expert Bikes & Culture [UPDATED]</title>
+    <meta name="description" content="VelocityVault: Your ultimate SE Bikes & BMX knowledge hub. Learn BMX culture, explore SE Bikes models, master tricks & skills, and join the community. 47 years of legendary heritage.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #000 100%);
+            color: white;
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.2);
+            border: 1px solid #ff6b35;
+            color: #ff9966;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.5);
+            background: linear-gradient(135deg, #fff 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #00d4ff;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        .cta-button-primary {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s;
+            color: white;
+            display: inline-block;
+            text-decoration: none;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.5);
+            color: white;
+        }
+
+        .cta-button-secondary {
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid #00d4ff;
+            padding: 14px 38px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s;
+            color: #00d4ff;
+            display: inline-block;
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button-secondary:hover {
+            background: rgba(0, 212, 255, 0.2);
+            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.3);
+            color: #00d4ff;
+        }
+
+        .hero-image {
+            text-align: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            filter: drop-shadow(0 20px 50px rgba(255, 107, 53, 0.3));
+        }
+
+        /* ===== SECTION STYLES ===== */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-dark {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: white;
+        }
+
+        .section-light {
+            background: #f8f8f8;
+            color: #333;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: inherit;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #ff6b35 0%, #00d4ff 100%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: #999;
+            font-weight: 300;
+        }
+
+        .section-dark .section-subtitle {
+            color: #aaa;
+        }
+
+        /* ===== WHAT MAKES SE SPECIAL ===== */
+        .se-bikes-special {
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideIn 0.6s ease forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-radius: 50%;
+            border: 3px solid #1a1a1a;
+        }
+
+        .timeline-item h4 {
+            color: #ff6b35;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .differentiator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .differentiator-card {
+            background: rgba(255, 107, 53, 0.1);
+            border-left: 4px solid #ff6b35;
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .differentiator-card:hover {
+            background: rgba(255, 107, 53, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
+        }
+
+        .differentiator-card h4 {
+            color: #00d4ff;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .differentiator-card p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* ===== BMX KNOWLEDGE HUB ===== */
+        .knowledge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .knowledge-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .knowledge-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
+        }
+
+        .knowledge-card-icon {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        .knowledge-card-content {
+            padding: 2rem;
+        }
+
+        .knowledge-card h3 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .knowledge-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .knowledge-card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .knowledge-card li {
+            padding: 0.4rem 0;
+            color: #555;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .knowledge-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        .knowledge-card-btn {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .knowledge-card-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+            color: white;
+        }
+
+        /* ===== MODELS SECTION ===== */
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .model-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .model-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.3);
+        }
+
+        .model-image {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #999;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .model-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .model-card:hover .model-image::after {
+            left: 100%;
+        }
+
+        .model-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff6b35;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .model-content {
+            padding: 2rem;
+        }
+
+        .model-name {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .model-category {
+            color: #ff6b35;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .model-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .model-specs {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .model-specs h5 {
+            color: #ff6b35;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .model-btn {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .model-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+            color: white;
+        }
+
+        /* ===== TRICKS & SKILLS ===== */
+        .tricks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .trick-card {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trick-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #00d4ff);
+        }
+
+        .trick-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 107, 53, 0.15);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
+        }
+
+        .trick-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #ff6b35;
+        }
+
+        .trick-card h4 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .trick-card p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .difficulty {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .trick-link {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .trick-link:hover {
+            color: #ff6b35;
+            text-decoration: underline;
+        }
+
+        /* ===== COMMUNITY SECTION ===== */
+        .community-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .pro-riders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .pro-rider-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+        }
+
+        .pro-rider-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.2);
+        }
+
+        .pro-rider-image {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .pro-rider-content {
+            padding: 2rem;
+        }
+
+        .pro-rider-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 0.3rem;
+        }
+
+        .pro-rider-title {
+            color: #ff6b35;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .pro-rider-bio {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .community-highlights {
+            background: rgba(255, 107, 53, 0.1);
+            border-left: 4px solid #ff6b35;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            color: white;
+        }
+
+        .community-highlights h4 {
+            color: #00d4ff;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .community-highlights ul {
+            list-style: none;
+            color: #ccc;
+        }
+
+        .community-highlights li {
+            padding: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .community-highlights li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        /* ===== WHY CHOOSE SECTION ===== */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-top: 4px solid #ff6b35;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h4 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* ===== TRUST SECTION ===== */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .trust-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .trust-item:hover {
+            background: rgba(255, 107, 53, 0.15);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.2);
+        }
+
+        .trust-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #00d4ff;
+        }
+
+        .trust-item h4 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+        }
+
+        .trust-item p {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid #ff6b35;
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: #ddd;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            color: #00d4ff;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #aaa;
+            font-weight: 500;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-final {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-final h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .cta-final p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0a0a0a;
+            color: #ccc;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        footer h5 {
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        footer a:hover {
+            color: #ff6b35;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: rgba(10, 10, 10, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(255, 107, 53, 0.1);
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            transition: transform 0.3s;
+        }
+
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            transition: all 0.3s;
+            color: #aaa !important;
+        }
+
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .cta-button-primary,
+            .cta-button-secondary {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+
+            .knowledge-grid,
+            .models-grid,
+            .tricks-grid,
+            .pro-riders-grid,
+            .benefits-grid,
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .differentiator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-bicycle" style="color: #ff6b35; margin-right: 8px;"></i>VelocityVault
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#knowledge-hub">Learn BMX</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#models">SE Models</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tricks">Tricks</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="membership-signup.html">Join</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-crown"></i> 47 YEARS OF SE BIKES LEGACY
+                    </div>
+                    <h1 class="hero-title">The Ultimate SE Bikes & BMX Knowledge Hub</h1>
+                    <p class="hero-subtitle">Expert. Authentic. Community-Driven.</p>
+                    <p class="hero-description">
+                        Welcome to VelocityVault — where BMX culture meets expertise. Discover why SE Bikes defined BMX culture since 1977. Learn tricks, explore legendary models, join a passionate community, and ride with purpose. This isn't just a shop. It's the movement.
+                    </p>
+                    <div>
+                        <a href="#knowledge-hub" class="cta-button-primary">
+                            <i class="fas fa-book"></i> Learn BMX Culture
+                        </a>
+                        <a href="products.html" class="cta-button-primary">
+                            <i class="fas fa-shopping-bag"></i> Shop SE Bikes
+                        </a>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="membership-signup.html" class="cta-button-secondary">
+                            <i class="fas fa-star"></i> Join Free Community
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image">
+                    <img src="https://www.sebikes.com/cdn/shop/files/2024_SE_BIG_RIPPER_29_BLUE_FRONT_1d3de051-79c8-4a55-8570-090edbf3b488.png" alt="SE Big Ripper - Legendary Cruiser">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHAT MAKES SE SPECIAL ===== -->
+    <section class="section section-dark" id="se-legacy">
+        <div class="container">
+            <h2 class="section-title">What Makes SE Bikes Special</h2>
+            <p class="section-subtitle">47 Years of Innovation, Heritage & Culture</p>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 style="color: #ff6b35; font-weight: bold; margin-bottom: 1.5rem;">The SE Bikes Story</h3>
+                    <p style="color: #ddd; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Founded in 1977 by Rich Menees and Pierre Labricole, SE Bikes didn't just enter the BMX world — they created it. From the legendary Big Ripper cruiser to pro-grade freestyle machines, SE Bikes has been the heartbeat of street culture for nearly five decades.
+                    </p>
+                    <p style="color: #ddd; line-height: 1.8;">
+                        Every frame tells a story. Every model carries the DNA of innovation. Every rider who chooses SE joins a legacy of riders who pushed boundaries, broke barriers, and defined what BMX could be.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <h3 style="color: #00d4ff; font-weight: bold; margin-bottom: 1.5rem;">Innovation Timeline</h3>
+                    <div class="se-bikes-special">
+                        <div class="timeline-item">
+                            <h4>1977: Birth of BMX</h4>
+                            <p>Rich Menees and Pierre Labricole founded SE Bikes with a vision to craft the ultimate street bikes.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>1980s: The Golden Era</h4>
+                            <p>SE Bikes became synonymous with freestyle. The Quadangle frame revolutionized bike design.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>1990s: The Big Ripper</h4>
+                            <p>The iconic Big Ripper changed cruiser culture forever. Wheelies would never be the same.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>2000s: Global Domination</h4>
+                            <p>SE Bikes became the choice of pro riders worldwide. From street to park to racing, SE dominated.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>2020s: Modern Masters</h4>
+                            <p>Today, SE Bikes continues innovating. Blending heritage with cutting-edge design and materials.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: #00d4ff; font-weight: bold; margin-top: 3rem; margin-bottom: 1.5rem;">6 Key Differentiators vs Other Brands</h3>
+            <div class="differentiator-grid">
+                <div class="differentiator-card">
+                    <h4><i class="fas fa-certificate"></i> Legendary Heritage</h4>
+                    <p>47 years of unbroken innovation. SE didn't follow trends — SE created them.</p>
+                </div>
+                <div class="differentiator-card">
+                    <h4><i class="fas fa-cogs"></i> Precision Engineering</h4>
+                    <p>Chromoly frames, premium components, tested durability. Built for tricks AND street abuse.</p>
+                </div>
+                <div class="differentiator-card">
+                    <h4><i class="fas fa-award"></i> Pro Rider Approved</h4>
+                    <p>Used in competitions, contests, and street sessions globally. Pro riders choose SE for a reason.</p>
+                </div>
+                <div class="differentiator-card">
+                    <h4><i class="fas fa-palette"></i> Iconic Design</h4>
+                    <p>Every SE Bike is unmistakable. Bold geometry, signature aesthetics, legendary style.</p>
+                </div>
+                <div class="differentiator-card">
+                    <h4><i class="fas fa-rocket"></i> Innovation DNA</h4>
+                    <p>Constant evolution. New models that respect heritage while pushing boundaries forward.</p>
+                </div>
+                <div class="differentiator-card">
+                    <h4><i class="fas fa-users"></i> Community First</h4>
+                    <p>SE isn't just a brand — it's a movement. A culture. A family of riders worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BMX KNOWLEDGE HUB ===== -->
+    <section class="section section-light" id="knowledge-hub">
+        <div class="container">
+            <h2 class="section-title">BMX Knowledge Hub</h2>
+            <p class="section-subtitle">Master the Basics. Find Your Style. Ride with Purpose.</p>
+
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <div style="background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; padding: 2rem; border-radius: 12px;">
+                        <h3 style="margin-bottom: 1rem; font-weight: bold;">What is BMX?</h3>
+                        <p style="line-height: 1.8; margin-bottom: 1rem;">
+                            BMX stands for Bicycle Motocross — but it's so much more than that. It's a culture. A lifestyle. A form of expression. BMX bikes are small, agile, and purpose-built for tricks, stunts, racing, and cruising. With 20-inch wheels (mostly), single-speed or multi-speed options, and reinforced frames, BMX bikes let you push creative boundaries and defy gravity.
+                        </p>
+                        <p style="line-height: 1.8;">
+                            Whether you're mastering wheelies, landing tricks, dominating the park, or cruising the streets, BMX is about freedom, progression, and community.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: #1a1a1a; font-weight: bold; text-align: center; margin-bottom: 2rem;">Find Your Riding Style</h3>
+            <div class="knowledge-grid">
+                <div class="knowledge-card">
+                    <div class="knowledge-card-icon">
+                        <i class="fas fa-person-snowboarding"></i>
+                    </div>
+                    <div class="knowledge-card-content">
+                        <h3>Freestyle / Street</h3>
+                        <p>Master tricks and stunts on concrete, ledges, and street spots. The most creative form of BMX.</p>
+                        <ul>
+                            <li>20" wheels (pro standard)</li>
+                            <li>360° rotors & pegs</li>
+                            <li>Chromoly frames</li>
+                            <li>Lightweight & responsive</li>
+                        </ul>
+                        <a href="products.html" class="knowledge-card-btn">Shop Freestyle</a>
+                    </div>
+                </div>
+
+                <div class="knowledge-card">
+                    <div class="knowledge-card-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="knowledge-card-content">
+                        <h3>Cruising / Big Wheel</h3>
+                        <p>The lifestyle choice. Smooth rides, legendary wheelies, and unstoppable style.</p>
+                        <ul>
+                            <li>24" - 29" wheels</li>
+                            <li>Disc brakes & gearing</li>
+                            <li>Classic styling</li>
+                            <li>Built for distance & tricks</li>
+                        </ul>
+                        <a href="products.html" class="knowledge-card-btn">Shop Cruisers</a>
+                    </div>
+                </div>
+
+                <div class="knowledge-card">
+                    <div class="knowledge-card-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <div class="knowledge-card-content">
+                        <h3>Park Riding</h3>
+                        <p>Concrete bowls, ramps, and transitions. Combine tricks with technical flow.</p>
+                        <ul>
+                            <li>Versatile wheel sizes</li>
+                            <li>Strong frames</li>
+                            <li>Good braking power</li>
+                            <li>Trick-ready components</li>
+                        </ul>
+                        <a href="products.html" class="knowledge-card-btn">Shop Park</a>
+                    </div>
+                </div>
+
+                <div class="knowledge-card">
+                    <div class="knowledge-card-icon">
+                        <i class="fas fa-flag-checkered"></i>
+                    </div>
+                    <div class="knowledge-card-content">
+                        <h3>Racing</h3>
+                        <p>Speed, precision, and competition. Race-specific geometry and components.</p>
+                        <ul>
+                            <li>Optimized geometry</li>
+                            <li>Lightweight frames</li>
+                            <li>Responsive handling</li>
+                            <li>Professional-grade builds</li>
+                        </ul>
+                        <a href="products.html" class="knowledge-card-btn">Shop Race Bikes</a>
+                    </div>
+                </div>
+
+                <div class="knowledge-card">
+                    <div class="knowledge-card-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="knowledge-card-content">
+                        <h3>Kids & Beginners</h3>
+                        <p>Start young. Build fundamentals. Grow into the culture.</p>
+                        <ul>
+                            <li>16" - 18" wheels</li>
+                            <li>Lightweight frames</li>
+                            <li>Safety-focused design</li>
+                            <li>Ages 3-10</li>
+                        </ul>
+                        <a href="products.html" class="knowledge-card-btn">Shop Kids</a>
+                    </div>
+                </div>
+
+                <div class="knowledge-card">
+                    <div class="knowledge-card-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="knowledge-card-content">
+                        <h3>Not Sure Yet?</h3>
+                        <p>Take our interactive quiz to discover your perfect riding style.</p>
+                        <ul>
+                            <li>Personalized recommendations</li>
+                            <li>Bike matching algorithm</li>
+                            <li>Expert tips included</li>
+                            <li>Find your perfect match</li>
+                        </ul>
+                        <a href="products.html" class="knowledge-card-btn">Start Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SE BIKES MODELS ===== -->
+    <section class="section section-dark" id="models">
+        <div class="container">
+            <h2 class="section-title">SE Bikes Models Breakdown</h2>
+            <p class="section-subtitle">Legendary Frames. Proven Performance. Choose Your Weapon.</p>
+
+            <div class="models-grid">
+                <div class="model-card">
+                    <div class="model-badge">LEGEND</div>
+                    <div class="model-image">🚲</div>
+                    <div class="model-content">
+                        <div class="model-name">Big Ripper</div>
+                        <div class="model-category">Cruiser / Wheelie Machine</div>
+                        <p class="model-description">The icon. The legend. The bike that defined a generation. The Big Ripper is for riders who want to master wheelies, cruise in style, and turn heads everywhere.</p>
+                        <div class="model-specs">
+                            <h5>Key Features</h5>
+                            <div class="spec-item">
+                                <span>Wheel Size:</span>
+                                <span>24", 26", 27.5", 29"</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Frame:</span>
+                                <span>Chromoly</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Brakes:</span>
+                                <span>Disc</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Gearing:</span>
+                                <span>Single-speed / 8-speed</span>
+                            </div>
+                        </div>
+                        <a href="products.html" class="model-btn">Shop Big Ripper</a>
+                    </div>
+                </div>
+
+                <div class="model-card">
+                    <div class="model-badge">PRO CHOICE</div>
+                    <div class="model-image">🏆</div>
+                    <div class="model-content">
+                        <div class="model-name">PK Ripper</div>
+                        <div class="model-category">Racing / Competitive</div>
+                        <p class="model-description">Built for champions. The PK Ripper combines race-proven geometry with legendary SE heritage. Fast, responsive, and built to win.</p>
+                        <div class="model-specs">
+                            <h5>Key Features</h5>
+                            <div class="spec-item">
+                                <span>Wheel Size:</span>
+                                <span>20"</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Frame:</span>
+                                <span>Chromoly</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Geometry:</span>
+                                <span>Race-optimized</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Best For:</span>
+                                <span>Competition</span>
+                            </div>
+                        </div>
+                        <a href="products.html" class="model-btn">Shop PK Ripper</a>
+                    </div>
+                </div>
+
+                <div class="model-card">
+                    <div class="model-badge">FREESTYLE</div>
+                    <div class="model-image">✨</div>
+                    <div class="model-content">
+                        <div class="model-name">Wildman</div>
+                        <div class="model-category">Freestyle / Street</div>
+                        <p class="model-description">The freestyle classic. Trick-ready from the box. The Wildman is lightweight, responsive, and made for riders who dream bigger than gravity.</p>
+                        <div class="model-specs">
+                            <h5>Key Features</h5>
+                            <div class="spec-item">
+                                <span>Wheel Size:</span>
+                                <span>20"</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Frame:</span>
+                                <span>High-tensile steel</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Rotor:</span>
+                                <span>360° compatible</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Pegs:</span>
+                                <span>Pre-installed</span>
+                            </div>
+                        </div>
+                        <a href="products.html" class="model-btn">Shop Wildman</a>
+                    </div>
+                </div>
+
+                <div class="model-card">
+                    <div class="model-badge">STREET</div>
+                    <div class="model-image">🌃</div>
+                    <div class="model-content">
+                        <div class="model-name">Grime</div>
+                        <div class="model-category">Street Performer</div>
+                        <p class="model-description">Built for the streets. Durable, reliable, and ready for anything. The Grime is your trusty companion for urban exploration and trick progression.</p>
+                        <div class="model-specs">
+                            <h5>Key Features</h5>
+                            <div class="spec-item">
+                                <span>Wheel Size:</span>
+                                <span>20"</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Frame:</span>
+                                <span>Chromoly</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Durability:</span>
+                                <span>Extreme</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Value:</span>
+                                <span>Excellent</span>
+                            </div>
+                        </div>
+                        <a href="products.html" class="model-btn">Shop Grime</a>
+                    </div>
+                </div>
+
+                <div class="model-card">
+                    <div class="model-badge">PREMIUM</div>
+                    <div class="model-image">💎</div>
+                    <div class="model-content">
+                        <div class="model-name">Gaudium</div>
+                        <div class="model-category">Premium Freestyle</div>
+                        <p class="model-description">For riders who demand the best. The Gaudium is premium engineering meets legendary design. Every detail matters.</p>
+                        <div class="model-specs">
+                            <h5>Key Features</h5>
+                            <div class="spec-item">
+                                <span>Wheel Size:</span>
+                                <span>20"</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Frame:</span>
+                                <span>Premium Chromoly</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Components:</span>
+                                <span>Top-tier</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Weight:</span>
+                                <span>Optimized</span>
+                            </div>
+                        </div>
+                        <a href="products.html" class="model-btn">Shop Gaudium</a>
+                    </div>
+                </div>
+
+                <div class="model-card">
+                    <div class="model-badge">VERSATILE</div>
+                    <div class="model-image">🚴</div>
+                    <div class="model-content">
+                        <div class="model-name">Everyday</div>
+                        <div class="model-category">All-Purpose BMX</div>
+                        <p class="model-description">The perfect all-rounder. Want to cruise, trick, race, and have fun? The Everyday is versatile, reliable, and always ready.</p>
+                        <div class="model-specs">
+                            <h5>Key Features</h5>
+                            <div class="spec-item">
+                                <span>Wheel Size:</span>
+                                <span>20"</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Frame:</span>
+                                <span>Chromoly</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Versatility:</span>
+                                <span>Maximum</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Perfect For:</span>
+                                <span>Everyone</span>
+                            </div>
+                        </div>
+                        <a href="products.html" class="model-btn">Shop Everyday</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-final" style="margin-top: 3rem;">
+                <h3 style="margin-bottom: 1rem;">Can't Decide?</h3>
+                <p>Browse all 50+ bikes in our collection. Expert recommendations included.</p>
+                <a href="products.html" class="cta-button-primary">
+                    <i class="fas fa-shopping-bag"></i> Explore Full Collection
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRICKS & SKILLS ===== -->
+    <section class="section section-light" id="tricks">
+        <div class="container">
+            <h2 class="section-title">Tricks & Skills Education</h2>
+            <p class="section-subtitle">Learn. Progress. Master. Inspire Others.</p>
+
+            <div class="tricks-grid">
+                <div class="trick-card">
+                    <div class="trick-icon">🚀</div>
+                    <h4>Wheelies</h4>
+                    <p>The foundation of BMX style. Master the balance, angle, and throttle control to nail perfect wheelies.</p>
+                    <div class="difficulty">Beginner</div>
+                    <p style="margin-top: 1rem;">
+                        <a href="blog/index.html" class="trick-link">Full Tutorial →</a>
+                    </p>
+                </div>
+
+                <div class="trick-card">
+                    <div class="trick-icon">⚡</div>
+                    <h4>Manuals</h4>
+                    <p>The manual is pure control. Balance on your rear wheel without pedaling. It's the gateway to advanced tricks.</p>
+                    <div class="difficulty">Beginner</div>
+                    <p style="margin-top: 1rem;">
+                        <a href="blog/index.html" class="trick-link">Full Tutorial →</a>
+                    </p>
+                </div>
+
+                <div class="trick-card">
+                    <div class="trick-icon">📈</div>
+                    <h4>Bunny Hops</h4>
+                    <p>Jump your bike without pedaling. The bunny hop opens up a world of possibilities for progressing your skills.</p>
+                    <div class="difficulty">Intermediate</div>
+                    <p style="margin-top: 1rem;">
+                        <a href="blog/index.html" class="trick-link">Full Tutorial →</a>
+                    </p>
+                </div>
+
+                <div class="trick-card">
+                    <div class="trick-icon">🌪️</div>
+                    <h4>Tailwhips</h4>
+                    <p>Spin your frame around while you're in the air. A classic, style-packed trick that takes dedication to master.</p>
+                    <div class="difficulty">Advanced</div>
+                    <p style="margin-top: 1rem;">
+                        <a href="blog/index.html" class="trick-link">Full Tutorial →</a>
+                    </p>
+                </div>
+
+                <div class="trick-card">
+                    <div class="trick-icon">🎯</div>
+                    <h4>360s (Three-Sixties)</h4>
+                    <p>Spin your entire bike 360 degrees while airborne. The ultimate expression of style and control.</p>
+                    <div class="difficulty">Expert</div>
+                    <p style="margin-top: 1rem;">
+                        <a href="blog/index.html" class="trick-link">Full Tutorial →</a>
+                    </p>
+                </div>
+
+                <div class="trick-card">
+                    <div class="trick-icon">📚</div>
+                    <h4>More Tricks & Tips</h4>
+                    <p>Visit our blog for hundreds of guides. From basics to insane combos, we've got you covered.</p>
+                    <div class="difficulty">All Levels</div>
+                    <p style="margin-top: 1rem;">
+                        <a href="blog/index.html" class="trick-link">Visit Blog →</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMMUNITY SECTION ===== -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Join the SE Bikes Movement</h2>
+            <p class="section-subtitle">Community. Culture. Connection.</p>
+
+            <div class="community-intro">
+                <p style="font-size: 1.2rem; color: #ddd; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                    VelocityVault isn't just a store. We're a community of riders, dreamers, and culture makers. We celebrate progression, support each other, and push BMX forward together.
+                </p>
+            </div>
+
+            <h3 style="color: #00d4ff; font-weight: bold; text-align: center; margin: 3rem 0 2rem;">Pro Rider Spotlights</h3>
+            <div class="pro-riders-grid">
+                <div class="pro-rider-card">
+                    <div class="pro-rider-image">👨‍🦰</div>
+                    <div class="pro-rider-content">
+                        <div class="pro-rider-name">Tyson Wheatley</div>
+                        <div class="pro-rider-title">SE Bikes Pro / Street Legend</div>
+                        <div class="pro-rider-bio">
+                            Iconic street riderr who's been pushing SE Bikes since the early 2000s. Known for his raw style and technical progression. An inspiration to generations of riders.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pro-rider-card">
+                    <div class="pro-rider-image">👩‍🦱</div>
+                    <div class="pro-rider-content">
+                        <div class="pro-rider-name">Isis Martinez</div>
+                        <div class="pro-rider-title">SE Bikes Pro / Freestyle Queen</div>
+                        <div class="pro-rider-bio">
+                            Breaking barriers in freestyle BMX. Isis brings innovation, style, and pure progression to everything she rides. A true trailblazer.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pro-rider-card">
+                    <div class="pro-rider-image">👨‍💼</div>
+                    <div class="pro-rider-content">
+                        <div class="pro-rider-name">Chase Hawk</div>
+                        <div class="pro-rider-title">SE Bikes Pro / Park Destroyer</div>
+                        <div class="pro-rider-bio">
+                            Dominates every park he rides. Chase combines flow, power, and creativity in a way that redefines what's possible on concrete.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pro-rider-card">
+                    <div class="pro-rider-image">🏇</div>
+                    <div class="pro-rider-content">
+                        <div class="pro-rider-name">Dennis Enarson</div>
+                        <div class="pro-rider-title">SE Bikes Pro / Technical Master</div>
+                        <div class="pro-rider-bio">
+                            An innovator in BMX. Dennis continues to invent new tricks and push technical boundaries with SE Bikes.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="community-highlights" style="margin-top: 3rem;">
+                <h4><i class="fas fa-star"></i> Community Highlights</h4>
+                <ul>
+                    <li>Monthly community meetups and group rides</li>
+                    <li>Pro rider Q&As and skill-sharing sessions</li>
+                    <li>User-generated content featured on our platform</li>
+                    <li>Exclusive events for VelocityVault members</li>
+                    <li>Street sessions & spot collaborations</li>
+                    <li>Annual community awards & recognition</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.1rem; color: #ddd; margin-bottom: 1.5rem;">
+                    <i class="fas fa-heart"></i> Follow our community on social media for daily inspiration
+                </p>
+                <div>
+                    <a href="#" style="color: #ff6b35; text-decoration: none; margin: 0 1rem; font-weight: bold;">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="#" style="color: #ff6b35; text-decoration: none; margin: 0 1rem; font-weight: bold;">
+                        <i class="fab fa-tiktok"></i> TikTok
+                    </a>
+                    <a href="#" style="color: #ff6b35; text-decoration: none; margin: 0 1rem; font-weight: bold;">
+                        <i class="fab fa-youtube"></i> YouTube
+                    </a>
+                    <a href="#" style="color: #ff6b35; text-decoration: none; margin: 0 1rem; font-weight: bold;">
+                        <i class="fab fa-discord"></i> Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE VELOCITYVAULT ===== -->
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Why Choose VelocityVault</h2>
+            <p class="section-subtitle">Expert. Authentic. Transparent. Community-First.</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4>Expert Curated Selection</h4>
+                    <p>We don't sell everything. We sell what works. Every bike in our catalog is hand-selected by BMX experts.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h4>Real Product Images</h4>
+                    <p>No stock photos. No fakery. Every image is real, shot by our team. You see exactly what you're getting.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4>Affiliate Transparency</h4>
+                    <p>We're honest about how we make money. Full disclosures. No hidden agendas. Just real reviews and recommendations.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h4>50+ Bikes in Stock</h4>
+                    <p>SE, Mongoose, Schwinn, Haro, Cult & more. Every size, style, and budget. Find your perfect ride today.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <h4>Easy Returns</h4>
+                    <p>Not satisfied? Send it back. No hassle. No questions. We stand behind every product we recommend.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Community Support</h4>
+                    <p>Join our community. Ask questions. Share your journey. Get advice from riders who care about your progression.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRUST BUILDING SECTION ===== -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Why Riders Trust VelocityVault</h2>
+            <p class="section-subtitle">Heritage. Expertise. Integrity. Community.</p>
+
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h4>47 Years of SE Bikes Heritage</h4>
+                    <p>When you buy through VelocityVault, you're part of a 47-year legacy of BMX innovation and excellence.</p>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Pro Rider Approved</h4>
+                    <p>Used by pros worldwide. Tested in competitions, parks, and streets. Only the best make it to VelocityVault.</p>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h4>Real Customers, Real Reviews</h4>
+                    <p>Every review is from a real rider. No fake testimonials. Just honest feedback from our community.</p>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4>Affiliate Transparency</h4>
+                    <p>We earn commissions on sales. We're transparent about it. You benefit from our partnership discounts.</p>
+                </div>
+            </div>
+
+            <h3 style="color: #00d4ff; font-weight: bold; text-align: center; margin-top: 3rem; margin-bottom: 2rem;">What Riders Say About Us</h3>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "VelocityVault doesn't just sell bikes — they educate. Their knowledge hub helped me choose the right bike for my style. Shipped fast, came perfect."
+                    </div>
+                    <div class="testimonial-author">
+                        — Marcus K., Freestyle Rider
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Finally found a shop that actually KNOWS BMX culture. The blog tutorials helped me learn manuals. Community is amazing."
+                    </div>
+                    <div class="testimonial-author">
+                        — Sarah T., Cruiser Enthusiast
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Their affiliate disclosure is refreshing. No BS. Just honest reviews and recommendations. My go-to for everything BMX."
+                    </div>
+                    <div class="testimonial-author">
+                        — Jordan R., Park Rider
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-section" style="margin-top: 3rem;">
+                <div class="stat-box">
+                    <div class="stat-number">47</div>
+                    <div class="stat-label">Years of BMX Heritage</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Bikes in Stock</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Possibilities</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Community</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="cta-final">
+                <h2>Ready to Find Your Perfect Ride?</h2>
+                <p>
+                    Join thousands of riders who trust VelocityVault. Expert selection. Community support. Real reviews. 
+                    <br><br>
+                    Whether you're a beginner or pro, we've got the bike that matches your style.
+                </p>
+                <div>
+                    <a href="products.html" class="cta-button-primary">
+                        <i class="fas fa-shopping-bag"></i> Shop SE Bikes Now
+                    </a>
+                    <a href="membership-signup.html" class="cta-button-primary" style="background: white; color: #ff6b35;">
+                        <i class="fas fa-star"></i> Join Free Membership
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3 mb-4">
+                    <h5><i class="fas fa-bicycle"></i> VelocityVault</h5>
+                    <p style="font-size: 0.95rem;">
+                        The ultimate SE Bikes & BMX knowledge hub. Expert selection. Community-driven. Affiliate transparent.
+                    </p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">All Bikes (50+)</a></li>
+                        <li><a href="blog/index.html">Blog & Tutorials</a></li>
+                        <li><a href="membership-signup.html">Membership</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Learning</h5>
+                    <ul>
+                        <li><a href="#knowledge-hub">BMX Knowledge Hub</a></li>
+                        <li><a href="#models">SE Bikes Models</a></li>
+                        <li><a href="#tricks">Tricks & Skills</a></li>
+                        <li><a href="blog/index.html">Full Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Legal & Info</h5>
+                    <ul>
+                        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="referral-program.html">Referral Program</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 VelocityVault. All rights reserved. | We earn commissions on qualifying purchases. <a href="affiliate-disclosure.html">Full Disclosure</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Smooth scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
+< ! - -   S i t e   r e a d y   - - >  
+ < ! - -   R e b u i l d   0 1 / 3 1 / 2 0 2 6   1 3 : 1 5 : 2 9   - - >  
+ 
