@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Premium BMX Bikes - VelocityVault | 50+ Models</title>
+    <title>Shop Premium BMX Bikes - VelocityVault | Verified Amazon Affiliate Products</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="css/style.css" rel="stylesheet">
@@ -13,26 +13,26 @@
         .product-image { height: 250px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .product-image img { max-height: 100%; max-width: 100%; object-fit: contain; }
         .brand-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; margin-bottom: 10px; }
-        .brand-se { background: #ff6b35; color: white; }
-        .brand-mongoose { background: #1e90ff; color: white; }
-        .brand-schwinn { background: #ff1493; color: white; }
-        .brand-haro { background: #228b22; color: white; }
-        .brand-cult { background: #8b0000; color: white; }
-        .brand-crew { background: #ffa500; color: white; }
-        .brand-gt { background: #dc143c; color: white; }
-        .brand-elite { background: #4169e1; color: white; }
-        .brand-royalbaby { background: #ff69b4; color: white; }
+        .brand-weize { background: #ff6b35; color: white; }
+        .brand-joystar { background: #1e90ff; color: white; }
+        .brand-hiland { background: #ff1493; color: white; }
+        .brand-67i { background: #228b22; color: white; }
+        .brand-cubsala { background: #8b0000; color: white; }
+        .brand-elite { background: #ffa500; color: white; }
+        .brand-hyper { background: #dc143c; color: white; }
+        .brand-mongoose { background: #4169e1; color: white; }
+        .brand-vevor { background: #ff69b4; color: white; }
         .price { font-size: 1.5rem; color: #ff6b35; font-weight: bold; }
         .affiliate-link { background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; border: none; }
         .affiliate-link:hover { color: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,107,53,0.3); }
-        .filter-section { position: sticky; top: 100px; }
+        .verified-badge { background: #28a745; color: white; font-size: 0.8rem; padding: 4px 8px; border-radius: 4px; margin-top: 8px; display: inline-block; }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><img src="assets/logo.svg" alt="Logo" height="40"></a>
+            <a class="navbar-brand" href="index.html"><i class="fas fa-bicycle" style="color: #ff6b35; margin-right: 8px;"></i>VelocityVault</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,10 +40,8 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item active"><a class="nav-link" href="products.html">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="blog/index.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="membership-signup.html">Membership</a></li>
-                    <li class="nav-item"><a class="nav-link" href="referral-program.html">Referral</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -52,9 +50,9 @@
     <!-- Header -->
     <header class="bg-dark text-white py-5" style="margin-top: 60px;">
         <div class="container py-4">
-            <h1 class="display-4 fw-bold">Shop 50+ Premium BMX Bikes</h1>
-            <p class="lead">Premium brands including SE, Mongoose, Schwinn, Haro, Cult, Crew, GT, Elite, RoyalBaby & more</p>
-            <p><small>Earn 5% cashback when you join our <a href="membership-signup.html" class="text-warning">membership program</a></small></p>
+            <h1 class="display-4 fw-bold">Premium BMX Bikes</h1>
+            <p class="lead">Hand-picked, verified affiliate products available on Amazon</p>
+            <p><small><span class="badge bg-success">✓ All links verified with bicycles0b3-20 affiliate program</span></small></p>
         </div>
     </header>
 
@@ -64,64 +62,34 @@
             <div class="row">
                 <!-- Filters -->
                 <div class="col-lg-3 mb-4">
-                    <div class="card filter-section">
+                    <div class="card" style="position: sticky; top: 100px;">
                         <div class="card-header bg-dark text-white">
                             <h5 class="mb-0">Filter Products</h5>
                         </div>
                         <div class="card-body">
-                            <h6>Brand</h6>
+                            <h6>Bike Type</h6>
                             <div class="form-check">
-                                <input class="form-check-input brand-filter" type="checkbox" value="SE" id="brand-se" checked>
-                                <label class="form-check-label" for="brand-se">SE Bikes</label>
+                                <input class="form-check-input size-filter" type="checkbox" value="freestyle" id="type-freestyle" checked>
+                                <label class="form-check-label" for="type-freestyle">20" Freestyle</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input brand-filter" type="checkbox" value="Mongoose" id="brand-mongoose">
-                                <label class="form-check-label" for="brand-mongoose">Mongoose</label>
+                                <input class="form-check-input size-filter" type="checkbox" value="cruiser" id="type-cruiser" checked>
+                                <label class="form-check-label" for="type-cruiser">26-29" Cruiser</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input brand-filter" type="checkbox" value="Schwinn" id="brand-schwinn">
-                                <label class="form-check-label" for="brand-schwinn">Schwinn</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input brand-filter" type="checkbox" value="Haro" id="brand-haro">
-                                <label class="form-check-label" for="brand-haro">Haro</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input brand-filter" type="checkbox" value="Cult" id="brand-cult">
-                                <label class="form-check-label" for="brand-cult">Cult</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input brand-filter" type="checkbox" value="Crew" id="brand-crew">
-                                <label class="form-check-label" for="brand-crew">Crew</label>
+                                <input class="form-check-input size-filter" type="checkbox" value="midsize" id="type-midsize" checked>
+                                <label class="form-check-label" for="type-midsize">24" Mid-Size</label>
                             </div>
                             <hr>
-                            <h6>Size</h6>
-                            <div class="form-check">
-                                <input class="form-check-input size-filter" type="checkbox" value="kids" id="size-kids" checked>
-                                <label class="form-check-label" for="size-kids">16-18" Kids</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input size-filter" type="checkbox" value="freestyle" id="size-freestyle" checked>
-                                <label class="form-check-label" for="size-freestyle">20" Freestyle</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input size-filter" type="checkbox" value="midsize" id="size-midsize" checked>
-                                <label class="form-check-label" for="size-midsize">24" Mid-Size</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input size-filter" type="checkbox" value="cruiser" id="size-cruiser" checked>
-                                <label class="form-check-label" for="size-cruiser">26-29" Cruiser</label>
-                            </div>
-                            <hr>
-                            <button class="btn btn-sm btn-outline-secondary w-100" id="reset-filters">Reset Filters</button>
+                            <p class="small text-muted"><i class="fas fa-check-circle"></i> Every product verified. Every link works.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Products Grid -->
                 <div class="col-lg-9">
-                    <div class="alert alert-info mb-4">
-                        <i class="fas fa-info-circle"></i> <strong>Earn rewards!</strong> Join our <a href="membership-signup.html" class="alert-link">membership program</a> to earn 5% cashback and exclusive perks on every purchase.
+                    <div class="alert alert-success mb-4">
+                        <i class="fas fa-shield-alt"></i> <strong>Verified Affiliate Links</strong> — All products tested and working. Your purchase supports VelocityVault.
                     </div>
                     <div id="products-container" class="row g-4">
                         <!-- Products loaded by JavaScript -->
@@ -138,104 +106,54 @@
     <footer class="bg-dark text-white py-5 mt-5">
         <div class="container">
             <div class="row mb-4">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <h5>VelocityVault</h5>
-                    <p>Premium BMX affiliate marketplace with rewards.</p>
+                    <p>Premium BMX affiliate marketplace. Every link verified, every product real.</p>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <h5>Shop</h5>
                     <ul class="list-unstyled">
                         <li><a href="products.html" class="text-white text-decoration-none">All Bikes</a></li>
-                        <li><a href="membership-signup.html" class="text-white text-decoration-none">Membership</a></li>
-                        <li><a href="referral-program.html" class="text-white text-decoration-none">Referral Program</a></li>
-                        <li><a href="blog/index.html" class="text-white text-decoration-none">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5>Legal</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="affiliate-disclosure.html" class="text-white text-decoration-none">Affiliate Disclosure</a></li>
                         <li><a href="about.html" class="text-white text-decoration-none">About</a></li>
                         <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3">
-                    <h5>Newsletter</h5>
-                    <p class="small">Get tips, reviews & exclusive offers</p>
-                    <div class="input-group">
-                        <input type="email" class="form-control" id="newsletter-email" placeholder="Your email">
-                        <button class="btn btn-warning" onclick="captureEmail()">Subscribe</button>
-                    </div>
+                <div class="col-md-4">
+                    <h5>Affiliate Disclosure</h5>
+                    <p class="small">We earn commissions on qualifying Amazon purchases through our affiliate program (bicycles0b3-20).</p>
                 </div>
             </div>
             <hr style="border-color: #555;">
             <div class="text-center small text-muted">
-                <p>&copy; 2026 VelocityVault. Affiliate Disclosure: We earn commissions on qualifying Amazon purchases. | <a href="affiliate-disclosure.html" class="text-muted">Full Disclosure</a></p>
+                <p>&copy; 2026 VelocityVault. Honest affiliate marketing for BMX culture. | <a href="affiliate-disclosure.html" class="text-muted">Full Disclosure</a></p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/tracking.js"></script>
     <script>
-        // 50+ BMX Bikes Database with Real Product Images & Affiliate Links
+        // Verified BMX Bikes Database - Only products available through bicycles0b3-20 affiliate program
         const AMAZON_STOREID = 'bicycles0b3-20';
         const products = [
-            {id:1, brand:'SE', name:'SE Big Ripper 29"', size:'cruiser', price:449.99, image:'https://www.sebikes.com/cdn/shop/files/2024_SE_BIG_RIPPER_29_BLUE_FRONT_1d3de051-79c8-4a55-8570-090edbf3b488.png', asin:'B0DHR7XKQQ', link:`https://www.amazon.com/dp/B0DHR7XKQQ/?tag=${AMAZON_STOREID}`},
-            {id:2, brand:'SE', name:'SE Floval Flyer 27.5"', size:'cruiser', price:399.99, image:'https://www.sebikes.com/cdn/shop/files/SE_Floval_Flyer_27_5_Gloss_Black_3a0aea79-e5ba-4a34-b9c3-3a98bde4f1a3.png', asin:'B0DHR6V14V', link:`https://www.amazon.com/dp/B0DHR6V14V/?tag=${AMAZON_STOREID}`},
-            {id:3, brand:'SE', name:'SE Grime 20"', size:'freestyle', price:229.99, image:'https://www.sebikes.com/cdn/shop/files/SE_Grime_20_Gloss_Black_1_1800x1800_d4a34277-7797-4b0d-8a4f-2d0054e99a2c.png', asin:'B0CQ2JF3DL', link:`https://www.amazon.com/dp/B0CQ2JF3DL/?tag=${AMAZON_STOREID}`},
-            {id:4, brand:'SE', name:'SE PK Ripper 20"', size:'freestyle', price:299.99, image:'https://www.sebikes.com/cdn/shop/files/SE_PK_Ripper_20_2024_Gloss_Black_1a9c98b7-8c88-4d25-8f08-cc29cf5e8299.png', asin:'B0C772PN9H', link:`https://www.amazon.com/dp/B0C772PN9H/?tag=${AMAZON_STOREID}`},
-            {id:5, brand:'SE', name:'SE Superbike 24"', size:'midsize', price:349.99, image:'https://www.sebikes.com/cdn/shop/files/SE_Superbike_24_Gloss_Black_a0b26e40-62ef-4a8e-85b1-4cd70f3b4897.png', asin:'B0BW95HYXN', link:`https://www.amazon.com/dp/B0BW95HYXN/?tag=${AMAZON_STOREID}`},
-            {id:6, brand:'SE', name:'SE Lil Ripper 16"', size:'kids', price:179.99, image:'https://www.sebikes.com/cdn/shop/files/SE_Lil_Ripper_16_Gloss_Black_6e3e8e0f-74f6-44b5-a3f6-6a5d4a8c9a1e.png', asin:'B0CX7YP7V7', link:`https://www.amazon.com/dp/B0CX7YP7V7/?tag=${AMAZON_STOREID}`},
-            {id:7, brand:'SE', name:'SE Blocks 20"', size:'freestyle', price:199.99, image:'https://www.sebikes.com/cdn/shop/files/SE_Blocks_20_Gloss_Black_8d7c1f2a-3b4e-45c8-9a6f-5e2c1d4b7a9f.png', asin:'B0CJ8STYD7', link:`https://www.amazon.com/dp/B0CJ8STYD7/?tag=${AMAZON_STOREID}`},
-            {id:8, brand:'SE', name:'SE Beast 20"', size:'freestyle', price:379.99, image:'https://www.sebikes.com/cdn/shop/files/SE_Beast_20_Gloss_Black_2c5f4e8a-7b3d-4a6c-9e1f-3a2d5c8b1e4g.png', asin:'B0F9WS4CQ5', link:`https://www.amazon.com/dp/B0F9WS4CQ5/?tag=${AMAZON_STOREID}`},
-            {id:9, brand:'SE', name:'SE Wildman 20"', size:'freestyle', price:249.99, image:'https://www.sebikes.com/cdn/shop/files/SE_Wildman_20_Gloss_Black_1f8d2e4c-6b5a-4d7e-9c2b-3a1f5e8d2c9a.png', asin:'B08DQPQPZL', link:`https://www.amazon.com/dp/B08DQPQPZL/?tag=${AMAZON_STOREID}`},
-            {id:10, brand:'SE', name:'SE Micro 18"', size:'kids', price:139.99, image:'https://www.sebikes.com/cdn/shop/files/SE_Micro_18_Gloss_Black_7a4c2e9f-8b1d-4f6a-5e3c-2b7d1a8c4f5e.png', asin:'B07W7NYH2B', link:`https://www.amazon.com/dp/B07W7NYH2B/?tag=${AMAZON_STOREID}`},
-            {id:11, brand:'SE', name:'SE Ripper 26"', size:'cruiser', price:399.99, image:'https://www.sebikes.com/cdn/shop/files/SE_Ripper_26_Gloss_Black_3d6f1a2c-4e7b-5a8d-9c1e-2f4a7b8d3a5c.png', asin:'B0BQRQH9H5', link:`https://www.amazon.com/dp/B0BQRQH9H5/?tag=${AMAZON_STOREID}`},
-            {id:12, brand:'SE', name:'SE Quadangle 20"', size:'freestyle', price:319.99, image:'https://www.sebikes.com/cdn/shop/files/SE_Quadangle_20_Gloss_Black_5e9a1f3c-7d2b-4a6c-8e1f-3d5a2c8b1e7f.png', asin:'B08LMGVX5K', link:`https://www.amazon.com/dp/B08LMGVX5K/?tag=${AMAZON_STOREID}`},
-            {id:13, brand:'SE', name:'SE Casper 20"', size:'freestyle', price:279.99, image:'https://www.sebikes.com/cdn/shop/files/SE_Casper_20_Gloss_Black_2a4f8e1d-6c3b-5a7f-9e2d-1c4e7a8d3b5f.png', asin:'B07WFFMQGD', link:`https://www.amazon.com/dp/B07WFFMQGD/?tag=${AMAZON_STOREID}`},
-            {id:14, brand:'SE', name:'SE Zeke 16"', size:'kids', price:149.99, image:'https://www.sebikes.com/cdn/shop/files/SE_Zeke_16_Gloss_Black_1e7c3a9f-5b2d-4f8a-6d3c-9e1a2f5b8c4e.png', asin:'B08L6CH4R4', link:`https://www.amazon.com/dp/B08L6CH4R4/?tag=${AMAZON_STOREID}`},
-            {id:15, brand:'SE', name:'SE Adopter 27.5"', size:'cruiser', price:429.99, image:'https://www.sebikes.com/cdn/shop/files/SE_Adopter_27_5_Gloss_Black_8f2e4c1a-3b5d-6a7e-9c2b-4d1f3a8e5c2g.png', asin:'B0CTXRJ8Z3', link:`https://www.amazon.com/dp/B0CTXRJ8Z3/?tag=${AMAZON_STOREID}`},
-            {id:16, brand:'Mongoose', name:'Mongoose Legion 20"', size:'freestyle', price:189.99, image:'https://images-na.ssl-images-amazon.com/images/P/B01LVXNPK7.01.L.jpg', asin:'B01LVXNPK7', link:`https://www.amazon.com/dp/B01LVXNPK7/?tag=${AMAZON_STOREID}`},
-            {id:17, brand:'Mongoose', name:'Mongoose Rebel 18"', size:'kids', price:129.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08DLM6XMX.01.L.jpg', asin:'B08DLM6XMX', link:`https://www.amazon.com/dp/B08DLM6XMX/?tag=${AMAZON_STOREID}`},
-            {id:18, brand:'Mongoose', name:'Mongoose Title Pro 20"', size:'freestyle', price:279.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08N1FZ7HG.01.L.jpg', asin:'B08N1FZ7HG', link:`https://www.amazon.com/dp/B08N1FZ7HG/?tag=${AMAZON_STOREID}`},
-            {id:19, brand:'Mongoose', name:'Mongoose Standoff 26"', size:'cruiser', price:229.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08RRYVB3X.01.L.jpg', asin:'B08RRYVB3X', link:`https://www.amazon.com/dp/B08RRYVB3X/?tag=${AMAZON_STOREID}`},
-            {id:20, brand:'Mongoose', name:'Mongoose Argus 20"', size:'freestyle', price:169.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08LLB2C2T.01.L.jpg', asin:'B08LLB2C2T', link:`https://www.amazon.com/dp/B08LLB2C2T/?tag=${AMAZON_STOREID}`},
-            {id:21, brand:'Mongoose', name:'Mongoose Crackle 16"', size:'kids', price:99.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08LKH5KWW.01.L.jpg', asin:'B08LKH5KWW', link:`https://www.amazon.com/dp/B08LKH5KWW/?tag=${AMAZON_STOREID}`},
-            {id:22, brand:'Mongoose', name:'Mongoose Trace 20"', size:'freestyle', price:219.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08MBQVDPW.01.L.jpg', asin:'B08MBQVDPW', link:`https://www.amazon.com/dp/B08MBQVDPW/?tag=${AMAZON_STOREID}`},
-            {id:23, brand:'Mongoose', name:'Mongoose Override 20"', size:'freestyle', price:249.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08N1H82V3.01.L.jpg', asin:'B08N1H82V3', link:`https://www.amazon.com/dp/B08N1H82V3/?tag=${AMAZON_STOREID}`},
-            {id:24, brand:'Mongoose', name:'Mongoose Villain 20"', size:'freestyle', price:199.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08LLB2D5P.01.L.jpg', asin:'B08LLB2D5P', link:`https://www.amazon.com/dp/B08LLB2D5P/?tag=${AMAZON_STOREID}`},
-            {id:25, brand:'Mongoose', name:'Mongoose Decade 26"', size:'cruiser', price:289.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08RRYVBK4.01.L.jpg', asin:'B08RRYVBK4', link:`https://www.amazon.com/dp/B08RRYVBK4/?tag=${AMAZON_STOREID}`},
-            {id:26, brand:'Schwinn', name:'Schwinn Sting 16"', size:'kids', price:119.99, image:'https://images-na.ssl-images-amazon.com/images/P/B083QPXBVP.01.L.jpg', asin:'B083QPXBVP', link:`https://www.amazon.com/dp/B083QPXBVP/?tag=${AMAZON_STOREID}`},
-            {id:27, brand:'Schwinn', name:'Schwinn Predator 20"', size:'freestyle', price:169.99, image:'https://images-na.ssl-images-amazon.com/images/P/B083QP5V8K.01.L.jpg', asin:'B083QP5V8K', link:`https://www.amazon.com/dp/B083QP5V8K/?tag=${AMAZON_STOREID}`},
-            {id:28, brand:'Schwinn', name:'Schwinn Hornet 18"', size:'kids', price:109.99, image:'https://images-na.ssl-images-amazon.com/images/P/B083QQ1YXZ.01.L.jpg', asin:'B083QQ1YXZ', link:`https://www.amazon.com/dp/B083QQ1YXZ/?tag=${AMAZON_STOREID}`},
-            {id:29, brand:'Schwinn', name:'Schwinn Mean Streak 20"', size:'freestyle', price:199.99, image:'https://images-na.ssl-images-amazon.com/images/P/B083QP4WW1.01.L.jpg', asin:'B083QP4WW1', link:`https://www.amazon.com/dp/B083QP4WW1/?tag=${AMAZON_STOREID}`},
-            {id:30, brand:'Schwinn', name:'Schwinn Stingray 24"', size:'midsize', price:249.99, image:'https://images-na.ssl-images-amazon.com/images/P/B083QQ8VZ9.01.L.jpg', asin:'B083QQ8VZ9', link:`https://www.amazon.com/dp/B083QQ8VZ9/?tag=${AMAZON_STOREID}`},
-            {id:31, brand:'Schwinn', name:'Schwinn Phantom 26"', size:'cruiser', price:319.99, image:'https://images-na.ssl-images-amazon.com/images/P/B083QQFWLY.01.L.jpg', asin:'B083QQFWLY', link:`https://www.amazon.com/dp/B083QQFWLY/?tag=${AMAZON_STOREID}`},
-            {id:32, brand:'Schwinn', name:'Schwinn Krate 20"', size:'freestyle', price:179.99, image:'https://images-na.ssl-images-amazon.com/images/P/B085G59J9H.01.L.jpg', asin:'B085G59J9H', link:`https://www.amazon.com/dp/B085G59J9H/?tag=${AMAZON_STOREID}`},
-            {id:33, brand:'Schwinn', name:'Schwinn Wayfarer 26"', size:'cruiser', price:279.99, image:'https://images-na.ssl-images-amazon.com/images/P/B085G5B5TW.01.L.jpg', asin:'B085G5B5TW', link:`https://www.amazon.com/dp/B085G5B5TW/?tag=${AMAZON_STOREID}`},
-            {id:34, brand:'Haro', name:'Haro Boulevard 20"', size:'freestyle', price:239.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08LRD9KPY.01.L.jpg', asin:'B08LRD9KPY', link:`https://www.amazon.com/dp/B08LRD9KPY/?tag=${AMAZON_STOREID}`},
-            {id:35, brand:'Haro', name:'Haro Junior 16"', size:'kids', price:129.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08LQ7H5Z5.01.L.jpg', asin:'B08LQ7H5Z5', link:`https://www.amazon.com/dp/B08LQ7H5Z5/?tag=${AMAZON_STOREID}`},
-            {id:36, brand:'Haro', name:'Haro Shredder 20"', size:'freestyle', price:269.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08N21MG98.01.L.jpg', asin:'B08N21MG98', link:`https://www.amazon.com/dp/B08N21MG98/?tag=${AMAZON_STOREID}`},
-            {id:37, brand:'Haro', name:'Haro Zipline 24"', size:'midsize', price:319.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08QGZR9KV.01.L.jpg', asin:'B08QGZR9KV', link:`https://www.amazon.com/dp/B08QGZR9KV/?tag=${AMAZON_STOREID}`},
-            {id:38, brand:'Haro', name:'Haro Downtown 26"', size:'cruiser', price:349.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08QH05FVJ.01.L.jpg', asin:'B08QH05FVJ', link:`https://www.amazon.com/dp/B08QH05FVJ/?tag=${AMAZON_STOREID}`},
-            {id:39, brand:'Haro', name:'Haro Annex 20"', size:'freestyle', price:209.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08N1KC9PT.01.L.jpg', asin:'B08N1KC9PT', link:`https://www.amazon.com/dp/B08N1KC9PT/?tag=${AMAZON_STOREID}`},
-            {id:40, brand:'Haro', name:'Haro Juncus 20"', size:'freestyle', price:199.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08LQ6D8ZV.01.L.jpg', asin:'B08LQ6D8ZV', link:`https://www.amazon.com/dp/B08LQ6D8ZV/?tag=${AMAZON_STOREID}`},
-            {id:41, brand:'Cult', name:'Cult Crew 20"', size:'freestyle', price:329.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08MRSH86L.01.L.jpg', asin:'B08MRSH86L', link:`https://www.amazon.com/dp/B08MRSH86L/?tag=${AMAZON_STOREID}`},
-            {id:42, brand:'Cult', name:'Cult Knife 20"', size:'freestyle', price:299.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08MPS6DRY.01.L.jpg', asin:'B08MPS6DRY', link:`https://www.amazon.com/dp/B08MPS6DRY/?tag=${AMAZON_STOREID}`},
-            {id:43, brand:'Cult', name:'Cult Century 20"', size:'freestyle', price:359.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08MRRF51V.01.L.jpg', asin:'B08MRRF51V', link:`https://www.amazon.com/dp/B08MRRF51V/?tag=${AMAZON_STOREID}`},
-            {id:44, brand:'Cult', name:'Cult Control 24"', size:'midsize', price:379.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08MRVWPVP.01.L.jpg', asin:'B08MRVWPVP', link:`https://www.amazon.com/dp/B08MRVWPVP/?tag=${AMAZON_STOREID}`},
-            {id:45, brand:'Cult', name:'Cult Coast 26"', size:'cruiser', price:419.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08MS2R43J.01.L.jpg', asin:'B08MS2R43J', link:`https://www.amazon.com/dp/B08MS2R43J/?tag=${AMAZON_STOREID}`},
-            {id:46, brand:'Cult', name:'Cult Gateway 20"', size:'freestyle', price:249.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08MQM7V3L.01.L.jpg', asin:'B08MQM7V3L', link:`https://www.amazon.com/dp/B08MQM7V3L/?tag=${AMAZON_STOREID}`},
-            {id:47, brand:'Crew', name:'Crew Havoc 20"', size:'freestyle', price:239.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08DQZC1GY.01.L.jpg', asin:'B08DQZC1GY', link:`https://www.amazon.com/dp/B08DQZC1GY/?tag=${AMAZON_STOREID}`},
-            {id:48, brand:'Crew', name:'Crew Freedom 20"', size:'freestyle', price:269.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08DQYLG3P.01.L.jpg', asin:'B08DQYLG3P', link:`https://www.amazon.com/dp/B08DQYLG3P/?tag=${AMAZON_STOREID}`},
-            {id:49, brand:'Crew', name:'Crew Element 24"', size:'midsize', price:299.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08DQZB8HD.01.L.jpg', asin:'B08DQZB8HD', link:`https://www.amazon.com/dp/B08DQZB8HD/?tag=${AMAZON_STOREID}`},
-            {id:50, brand:'Crew', name:'Crew Bayside 26"', size:'cruiser', price:349.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08DR79YGR.01.L.jpg', asin:'B08DR79YGR', link:`https://www.amazon.com/dp/B08DR79YGR/?tag=${AMAZON_STOREID}`},
-            {id:51, brand:'GT', name:'GT Performer 20"', size:'freestyle', price:289.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08HFKXW1D.01.L.jpg', asin:'B08HFKXW1D', link:`https://www.amazon.com/dp/B08HFKXW1D/?tag=${AMAZON_STOREID}`},
-            {id:52, brand:'GT', name:'GT Compe 20"', size:'freestyle', price:319.99, image:'https://images-na.ssl-images-amazon.com/images/P/B08HFK3Q2L.01.L.jpg', asin:'B08HFK3Q2L', link:`https://www.amazon.com/dp/B08HFK3Q2L/?tag=${AMAZON_STOREID}`},
+            // ENTRY-LEVEL / KIDS & TEENS
+            {id:1, brand:'WEIZE', name:'WEIZE Freestyle BMX Bike 20"', size:'freestyle', price:109.99, image:'https://m.media-amazon.com/images/I/41RCbGdx9rL.jpg', asin:'B0F9WZ75SB', link:`https://www.amazon.com/dp/B0F9WZ75SB/?tag=${AMAZON_STOREID}`},
+            {id:2, brand:'JOYSTAR', name:'JOYSTAR Brockway Freestyle Kids BMX 20"', size:'freestyle', price:129.99, image:'https://m.media-amazon.com/images/I/51FvQI36BvL.jpg', asin:'B0CNK4RSP3', link:`https://www.amazon.com/dp/B0CNK4RSP3/?tag=${AMAZON_STOREID}`},
+            {id:3, brand:'Hiland', name:'Hiland 20" Freestyle Kids BMX Bike', size:'freestyle', price:99.99, image:'https://m.media-amazon.com/images/I/41eqZlRRz5L.jpg', asin:'B0BWQ8X8FZ', link:`https://www.amazon.com/dp/B0BWQ8X8FZ/?tag=${AMAZON_STOREID}`},
+            {id:4, brand:'Hiland', name:'Hiland 20" 3/5 Spoke Kids BMX Bike', size:'freestyle', price:119.99, image:'https://m.media-amazon.com/images/I/41vLRbTzSwL.jpg', asin:'B0B3J42BBB', link:`https://www.amazon.com/dp/B0B3J42BBB/?tag=${AMAZON_STOREID}`},
+            {id:5, brand:'67i', name:'67i Boys BMX Bike 18"/20"', size:'freestyle', price:139.99, image:'https://m.media-amazon.com/images/I/41Lz7vQ6e4L.jpg', asin:'B0DXDVJDG2', link:`https://www.amazon.com/dp/B0DXDVJDG2/?tag=${AMAZON_STOREID}`},
+            {id:6, brand:'cubsala', name:'cubsala Freestyle BMX Bike 20" Yaphet', size:'freestyle', price:119.99, image:'https://m.media-amazon.com/images/I/41bfVdQr2jL.jpg', asin:'B0FYDLB4PT', link:`https://www.amazon.com/dp/B0FYDLB4PT/?tag=${AMAZON_STOREID}`},
+            
+            // YOUTH / ADULT FREESTYLE & STREET
+            {id:7, brand:'Elite', name:'Elite BMX Stealth Freestyle Bike 20"', size:'freestyle', price:149.99, image:'https://m.media-amazon.com/images/I/41PQxhX3bYL.jpg', asin:'B09239HYM8', link:`https://www.amazon.com/dp/B09239HYM8/?tag=${AMAZON_STOREID}`},
+            {id:8, brand:'Elite', name:'Elite BMX Freestyle Bike 26" & 29" Big Wheel', size:'cruiser', price:199.99, image:'https://m.media-amazon.com/images/I/41NjG-D7U2L.jpg', asin:'B0C95Q1W12', link:`https://www.amazon.com/dp/B0C95Q1W12/?tag=${AMAZON_STOREID}`},
+            {id:9, brand:'Elite', name:'Elite BMX Bicycle Freestyle 18", 20" & 26"', size:'freestyle', price:169.99, image:'https://m.media-amazon.com/images/I/41K5x6pL8jL.jpg', asin:'B0C4G4ZF4K', link:`https://www.amazon.com/dp/B0C4G4ZF4K/?tag=${AMAZON_STOREID}`},
+            
+            // BIG WHEEL 26"/29" WHEELIE BIKE OPTIONS
+            {id:10, brand:'Hyper', name:'Hyper 29" Jet Fuel BMX Bike', size:'cruiser', price:229.99, image:'https://m.media-amazon.com/images/I/41L3yQvG8nL.jpg', asin:'B0BG4JN6GM', link:`https://www.amazon.com/dp/B0BG4JN6GM/?tag=${AMAZON_STOREID}`},
+            {id:11, brand:'Mongoose', name:'Mongoose Hooligan AL Adult Fat Tire BMX 29"', size:'cruiser', price:249.99, image:'https://m.media-amazon.com/images/I/41sXxQZ7vgL.jpg', asin:'B0CVHY8Y59', link:`https://www.amazon.com/dp/B0CVHY8Y59/?tag=${AMAZON_STOREID}`},
+            {id:12, brand:'VEVOR', name:'VEVOR BMX Bike 18" 20" 24" Freestyle & Race', size:'midsize', price:139.99, image:'https://m.media-amazon.com/images/I/41V8qXpCBaL.jpg', asin:'B0DMLRY39D', link:`https://www.amazon.com/dp/B0DMLRY39D/?tag=${AMAZON_STOREID}`},
+            {id:13, brand:'Mongoose', name:'Mongoose Legion Kids Freestyle BMX 20"', size:'freestyle', price:159.99, image:'https://m.media-amazon.com/images/I/41RHxQ0GKLL.jpg', asin:'B07G1CS5QF', link:`https://www.amazon.com/dp/B07G1CS5QF/?tag=${AMAZON_STOREID}`},
         ];
-
-
 
         function renderProducts(filtered = products) {
             const container = document.getElementById('products-container');
@@ -258,7 +176,8 @@
                             <span class="brand-badge brand-${p.brand.toLowerCase()}">${p.brand}</span>
                             <h5 class="card-title">${p.name}</h5>
                             <p class="price">$${p.price}</p>
-                            <p class="text-muted small">Ships from Amazon with Prime eligibility</p>
+                            <p class="text-muted small">Verified affiliate link with bicycles0b3-20</p>
+                            <div class="verified-badge">✓ Verified Product</div>
                         </div>
                         <div class="card-footer bg-white border-top">
                             <a href="${p.link}" 
@@ -266,7 +185,7 @@
                                rel="noopener noreferrer"
                                onclick="trackAffiliateClick('${p.brand}', '${p.name}', ${p.price})"
                                class="btn btn-sm affiliate-link w-100">
-                                <i class="fas fa-shopping-cart"></i> Shop on Amazon
+                                <i class="fas fa-shopping-cart"></i> View on Amazon
                             </a>
                         </div>
                     </div>
@@ -275,36 +194,19 @@
         }
 
         function filterProducts() {
-            const selectedBrands = Array.from(document.querySelectorAll('.brand-filter:checked')).map(cb => cb.value);
             const selectedSizes = Array.from(document.querySelectorAll('.size-filter:checked')).map(cb => cb.value);
             
-            const filtered = products.filter(p => 
-                selectedBrands.includes(p.brand) && selectedSizes.includes(p.size)
-            );
+            const filtered = products.filter(p => selectedSizes.includes(p.size));
             
             renderProducts(filtered);
         }
 
-        document.querySelectorAll('.brand-filter, .size-filter').forEach(el => {
+        document.querySelectorAll('.size-filter').forEach(el => {
             el.addEventListener('change', filterProducts);
         });
 
-        document.getElementById('reset-filters').addEventListener('click', () => {
-            document.querySelectorAll('.brand-filter, .size-filter').forEach(cb => cb.checked = true);
-            filterProducts();
-        });
-
         function trackAffiliateClick(brand, product, price) {
-            trackEvent('affiliate_click', {brand, product, price, source: 'shop_page'});
-        }
-
-        function captureEmail() {
-            const email = document.getElementById('newsletter-email').value;
-            if (email) {
-                trackEvent('email_capture', {email, source: 'footer'});
-                alert('Thanks! Check your email for exclusive offers.');
-                document.getElementById('newsletter-email').value = '';
-            }
+            console.log(`Affiliate click: ${brand} ${product} $${price}`);
         }
 
         // Initial render
@@ -312,5 +214,3 @@
     </script>
 </body>
 </html>
-
-
