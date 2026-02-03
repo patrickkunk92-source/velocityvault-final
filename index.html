@@ -3,224 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VelocityVault - BMX Bikes & E-Bikes | Premium Affiliate Shop</title>
-    <meta name="description" content="Shop verified BMX bikes and SURRON-style e-bikes. Premium affiliate products with real images, prices, and Amazon affiliate links.">
+    <title>Shop the Best BMX & E-Bikes on Amazon | VelocityVault</title>
+    <meta name="description" content="Shop curated BMX bikes, e-bikes, and electric dirt bikes on Amazon. Real products, real prices, verified affiliate links.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="css/style.css" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            color: #333;
-            scroll-behavior: smooth;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: white !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 12px 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #1a1a1a !important;
+        }
+
+        .navbar-brand i {
+            color: #ff6b35;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: #666 !important;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: #ff6b35 !important;
         }
 
         /* ===== HERO SECTION ===== */
         .hero-section {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #000 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
-            padding: 100px 0 60px;
+            padding: 120px 0;
+            text-align: center;
+            margin-top: 60px;
             position: relative;
             overflow: hidden;
-            margin-top: 60px;
-            text-align: center;
         }
 
         .hero-section::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
-            z-index: 1;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            font-size: clamp(2.2rem, 8vw, 3.5rem);
             font-weight: 900;
             margin-bottom: 1rem;
-            line-height: 1.1;
-            text-shadow: 2px 2px 12px rgba(0,0,0,0.5);
-            background: linear-gradient(135deg, #fff 0%, #00d4ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            line-height: 1.2;
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            color: #ff6b35;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
         }
 
-        .cta-button-primary {
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary-cta {
             background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
             border: none;
-            padding: 16px 40px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            padding: 14px 35px;
+            font-size: 1rem;
+            font-weight: 700;
             border-radius: 50px;
-            transition: all 0.3s;
             color: white;
-            display: inline-block;
             text-decoration: none;
-            margin: 10px;
+            transition: all 0.3s;
             box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+            display: inline-block;
         }
 
-        .cta-button-primary:hover {
+        .btn-primary-cta:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.5);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.4);
+            color: white;
+        }
+
+        .btn-secondary-cta {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #ff6b35;
+            padding: 12px 33px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-secondary-cta:hover {
+            background: rgba(255, 107, 53, 0.15);
             color: white;
         }
 
         /* ===== FEATURED PRODUCTS SECTION ===== */
         .featured-section {
             background: white;
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
-        .featured-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #1a1a1a;
-            margin-bottom: 1rem;
+        .section-header {
             text-align: center;
-        }
-
-        .featured-subtitle {
-            font-size: 1.1rem;
-            color: #666;
             margin-bottom: 3rem;
-            text-align: center;
         }
 
+        .section-label {
+            color: #ff6b35;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: #666;
+        }
+
+        /* ===== PRODUCT CARD ===== */
         .product-card {
-            border: none;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            border-radius: 10px;
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
             overflow: hidden;
+            transition: all 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            border-color: #ff6b35;
         }
 
         .product-image {
-            height: 250px;
-            background: #f5f5f5;
+            height: 260px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            position: relative;
         }
 
         .product-image img {
             max-height: 100%;
             max-width: 100%;
             object-fit: contain;
-            padding: 10px;
-        }
-
-        .product-body {
             padding: 15px;
         }
 
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6b35;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .product-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
         .product-name {
-            font-weight: bold;
+            font-weight: 700;
             color: #1a1a1a;
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .product-benefit {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1;
         }
 
         .product-price {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #ff6b35;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-weight: 900;
+            margin-bottom: 12px;
         }
 
-        .shop-button {
+        .btn-view-amazon {
             background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: all 0.3s;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
             text-decoration: none;
-            display: inline-block;
-            width: 100%;
+            transition: all 0.3s;
             text-align: center;
+            display: block;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
         }
 
-        .shop-button:hover {
+        .btn-view-amazon:hover {
             transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 6px 18px rgba(255, 107, 53, 0.3);
             color: white;
         }
 
-        .view-all-btn {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        /* ===== STORY SECTION ===== */
-        .story-section {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            color: white;
+        /* ===== WHY VELOCITYVAULT ===== */
+        .why-section {
+            background: white;
             padding: 80px 0;
+            border-top: 1px solid #e8e8e8;
         }
 
-        .story-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            color: #fff;
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 2rem;
         }
 
-        .story-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #ddd;
+        .why-card {
+            text-align: center;
         }
 
-        .story-content strong {
+        .why-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
             color: #ff6b35;
+        }
+
+        .why-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .why-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
         }
 
         /* ===== FOOTER ===== */
         footer {
-            background: #0a0a0a;
+            background: #1a1a1a;
             color: #ccc;
-            padding: 4rem 0 2rem;
-            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            padding: 60px 0 20px;
+            border-top: 1px solid #333;
         }
 
         footer h5 {
-            color: #fff;
-            font-weight: bold;
+            color: white;
+            font-weight: 700;
             margin-bottom: 1.5rem;
         }
 
         footer a {
-            color: #aaa;
+            color: #ccc;
             text-decoration: none;
             transition: all 0.3s;
+            font-size: 0.95rem;
         }
 
         footer a:hover {
@@ -236,64 +357,67 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            border-top: 1px solid #333;
             padding-top: 2rem;
             margin-top: 2rem;
             text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .affiliate-notice {
+            background: #f5f5f5;
+            border-left: 4px solid #ff6b35;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 2rem;
             font-size: 0.9rem;
             color: #666;
         }
 
-        /* ===== NAVBAR ===== */
-        .navbar {
-            background: rgba(10, 10, 10, 0.95) !important;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 15px rgba(255, 107, 53, 0.1);
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
-
-        .nav-link {
-            font-weight: 500;
-            transition: all 0.3s;
-            color: #aaa !important;
-        }
-
-        .nav-link:hover {
-            color: #ff6b35 !important;
-        }
-
+        /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2rem;
+            .hero-buttons {
+                flex-direction: column;
             }
 
-            .featured-title {
-                font-size: 2rem;
-            }
-
-            .cta-button-primary {
+            .btn-primary-cta,
+            .btn-secondary-cta {
                 width: 100%;
-                margin-bottom: 10px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-section,
+            .why-section,
+            .cta-section {
+                padding: 50px 0;
+            }
+
+            .hero-section {
+                padding: 80px 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="fas fa-bicycle" style="color: #ff6b35; margin-right: 8px;"></i>VelocityVault</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-bicycle"></i> VelocityVault
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#featured">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="products.html">All Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
@@ -305,146 +429,202 @@
     <section class="hero-section">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">BMX Bikes & E-Bikes</h1>
-                <p class="hero-subtitle">Premium affiliate products • Real images • Real prices</p>
-                <p style="font-size: 1.1rem; color: #ddd; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    Shop verified BMX classics & SURRON-style electric bikes. Everything linked to Amazon with your favorite affiliate program.
-                </p>
-                <div>
-                    <a href="#featured" class="cta-button-primary"><i class="fas fa-shopping-bag"></i> Shop Now</a>
-                    <a href="products.html" class="cta-button-primary"><i class="fas fa-list"></i> View All Products</a>
+                <h1 class="hero-title">Shop the Best Bikes & E-Bikes on Amazon</h1>
+                <p class="hero-subtitle">Top BMX, electric dirt bikes, and more — curated for riders. Real products. Real prices. Verified affiliate links.</p>
+                <div class="hero-buttons">
+                    <a href="products.html?category=bmx" class="btn-primary-cta">🚲 Shop BMX Bikes</a>
+                    <a href="products.html?category=ebike" class="btn-secondary-cta">⚡ Shop E-Bikes</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FEATURED PRODUCTS SECTION (ABOVE FOLD PRIORITY) -->
-    <section class="featured-section" id="featured">
+    <!-- FEATURED PRODUCTS -->
+    <section class="featured-section">
         <div class="container">
-            <h2 class="featured-title">🚲 Featured BMX Bikes</h2>
-            <p class="featured-subtitle">Best sellers, verified with real Amazon images & affiliate links</p>
-            
-            <div class="row g-4 mb-4">
-                <!-- Product 1: WEIZE -->
+            <div class="section-header">
+                <span class="section-label">⭐ Featured</span>
+                <h2 class="section-title">Best Selling Bikes</h2>
+                <p class="section-subtitle">Verified products with real Amazon images & affiliate links</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- BMX 1 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="https://m.media-amazon.com/images/I/711JPV27c7L._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="WEIZE Freestyle BMX Bike 20">
+                            <div class="product-badge">Bestseller</div>
+                            <img src="https://m.media-amazon.com/images/I/711JPV27c7L._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="WEIZE Freestyle BMX">
                         </div>
                         <div class="product-body">
-                            <p class="product-name">WEIZE Freestyle BMX Bike 20"</p>
+                            <h3 class="product-name">WEIZE Freestyle BMX Bike 20"</h3>
+                            <p class="product-benefit">Great beginner freestyle option with pegs and rotor</p>
                             <p class="product-price">$109.99</p>
-                            <a href="https://www.amazon.com/dp/B0F9WZ75SB/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="shop-button">
+                            <a href="https://www.amazon.com/dp/B0F9WZ75SB/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-view-amazon">
                                 <i class="fas fa-shopping-cart"></i> View on Amazon
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 2: JOYSTAR -->
+                <!-- BMX 2 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="https://m.media-amazon.com/images/I/717BGgvgpaL._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="JOYSTAR Brockway Freestyle">
+                            <div class="product-badge">Popular</div>
+                            <img src="https://m.media-amazon.com/images/I/717BGgvgpaL._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="JOYSTAR Brockway">
                         </div>
                         <div class="product-body">
-                            <p class="product-name">JOYSTAR Brockway Freestyle Kids BMX 20"</p>
+                            <h3 class="product-name">JOYSTAR Brockway Kids BMX 20"</h3>
+                            <p class="product-benefit">Perfect for kids 6-10 years with hand brakes</p>
                             <p class="product-price">$129.99</p>
-                            <a href="https://www.amazon.com/dp/B0CNK4RSP3/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="shop-button">
+                            <a href="https://www.amazon.com/dp/B0CNK4RSP3/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-view-amazon">
                                 <i class="fas fa-shopping-cart"></i> View on Amazon
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 3: Hiland -->
+                <!-- BMX 3 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="https://m.media-amazon.com/images/I/71GTXsX9msL._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="Hiland Freestyle Kids BMX">
+                            <div class="product-badge">Budget Pick</div>
+                            <img src="https://m.media-amazon.com/images/I/71GTXsX9msL._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="Hiland 20 Freestyle">
                         </div>
                         <div class="product-body">
-                            <p class="product-name">Hiland 20" Freestyle Kids BMX Bike</p>
+                            <h3 class="product-name">Hiland 20" Freestyle Kids BMX</h3>
+                            <p class="product-benefit">Best value freestyle bike for beginners</p>
                             <p class="product-price">$99.99</p>
-                            <a href="https://www.amazon.com/dp/B0BWQ8X8FZ/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="shop-button">
+                            <a href="https://www.amazon.com/dp/B0BWQ8X8FZ/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-view-amazon">
                                 <i class="fas fa-shopping-cart"></i> View on Amazon
                             </a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Product 4: Elite Stealth -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="products.html" class="btn-primary-cta">View All 19 Products →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED E-BIKES -->
+    <section class="featured-section" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">🔥 Trending</span>
+                <h2 class="section-title">SURRON-Style E-Bikes</h2>
+                <p class="section-subtitle">Affordable alternatives to premium electric dirt bikes</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- E-Bike 1 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="https://m.media-amazon.com/images/I/81fjB8II9FL._AC_SL1500_.jpg" alt="Elite BMX Stealth">
-                        </div>
-                        <div class="product-body">
-                            <p class="product-name">Elite BMX Stealth Freestyle Bike 20"</p>
-                            <p class="product-price">$149.99</p>
-                            <a href="https://www.amazon.com/dp/B09239HYM8/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="shop-button">
-                                <i class="fas fa-shopping-cart"></i> View on Amazon
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 5: TST E-Bike -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="product-card">
-                        <div class="product-image">
+                            <div class="product-badge">Popular</div>
                             <img src="https://m.media-amazon.com/images/I/81fXfJYQzvL._AC_SL1500_.jpg" alt="TST Electric Bike">
                         </div>
                         <div class="product-body">
-                            <p class="product-name">TST Electric Bike 20" Fat Tire 1500W</p>
+                            <h3 class="product-name">TST Electric Bike 20" Fat Tire</h3>
+                            <p class="product-benefit">1500W motor, 60-mile range, 28 MPH</p>
                             <p class="product-price">$599.99</p>
-                            <a href="https://www.amazon.com/dp/B0G2XL97QH/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="shop-button">
+                            <a href="https://www.amazon.com/dp/B0G2XL97QH/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-view-amazon">
                                 <i class="fas fa-shopping-cart"></i> View on Amazon
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 6: GT Electric Dirt Bike -->
+                <!-- E-Bike 2 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="https://m.media-amazon.com/images/I/71jLARaOa4L._AC_SL1500_.jpg" alt="GT Electric Dirt Bike">
+                            <div class="product-badge">High Power</div>
+                            <img src="https://m.media-amazon.com/images/I/712Gt6Ze-sL._AC_SL1200_.jpg" alt="Electric Dirt Bike 3000W">
                         </div>
                         <div class="product-body">
-                            <p class="product-name">GT Electric Dirt Bike 3000W 50MPH</p>
-                            <p class="product-price">$949.99</p>
-                            <a href="https://www.amazon.com/dp/B0F1MX53GS/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="shop-button">
+                            <h3 class="product-name">Electric Dirt Bike 3000W 45MPH</h3>
+                            <p class="product-benefit">High-power all-terrain e-bike with 100+ mile range</p>
+                            <p class="product-price">$899.99</p>
+                            <a href="https://www.amazon.com/dp/B0FT2D12X4/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-view-amazon">
                                 <i class="fas fa-shopping-cart"></i> View on Amazon
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="view-all-btn">
-                <a href="products.html" class="cta-button-primary" style="display: inline-block;">
-                    <i class="fas fa-arrow-right"></i> View All 19 Products (BMX + E-Bikes)
-                </a>
+                <!-- E-Bike 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-badge">Premium</div>
+                            <img src="https://m.media-amazon.com/images/I/71jLARaOa4L._AC_SL1500_.jpg" alt="GT Electric Dirt Bike">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">GT Electric Dirt Bike 3000W 50MPH</h3>
+                            <p class="product-benefit">Top-tier performance with 25" fat tires</p>
+                            <p class="product-price">$949.99</p>
+                            <a href="https://www.amazon.com/dp/B0F1MX53GS/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-view-amazon">
+                                <i class="fas fa-shopping-cart"></i> View on Amazon
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- STORY SECTION (MOVED BELOW PRODUCTS) -->
-    <section class="story-section">
+    <!-- WHY VELOCITYVAULT -->
+    <section class="why-section">
         <div class="container">
-            <h2 class="story-title">The VelocityVault Mission</h2>
-            <div class="story-content">
-                <p style="margin-bottom: 1.5rem;">
-                    <strong>VelocityVault</strong> is your guide to premium BMX bikes and affordable electric bike alternatives. We partner with Amazon to bring you verified affiliate products—real bikes, real prices, real images.
-                </p>
-                <p style="margin-bottom: 1.5rem;">
-                    Whether you're hunting for a classic <strong>20" freestyle BMX</strong> for tricks, a <strong>26-29" cruiser</strong> for wheelies, or a <strong>SURRON-style electric dirt bike</strong> for off-road thrills, we've got verified products with working affiliate links.
-                </p>
-                <p>
-                    Every bike on our site is hand-picked, image-verified, and linked through the <strong>bicycles0b3-20</strong> affiliate program. No fake products. No broken links. Just honest recommendations and fair commissions.
-                </p>
+            <div class="section-header">
+                <h2 class="section-title">Why VelocityVault?</h2>
             </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">✓</div>
+                    <h4>Curated Selection</h4>
+                    <p>Only the best verified bikes from Amazon. No spam, no junk.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">📷</div>
+                    <h4>Real Images</h4>
+                    <p>Every product photo comes directly from Amazon. See exactly what you're buying.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🔗</div>
+                    <h4>Working Links</h4>
+                    <p>All affiliate links tested and verified with bicycles0b3-20. Zero broken links.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💰</div>
+                    <h4>Best Prices</h4>
+                    <p>Shop Amazon prices directly. Fast shipping, Prime eligible.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🎯</div>
+                    <h4>Honest Reviews</h4>
+                    <p>We share real features, specs, and who each bike is best for.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">⚡</div>
+                    <h4>Easy Shopping</h4>
+                    <p>Clean filters, fast checkout on Amazon. Buy with confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Ride?</h2>
+            <p>Browse our full catalog of 19 verified BMX bikes and e-bikes.</p>
+            <a href="products.html" class="btn-primary-cta" style="background: white; color: #ff6b35;">Shop All Bikes Now →</a>
         </div>
     </section>
 
@@ -459,13 +639,13 @@
                 <div class="col-md-4">
                     <h5>Shop</h5>
                     <ul>
-                        <li><a href="products.html">All Products</a></li>
-                        <li><a href="products.html?category=bmx">BMX Bikes</a></li>
-                        <li><a href="products.html?category=ebike">E-Bikes</a></li>
+                        <li><a href="products.html">All Products (19)</a></li>
+                        <li><a href="products.html?category=bmx">BMX Bikes (14)</a></li>
+                        <li><a href="products.html?category=ebike">E-Bikes (5)</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5>Legal</h5>
+                    <h5>Info</h5>
                     <ul>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -473,8 +653,12 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="affiliate-notice">
+                <strong>⚠️ Affiliate Disclosure:</strong> VelocityVault earns commissions on qualifying Amazon purchases through the bicycles0b3-20 affiliate program. This helps support our site and bring you curated recommendations.
+            </div>
+
             <div class="footer-bottom">
-                <p><strong>⚠️ Affiliate Disclosure:</strong> We earn commissions on qualifying Amazon purchases through the bicycles0b3-20 affiliate program. This helps support VelocityVault.</p>
                 <p>&copy; 2026 VelocityVault. All rights reserved.</p>
             </div>
         </div>
