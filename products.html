@@ -3,37 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop BMX & E-Bikes - VelocityVault | Verified Amazon Affiliate</title>
+    <title>Shop BMX & E-Bikes on Amazon | VelocityVault</title>
+    <meta name="description" content="Browse 19 verified BMX bikes and SURRON-style e-bikes. Real images, real prices, verified affiliate links.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="css/style.css" rel="stylesheet">
     <style>
-        .product-card { border: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 20px rgba(0,0,0,0.15); }
-        .product-image { height: 280px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 8px 8px 0 0; }
-        .product-image img { max-height: 100%; max-width: 100%; object-fit: contain; padding: 10px; }
-        .brand-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; margin-bottom: 10px; background: #ff6b35; color: white; }
-        .price { font-size: 1.8rem; color: #ff6b35; font-weight: bold; }
-        .affiliate-link { background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; border: none; font-weight: bold; }
-        .affiliate-link:hover { color: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,107,53,0.3); }
-        .verified-badge { background: #28a745; color: white; font-size: 0.75rem; padding: 3px 6px; border-radius: 3px; display: inline-block; margin-top: 5px; }
-        .section-title { font-size: 2.5rem; font-weight: bold; margin: 3rem 0 1rem; color: #1a1a1a; border-bottom: 3px solid #ff6b35; padding-bottom: 10px; }
-        .section-subtitle { font-size: 1.1rem; color: #666; margin-bottom: 2rem; }
-        .category-btn { margin: 5px 5px 5px 0; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: #f8f9fa;
+            color: #1a1a1a;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: white !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 12px 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #1a1a1a !important;
+        }
+
+        .navbar-brand i {
+            color: #ff6b35;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: #666 !important;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+
+        /* ===== HEADER ===== */
+        .page-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 100px 0 60px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* ===== FILTERS ===== */
+        .filters-section {
+            background: white;
+            padding: 30px 0;
+            border-bottom: 1px solid #e8e8e8;
+            position: sticky;
+            top: 60px;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .filter-label {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-btn {
+            background: #f5f5f5;
+            border: 2px solid #f5f5f5;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            color: #666;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .filter-btn:hover {
+            border-color: #ff6b35;
+            color: #ff6b35;
+        }
+
+        .filter-btn.active {
+            background: #ff6b35;
+            border-color: #ff6b35;
+            color: white;
+        }
+
+        /* ===== PRODUCT GRID ===== */
+        .shop-section {
+            background: white;
+            padding: 60px 0;
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            border-color: #ff6b35;
+        }
+
+        .product-image {
+            height: 280px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            padding: 15px;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6b35;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .product-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-name {
+            font-weight: 700;
+            color: #1a1a1a;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .product-price {
+            font-size: 1.6rem;
+            color: #ff6b35;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .product-verified {
+            font-size: 0.8rem;
+            color: #28a745;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .btn-view-amazon {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            text-align: center;
+            display: block;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+        }
+
+        .btn-view-amazon:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 18px rgba(255, 107, 53, 0.3);
+            color: white;
+        }
+
+        .no-products {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            color: #856404;
+            display: none;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+            border-top: 1px solid #333;
+        }
+
+        footer h5 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        footer a:hover {
+            color: #ff6b35;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 80px 0 50px;
+            }
+
+            .filter-btn {
+                margin-right: 0;
+                display: inline-block;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="fas fa-bicycle" style="color: #ff6b35; margin-right: 8px;"></i>VelocityVault</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-bicycle"></i> VelocityVault
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="products.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
@@ -41,74 +315,83 @@
         </div>
     </nav>
 
-    <!-- Header -->
-    <header class="bg-dark text-white py-5" style="margin-top: 60px;">
-        <div class="container py-4">
-            <h1 class="display-4 fw-bold">Premium BMX & E-Bikes</h1>
-            <p class="lead">Shop verified affiliate products — BMX classics & SURRON-style alternatives</p>
-            <p><small><span class="badge bg-success">✓ All links verified with bicycles0b3-20 affiliate program</span></small></p>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <section class="py-5">
+    <!-- PAGE HEADER -->
+    <section class="page-header">
         <div class="container">
-            <!-- Category Filter -->
-            <div class="row mb-4">
-                <div class="col-12">
-                    <h5 style="margin-bottom: 15px;">Filter by Category:</h5>
-                    <div>
-                        <button class="btn btn-outline-primary category-btn category-filter" data-category="all">All Products</button>
-                        <button class="btn btn-outline-primary category-btn category-filter" data-category="bmx">BMX Bikes (14)</button>
-                        <button class="btn btn-outline-primary category-btn category-filter" data-category="ebike">E-Bikes (5)</button>
-                    </div>
-                </div>
-            </div>
+            <h1>Shop All Products</h1>
+            <p>19 verified bikes with real images and affiliate links</p>
+        </div>
+    </section>
 
-            <!-- BMX BIKES SECTION -->
+    <!-- FILTERS -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filter-label">Filter by Category</div>
+            <div>
+                <button class="filter-btn active" onclick="filterCategory('all')">All Products (19)</button>
+                <button class="filter-btn" onclick="filterCategory('bmx')">BMX Bikes (14)</button>
+                <button class="filter-btn" onclick="filterCategory('ebike')">E-Bikes (5)</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOP GRID -->
+    <section class="shop-section">
+        <div class="container">
+            <!-- BMX SECTION -->
             <div id="bmx-section" class="category-section">
-                <h2 class="section-title">🚲 BMX Bikes</h2>
-                <p class="section-subtitle">Classic freestyle & cruiser bikes for tricks, stunts, and street culture</p>
+                <div class="section-header">
+                    <h2 class="section-title">🚲 BMX Bikes</h2>
+                    <p class="section-subtitle">Freestyle, cruisers, and street bikes</p>
+                </div>
                 <div id="bmx-products" class="row g-4"></div>
             </div>
 
             <!-- E-BIKES SECTION -->
             <div id="ebike-section" class="category-section" style="margin-top: 4rem;">
-                <h2 class="section-title">⚡ E-Bikes (SURRON & Alternatives)</h2>
-                <p class="section-subtitle">High-performance electric bikes — affordable alternatives to premium SURRON models</p>
+                <div class="section-header">
+                    <h2 class="section-title">⚡ E-Bikes (SURRON & Alternatives)</h2>
+                    <p class="section-subtitle">High-performance electric dirt bikes</p>
+                </div>
                 <div id="ebike-products" class="row g-4"></div>
             </div>
 
-            <div id="no-products" class="alert alert-warning mt-4" style="display:none;">
-                No products in this category.
+            <div id="no-products" class="no-products">
+                <h3>No products found</h3>
+                <p>Try selecting a different category.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-5 mt-5">
+    <!-- FOOTER -->
+    <footer>
         <div class="container">
             <div class="row mb-4">
                 <div class="col-md-4">
                     <h5>VelocityVault</h5>
-                    <p>Premium BMX & E-Bike affiliate marketplace. Every link verified, every product real.</p>
+                    <p>Premium BMX & E-Bike affiliate marketplace. Verified products. Real images. Working links.</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Shop</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="products.html" class="text-white text-decoration-none">All Products</a></li>
-                        <li><a href="about.html" class="text-white text-decoration-none">About</a></li>
-                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    <ul>
+                        <li><a href="products.html">All Products (19)</a></li>
+                        <li><a href="products.html?category=bmx">BMX Bikes (14)</a></li>
+                        <li><a href="products.html?category=ebike">E-Bikes (5)</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5>Affiliate Disclosure</h5>
-                    <p class="small"><strong>⚠️ Affiliate Links:</strong> We earn commissions on qualifying Amazon purchases through our affiliate program (bicycles0b3-20). This helps support VelocityVault.</p>
+                    <h5>Info</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                    </ul>
                 </div>
             </div>
-            <hr style="border-color: #555;">
-            <div class="text-center small text-muted">
-                <p>&copy; 2026 VelocityVault. Honest affiliate marketing for BMX & E-Bike culture. | <a href="affiliate-disclosure.html" class="text-muted">Full Disclosure</a></p>
+
+            <div class="footer-bottom">
+                <p><strong>⚠️ Affiliate Disclosure:</strong> VelocityVault earns commissions on qualifying Amazon purchases through the bicycles0b3-20 affiliate program.</p>
+                <p>&copy; 2026 VelocityVault. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -147,21 +430,19 @@
         function renderProductCards(products) {
             return products.map(p => `
                 <div class="col-md-6 col-lg-4">
-                    <div class="card product-card h-100">
+                    <div class="product-card">
                         <div class="product-image">
+                            <div class="product-badge">✓ Verified</div>
                             <img src="${p.image}" alt="${p.name}">
                         </div>
-                        <div class="card-body">
-                            <span class="brand-badge">${p.brand}</span>
-                            <h5 class="card-title" style="margin-top: 10px;">${p.name}</h5>
-                            <p class="price">$${p.price}</p>
-                            <div class="verified-badge">✓ Verified</div>
-                        </div>
-                        <div class="card-footer bg-white border-top">
+                        <div class="product-body">
+                            <h3 class="product-name">${p.name}</h3>
+                            <p class="product-price">$${p.price}</p>
+                            <p class="product-verified"><i class="fas fa-check-circle"></i> Verified on Amazon</p>
                             <a href="https://www.amazon.com/dp/${p.asin}/?tag=${AMAZON_STOREID}" 
                                target="_blank" 
                                rel="noopener noreferrer"
-                               class="btn btn-sm affiliate-link w-100">
+                               class="btn-view-amazon">
                                 <i class="fas fa-shopping-cart"></i> View on Amazon
                             </a>
                         </div>
@@ -170,7 +451,7 @@
             `).join('');
         }
 
-        function filterByCategory(category) {
+        function filterCategory(category) {
             let filtered = allProducts;
             
             if (category !== 'all') {
@@ -186,20 +467,14 @@
             // Show/hide sections
             document.getElementById('bmx-section').style.display = (category === 'all' || category === 'bmx') ? 'block' : 'none';
             document.getElementById('ebike-section').style.display = (category === 'all' || category === 'ebike') ? 'block' : 'none';
+
+            // Update filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.filter-btn[onclick="filterCategory('${category}')"]`).classList.add('active');
         }
 
-        // Event listeners
-        document.querySelectorAll('.category-filter').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.category-filter').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                filterByCategory(this.dataset.category);
-            });
-        });
-
         // Initial render
-        document.querySelector('[data-category="all"]').classList.add('active');
-        filterByCategory('all');
+        filterCategory('all');
     </script>
 </body>
 </html>
