@@ -10,25 +10,16 @@
     <style>
         .product-card { border: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s; }
         .product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 20px rgba(0,0,0,0.15); }
-        .product-image { height: 250px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .product-image img { max-height: 100%; max-width: 100%; object-fit: contain; }
-        .brand-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; margin-bottom: 10px; }
-        .brand-weize { background: #ff6b35; color: white; }
-        .brand-joystar { background: #1e90ff; color: white; }
-        .brand-hiland { background: #ff1493; color: white; }
-        .brand-67i { background: #228b22; color: white; }
-        .brand-cubsala { background: #8b0000; color: white; }
-        .brand-elite { background: #ffa500; color: white; }
-        .brand-hyper { background: #dc143c; color: white; }
-        .brand-mongoose { background: #4169e1; color: white; }
-        .brand-vevor { background: #ff69b4; color: white; }
-        .brand-tst { background: #2c3e50; color: white; }
-        .price { font-size: 1.5rem; color: #ff6b35; font-weight: bold; }
-        .affiliate-link { background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; border: none; }
+        .product-image { height: 280px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 8px 8px 0 0; }
+        .product-image img { max-height: 100%; max-width: 100%; object-fit: contain; padding: 10px; }
+        .brand-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; margin-bottom: 10px; background: #ff6b35; color: white; }
+        .price { font-size: 1.8rem; color: #ff6b35; font-weight: bold; }
+        .affiliate-link { background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; border: none; font-weight: bold; }
         .affiliate-link:hover { color: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,107,53,0.3); }
-        .verified-badge { background: #28a745; color: white; font-size: 0.8rem; padding: 4px 8px; border-radius: 4px; margin-top: 8px; display: inline-block; }
+        .verified-badge { background: #28a745; color: white; font-size: 0.75rem; padding: 3px 6px; border-radius: 3px; display: inline-block; margin-top: 5px; }
         .section-title { font-size: 2.5rem; font-weight: bold; margin: 3rem 0 1rem; color: #1a1a1a; border-bottom: 3px solid #ff6b35; padding-bottom: 10px; }
         .section-subtitle { font-size: 1.1rem; color: #666; margin-bottom: 2rem; }
+        .category-btn { margin: 5px 5px 5px 0; }
     </style>
 </head>
 <body>
@@ -53,8 +44,8 @@
     <!-- Header -->
     <header class="bg-dark text-white py-5" style="margin-top: 60px;">
         <div class="container py-4">
-            <h1 class="display-4 fw-bold">BMX Bikes & E-Bikes</h1>
-            <p class="lead">Premium verified affiliate products — BMX classics + SURRON-style alternatives</p>
+            <h1 class="display-4 fw-bold">Premium BMX & E-Bikes</h1>
+            <p class="lead">Shop verified affiliate products — BMX classics & SURRON-style alternatives</p>
             <p><small><span class="badge bg-success">✓ All links verified with bicycles0b3-20 affiliate program</span></small></p>
         </div>
     </header>
@@ -62,45 +53,34 @@
     <!-- Main Content -->
     <section class="py-5">
         <div class="container">
-            <!-- Filter Section -->
-            <div class="row mb-5">
+            <!-- Category Filter -->
+            <div class="row mb-4">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-header bg-dark text-white">
-                            <h5 class="mb-0">Filter by Category</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="btn-group" role="group">
-                                <input type="radio" class="btn-check" name="category" id="all-category" value="all" checked>
-                                <label class="btn btn-outline-primary" for="all-category">All Products</label>
-                                
-                                <input type="radio" class="btn-check" name="category" id="bmx-category" value="bmx">
-                                <label class="btn btn-outline-primary" for="bmx-category">BMX Bikes</label>
-                                
-                                <input type="radio" class="btn-check" name="category" id="ebike-category" value="ebike">
-                                <label class="btn btn-outline-primary" for="ebike-category">E-Bikes (SURRON Style)</label>
-                            </div>
-                        </div>
+                    <h5 style="margin-bottom: 15px;">Filter by Category:</h5>
+                    <div>
+                        <button class="btn btn-outline-primary category-btn category-filter" data-category="all">All Products</button>
+                        <button class="btn btn-outline-primary category-btn category-filter" data-category="bmx">BMX Bikes (14)</button>
+                        <button class="btn btn-outline-primary category-btn category-filter" data-category="ebike">E-Bikes (5)</button>
                     </div>
                 </div>
             </div>
 
             <!-- BMX BIKES SECTION -->
-            <div id="bmx-section" class="bmx-category all-category">
-                <h2 class="section-title">BMX Bikes</h2>
+            <div id="bmx-section" class="category-section">
+                <h2 class="section-title">🚲 BMX Bikes</h2>
                 <p class="section-subtitle">Classic freestyle & cruiser bikes for tricks, stunts, and street culture</p>
                 <div id="bmx-products" class="row g-4"></div>
             </div>
 
             <!-- E-BIKES SECTION -->
-            <div id="ebike-section" class="ebike-category all-category" style="margin-top: 4rem;">
-                <h2 class="section-title">E-Bikes (SURRON & Alternatives)</h2>
-                <p class="section-subtitle">High-performance electric bikes — affordable alternatives to premium SURRON & Ultra B models</p>
+            <div id="ebike-section" class="category-section" style="margin-top: 4rem;">
+                <h2 class="section-title">⚡ E-Bikes (SURRON & Alternatives)</h2>
+                <p class="section-subtitle">High-performance electric bikes — affordable alternatives to premium SURRON models</p>
                 <div id="ebike-products" class="row g-4"></div>
             </div>
 
             <div id="no-products" class="alert alert-warning mt-4" style="display:none;">
-                No products in this category. Try selecting a different filter.
+                No products in this category.
             </div>
         </div>
     </section>
@@ -123,7 +103,7 @@
                 </div>
                 <div class="col-md-4">
                     <h5>Affiliate Disclosure</h5>
-                    <p class="small">We earn commissions on qualifying Amazon purchases through our affiliate program (bicycles0b3-20).</p>
+                    <p class="small"><strong>⚠️ Affiliate Links:</strong> We earn commissions on qualifying Amazon purchases through our affiliate program (bicycles0b3-20). This helps support VelocityVault.</p>
                 </div>
             </div>
             <hr style="border-color: #555;">
@@ -135,74 +115,52 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Verified Products Database
         const AMAZON_STOREID = 'bicycles0b3-20';
         
         const bmxProducts = [
-            // ENTRY-LEVEL / KIDS & TEENS
-            {id:1, brand:'WEIZE', name:'WEIZE Freestyle BMX Bike 20"', category:'bmx', price:109.99, image:'https://m.media-amazon.com/images/I/41RCbGdx9rL.jpg', asin:'B0F9WZ75SB'},
-            {id:2, brand:'JOYSTAR', name:'JOYSTAR Brockway Freestyle Kids BMX 20"', category:'bmx', price:129.99, image:'https://m.media-amazon.com/images/I/51FvQI36BvL.jpg', asin:'B0CNK4RSP3'},
-            {id:3, brand:'Hiland', name:'Hiland 20" Freestyle Kids BMX Bike', category:'bmx', price:99.99, image:'https://m.media-amazon.com/images/I/41eqZlRRz5L.jpg', asin:'B0BWQ8X8FZ'},
-            {id:4, brand:'Hiland', name:'Hiland 20" 3/5 Spoke Kids BMX Bike', category:'bmx', price:119.99, image:'https://m.media-amazon.com/images/I/41vLRbTzSwL.jpg', asin:'B0B3J42BBB'},
-            {id:5, brand:'67i', name:'67i Boys BMX Bike 18"/20"', category:'bmx', price:139.99, image:'https://m.media-amazon.com/images/I/41Lz7vQ6e4L.jpg', asin:'B0DXDVJDG2'},
-            {id:6, brand:'cubsala', name:'cubsala Freestyle BMX Bike 20" Yaphet', category:'bmx', price:119.99, image:'https://m.media-amazon.com/images/I/41bfVdQr2jL.jpg', asin:'B0FYDLB4PT'},
-            
-            // YOUTH / ADULT FREESTYLE & STREET
-            {id:7, brand:'Elite', name:'Elite BMX Stealth Freestyle Bike 20"', category:'bmx', price:149.99, image:'https://m.media-amazon.com/images/I/41PQxhX3bYL.jpg', asin:'B09239HYM8'},
-            {id:8, brand:'Elite', name:'Elite BMX Freestyle Bike 26" & 29" Big Wheel', category:'bmx', price:199.99, image:'https://m.media-amazon.com/images/I/41NjG-D7U2L.jpg', asin:'B0C95Q1W12'},
-            {id:9, brand:'Elite', name:'Elite BMX Bicycle Freestyle 18", 20" & 26"', category:'bmx', price:169.99, image:'https://m.media-amazon.com/images/I/41K5x6pL8jL.jpg', asin:'B0C4G4ZF4K'},
-            
-            // BIG WHEEL 26"/29" WHEELIE BIKE OPTIONS
-            {id:10, brand:'Hyper', name:'Hyper 29" Jet Fuel BMX Bike', category:'bmx', price:229.99, image:'https://m.media-amazon.com/images/I/41L3yQvG8nL.jpg', asin:'B0BG4JN6GM'},
-            {id:11, brand:'Mongoose', name:'Mongoose Hooligan AL Adult Fat Tire BMX 29"', category:'bmx', price:249.99, image:'https://m.media-amazon.com/images/I/41sXxQZ7vgL.jpg', asin:'B0CVHY8Y59'},
-            {id:12, brand:'VEVOR', name:'VEVOR BMX Bike 18" 20" 24" Freestyle & Race', category:'bmx', price:139.99, image:'https://m.media-amazon.com/images/I/41V8qXpCBaL.jpg', asin:'B0DMLRY39D'},
-            {id:13, brand:'Mongoose', name:'Mongoose Legion Kids Freestyle BMX 20"', category:'bmx', price:159.99, image:'https://m.media-amazon.com/images/I/41RHxQ0GKLL.jpg', asin:'B07G1CS5QF'},
+            {id:1, brand:'WEIZE', name:'WEIZE Freestyle BMX Bike 20"', category:'bmx', price:109.99, asin:'B0F9WZ75SB', image:'https://m.media-amazon.com/images/I/711JPV27c7L._AC_SY300_SX300_QL70_FMwebp_.jpg'},
+            {id:2, brand:'JOYSTAR', name:'JOYSTAR Brockway Freestyle Kids BMX 20"', category:'bmx', price:129.99, asin:'B0CNK4RSP3', image:'https://m.media-amazon.com/images/I/717BGgvgpaL._AC_SY300_SX300_QL70_FMwebp_.jpg'},
+            {id:3, brand:'Hiland', name:'Hiland 20" Freestyle Kids BMX Bike', category:'bmx', price:99.99, asin:'B0BWQ8X8FZ', image:'https://m.media-amazon.com/images/I/71GTXsX9msL._AC_SY300_SX300_QL70_FMwebp_.jpg'},
+            {id:4, brand:'Hiland', name:'Hiland 20" 3/5 Spoke Kids BMX Bike', category:'bmx', price:119.99, asin:'B0B3J42BBB', image:'https://m.media-amazon.com/images/I/71XwTg7KffL._AC_SY300_SX300_QL70_FMwebp_.jpg'},
+            {id:5, brand:'67i', name:'67i Boys BMX Bike 18"/20"', category:'bmx', price:139.99, asin:'B0DXDVJDG2', image:'https://m.media-amazon.com/images/I/71LZM725qpL._AC_SX466_.jpg'},
+            {id:6, brand:'cubsala', name:'cubsala Freestyle BMX Bike 20" Yaphet', category:'bmx', price:119.99, asin:'B0FYDLB4PT', image:'https://m.media-amazon.com/images/I/71Fnmfisg7L._AC_SL1500_.jpg'},
+            {id:7, brand:'cubsala', name:'cubsala Freestyle BMX Bike 20"', category:'bmx', price:99.99, asin:'B0C88GN3VR', image:'https://m.media-amazon.com/images/I/81eEJMRDiAL._AC_SY300_SX300_QL70_FMwebp_.jpg'},
+            {id:8, brand:'Elite', name:'Elite BMX Stealth Freestyle Bike 20"', category:'bmx', price:149.99, asin:'B09239HYM8', image:'https://m.media-amazon.com/images/I/81fjB8II9FL._AC_SL1500_.jpg'},
+            {id:9, brand:'Elite', name:'Elite BMX Freestyle Bike 26" & 29" Big Wheel', category:'bmx', price:199.99, asin:'B0C95Q1W12', image:'https://m.media-amazon.com/images/I/714VPD4aluL._AC_SY300_SX300_QL70_FMwebp_.jpg'},
+            {id:10, brand:'Elite', name:'Elite BMX Bicycle Freestyle 18", 20" & 26"', category:'bmx', price:169.99, asin:'B0C4G4ZF4K', image:'https://m.media-amazon.com/images/I/61o4YR-gpuL._AC_SY300_SX300_QL70_FMwebp_.jpg'},
+            {id:11, brand:'Hyper', name:'Hyper 29" Jet Fuel BMX Bike', category:'bmx', price:229.99, asin:'B0BG4JN6GM', image:'https://m.media-amazon.com/images/I/81Uksi9WEVL._AC_SX679_.jpg'},
+            {id:12, brand:'Mongoose', name:'Mongoose Hooligan AL Adult Fat Tire BMX 29"', category:'bmx', price:249.99, asin:'B0CVHY8Y59', image:'https://m.media-amazon.com/images/I/81szVxEiUSL._AC_SL1500_.jpg'},
+            {id:13, brand:'VEVOR', name:'VEVOR BMX Bike 18" 20" 24" Freestyle & Race', category:'bmx', price:139.99, asin:'B0DMLRY39D', image:'https://m.media-amazon.com/images/I/71nInwgGpOL._AC_SL1500_.jpg'},
+            {id:14, brand:'Mongoose', name:'Mongoose Legion Kids Freestyle BMX 20"', category:'bmx', price:159.99, asin:'B07G1CS5QF', image:'https://m.media-amazon.com/images/I/81sxU-jSs1L._AC_SL1500_.jpg'},
         ];
 
-        const ebikes = [
-            // SURRON-STYLE ALTERNATIVES
-            {id:14, brand:'cubsala', name:'cubsala Freestyle BMX 20" Yaphet', category:'ebike', price:89.99, image:'https://m.media-amazon.com/images/I/51fYXpWlF2L.jpg', asin:'B0C88GN3VR'},
-            {id:15, brand:'Folding', name:'14" Folding E-Bike Commuter 560W Motor 48V', category:'ebike', price:399.99, image:'https://m.media-amazon.com/images/I/51h5NXqZ3-L.jpg', asin:'B0F24B7DNY'},
-            {id:16, brand:'TST', name:'TST Electric Bike 20" Fat Tire 1500W 48V 15AH', category:'ebike', price:599.99, image:'https://m.media-amazon.com/images/I/51NjCpVvF8L.jpg', asin:'B0G2XL97QH'},
-            {id:17, brand:'Electric', name:'Electric Dirt Bike 3000W 45MPH 60V 35AH 100+ Miles', category:'ebike', price:899.99, image:'https://m.media-amazon.com/images/I/41H9sPc0-XL.jpg', asin:'B0FT2D12X4'},
-            {id:18, brand:'GT', name:'GT Electric Dirt Bike 3000W 50MPH 25" Fat Tires', category:'ebike', price:949.99, image:'https://m.media-amazon.com/images/I/41k6VZx7F9L.jpg', asin:'B0F1MX53GS'},
-            {id:19, brand:'TST', name:'TST Electric Dirt Bike 1500W 20" Fat Tire 60/110 Miles', category:'ebike', price:649.99, image:'https://m.media-amazon.com/images/I/51Zmp7vK5zL.jpg', asin:'B0FS6BXP1P'},
+        const ebikeProducts = [
+            {id:15, brand:'Folding', name:'14" Folding E-Bike Commuter 560W Motor 48V', category:'ebike', price:399.99, asin:'B0F24B7DNY', image:'https://m.media-amazon.com/images/I/71t1TzFzetL._AC_SY300_SX300_QL70_FMwebp_.jpg'},
+            {id:16, brand:'TST', name:'TST Electric Bike 20" Fat Tire 1500W 48V 15AH', category:'ebike', price:599.99, asin:'B0G2XL97QH', image:'https://m.media-amazon.com/images/I/81fXfJYQzvL._AC_SL1500_.jpg'},
+            {id:17, brand:'Electric', name:'Electric Dirt Bike 3000W 45MPH 60V 35AH 100+ Miles', category:'ebike', price:899.99, asin:'B0FT2D12X4', image:'https://m.media-amazon.com/images/I/712Gt6Ze-sL._AC_SL1200_.jpg'},
+            {id:18, brand:'GT', name:'GT Electric Dirt Bike 3000W 50MPH 25" Fat Tires', category:'ebike', price:949.99, asin:'B0F1MX53GS', image:'https://m.media-amazon.com/images/I/71jLARaOa4L._AC_SL1500_.jpg'},
+            {id:19, brand:'TST', name:'TST Electric Dirt Bike 1500W 20" Fat Tire 60/110 Miles', category:'ebike', price:649.99, asin:'B0FS6BXP1P', image:'https://m.media-amazon.com/images/I/71lFEz1wEvL._AC_SY300_SX300_QL70_FMwebp_.jpg'},
         ];
 
-        const allProducts = [...bmxProducts, ...ebikes];
-
-        function renderProducts(filtered) {
-            const bmxContainer = document.getElementById('bmx-products');
-            const ebikeContainer = document.getElementById('ebike-products');
-            
-            const bmxFiltered = filtered.filter(p => p.category === 'bmx');
-            const ebikeFiltered = filtered.filter(p => p.category === 'ebike');
-            
-            bmxContainer.innerHTML = renderProductCards(bmxFiltered);
-            ebikeContainer.innerHTML = renderProductCards(ebikeFiltered);
-            
-            document.getElementById('no-products').style.display = (filtered.length === 0) ? 'block' : 'none';
-        }
+        const allProducts = [...bmxProducts, ...ebikeProducts];
 
         function renderProductCards(products) {
             return products.map(p => `
                 <div class="col-md-6 col-lg-4">
                     <div class="card product-card h-100">
                         <div class="product-image">
-                            <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/300?text=${encodeURIComponent(p.name)}'">
+                            <img src="${p.image}" alt="${p.name}">
                         </div>
                         <div class="card-body">
-                            <span class="brand-badge brand-${p.brand.toLowerCase().replace(/[^a-z]/g, '')}">${p.brand}</span>
-                            <h5 class="card-title">${p.name}</h5>
+                            <span class="brand-badge">${p.brand}</span>
+                            <h5 class="card-title" style="margin-top: 10px;">${p.name}</h5>
                             <p class="price">$${p.price}</p>
-                            <p class="text-muted small">Verified with bicycles0b3-20</p>
                             <div class="verified-badge">✓ Verified</div>
                         </div>
                         <div class="card-footer bg-white border-top">
                             <a href="https://www.amazon.com/dp/${p.asin}/?tag=${AMAZON_STOREID}" 
                                target="_blank" 
                                rel="noopener noreferrer"
-                               onclick="trackClick('${p.brand}', '${p.name}')"
                                class="btn btn-sm affiliate-link w-100">
                                 <i class="fas fa-shopping-cart"></i> View on Amazon
                             </a>
@@ -212,33 +170,36 @@
             `).join('');
         }
 
-        function filterByCategory() {
-            const selectedCategory = document.querySelector('input[name="category"]:checked').value;
+        function filterByCategory(category) {
             let filtered = allProducts;
             
-            if (selectedCategory !== 'all') {
-                filtered = allProducts.filter(p => p.category === selectedCategory);
+            if (category !== 'all') {
+                filtered = allProducts.filter(p => p.category === category);
             }
             
-            renderProducts(filtered);
-            updateVisibility(selectedCategory);
-        }
-
-        function updateVisibility(category) {
+            const bmxFiltered = filtered.filter(p => p.category === 'bmx');
+            const ebikeFiltered = filtered.filter(p => p.category === 'ebike');
+            
+            document.getElementById('bmx-products').innerHTML = renderProductCards(bmxFiltered);
+            document.getElementById('ebike-products').innerHTML = renderProductCards(ebikeFiltered);
+            
+            // Show/hide sections
             document.getElementById('bmx-section').style.display = (category === 'all' || category === 'bmx') ? 'block' : 'none';
             document.getElementById('ebike-section').style.display = (category === 'all' || category === 'ebike') ? 'block' : 'none';
         }
 
-        document.querySelectorAll('input[name="category"]').forEach(radio => {
-            radio.addEventListener('change', filterByCategory);
+        // Event listeners
+        document.querySelectorAll('.category-filter').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.category-filter').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                filterByCategory(this.dataset.category);
+            });
         });
 
-        function trackClick(brand, product) {
-            console.log(`Affiliate click: ${brand} - ${product}`);
-        }
-
         // Initial render
-        renderProducts(allProducts);
+        document.querySelector('[data-category="all"]').classList.add('active');
+        filterByCategory('all');
     </script>
 </body>
 </html>
