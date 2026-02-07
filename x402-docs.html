@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x402 API Documentation | VelocityVault Agent Marketplace</title>
+    <meta name="description" content="x402 payment-gated API for AI agents. Pay USDC on Base for BMX bike data, recommendations, affiliate intelligence, and market analytics.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+        /* Navbar */
+        .navbar { background: #111 !important; border-bottom: 1px solid #222; padding: 12px 0; }
+        .navbar-brand { font-size: 1.4rem; font-weight: 900; color: #fff !important; }
+        .navbar-brand i { color: #ff6b35; }
+        .nav-link { font-weight: 600; color: #999 !important; font-size: 0.95rem; }
+        .nav-link:hover { color: #ff6b35 !important; }
+
+        /* Hero */
+        .docs-hero {
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a0a2e 50%, #0a1628 100%);
+            padding: 100px 0 60px;
+            text-align: center;
+            border-bottom: 2px solid #ff6b35;
+            margin-top: 56px;
+        }
+        .docs-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ff6b35, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        .docs-hero .subtitle { color: #aaa; font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+        .protocol-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Content */
+        .docs-section { padding: 60px 0; border-bottom: 1px solid #1a1a1a; }
+        .docs-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+        .docs-section h2 i { color: #ff6b35; margin-right: 10px; }
+
+        /* Pricing cards */
+        .tier-card {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 2rem;
+            height: 100%;
+            transition: border-color 0.3s;
+        }
+        .tier-card:hover { border-color: #ff6b35; }
+        .tier-card .tier-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+        .tier-card .tier-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .tier-card .tier-unit { color: #666; font-size: 0.9rem; }
+        .tier-card ul { list-style: none; padding: 0; margin-top: 1.5rem; }
+        .tier-card ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #1a1a1a;
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+        .tier-card ul li i { color: #00d4ff; margin-right: 8px; width: 16px; }
+
+        /* Endpoint table */
+        .endpoint-table { width: 100%; border-collapse: collapse; }
+        .endpoint-table th {
+            background: #1a1a1a;
+            color: #ff6b35;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .endpoint-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #1a1a1a;
+            font-size: 0.95rem;
+        }
+        .endpoint-table tr:hover { background: #111; }
+        .method-badge {
+            background: #0d3320;
+            color: #4caf50;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            font-family: monospace;
+        }
+        .price-tag {
+            background: #1a0a2e;
+            color: #b300ff;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .route-path {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            color: #00d4ff;
+            font-size: 0.9rem;
+        }
+
+        /* Code blocks */
+        .code-block {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        .code-block pre {
+            color: #e0e0e0;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.85rem;
+            margin: 0;
+            white-space: pre;
+        }
+        .code-block .comment { color: #666; }
+        .code-block .keyword { color: #ff6b35; }
+        .code-block .string { color: #4caf50; }
+        .code-block .number { color: #00d4ff; }
+
+        /* Flow diagram */
+        .flow-step {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .flow-step .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: #fff;
+            margin: 0 auto 1rem;
+            font-size: 1.1rem;
+        }
+        .flow-step h5 { color: #fff; font-weight: 700; }
+        .flow-step p { color: #999; font-size: 0.9rem; margin: 0; }
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff6b35;
+            font-size: 1.5rem;
+        }
+
+        /* Wallet info */
+        .wallet-box {
+            background: linear-gradient(135deg, #0a1628, #1a0a2e);
+            border: 2px solid #ff6b35;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+        .wallet-box .wallet-label { color: #ff6b35; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; }
+        .wallet-box .wallet-address {
+            font-family: monospace;
+            font-size: 1rem;
+            color: #00d4ff;
+            word-break: break-all;
+            margin: 1rem 0;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 6px;
+        }
+
+        /* Footer */
+        .docs-footer {
+            background: #0a0a0a;
+            border-top: 1px solid #1a1a1a;
+            padding: 40px 0;
+            text-align: center;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-bolt"></i> VelocityVault</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="x402-docs.html">x402 API</a></li>
+                    <li class="nav-item"><a class="nav-link" href="x402-dashboard.html">Revenue</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="docs-hero">
+        <div class="container">
+            <h1>x402 Agent API</h1>
+            <p class="subtitle">Pay-per-request BMX bike data for AI agents. USDC on Base. No API keys. No subscriptions. Just pay and access.</p>
+            <div class="protocol-badge"><i class="fas fa-lock"></i> HTTP 402 Payment Required</div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="docs-section">
+        <div class="container">
+            <h2><i class="fas fa-cogs"></i> How x402 Works</h2>
+            <div class="row g-3 align-items-center">
+                <div class="col-md">
+                    <div class="flow-step">
+                        <div class="step-number">1</div>
+                        <h5>Request</h5>
+                        <p>Agent sends GET to a protected endpoint</p>
+                    </div>
+                </div>
+                <div class="col-auto d-none d-md-block"><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div></div>
+                <div class="col-md">
+                    <div class="flow-step">
+                        <div class="step-number">2</div>
+                        <h5>402 Response</h5>
+                        <p>Server returns 402 with price + wallet address</p>
+                    </div>
+                </div>
+                <div class="col-auto d-none d-md-block"><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div></div>
+                <div class="col-md">
+                    <div class="flow-step">
+                        <div class="step-number">3</div>
+                        <h5>Pay USDC</h5>
+                        <p>Agent pays USDC on Base and gets payment proof</p>
+                    </div>
+                </div>
+                <div class="col-auto d-none d-md-block"><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div></div>
+                <div class="col-md">
+                    <div class="flow-step">
+                        <div class="step-number">4</div>
+                        <h5>Access Granted</h5>
+                        <p>Retry with X-PAYMENT header — data returned</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Tiers -->
+    <section class="docs-section">
+        <div class="container">
+            <h2><i class="fas fa-tags"></i> Pricing Tiers</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="tier-card">
+                        <div class="tier-label">Tier 1 — Micro</div>
+                        <div class="tier-price">$0.001</div>
+                        <div class="tier-unit">per request (USDC)</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Full product catalog</li>
+                            <li><i class="fas fa-check"></i> Single product detail</li>
+                            <li><i class="fas fa-check"></i> Category listing</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="tier-card">
+                        <div class="tier-label">Tier 2 — Intelligence</div>
+                        <div class="tier-price">$0.005</div>
+                        <div class="tier-unit">per request (USDC)</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Bike recommendations</li>
+                            <li><i class="fas fa-check"></i> Product comparison</li>
+                            <li><i class="fas fa-check"></i> Semantic search</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="tier-card">
+                        <div class="tier-label">Tier 3 — Premium</div>
+                        <div class="tier-price">$0.01</div>
+                        <div class="tier-unit">per request (USDC)</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Affiliate intelligence</li>
+                            <li><i class="fas fa-check"></i> Market analytics</li>
+                            <li><i class="fas fa-check"></i> Platform analytics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="tier-card">
+                        <div class="tier-label">Tier 4 — Bulk</div>
+                        <div class="tier-price">$0.05</div>
+                        <div class="tier-unit">per request (USDC)</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Full catalog export</li>
+                            <li><i class="fas fa-check"></i> All affiliate links</li>
+                            <li><i class="fas fa-check"></i> Market summary</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Endpoints -->
+    <section class="docs-section">
+        <div class="container">
+            <h2><i class="fas fa-plug"></i> API Endpoints</h2>
+
+            <h4 style="color:#ff6b35; margin: 2rem 0 1rem;">Free Endpoints (no payment)</h4>
+            <table class="endpoint-table">
+                <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/health</td>
+                        <td>Health check + protocol info</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/pricing</td>
+                        <td>Full x402 pricing table for agent discovery</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/preview</td>
+                        <td>Free catalog teaser (counts + categories only)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/x402/info</td>
+                        <td>x402 protocol discovery for agents</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color:#ff6b35; margin: 2rem 0 1rem;">x402-Gated Endpoints (USDC on Base)</h4>
+            <table class="endpoint-table">
+                <thead><tr><th>Method</th><th>Endpoint</th><th>Price</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/x402/products</td>
+                        <td><span class="price-tag">$0.001</span></td>
+                        <td>Full product catalog with filters</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/x402/products/:id</td>
+                        <td><span class="price-tag">$0.001</span></td>
+                        <td>Single product detail + affiliate link</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/x402/categories</td>
+                        <td><span class="price-tag">$0.001</span></td>
+                        <td>Categories with counts & price ranges</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/x402/recommend</td>
+                        <td><span class="price-tag">$0.005</span></td>
+                        <td>AI bike recommendation engine</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/x402/compare</td>
+                        <td><span class="price-tag">$0.005</span></td>
+                        <td>Side-by-side product comparison</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/x402/search</td>
+                        <td><span class="price-tag">$0.005</span></td>
+                        <td>Semantic keyword search</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/x402/affiliate-intel</td>
+                        <td><span class="price-tag">$0.01</span></td>
+                        <td>Affiliate links, commissions, conversion data</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/x402/market-data</td>
+                        <td><span class="price-tag">$0.01</span></td>
+                        <td>BMX market intelligence & trends</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/x402/analytics</td>
+                        <td><span class="price-tag">$0.01</span></td>
+                        <td>Platform analytics snapshot</td>
+                    </tr>
+                    <tr>
+                        <td><span class="method-badge">GET</span></td>
+                        <td class="route-path">/api/x402/export</td>
+                        <td><span class="price-tag">$0.05</span></td>
+                        <td>Full catalog export with all data</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Code Examples -->
+    <section class="docs-section">
+        <div class="container">
+            <h2><i class="fas fa-code"></i> Agent Integration Examples</h2>
+
+            <h4 style="color: #fff; margin-bottom: 1rem;">Using x402-fetch (recommended)</h4>
+            <div class="code-block"><pre><span class="keyword">import</span> { x402Fetch } <span class="keyword">from</span> <span class="string">'x402-fetch'</span>;
+
+<span class="comment">// The x402-fetch wrapper automatically handles 402 responses,</span>
+<span class="comment">// pays USDC, and retries with payment proof.</span>
+
+<span class="keyword">const</span> response = <span class="keyword">await</span> x402Fetch(
+  <span class="string">'https://velocityvault.pro/api/x402/products'</span>,
+  { method: <span class="string">'GET'</span> },
+  { wallet: agentWallet }  <span class="comment">// Your agent's USDC wallet on Base</span>
+);
+
+<span class="keyword">const</span> products = <span class="keyword">await</span> response.json();
+console.log(products);  <span class="comment">// Full catalog — paid $0.001 USDC</span></pre>
+            </div>
+
+            <h4 style="color: #fff; margin: 2rem 0 1rem;">Using x402-axios</h4>
+            <div class="code-block"><pre><span class="keyword">import</span> { createX402Client } <span class="keyword">from</span> <span class="string">'x402-axios'</span>;
+
+<span class="keyword">const</span> client = createX402Client({ wallet: agentWallet });
+
+<span class="comment">// Get bike recommendations for an adult with $200 budget</span>
+<span class="keyword">const</span> { data } = <span class="keyword">await</span> client.get(
+  <span class="string">'https://velocityvault.pro/api/x402/recommend?age=adult&budget=200&style=freestyle'</span>
+);
+<span class="comment">// Paid $0.005 — got ranked product matches</span>
+
+<span class="comment">// Compare top picks</span>
+<span class="keyword">const</span> comparison = <span class="keyword">await</span> client.get(
+  <span class="string">`https://velocityvault.pro/api/x402/compare?ids=${data.recommendations.map(r => r.id).join(',')}`</span>
+);
+<span class="comment">// Paid $0.005 — got side-by-side spec comparison</span></pre>
+            </div>
+
+            <h4 style="color: #fff; margin: 2rem 0 1rem;">Manual x402 Flow (any HTTP client)</h4>
+            <div class="code-block"><pre><span class="comment"># Step 1: Hit the endpoint — get 402 back</span>
+curl -i https://velocityvault.pro/api/x402/market-data
+
+<span class="comment"># Response: HTTP/1.1 402 Payment Required</span>
+<span class="comment"># Headers include payment instructions:</span>
+<span class="comment">#   X-Payment-Address: 0x...</span>
+<span class="comment">#   X-Payment-Amount: 0.01</span>
+<span class="comment">#   X-Payment-Network: base</span>
+<span class="comment">#   X-Payment-Currency: USDC</span>
+
+<span class="comment"># Step 2: Pay USDC on Base to the wallet address</span>
+<span class="comment"># Step 3: Retry with payment proof</span>
+curl -H <span class="string">"X-PAYMENT: &lt;payment-signature&gt;"</span> \
+  https://velocityvault.pro/api/x402/market-data
+
+<span class="comment"># Response: HTTP/1.1 200 OK — full market data</span></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Query Parameters -->
+    <section class="docs-section">
+        <div class="container">
+            <h2><i class="fas fa-filter"></i> Query Parameters</h2>
+
+            <h4 style="color: #fff; margin-bottom: 1rem;">/api/x402/products</h4>
+            <table class="endpoint-table">
+                <thead><tr><th>Param</th><th>Type</th><th>Example</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td class="route-path">category</td><td>string</td><td>bmx-20</td><td>Filter by category (bmx-16, bmx-18, bmx-20, bmx-24, bmx-26, bmx-29, electric)</td></tr>
+                    <tr><td class="route-path">brand</td><td>string</td><td>Mongoose</td><td>Filter by brand name</td></tr>
+                    <tr><td class="route-path">minPrice</td><td>number</td><td>100</td><td>Minimum price filter</td></tr>
+                    <tr><td class="route-path">maxPrice</td><td>number</td><td>300</td><td>Maximum price filter</td></tr>
+                    <tr><td class="route-path">tag</td><td>string</td><td>freestyle</td><td>Filter by product tag</td></tr>
+                    <tr><td class="route-path">sort</td><td>string</td><td>rating</td><td>Sort: price_asc, price_desc, rating, reviews</td></tr>
+                    <tr><td class="route-path">limit</td><td>number</td><td>10</td><td>Limit results</td></tr>
+                    <tr><td class="route-path">offset</td><td>number</td><td>0</td><td>Offset for pagination</td></tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: #fff; margin: 2rem 0 1rem;">/api/x402/recommend</h4>
+            <table class="endpoint-table">
+                <thead><tr><th>Param</th><th>Type</th><th>Example</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td class="route-path">age</td><td>string</td><td>adult</td><td>Rider age group: kids, teen, adult</td></tr>
+                    <tr><td class="route-path">budget</td><td>number</td><td>200</td><td>Maximum budget in USD</td></tr>
+                    <tr><td class="route-path">style</td><td>string</td><td>freestyle</td><td>Riding style: freestyle, street, park, cruiser, dirt</td></tr>
+                    <tr><td class="route-path">experience</td><td>string</td><td>intermediate</td><td>Skill level: beginner, intermediate, advanced, pro</td></tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: #fff; margin: 2rem 0 1rem;">/api/x402/compare</h4>
+            <table class="endpoint-table">
+                <thead><tr><th>Param</th><th>Type</th><th>Example</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td class="route-path">ids</td><td>string</td><td>4,5,7</td><td>Comma-separated product IDs (min 2)</td></tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: #fff; margin: 2rem 0 1rem;">/api/x402/search</h4>
+            <table class="endpoint-table">
+                <thead><tr><th>Param</th><th>Type</th><th>Example</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td class="route-path">q</td><td>string</td><td>chromoly freestyle</td><td>Search keywords (space-separated)</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Wallet Info -->
+    <section class="docs-section">
+        <div class="container">
+            <h2><i class="fas fa-wallet"></i> Payment Details</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="wallet-box">
+                        <div class="wallet-label">Payment Network</div>
+                        <h3 style="color: #fff; margin: 0.5rem 0;">Base (Ethereum L2)</h3>
+                        <div class="wallet-label" style="margin-top: 1.5rem;">Currency</div>
+                        <h3 style="color: #fff; margin: 0.5rem 0;">USDC</h3>
+                        <div class="wallet-label" style="margin-top: 1.5rem;">Wallet Address</div>
+                        <div class="wallet-address" id="wallet-addr">Configure via /api/pricing endpoint</div>
+                        <div class="wallet-label" style="margin-top: 1.5rem;">Facilitator</div>
+                        <h4 style="color: #ccc; margin: 0.5rem 0;">Coinbase Developer Platform</h4>
+                        <p style="color: #666; margin-top: 1rem; font-size: 0.9rem;">
+                            Payment verification is handled by Coinbase's hosted facilitator.
+                            Fee-free USDC settlement. 1,000 free verifications/month.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="docs-footer">
+        <div class="container">
+            <p><strong>VelocityVault</strong> &mdash; x402 Agent Marketplace</p>
+            <p style="font-size: 0.85rem;">Protocol: <a href="https://www.x402.org" style="color: #ff6b35;">x402.org</a> | Powered by USDC on Base</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Fetch live wallet address from the pricing endpoint
+        fetch('/api/pricing')
+            .then(r => r.json())
+            .then(data => {
+                const el = document.getElementById('wallet-addr');
+                if (data.payment_address && data.payment_address !== '0x0000000000000000000000000000000000000000') {
+                    el.textContent = data.payment_address;
+                }
+            })
+            .catch(() => {});
+    </script>
+</body>
+</html>

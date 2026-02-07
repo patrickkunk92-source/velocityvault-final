@@ -1,0 +1,24 @@
+{
+  "name": "velocityvault-x402",
+  "version": "1.0.0",
+  "description": "VelocityVault x402 monetization server - AI agent payment gateway for BMX bike data APIs",
+  "main": "server/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "start:static": "npx serve . -p 3001"
+  },
+  "dependencies": {
+    "x402-express": "^0.1.0",
+    "@coinbase/x402": "^0.1.0",
+    "express": "^4.21.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0",
+    "helmet": "^8.0.0",
+    "morgan": "^1.10.0",
+    "ethers": "^6.13.0"
+  },
+  "keywords": ["x402", "ai-agent", "payments", "bmx", "bikes", "api", "monetization"],
+  "license": "MIT"
+}
