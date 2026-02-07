@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop BMX & E-Bikes on Amazon | VelocityVault</title>
-    <meta name="description" content="Browse 19 BMX bikes and SURRON-style e-bikes. Top-rated products at the best prices.">
+    <title>Shop Bikes, Gear & Accessories on Amazon | VelocityVault</title>
+    <meta name="description" content="Browse 37 BMX bikes, e-bikes, helmets, gloves, and rider accessories. Top-rated products at the best prices.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -308,6 +308,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html?category=gear">Gear</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
@@ -319,7 +320,7 @@
     <section class="page-header">
         <div class="container">
             <h1>Shop All Products</h1>
-            <p>19 top-rated bikes for every rider and budget</p>
+            <p>37 top-rated bikes, gear, and accessories for every rider</p>
         </div>
     </section>
 
@@ -328,9 +329,13 @@
         <div class="container">
             <div class="filter-label">Filter by Category</div>
             <div>
-                <button class="filter-btn active" onclick="filterCategory('all')">All Products (19)</button>
+                <button class="filter-btn active" onclick="filterCategory('all')">All Products (37)</button>
                 <button class="filter-btn" onclick="filterCategory('bmx')">BMX Bikes (14)</button>
                 <button class="filter-btn" onclick="filterCategory('ebike')">E-Bikes (5)</button>
+                <button class="filter-btn" onclick="filterCategory('helmets')">Helmets (6)</button>
+                <button class="filter-btn" onclick="filterCategory('gloves')">Gloves (6)</button>
+                <button class="filter-btn" onclick="filterCategory('accessories')">Accessories (6)</button>
+                <button class="filter-btn" onclick="filterCategory('gear')">All Gear (18)</button>
             </div>
         </div>
     </section>
@@ -356,6 +361,33 @@
                 <div id="ebike-products" class="row g-4"></div>
             </div>
 
+            <!-- HELMETS SECTION -->
+            <div id="helmets-section" class="category-section" style="margin-top: 4rem;">
+                <div class="section-header">
+                    <h2 class="section-title">🛡️ Helmets</h2>
+                    <p class="section-subtitle">BMX, skate, full-face, and multi-sport helmets</p>
+                </div>
+                <div id="helmets-products" class="row g-4"></div>
+            </div>
+
+            <!-- GLOVES SECTION -->
+            <div id="gloves-section" class="category-section" style="margin-top: 4rem;">
+                <div class="section-header">
+                    <h2 class="section-title">🧤 Gloves</h2>
+                    <p class="section-subtitle">Half-finger and full-finger cycling gloves</p>
+                </div>
+                <div id="gloves-products" class="row g-4"></div>
+            </div>
+
+            <!-- ACCESSORIES SECTION -->
+            <div id="accessories-section" class="category-section" style="margin-top: 4rem;">
+                <div class="section-header">
+                    <h2 class="section-title">🔧 Accessories</h2>
+                    <p class="section-subtitle">Locks, lights, tools, bags, and essentials</p>
+                </div>
+                <div id="accessories-products" class="row g-4"></div>
+            </div>
+
             <div id="no-products" class="no-products">
                 <h3>No products found</h3>
                 <p>Try selecting a different category.</p>
@@ -369,14 +401,15 @@
             <div class="row mb-4">
                 <div class="col-md-4">
                     <h5>VelocityVault</h5>
-                    <p>Premium BMX & E-Bike affiliate marketplace. Shop curated bikes at the best prices.</p>
+                    <p>Bikes, gear, and accessories for every rider. Shop curated products at the best prices.</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Shop</h5>
                     <ul>
-                        <li><a href="products.html">All Products (19)</a></li>
+                        <li><a href="products.html">All Products (37)</a></li>
                         <li><a href="products.html?category=bmx">BMX Bikes (14)</a></li>
                         <li><a href="products.html?category=ebike">E-Bikes (5)</a></li>
+                        <li><a href="products.html?category=gear">Gear & Accessories (18)</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -399,7 +432,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const AMAZON_STOREID = 'bicycles0b3-20';
-        
+
         const bmxProducts = [
             {id:1, brand:'WEIZE', name:'WEIZE Freestyle BMX Bike 20"', category:'bmx', price:109.99, asin:'B0F9WZ75SB', image:'https://m.media-amazon.com/images/I/711JPV27c7L._AC_SY300_SX300_QL70_FMwebp_.jpg'},
             {id:2, brand:'JOYSTAR', name:'JOYSTAR Brockway Freestyle Kids BMX 20"', category:'bmx', price:129.99, asin:'B0CNK4RSP3', image:'https://m.media-amazon.com/images/I/717BGgvgpaL._AC_SY300_SX300_QL70_FMwebp_.jpg'},
@@ -425,22 +458,50 @@
             {id:19, brand:'TST', name:'TST Electric Dirt Bike 1500W 20" Fat Tire 60/110 Miles', category:'ebike', price:649.99, asin:'B0FS6BXP1P', image:'https://m.media-amazon.com/images/I/81eEJMRDiAL._AC_SY300_SX300_QL70_FMwebp_.jpg'},
         ];
 
-        const allProducts = [...bmxProducts, ...ebikeProducts];
+        const helmetProducts = [
+            {id:20, brand:'Triple Eight', name:'Triple Eight Certified Sweatsaver Helmet', category:'helmets', price:49.99, asin:'B0CZ83SW23', image:'https://m.media-amazon.com/images/I/71LjxSoFhEL._AC_SL1500_.jpg'},
+            {id:21, brand:'OutdoorMaster', name:'OutdoorMaster Skateboard Cycling Helmet', category:'helmets', price:21.99, asin:'B0D3HXTRB3', image:'https://m.media-amazon.com/images/I/71SjMuShopping5L._AC_SL1500_.jpg'},
+            {id:22, brand:'JBM', name:'JBM Adult Cycling Bike Helmet with Visor', category:'helmets', price:24.98, asin:'B01KJQ5L26', image:'https://m.media-amazon.com/images/I/71+8V2GphkL._AC_SL1500_.jpg'},
+            {id:23, brand:'Bell', name:'Bell Sanction 2 Full Face BMX Helmet', category:'helmets', price:119.95, asin:'B0CKRY35P3', image:'https://m.media-amazon.com/images/I/71BzpSiNp4L._AC_SL1500_.jpg'},
+            {id:24, brand:'Giro', name:'Giro Quarter MIPS Urban Bike Helmet', category:'helmets', price:59.99, asin:'B0DXV4VJ2R', image:'https://m.media-amazon.com/images/I/71WbgR9FA6L._AC_SL1500_.jpg'},
+            {id:25, brand:'OutdoorMaster', name:'OutdoorMaster Youth & Kids Bike Helmet', category:'helmets', price:19.99, asin:'B0D572BQFT', image:'https://m.media-amazon.com/images/I/71pDq6tM4BL._AC_SL1500_.jpg'},
+        ];
+
+        const gloveProducts = [
+            {id:26, brand:'COFIT', name:'COFIT Anti-Slip Cycling Gloves', category:'gloves', price:15.99, asin:'B08ZMY8GN5', image:'https://m.media-amazon.com/images/I/71TzCvJcG5L._AC_SL1500_.jpg'},
+            {id:27, brand:'Giro', name:'Giro DND Mountain Cycling Gloves', category:'gloves', price:19.95, asin:'B009RGOZCC', image:'https://m.media-amazon.com/images/I/71Y9FVBxHrL._AC_SL1500_.jpg'},
+            {id:28, brand:'Seibertron', name:'Seibertron Dirtpaw BMX Racing Gloves', category:'gloves', price:19.50, asin:'B00IF0UI22', image:'https://m.media-amazon.com/images/I/81aQBJlXD2L._AC_SL1500_.jpg'},
+            {id:29, brand:'MOREOK', name:'MOREOK Cycling Gloves 5MM Gel Pad', category:'gloves', price:13.99, asin:'B07NV6C38G', image:'https://m.media-amazon.com/images/I/71nA7MMjSTL._AC_SL1500_.jpg'},
+            {id:30, brand:'HTZPLOO', name:'HTZPLOO Half Finger Bike Gloves', category:'gloves', price:12.99, asin:'B095KTQJX7', image:'https://m.media-amazon.com/images/I/71z3TTwBEaL._AC_SL1500_.jpg'},
+            {id:31, brand:'LuxoBike', name:'LuxoBike Padded Half Finger Bike Gloves', category:'gloves', price:15.99, asin:'B081R1916S', image:'https://m.media-amazon.com/images/I/81YxR4Up1jL._AC_SL1500_.jpg'},
+        ];
+
+        const accessoryProducts = [
+            {id:32, brand:'BIKEHAND', name:'BIKEHAND 18 Piece Bike Repair Tool Kit', category:'accessories', price:89.99, asin:'B00CW911XW', image:'https://m.media-amazon.com/images/I/81LbNiSy+jL._AC_SL1500_.jpg'},
+            {id:33, brand:'BLITZU', name:'BLITZU USB-C Rechargeable Bike Light Set', category:'accessories', price:19.99, asin:'B014QEWX2I', image:'https://m.media-amazon.com/images/I/71nJ+jPaSQL._AC_SL1500_.jpg'},
+            {id:34, brand:'Kryptonite', name:'Kryptonite Evolution Mini-7 U-Lock with Cable', category:'accessories', price:73.30, asin:'B06XZT8KZ1', image:'https://m.media-amazon.com/images/I/71tXRHxpURL._AC_SL1500_.jpg'},
+            {id:35, brand:'ROCKBROS', name:'ROCKBROS 3D Shell Bike Saddle Bag', category:'accessories', price:15.99, asin:'B075CZ1JVR', image:'https://m.media-amazon.com/images/I/71gRvDEvL8L._AC_SL1500_.jpg'},
+            {id:36, brand:'Accmor', name:'Accmor Classic Aluminum Bike Bell', category:'accessories', price:8.99, asin:'B0B9JF13CN', image:'https://m.media-amazon.com/images/I/71sN2BTZTKL._AC_SL1500_.jpg'},
+            {id:37, brand:'PRO BIKE TOOL', name:'PRO BIKE TOOL Water Bottle Cage', category:'accessories', price:14.95, asin:'B01K2BOUN4', image:'https://m.media-amazon.com/images/I/71q9GxH+Q4L._AC_SL1500_.jpg'},
+        ];
+
+        const allProducts = [...bmxProducts, ...ebikeProducts, ...helmetProducts, ...gloveProducts, ...accessoryProducts];
+
+        const categories = ['bmx', 'ebike', 'helmets', 'gloves', 'accessories'];
+        const gearCategories = ['helmets', 'gloves', 'accessories'];
 
         function renderProductCards(products) {
             return products.map(p => `
                 <div class="col-md-6 col-lg-4">
                     <div class="product-card">
                         <div class="product-image">
-                            <div class="product-badge">✓ Verified</div>
-                            <img src="${p.image}" alt="${p.name}">
+                            <img src="${p.image}" alt="${p.name}" onerror="this.src='https://m.media-amazon.com/images/I/71GTXsX9msL._AC_SY300_SX300_QL70_FMwebp_.jpg'">
                         </div>
                         <div class="product-body">
                             <h3 class="product-name">${p.name}</h3>
-                            <p class="product-price">$${p.price}</p>
-                            <p class="product-verified"><i class="fas fa-check-circle"></i> Verified on Amazon</p>
-                            <a href="https://www.amazon.com/dp/${p.asin}/?tag=${AMAZON_STOREID}" 
-                               target="_blank" 
+                            <p class="product-price">$${p.price.toFixed(2)}</p>
+                            <a href="https://www.amazon.com/dp/${p.asin}/?tag=${AMAZON_STOREID}"
+                               target="_blank"
                                rel="noopener noreferrer"
                                class="btn-view-amazon">
                                 <i class="fas fa-shopping-cart"></i> View on Amazon
@@ -452,29 +513,36 @@
         }
 
         function filterCategory(category) {
-            let filtered = allProducts;
-            
-            if (category !== 'all') {
-                filtered = allProducts.filter(p => p.category === category);
-            }
-            
-            const bmxFiltered = filtered.filter(p => p.category === 'bmx');
-            const ebikeFiltered = filtered.filter(p => p.category === 'ebike');
-            
-            document.getElementById('bmx-products').innerHTML = renderProductCards(bmxFiltered);
-            document.getElementById('ebike-products').innerHTML = renderProductCards(ebikeFiltered);
-            
-            // Show/hide sections
-            document.getElementById('bmx-section').style.display = (category === 'all' || category === 'bmx') ? 'block' : 'none';
-            document.getElementById('ebike-section').style.display = (category === 'all' || category === 'ebike') ? 'block' : 'none';
+            const showAll = category === 'all';
+            const showGear = category === 'gear';
+
+            categories.forEach(cat => {
+                const section = document.getElementById(cat + '-section');
+                const container = document.getElementById(cat + '-products');
+                if (!section || !container) return;
+
+                let show = false;
+                if (showAll) show = true;
+                else if (showGear && gearCategories.includes(cat)) show = true;
+                else if (category === cat) show = true;
+
+                section.style.display = show ? 'block' : 'none';
+                if (show) {
+                    const products = allProducts.filter(p => p.category === cat);
+                    container.innerHTML = renderProductCards(products);
+                }
+            });
 
             // Update filter buttons
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`.filter-btn[onclick="filterCategory('${category}')"]`).classList.add('active');
+            const activeBtn = document.querySelector(`.filter-btn[onclick="filterCategory('${category}')"]`);
+            if (activeBtn) activeBtn.classList.add('active');
         }
 
-        // Initial render
-        filterCategory('all');
+        // Handle URL query params (e.g. ?category=gear)
+        const urlParams = new URLSearchParams(window.location.search);
+        const startCategory = urlParams.get('category') || 'all';
+        filterCategory(startCategory);
     </script>
 </body>
 </html>

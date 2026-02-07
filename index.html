@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop the Best BMX & E-Bikes on Amazon | VelocityVault</title>
-    <meta name="description" content="Shop curated BMX bikes, e-bikes, and electric dirt bikes on Amazon. Top-rated products at the best prices.">
+    <title>Shop Bikes, Helmets, Gloves & Rider Gear on Amazon | VelocityVault</title>
+    <meta name="description" content="Shop curated BMX bikes, e-bikes, helmets, gloves, and rider accessories on Amazon. 37 top-rated products at the best prices.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -51,24 +51,110 @@
 
         /* ===== HERO SECTION ===== */
         .hero-section {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 40%, #2a1a0f 100%);
             color: white;
-            padding: 120px 0;
+            padding: 140px 0 120px;
             text-align: center;
             margin-top: 60px;
             position: relative;
             overflow: hidden;
         }
 
+        /* Animated canvas background */
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        /* Animated gradient overlay that shifts */
         .hero-section::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(255, 107, 53, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(247, 147, 30, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(255, 60, 20, 0.06) 0%, transparent 50%);
+            animation: gradientShift 8s ease-in-out infinite alternate;
+            z-index: 1;
+        }
+
+        @keyframes gradientShift {
+            0% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.7; transform: scale(1.02); }
+        }
+
+        /* Floating bike wheel outlines */
+        .hero-wheel {
+            position: absolute;
+            border: 2px solid rgba(255, 107, 53, 0.08);
             border-radius: 50%;
+            z-index: 1;
+        }
+        .hero-wheel::before,
+        .hero-wheel::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: rgba(255, 107, 53, 0.06);
+        }
+        .hero-wheel::before {
+            width: 100%;
+            height: 2px;
+            transform: translate(-50%, -50%);
+            animation: spokeSpin 12s linear infinite;
+            transform-origin: center;
+        }
+        .hero-wheel::after {
+            width: 2px;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            animation: spokeSpin 12s linear infinite;
+            transform-origin: center;
+        }
+        @keyframes spokeSpin {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .wheel-1 {
+            width: 300px; height: 300px;
+            top: -60px; right: -80px;
+            animation: wheelFloat 20s ease-in-out infinite, spokeSpin 25s linear infinite;
+        }
+        .wheel-2 {
+            width: 200px; height: 200px;
+            bottom: -40px; left: -60px;
+            animation: wheelFloat 15s ease-in-out infinite reverse, spokeSpin 18s linear infinite reverse;
+        }
+        .wheel-3 {
+            width: 150px; height: 150px;
+            top: 30%; left: 8%;
+            animation: wheelFloat 18s ease-in-out infinite 3s, spokeSpin 22s linear infinite;
+            opacity: 0.5;
+        }
+        .wheel-4 {
+            width: 120px; height: 120px;
+            bottom: 20%; right: 12%;
+            animation: wheelFloat 22s ease-in-out infinite 5s, spokeSpin 15s linear infinite reverse;
+            opacity: 0.4;
+        }
+
+        @keyframes wheelFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            50% { transform: translateY(10px) rotate(-3deg); }
+            75% { transform: translateY(-8px) rotate(2deg); }
         }
 
         .hero-content {
@@ -418,6 +504,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html?category=gear">Gear</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
@@ -427,13 +514,18 @@
 
     <!-- HERO SECTION -->
     <section class="hero-section">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-wheel wheel-1"></div>
+        <div class="hero-wheel wheel-2"></div>
+        <div class="hero-wheel wheel-3"></div>
+        <div class="hero-wheel wheel-4"></div>
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Shop the Best Bikes & E-Bikes on Amazon</h1>
-                <p class="hero-subtitle">Top BMX, electric dirt bikes, and more — curated for riders at the best prices.</p>
+                <h1 class="hero-title">Bikes, Gear & Everything You Ride With</h1>
+                <p class="hero-subtitle">BMX, e-bikes, helmets, gloves, and rider accessories — curated for riders at the best prices.</p>
                 <div class="hero-buttons">
-                    <a href="bmx-bikes.html" class="btn-primary-cta">🚲 Shop BMX Bikes</a>
-                    <a href="electric-bikes.html" class="btn-secondary-cta">⚡ Shop E-Bikes</a>
+                    <a href="products.html" class="btn-primary-cta">Shop All Gear</a>
+                    <a href="products.html?category=helmets" class="btn-secondary-cta">Helmets & Protection</a>
                 </div>
             </div>
         </div>
@@ -505,7 +597,7 @@
             </div>
 
             <div style="text-align: center; margin-top: 3rem;">
-                <a href="products.html" class="btn-primary-cta">View All 19 Products →</a>
+                <a href="products.html" class="btn-primary-cta">View All 37 Products →</a>
             </div>
         </div>
     </section>
@@ -577,6 +669,74 @@
         </div>
     </section>
 
+    <!-- GEAR & ACCESSORIES -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">🛡️ New</span>
+                <h2 class="section-title">Rider Gear & Accessories</h2>
+                <p class="section-subtitle">Helmets, gloves, and essentials every rider needs</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-badge">Best Seller</div>
+                            <img src="https://m.media-amazon.com/images/I/71LjxSoFhEL._AC_SL1500_.jpg" alt="Triple Eight Sweatsaver Helmet">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">Triple Eight Certified Sweatsaver Helmet</h3>
+                            <p class="product-benefit">#1 BMX/skate helmet — dual certified with moisture-wicking liner</p>
+                            <p class="product-price">$49.99</p>
+                            <a href="https://www.amazon.com/dp/B0CZ83SW23/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-view-amazon">
+                                <i class="fas fa-shopping-cart"></i> View on Amazon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-badge">Top Rated</div>
+                            <img src="https://m.media-amazon.com/images/I/71z3TTwBEaL._AC_SL1500_.jpg" alt="HTZPLOO Bike Gloves">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">HTZPLOO Half Finger Bike Gloves</h3>
+                            <p class="product-benefit">Anti-slip shock-absorbing — 7,500+ reviews</p>
+                            <p class="product-price">$12.99</p>
+                            <a href="https://www.amazon.com/dp/B095KTQJX7/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-view-amazon">
+                                <i class="fas fa-shopping-cart"></i> View on Amazon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-badge">Essential</div>
+                            <img src="https://m.media-amazon.com/images/I/71nJ+jPaSQL._AC_SL1500_.jpg" alt="Kryptonite U-Lock">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">Kryptonite Evolution Mini-7 U-Lock</h3>
+                            <p class="product-benefit">13mm hardened steel — includes 4ft cable & 3 keys</p>
+                            <p class="product-price">$73.30</p>
+                            <a href="https://www.amazon.com/dp/B06XZT8KZ1/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-view-amazon">
+                                <i class="fas fa-shopping-cart"></i> View on Amazon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="products.html?category=gear" class="btn-primary-cta">View All Gear & Accessories →</a>
+            </div>
+        </div>
+    </section>
+
     <!-- WHY VELOCITYVAULT -->
     <section class="why-section">
         <div class="container">
@@ -623,7 +783,7 @@
     <section class="cta-section">
         <div class="container">
             <h2>Ready to Ride?</h2>
-            <p>Browse our full catalog of 19 verified BMX bikes and e-bikes.</p>
+            <p>Browse our full catalog of 37 bikes, gear, and accessories.</p>
             <a href="products.html" class="btn-primary-cta" style="background: white; color: #ff6b35;">Shop All Bikes Now →</a>
         </div>
     </section>
@@ -634,14 +794,17 @@
             <div class="row mb-4">
                 <div class="col-md-4">
                     <h5>VelocityVault</h5>
-                    <p>Premium BMX & E-Bike affiliate marketplace. Shop curated bikes at the best prices.</p>
+                    <p>Bikes, gear, and accessories for every rider. Shop curated products at the best prices.</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Shop</h5>
                     <ul>
-                        <li><a href="products.html">All Products (19)</a></li>
+                        <li><a href="products.html">All Products (37)</a></li>
                         <li><a href="products.html?category=bmx">BMX Bikes (14)</a></li>
                         <li><a href="products.html?category=ebike">E-Bikes (5)</a></li>
+                        <li><a href="products.html?category=helmets">Helmets (6)</a></li>
+                        <li><a href="products.html?category=gloves">Gloves (6)</a></li>
+                        <li><a href="products.html?category=accessories">Accessories (6)</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -665,5 +828,91 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // === Animated Hero Background — speed lines + sparks ===
+    (function() {
+        const canvas = document.getElementById('hero-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let w, h, particles = [], sparks = [];
+
+        function resize() {
+            const hero = canvas.parentElement;
+            w = canvas.width = hero.offsetWidth;
+            h = canvas.height = hero.offsetHeight;
+        }
+
+        class SpeedLine {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * w;
+                this.y = Math.random() * h;
+                this.len = Math.random() * 80 + 30;
+                this.speed = Math.random() * 2 + 1;
+                this.opacity = Math.random() * 0.15 + 0.03;
+                this.angle = -0.3 + Math.random() * 0.1;
+            }
+            update() {
+                this.x += Math.cos(this.angle) * this.speed;
+                this.y += Math.sin(this.angle) * this.speed;
+                if (this.x > w + 100 || this.y > h + 100) this.reset();
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x - Math.cos(this.angle) * this.len, this.y - Math.sin(this.angle) * this.len);
+                ctx.strokeStyle = `rgba(255, 107, 53, ${this.opacity})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+        }
+
+        class Spark {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * w;
+                this.y = Math.random() * h;
+                this.r = Math.random() * 2 + 0.5;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = -Math.random() * 0.5 - 0.1;
+                this.opacity = Math.random() * 0.5 + 0.2;
+                this.life = Math.random() * 200 + 100;
+                this.maxLife = this.life;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.life--;
+                this.opacity = (this.life / this.maxLife) * 0.5;
+                if (this.life <= 0) this.reset();
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 140, 50, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            resize();
+            particles = [];
+            sparks = [];
+            for (let i = 0; i < 40; i++) particles.push(new SpeedLine());
+            for (let i = 0; i < 25; i++) sparks.push(new Spark());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, w, h);
+            particles.forEach(p => { p.update(); p.draw(); });
+            sparks.forEach(s => { s.update(); s.draw(); });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => { resize(); });
+        init();
+        animate();
+    })();
+    </script>
 </body>
 </html>
