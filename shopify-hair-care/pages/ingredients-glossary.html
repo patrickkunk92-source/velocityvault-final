@@ -1,0 +1,679 @@
+<!-- CrownKinetics Ingredients Glossary Page -->
+<!-- Shopify Page Template: page.ingredients-glossary -->
+
+<style>
+  :root {
+    --ck-brown: #5C3A1E;
+    --ck-brown-light: #8B6914;
+    --ck-gold: #C5960C;
+    --ck-gold-light: #D4AF37;
+    --ck-gold-pale: #F5E6B8;
+    --ck-purple: #2D1B4E;
+    --ck-purple-mid: #4A2C6A;
+    --ck-purple-light: #7B5EA7;
+    --ck-charcoal: #2C2C2C;
+    --ck-charcoal-light: #444444;
+    --ck-cream: #FDF8F0;
+    --ck-white: #FFFFFF;
+  }
+
+  .ck-glossary-page {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--ck-charcoal);
+    line-height: 1.8;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .ck-glossary-page * {
+    box-sizing: border-box;
+  }
+
+  /* Hero */
+  .ck-glossary-hero {
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-brown) 100%);
+    color: var(--ck-cream);
+    text-align: center;
+    padding: 80px 20px 60px;
+  }
+
+  .ck-glossary-hero h1 {
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ck-gold-light);
+    margin: 0 0 15px;
+  }
+
+  .ck-glossary-hero p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    color: var(--ck-gold-pale);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .ck-gold-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--ck-gold-light), transparent);
+    margin: 25px auto;
+    border: none;
+  }
+
+  /* Search & Filter */
+  .ck-glossary-controls {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 20px;
+  }
+
+  .ck-search-row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .ck-search-input-wrap {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+  }
+
+  .ck-search-input-wrap input {
+    width: 100%;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 15px;
+    padding: 16px 20px 16px 50px;
+    border: 2px solid rgba(197,150,12,0.25);
+    border-radius: 10px;
+    background: var(--ck-white);
+    color: var(--ck-charcoal);
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .ck-search-input-wrap input:focus {
+    border-color: var(--ck-gold-light);
+    box-shadow: 0 0 0 4px rgba(212,175,55,0.12);
+  }
+
+  .ck-search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .ck-filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ck-filter-btn {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border: 1px solid rgba(197,150,12,0.3);
+    border-radius: 25px;
+    background: var(--ck-white);
+    color: var(--ck-charcoal-light);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .ck-filter-btn:hover,
+  .ck-filter-btn.ck-active {
+    background: var(--ck-purple);
+    color: var(--ck-gold-light);
+    border-color: var(--ck-purple);
+  }
+
+  .ck-results-count {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 13px;
+    color: var(--ck-charcoal-light);
+    padding: 15px 0 0;
+  }
+
+  /* Ingredient Cards */
+  .ck-glossary-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 20px 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+  }
+
+  .ck-ingredient-card {
+    background: var(--ck-white);
+    border: 1px solid rgba(197,150,12,0.15);
+    border-radius: 12px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ck-ingredient-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--ck-purple), var(--ck-gold-light));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .ck-ingredient-card:hover {
+    border-color: var(--ck-gold-light);
+    box-shadow: 0 8px 30px rgba(45,27,78,0.08);
+    transform: translateY(-3px);
+  }
+
+  .ck-ingredient-card:hover::before {
+    opacity: 1;
+  }
+
+  .ck-ingredient-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 10px;
+  }
+
+  .ck-ingredient-card h3 {
+    font-size: 22px;
+    color: var(--ck-purple);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .ck-ingredient-category {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ck-white);
+    background: var(--ck-purple-mid);
+    padding: 4px 10px;
+    border-radius: 15px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .ck-ingredient-source {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    color: var(--ck-gold);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .ck-ingredient-card p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--ck-charcoal-light);
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+
+  .ck-ingredient-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 15px;
+  }
+
+  .ck-benefit-tag {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--ck-cream);
+    color: var(--ck-purple);
+    border: 1px solid rgba(197,150,12,0.15);
+  }
+
+  .ck-ingredient-hairtypes {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    color: var(--ck-charcoal-light);
+  }
+
+  .ck-ingredient-hairtypes strong {
+    color: var(--ck-brown);
+  }
+
+  .ck-no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .ck-no-results h3 {
+    font-size: 26px;
+    color: var(--ck-purple);
+    margin-bottom: 10px;
+  }
+
+  .ck-no-results p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 15px;
+    color: var(--ck-charcoal-light);
+  }
+
+  @media (max-width: 700px) {
+    .ck-glossary-hero h1 { font-size: 32px; }
+    .ck-glossary-grid { grid-template-columns: 1fr; }
+    .ck-search-row { flex-direction: column; }
+    .ck-search-input-wrap { min-width: 100%; }
+  }
+</style>
+
+<div class="ck-glossary-page">
+
+  <!-- Hero -->
+  <section class="ck-glossary-hero">
+    <h1>Ingredients Glossary</h1>
+    <hr class="ck-gold-divider">
+    <p>
+      Transparency is our promise. Explore the botanicals, oils, butters, and extracts
+      we use in every CrownKinetics formula &mdash; and learn exactly why each one earns
+      its place in your crown care.
+    </p>
+  </section>
+
+  <!-- Search & Filter Controls -->
+  <div class="ck-glossary-controls">
+    <div class="ck-search-row">
+      <div class="ck-search-input-wrap">
+        <svg class="ck-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7B5EA7" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="ckIngredientSearch" placeholder="Search ingredients by name or benefit..." oninput="ckFilterIngredients()">
+      </div>
+      <div class="ck-filter-buttons" id="ckFilterButtons">
+        <button class="ck-filter-btn ck-active" data-filter="all" onclick="ckSetFilter(this, 'all')">All</button>
+        <button class="ck-filter-btn" data-filter="oil" onclick="ckSetFilter(this, 'oil')">Oils</button>
+        <button class="ck-filter-btn" data-filter="butter" onclick="ckSetFilter(this, 'butter')">Butters</button>
+        <button class="ck-filter-btn" data-filter="botanical" onclick="ckSetFilter(this, 'botanical')">Botanicals</button>
+        <button class="ck-filter-btn" data-filter="protein" onclick="ckSetFilter(this, 'protein')">Proteins</button>
+        <button class="ck-filter-btn" data-filter="extract" onclick="ckSetFilter(this, 'extract')">Extracts</button>
+      </div>
+    </div>
+    <p class="ck-results-count" id="ckResultsCount">Showing all 35 ingredients</p>
+  </div>
+
+  <!-- Ingredients Grid -->
+  <div class="ck-glossary-grid" id="ckGlossaryGrid">
+  </div>
+
+</div>
+
+<script>
+(function() {
+
+  var ingredients = [
+    {
+      name: 'Shea Butter',
+      category: 'butter',
+      source: 'Vitellaria paradoxa tree, West Africa (Ghana)',
+      description: 'A rich, ivory-colored fat extracted from the nuts of the shea tree. Our unrefined shea butter is hand-processed by a women-led cooperative in northern Ghana using traditional methods passed down through generations.',
+      benefits: ['Deep Moisture', 'Sealant', 'Anti-Inflammatory', 'UV Protection'],
+      hairTypes: 'All hair types, especially 3C-4C coils and dry, thick strands'
+    },
+    {
+      name: 'Jamaican Black Castor Oil',
+      category: 'oil',
+      source: 'Ricinus communis seeds, Jamaica (St. Thomas Parish)',
+      description: 'Made from roasted castor beans that are then pressed to extract a dark, ash-rich oil. The traditional roasting process gives it a distinctive dark color and smoky scent, and increases the ash content which raises the pH, helping the oil penetrate the hair shaft more effectively.',
+      benefits: ['Growth Stimulation', 'Thickness', 'Scalp Health', 'Strengthening'],
+      hairTypes: 'All types, particularly beneficial for thinning hair and 4A-4C textures'
+    },
+    {
+      name: 'Argan Oil',
+      category: 'oil',
+      source: 'Argania spinosa tree kernels, Morocco',
+      description: 'Cold-pressed from the kernels of the Moroccan argan tree, this lightweight oil is exceptionally rich in vitamin E, essential fatty acids, and antioxidants. It absorbs quickly without leaving a greasy residue.',
+      benefits: ['Shine', 'Frizz Control', 'Heat Protection', 'Lightweight Moisture'],
+      hairTypes: 'All hair types, excellent for fine to medium strands needing shine without weight'
+    },
+    {
+      name: 'Coconut Oil',
+      category: 'oil',
+      source: 'Cocos nucifera, tropical regions (Philippines, Sri Lanka)',
+      description: 'Virgin coconut oil extracted through cold-pressing fresh coconut meat. Its small molecular structure allows it to penetrate the hair shaft more deeply than almost any other oil, reducing protein loss by up to 39%.',
+      benefits: ['Protein Protection', 'Deep Penetration', 'Moisture Seal', 'Antibacterial'],
+      hairTypes: 'Best for medium to high porosity hair. Low porosity hair may experience buildup.'
+    },
+    {
+      name: 'Jojoba Oil',
+      category: 'oil',
+      source: 'Simmondsia chinensis seeds, North America',
+      description: 'Technically a liquid wax rather than an oil, jojoba closely mimics human sebum. This makes it an exceptional scalp balancer that moisturizes without clogging follicles or disrupting natural oil production.',
+      benefits: ['Scalp Balance', 'Sebum Regulation', 'Lightweight Moisture', 'Non-Comedogenic'],
+      hairTypes: 'All types. Especially beneficial for oily scalps and low-porosity hair.'
+    },
+    {
+      name: 'Avocado Oil',
+      category: 'oil',
+      source: 'Persea americana fruit, Central America',
+      description: 'Cold-pressed from the flesh of ripe avocados, this nutrient-dense oil is rich in oleic acid, vitamins A, D, and E, and plant sterols. It penetrates deeply and strengthens from within.',
+      benefits: ['Deep Penetration', 'Strengthening', 'Elasticity', 'Vitamin Rich'],
+      hairTypes: 'Medium to thick strands, high porosity, 3B-4C textures'
+    },
+    {
+      name: 'Tea Tree Oil',
+      category: 'botanical',
+      source: 'Melaleuca alternifolia leaves, Australia',
+      description: 'Steam-distilled from the leaves of the Australian tea tree, this potent essential oil has powerful antimicrobial and antifungal properties. It cleanses the scalp, unclogs follicles, and helps combat dandruff at its source.',
+      benefits: ['Antimicrobial', 'Dandruff Control', 'Scalp Cleansing', 'Follicle Health'],
+      hairTypes: 'All types, especially those with dandruff, itchy scalp, or buildup issues'
+    },
+    {
+      name: 'Rosemary Essential Oil',
+      category: 'botanical',
+      source: 'Rosmarinus officinalis, Mediterranean region',
+      description: 'Clinical studies show rosemary oil performs comparably to minoxidil for stimulating hair growth. It increases blood circulation to the scalp, strengthens follicles, and may help slow premature graying.',
+      benefits: ['Growth Stimulation', 'Circulation', 'Follicle Strength', 'Anti-Thinning'],
+      hairTypes: 'All types. Particularly valuable for those experiencing thinning or slow growth.'
+    },
+    {
+      name: 'Aloe Vera',
+      category: 'botanical',
+      source: 'Aloe barbadensis miller plant, North Africa',
+      description: 'The inner gel of the aloe leaf contains over 75 active compounds including vitamins, minerals, enzymes, and amino acids. Its pH of 4.5-5.5 closely matches the natural pH of healthy hair, making it an ideal conditioner and detangler.',
+      benefits: ['pH Balance', 'Detangling', 'Scalp Soothing', 'Lightweight Moisture'],
+      hairTypes: 'All types. Essential for low-porosity hair and sensitive scalps.'
+    },
+    {
+      name: 'Rice Water',
+      category: 'extract',
+      source: 'Oryza sativa (fermented), East Asia',
+      description: 'Fermented rice water has been used for centuries by women in Japan, China, and Southeast Asia. The fermentation process increases the concentration of inositol, a carbohydrate that repairs damaged hair and protects it from future damage.',
+      benefits: ['Strengthening', 'Elasticity', 'Shine', 'Damage Repair'],
+      hairTypes: 'All types. Use sparingly on protein-sensitive hair. Excellent for damaged or color-treated hair.'
+    },
+    {
+      name: 'Baobab Oil',
+      category: 'oil',
+      source: 'Adansonia digitata seeds, Sub-Saharan Africa (Senegal)',
+      description: 'Extracted from seeds of the ancient African baobab tree, often called the "Tree of Life." Rich in omega 3, 6, and 9 fatty acids, plus vitamins A, D, E, and F. One of the most nourishing oils found in nature.',
+      benefits: ['Intense Nourishment', 'Elasticity', 'Scalp Healing', 'Softening'],
+      hairTypes: 'All types, especially dry and damaged 4A-4C textures'
+    },
+    {
+      name: 'Mango Butter',
+      category: 'butter',
+      source: 'Mangifera indica seed kernel, India & Southeast Asia',
+      description: 'Extracted from the seed kernel of the mango fruit, this butter is softer and lighter than shea. Rich in oleic and stearic acids, it provides deep conditioning without the heavy feel of heavier butters.',
+      benefits: ['Softening', 'Lightweight Seal', 'Frizz Control', 'Sun Protection'],
+      hairTypes: 'All types. Ideal for medium-density hair that needs moisture without weight.'
+    },
+    {
+      name: 'Cocoa Butter',
+      category: 'butter',
+      source: 'Theobroma cacao seeds, West Africa & South America',
+      description: 'The natural fat extracted from roasted cacao beans. Creates an excellent moisture barrier on the hair shaft, locking in hydration for extended periods. Rich in antioxidants that protect against environmental damage.',
+      benefits: ['Moisture Seal', 'Shine', 'Protection', 'Anti-Breakage'],
+      hairTypes: 'Medium to coarse strands, 3C-4C textures. May be too heavy for fine hair.'
+    },
+    {
+      name: 'Peppermint Oil',
+      category: 'botanical',
+      source: 'Mentha piperita leaves, Europe & North America',
+      description: 'Contains menthol which creates a cooling sensation and increases blood flow to the scalp. A 2014 study published in Toxicological Research found peppermint oil to be more effective than minoxidil in promoting hair growth in animal models.',
+      benefits: ['Scalp Stimulation', 'Cooling', 'Growth Support', 'Itchiness Relief'],
+      hairTypes: 'All types. Excellent for those experiencing scalp tightness or slow growth.'
+    },
+    {
+      name: 'Flaxseed Gel',
+      category: 'botanical',
+      source: 'Linum usitatissimum seeds, various regions',
+      description: 'Created by boiling flaxseeds to extract their natural mucilage, this gel is packed with omega-3 fatty acids and provides strong hold without the drying effects of alcohol-based gels. It defines curls while simultaneously nourishing.',
+      benefits: ['Curl Definition', 'Flexible Hold', 'Omega-3 Rich', 'Anti-Frizz'],
+      hairTypes: 'All curl types for styling. Especially beloved by Type 3 curls for wash-and-go styles.'
+    },
+    {
+      name: 'Marshmallow Root',
+      category: 'botanical',
+      source: 'Althaea officinalis root, Europe',
+      description: 'Contains a high concentration of natural mucilage that provides incredible slip for detangling. Reduces friction between strands during combing, minimizing mechanical breakage. Also soothes an irritated scalp.',
+      benefits: ['Detangling', 'Slip', 'Soothing', 'Softening'],
+      hairTypes: 'All types. Essential for high-density, tightly coiled hair prone to tangles.'
+    },
+    {
+      name: 'Slippery Elm Bark',
+      category: 'botanical',
+      source: 'Ulmus rubra inner bark, North America',
+      description: 'The inner bark of the slippery elm tree produces a mucilage-rich extract that provides exceptional slip and detangling properties. It coats the hair shaft to reduce friction and has anti-inflammatory properties that calm the scalp.',
+      benefits: ['Extreme Slip', 'Detangling', 'Anti-Inflammatory', 'Moisture'],
+      hairTypes: 'Ideal for 4A-4C hair types that need maximum slip for painless detangling.'
+    },
+    {
+      name: 'Sweet Almond Oil',
+      category: 'oil',
+      source: 'Prunus dulcis nuts, Mediterranean & California',
+      description: 'A lightweight, vitamin E-rich oil that smooths the cuticle, adds shine, and improves overall manageability. Its emollient properties help soften the hair and reduce split ends.',
+      benefits: ['Shine', 'Softening', 'Split End Care', 'Emollient'],
+      hairTypes: 'All types. Excellent as a sealing oil for fine to medium strands.'
+    },
+    {
+      name: 'Hydrolyzed Rice Protein',
+      category: 'protein',
+      source: 'Oryza sativa grain, Asia',
+      description: 'Rice protein broken down into smaller molecules that can penetrate the hair cortex. Strengthens from within by filling gaps in the cuticle layer. One of the gentlest proteins available, suitable even for protein-sensitive hair in moderate amounts.',
+      benefits: ['Gentle Strengthening', 'Cuticle Repair', 'Volume', 'Elasticity'],
+      hairTypes: 'All types, including protein-sensitive hair. Ideal for fine, limp strands needing body.'
+    },
+    {
+      name: 'Hydrolyzed Quinoa Protein',
+      category: 'protein',
+      source: 'Chenopodium quinoa seeds, South America (Andes)',
+      description: 'A complete protein containing all essential amino acids. Forms a protective film over the hair that reduces moisture loss and provides heat protection. Rebuilds bonds broken by chemical and thermal processing.',
+      benefits: ['Bond Repair', 'Heat Protection', 'Color Preservation', 'Complete Amino Acids'],
+      hairTypes: 'All types. Excellent for chemically treated, heat-damaged, or color-treated hair.'
+    },
+    {
+      name: 'Silk Amino Acids',
+      category: 'protein',
+      source: 'Bombyx mori silkworm cocoons, Asia',
+      description: 'Derived from the hydrolysis of silk fibers, these small amino acid chains penetrate the hair shaft to improve moisture retention and add a luminous, silky feel. They are among the lightest and most elegant proteins in hair care.',
+      benefits: ['Shine', 'Moisture Retention', 'Smoothing', 'Lightweight Strength'],
+      hairTypes: 'All types. Best for adding shine and softness to any texture without heaviness.'
+    },
+    {
+      name: 'Vegetable Glycerin',
+      category: 'extract',
+      source: 'Plant-derived (coconut, palm, soy)',
+      description: 'A powerful humectant that draws moisture from the air into the hair shaft. In balanced humidity environments, glycerin keeps hair consistently hydrated. Best used in moderate-humidity conditions for optimal results.',
+      benefits: ['Humectant', 'Moisture Attraction', 'Softening', 'Frizz Reduction'],
+      hairTypes: 'All types in moderate humidity. Use caution in very humid or very dry climates.'
+    },
+    {
+      name: 'Neem Oil',
+      category: 'oil',
+      source: 'Azadirachta indica seeds, India & West Africa',
+      description: 'A potent antimicrobial oil used in Ayurvedic medicine for centuries. Contains nimbidin and azadirachtin compounds that fight scalp infections, lice, and dandruff. Also strengthens hair follicles and promotes healthy growth.',
+      benefits: ['Antifungal', 'Scalp Health', 'Dandruff Relief', 'Follicle Strength'],
+      hairTypes: 'All types. Especially valuable for persistent scalp issues and dandruff.'
+    },
+    {
+      name: 'Moringa Oil',
+      category: 'oil',
+      source: 'Moringa oleifera seeds, Sub-Saharan Africa & South Asia',
+      description: 'Known as "Ben Oil" in traditional African hair care, moringa oil contains behenic acid which makes it an excellent detangler and softener. It is also rich in vitamins A and C, zinc, and silica for overall hair strength.',
+      benefits: ['Detangling', 'Softening', 'Nutrient Dense', 'Lightweight'],
+      hairTypes: 'All types. Excellent lightweight oil for daily use on fine to medium strands.'
+    },
+    {
+      name: 'Black Seed Oil (Nigella Sativa)',
+      category: 'oil',
+      source: 'Nigella sativa seeds, Southwest Asia & North Africa',
+      description: 'Revered in many cultures as "the remedy for everything except death." Contains thymoquinone, a powerful anti-inflammatory and antioxidant. Strengthens hair roots, combats hair loss, and promotes thicker growth.',
+      benefits: ['Anti-Hair Loss', 'Anti-Inflammatory', 'Thickness', 'Antioxidant'],
+      hairTypes: 'All types. Particularly beneficial for thinning hair and scalp inflammation.'
+    },
+    {
+      name: 'Agave Nectar',
+      category: 'extract',
+      source: 'Agave tequilana plant, Mexico',
+      description: 'A natural humectant from the agave plant that draws and holds moisture in the hair. Creates exceptional curl definition with flexible hold. Its natural sugars form a light film that combats frizz without crunchiness.',
+      benefits: ['Curl Definition', 'Humectant', 'Flexible Hold', 'Anti-Frizz'],
+      hairTypes: 'All curl types for styling. Excellent for Type 3-4 wash-and-go and twist-out definition.'
+    },
+    {
+      name: 'Kokum Butter',
+      category: 'butter',
+      source: 'Garcinia indica fruit seeds, India (Western Ghats)',
+      description: 'A firm, dry-feeling butter that absorbs faster than shea or cocoa butter. Does not leave a greasy residue and is non-comedogenic, making it ideal for scalp-adjacent application. Excellent emollient properties.',
+      benefits: ['Quick Absorption', 'Non-Greasy Seal', 'Emollient', 'Cell Regeneration'],
+      hairTypes: 'All types. Ideal for those who find shea butter too heavy. Perfect for fine hair.'
+    },
+    {
+      name: 'Castor Oil (Clear)',
+      category: 'oil',
+      source: 'Ricinus communis seeds, India',
+      description: 'Regular cold-pressed castor oil is rich in ricinoleic acid, a rare omega-9 fatty acid with anti-inflammatory properties. Creates a thick coating on strands that seals in moisture and reduces breakage. Excellent scalp oil.',
+      benefits: ['Moisture Seal', 'Anti-Inflammatory', 'Thickness', 'Scalp Nourishment'],
+      hairTypes: 'Medium to coarse strands. May be too heavy for fine hair unless mixed with lighter oils.'
+    },
+    {
+      name: 'Rose Water',
+      category: 'extract',
+      source: 'Rosa damascena petals, Bulgaria & Morocco',
+      description: 'Steam-distilled from fresh rose petals, rose water has a balanced pH that helps maintain the hair cuticle in a smooth, closed position. Mildly astringent, it tones the scalp and adds natural fragrance without synthetic additives.',
+      benefits: ['pH Balance', 'Scalp Toning', 'Refresh', 'Natural Fragrance'],
+      hairTypes: 'All types. Perfect as a daily refresher and in leave-in formulas.'
+    },
+    {
+      name: 'Apple Cider Vinegar',
+      category: 'extract',
+      source: 'Fermented apple juice, various regions',
+      description: 'A natural clarifier that removes product buildup and mineral deposits. Its acidity (pH 2.5-3.0) helps smooth and close the hair cuticle when used diluted as a rinse, resulting in increased shine and reduced tangles.',
+      benefits: ['Clarifying', 'Cuticle Smoothing', 'Buildup Removal', 'Shine'],
+      hairTypes: 'All types as an occasional clarifying treatment. Beneficial for high-porosity and buildup-prone hair.'
+    },
+    {
+      name: 'Vitamin E (Tocopherol)',
+      category: 'extract',
+      source: 'Plant-derived (sunflower, wheat germ, almond)',
+      description: 'A potent antioxidant that protects hair from free radical damage and environmental stress. Also serves as a natural preservative in formulations, extending shelf life without synthetic chemicals. Improves scalp circulation when applied topically.',
+      benefits: ['Antioxidant', 'Natural Preservative', 'Scalp Circulation', 'Damage Prevention'],
+      hairTypes: 'All types. A universal ingredient beneficial in any hair care regimen.'
+    },
+    {
+      name: 'Hibiscus Extract',
+      category: 'botanical',
+      source: 'Hibiscus rosa-sinensis flowers, tropical regions',
+      description: 'Known as the "flower of hair care" in Ayurvedic tradition. Rich in amino acids, vitamin C, and alpha-hydroxy acids that stimulate blood flow to the scalp, promote hair growth, and help prevent premature graying. Also adds natural shine.',
+      benefits: ['Growth Support', 'Anti-Graying', 'Shine', 'AHA Exfoliation'],
+      hairTypes: 'All types. Especially beneficial for mature hair and those concerned about graying.'
+    },
+    {
+      name: 'Fenugreek Seed Extract',
+      category: 'botanical',
+      source: 'Trigonella foenum-graecum seeds, Mediterranean & South Asia',
+      description: 'Contains high levels of protein, nicotinic acid, and diosgenin, a compound that stimulates hair growth. Creates a mucilage when soaked that provides excellent slip. Rich in lecithin which naturally conditions and moisturizes.',
+      benefits: ['Growth Stimulation', 'Conditioning', 'Dandruff Control', 'Strengthening'],
+      hairTypes: 'All types. Traditional remedy for hair loss and thinning in both African and South Asian cultures.'
+    },
+    {
+      name: 'Rosemary Extract (Antioxidant)',
+      category: 'extract',
+      source: 'Rosmarinus officinalis, Mediterranean',
+      description: 'Used in our formulations as a natural antioxidant preservative. Extends product shelf life while providing gentle scalp-stimulating benefits. Contains carnosic acid and rosmarinic acid which prevent oxidation and rancidity in natural oils.',
+      benefits: ['Natural Preservative', 'Antioxidant', 'Scalp Stimulation', 'Formula Stability'],
+      hairTypes: 'Universal ingredient. Safe and beneficial for all hair types and textures.'
+    },
+    {
+      name: 'Honey',
+      category: 'extract',
+      source: 'Raw, unprocessed honey, various regions',
+      description: 'A natural humectant and emollient with antimicrobial properties. Contains enzymes, amino acids, and minerals that nourish the hair shaft. Its humectant nature draws moisture from the environment into the hair, keeping curls hydrated and defined.',
+      benefits: ['Humectant', 'Antimicrobial', 'Softening', 'Natural Shine'],
+      hairTypes: 'All types. Best in moderate humidity environments. Use caution with very high humidity.'
+    }
+  ];
+
+  var currentFilter = 'all';
+
+  function renderIngredients() {
+    var grid = document.getElementById('ckGlossaryGrid');
+    var searchTerm = document.getElementById('ckIngredientSearch').value.toLowerCase().trim();
+    var count = 0;
+    var html = '';
+
+    for (var i = 0; i < ingredients.length; i++) {
+      var ing = ingredients[i];
+
+      // Filter by category
+      if (currentFilter !== 'all' && ing.category !== currentFilter) continue;
+
+      // Filter by search
+      if (searchTerm) {
+        var searchable = (ing.name + ' ' + ing.source + ' ' + ing.description + ' ' + ing.benefits.join(' ') + ' ' + ing.hairTypes).toLowerCase();
+        if (searchable.indexOf(searchTerm) === -1) continue;
+      }
+
+      count++;
+      var catLabel = ing.category.charAt(0).toUpperCase() + ing.category.slice(1);
+
+      html += '<div class="ck-ingredient-card" data-category="' + ing.category + '">';
+      html += '<div class="ck-ingredient-header">';
+      html += '<h3>' + ing.name + '</h3>';
+      html += '<span class="ck-ingredient-category">' + catLabel + '</span>';
+      html += '</div>';
+      html += '<span class="ck-ingredient-source">' + ing.source + '</span>';
+      html += '<p>' + ing.description + '</p>';
+      html += '<div class="ck-ingredient-benefits">';
+      for (var j = 0; j < ing.benefits.length; j++) {
+        html += '<span class="ck-benefit-tag">' + ing.benefits[j] + '</span>';
+      }
+      html += '</div>';
+      html += '<p class="ck-ingredient-hairtypes"><strong>Best for:</strong> ' + ing.hairTypes + '</p>';
+      html += '</div>';
+    }
+
+    if (count === 0) {
+      html = '<div class="ck-no-results"><h3>No Ingredients Found</h3><p>Try adjusting your search or filter to find what you are looking for.</p></div>';
+    }
+
+    grid.innerHTML = html;
+    document.getElementById('ckResultsCount').textContent = 'Showing ' + count + ' of ' + ingredients.length + ' ingredients';
+  }
+
+  window.ckFilterIngredients = function() {
+    renderIngredients();
+  };
+
+  window.ckSetFilter = function(btn, filter) {
+    currentFilter = filter;
+    var buttons = document.querySelectorAll('.ck-filter-btn');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].classList.remove('ck-active');
+    }
+    btn.classList.add('ck-active');
+    renderIngredients();
+  };
+
+  // Initial render
+  renderIngredients();
+
+})();
+</script>
