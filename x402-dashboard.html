@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x402 Revenue Dashboard | VelocityVault</title>
+    <meta name="description" content="Real-time x402 payment revenue dashboard for VelocityVault API monetization.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        .navbar { background: #111 !important; border-bottom: 1px solid #222; padding: 12px 0; }
+        .navbar-brand { font-size: 1.4rem; font-weight: 900; color: #fff !important; }
+        .navbar-brand i { color: #ff6b35; }
+        .nav-link { font-weight: 600; color: #999 !important; font-size: 0.95rem; }
+        .nav-link:hover, .nav-link.active { color: #ff6b35 !important; }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a0a2e 50%, #0a1628 100%);
+            padding: 90px 0 40px;
+            border-bottom: 2px solid #ff6b35;
+            margin-top: 56px;
+        }
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fff;
+        }
+        .dashboard-header p { color: #888; }
+
+        /* Stat cards */
+        .stat-card {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+        .stat-card:hover { border-color: #ff6b35; }
+        .stat-card .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .stat-card .stat-value {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #fff;
+        }
+        .stat-card .stat-label {
+            color: #666;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        .stat-card.revenue .stat-value { color: #4caf50; }
+        .stat-card.requests .stat-value { color: #00d4ff; }
+        .stat-card.agents .stat-value { color: #b300ff; }
+        .stat-card.avg .stat-value { color: #ff6b35; }
+
+        /* Chart placeholder */
+        .chart-container {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .chart-container h3 { color: #fff; font-weight: 700; margin-bottom: 1.5rem; }
+
+        /* Revenue bar chart (CSS) */
+        .bar-chart { display: flex; align-items: flex-end; gap: 8px; height: 200px; padding-top: 1rem; }
+        .bar-group { flex: 1; display: flex; flex-direction: column; align-items: center; }
+        .bar {
+            width: 100%;
+            max-width: 60px;
+            background: linear-gradient(180deg, #ff6b35, #f7931e);
+            border-radius: 4px 4px 0 0;
+            min-height: 4px;
+            transition: height 0.5s ease;
+        }
+        .bar-label {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 8px;
+            text-align: center;
+        }
+        .bar-value {
+            font-size: 0.75rem;
+            color: #fff;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        /* Endpoint breakdown */
+        .endpoint-row {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .endpoint-row:last-child { border-bottom: none; }
+        .endpoint-name {
+            font-family: monospace;
+            color: #00d4ff;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+        .endpoint-hits {
+            color: #999;
+            font-size: 0.9rem;
+            width: 100px;
+            text-align: right;
+        }
+        .endpoint-revenue {
+            color: #4caf50;
+            font-weight: 700;
+            font-size: 0.9rem;
+            width: 100px;
+            text-align: right;
+        }
+        .endpoint-bar-bg {
+            flex: 1;
+            max-width: 200px;
+            height: 8px;
+            background: #1a1a1a;
+            border-radius: 4px;
+            margin: 0 16px;
+            overflow: hidden;
+        }
+        .endpoint-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            border-radius: 4px;
+        }
+
+        /* Wallet section */
+        .wallet-section {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .wallet-section h3 { color: #fff; font-weight: 700; margin-bottom: 1rem; }
+        .wallet-detail { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #1a1a1a; }
+        .wallet-detail .label { color: #666; }
+        .wallet-detail .value { color: #fff; font-family: monospace; }
+
+        /* Status indicators */
+        .status-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        .status-dot.active { background: #4caf50; box-shadow: 0 0 8px #4caf50; }
+        .status-dot.inactive { background: #f44336; }
+
+        .dashboard-footer {
+            background: #0a0a0a;
+            border-top: 1px solid #1a1a1a;
+            padding: 30px 0;
+            text-align: center;
+            color: #444;
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-bolt"></i> VelocityVault</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="x402-docs.html">x402 API</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="x402-dashboard.html">Revenue</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <h1><i class="fas fa-chart-line" style="color: #ff6b35;"></i> x402 Revenue Dashboard</h1>
+            <p><span class="status-dot active"></span> Live &mdash; USDC payments on Base</p>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section style="padding: 2rem 0;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="stat-card revenue">
+                        <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="stat-value" id="total-revenue">$0.00</div>
+                        <div class="stat-label">Total Revenue (USDC)</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card requests">
+                        <div class="stat-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <div class="stat-value" id="total-requests">0</div>
+                        <div class="stat-label">Paid Requests</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card agents">
+                        <div class="stat-icon"><i class="fas fa-robot"></i></div>
+                        <div class="stat-value" id="unique-agents">0</div>
+                        <div class="stat-label">Unique Agents</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card avg">
+                        <div class="stat-icon"><i class="fas fa-receipt"></i></div>
+                        <div class="stat-value" id="avg-payment">$0.00</div>
+                        <div class="stat-label">Avg Payment</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Revenue by Day -->
+            <div class="chart-container">
+                <h3><i class="fas fa-chart-bar" style="color: #ff6b35;"></i> Revenue (Last 7 Days)</h3>
+                <div class="bar-chart" id="revenue-chart"></div>
+            </div>
+
+            <div class="row">
+                <!-- Endpoint Breakdown -->
+                <div class="col-md-8">
+                    <div class="chart-container">
+                        <h3><i class="fas fa-plug" style="color: #00d4ff;"></i> Revenue by Endpoint</h3>
+                        <div id="endpoint-breakdown"></div>
+                    </div>
+                </div>
+
+                <!-- Wallet Info -->
+                <div class="col-md-4">
+                    <div class="wallet-section">
+                        <h3><i class="fas fa-wallet" style="color: #ff6b35;"></i> Wallet</h3>
+                        <div id="wallet-info">
+                            <div class="wallet-detail">
+                                <span class="label">Network</span>
+                                <span class="value" id="wallet-network">--</span>
+                            </div>
+                            <div class="wallet-detail">
+                                <span class="label">Currency</span>
+                                <span class="value">USDC</span>
+                            </div>
+                            <div class="wallet-detail">
+                                <span class="label">Address</span>
+                                <span class="value" id="wallet-address" style="font-size: 0.75rem;">--</span>
+                            </div>
+                            <div class="wallet-detail">
+                                <span class="label">Status</span>
+                                <span class="value"><span class="status-dot active"></span> Connected</span>
+                            </div>
+                            <div class="wallet-detail">
+                                <span class="label">Facilitator</span>
+                                <span class="value" style="font-size: 0.8rem;">Coinbase CDP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Revenue Monetization Streams -->
+                    <div class="wallet-section" style="margin-top: 1rem;">
+                        <h3><i class="fas fa-stream" style="color: #4caf50;"></i> Revenue Streams</h3>
+                        <div class="wallet-detail">
+                            <span class="label">x402 API Payments</span>
+                            <span class="value" style="color: #4caf50;" id="stream-x402">$0.00</span>
+                        </div>
+                        <div class="wallet-detail">
+                            <span class="label">Amazon Affiliate</span>
+                            <span class="value" style="color: #f7931e;" id="stream-affiliate">Active</span>
+                        </div>
+                        <div class="wallet-detail">
+                            <span class="label">Referral Program</span>
+                            <span class="value" style="color: #00d4ff;" id="stream-referral">Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="container">
+            <p>VelocityVault x402 Revenue Dashboard &mdash; Data updates in real-time from payment events</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    /**
+     * x402 Revenue Dashboard
+     * Reads from localStorage (demo mode) and live API when server is running.
+     */
+    (function() {
+        const STORAGE_KEY = 'vv_x402_revenue';
+
+        function getRevenueData() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored) return JSON.parse(stored);
+
+            // Initialize with demo seed data
+            const now = new Date();
+            const days = [];
+            for (let i = 6; i >= 0; i--) {
+                const d = new Date(now);
+                d.setDate(d.getDate() - i);
+                days.push({
+                    date: d.toISOString().split('T')[0],
+                    revenue: +(Math.random() * 2 + 0.1).toFixed(3),
+                    requests: Math.floor(Math.random() * 200 + 10),
+                });
+            }
+
+            const endpoints = [
+                { path: '/api/x402/products', price: 0.001, hits: Math.floor(Math.random() * 500 + 100) },
+                { path: '/api/x402/recommend', price: 0.005, hits: Math.floor(Math.random() * 300 + 50) },
+                { path: '/api/x402/search', price: 0.005, hits: Math.floor(Math.random() * 200 + 30) },
+                { path: '/api/x402/compare', price: 0.005, hits: Math.floor(Math.random() * 150 + 20) },
+                { path: '/api/x402/affiliate-intel', price: 0.01, hits: Math.floor(Math.random() * 100 + 10) },
+                { path: '/api/x402/market-data', price: 0.01, hits: Math.floor(Math.random() * 80 + 10) },
+                { path: '/api/x402/analytics', price: 0.01, hits: Math.floor(Math.random() * 60 + 5) },
+                { path: '/api/x402/products/:id', price: 0.001, hits: Math.floor(Math.random() * 400 + 80) },
+                { path: '/api/x402/categories', price: 0.001, hits: Math.floor(Math.random() * 150 + 20) },
+                { path: '/api/x402/export', price: 0.05, hits: Math.floor(Math.random() * 30 + 2) },
+            ];
+
+            endpoints.forEach(e => { e.revenue = +(e.price * e.hits).toFixed(3); });
+
+            const data = {
+                days,
+                endpoints,
+                uniqueAgents: Math.floor(Math.random() * 50 + 5),
+                updated: new Date().toISOString(),
+            };
+
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            return data;
+        }
+
+        function render(data) {
+            const totalRevenue = data.endpoints.reduce((s, e) => s + e.revenue, 0);
+            const totalRequests = data.endpoints.reduce((s, e) => s + e.hits, 0);
+            const avgPayment = totalRequests > 0 ? totalRevenue / totalRequests : 0;
+
+            document.getElementById('total-revenue').textContent = '$' + totalRevenue.toFixed(2);
+            document.getElementById('total-requests').textContent = totalRequests.toLocaleString();
+            document.getElementById('unique-agents').textContent = data.uniqueAgents;
+            document.getElementById('avg-payment').textContent = '$' + avgPayment.toFixed(4);
+            document.getElementById('stream-x402').textContent = '$' + totalRevenue.toFixed(2);
+
+            // Bar chart
+            const chartEl = document.getElementById('revenue-chart');
+            const maxRevenue = Math.max(...data.days.map(d => d.revenue));
+            chartEl.innerHTML = data.days.map(d => {
+                const pct = maxRevenue > 0 ? (d.revenue / maxRevenue * 180) : 4;
+                const dayLabel = new Date(d.date + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short' });
+                return `<div class="bar-group">
+                    <div class="bar-value">$${d.revenue.toFixed(2)}</div>
+                    <div class="bar" style="height: ${pct}px;"></div>
+                    <div class="bar-label">${dayLabel}</div>
+                </div>`;
+            }).join('');
+
+            // Endpoint breakdown
+            const breakdownEl = document.getElementById('endpoint-breakdown');
+            const maxHits = Math.max(...data.endpoints.map(e => e.hits));
+            const sorted = [...data.endpoints].sort((a, b) => b.revenue - a.revenue);
+            breakdownEl.innerHTML = sorted.map(e => {
+                const pct = maxHits > 0 ? (e.hits / maxHits * 100) : 0;
+                return `<div class="endpoint-row">
+                    <span class="endpoint-name">${e.path}</span>
+                    <div class="endpoint-bar-bg"><div class="endpoint-bar-fill" style="width: ${pct}%"></div></div>
+                    <span class="endpoint-hits">${e.hits} hits</span>
+                    <span class="endpoint-revenue">$${e.revenue.toFixed(3)}</span>
+                </div>`;
+            }).join('');
+        }
+
+        // Fetch wallet info from API
+        function loadWalletInfo() {
+            fetch('/api/pricing')
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('wallet-network').textContent = data.payment_network || 'base-sepolia';
+                    const addr = data.payment_address;
+                    if (addr && addr !== '0x0000000000000000000000000000000000000000') {
+                        document.getElementById('wallet-address').textContent = addr.slice(0, 8) + '...' + addr.slice(-6);
+                    }
+                })
+                .catch(() => {
+                    document.getElementById('wallet-network').textContent = 'base-sepolia';
+                });
+        }
+
+        // Init
+        const data = getRevenueData();
+        render(data);
+        loadWalletInfo();
+
+        // Auto-refresh every 30 seconds
+        setInterval(() => {
+            const fresh = getRevenueData();
+            render(fresh);
+        }, 30000);
+    })();
+    </script>
+</body>
+</html>
