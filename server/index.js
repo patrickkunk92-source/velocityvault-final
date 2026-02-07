@@ -1,17 +1,14 @@
 /**
- * VelocityVault x402 Monetization Server
+ * VelocityVault x402 Application
  *
- * Express server that:
- * 1. Serves the static VelocityVault site
- * 2. Exposes free public API endpoints (health, pricing, preview)
- * 3. Gates premium API endpoints behind x402 paymentMiddleware
- *    so AI agents pay USDC on Base per request
- * 4. Full security hardening (rate limiting, WAF, agent auth, CORS lockdown)
+ * Creates and configures the Express app with:
+ * - x402 payment middleware (USDC on Base)
+ * - 7-layer security hardening
+ * - Public + paid API routes
  *
- * Usage:
- *   cp .env.example .env   # fill in wallet address + CDP keys
- *   npm install
- *   npm start
+ * Exported for both:
+ * - Local dev: server/start.js calls app.listen()
+ * - Vercel: api/index.js re-exports as serverless function
  */
 
 import 'dotenv/config';
@@ -31,9 +28,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// ─── Trust proxy (for Vercel / Cloudflare) ──────────────────
+// ─── Trust proxy (Vercel / Cloudflare) ──────────────────────
 app.set('trust proxy', 1);
 
 // ─── Global Middleware ───────────────────────────────────────
@@ -50,15 +46,11 @@ app.use(helmet({
   contentSecurityPolicy: false,
   crossOriginEmbedderPolicy: false,
 }));
-app.use(morgan('combined'));
+app.use(morgan('short'));
 app.use(express.json({ limit: '100kb' }));
 
 // ─── Security Gatekeeper ────────────────────────────────────
 securityMiddleware(app);
-
-// ─── Static Site ─────────────────────────────────────────────
-const staticDir = process.env.STATIC_DIR || path.join(__dirname, '..');
-app.use(express.static(staticDir));
 
 // ─── Public (free) API ───────────────────────────────────────
 app.use('/api', publicRoutes);
@@ -68,7 +60,6 @@ async function mountX402() {
   try {
     const { paymentMiddleware } = await import('x402-express');
 
-    // Use Coinbase facilitator (reads CDP_API_KEY_ID and CDP_API_KEY_SECRET from env)
     let facilitatorConfig;
     try {
       const { createFacilitatorConfig, facilitator } = await import('@coinbase/x402');
@@ -77,27 +68,22 @@ async function mountX402() {
           process.env.CDP_API_KEY_ID,
           process.env.CDP_API_KEY_SECRET,
         );
-        console.log('[x402] Coinbase facilitator configured with CDP API keys');
+        console.log('[x402] Coinbase facilitator with CDP keys');
       } else {
-        // Default facilitator reads env vars at request time
         facilitatorConfig = facilitator;
-        console.log('[x402] Coinbase facilitator (env-based auth)');
+        console.log('[x402] Coinbase facilitator (env-based)');
       }
     } catch {
-      console.warn('[x402] @coinbase/x402 not loaded — using default facilitator');
+      // fallback
     }
 
     const args = [WALLET_ADDRESS, ROUTE_PRICING];
     if (facilitatorConfig) args.push(facilitatorConfig);
 
     app.use(paymentMiddleware(...args));
-    console.log('[x402] Payment middleware ACTIVE');
-    console.log(`[x402] Collecting fees at: ${WALLET_ADDRESS}`);
-    console.log(`[x402] Network: ${NETWORK}`);
-    console.log(`[x402] Protected routes: ${Object.keys(ROUTE_PRICING).length}`);
+    console.log(`[x402] ACTIVE — fees -> ${WALLET_ADDRESS}`);
   } catch (err) {
-    console.warn('[x402] Payment middleware not loaded — OPEN mode (no payment required)');
-    console.warn(`[x402] Reason: ${err.message}`);
+    console.warn(`[x402] OPEN mode — ${err.message}`);
   }
 }
 
@@ -106,57 +92,12 @@ await mountX402();
 // ─── x402-Gated API Routes ──────────────────────────────────
 app.use('/api/x402', x402Routes);
 
-// ─── Revenue Tracking ───────────────────────────────────────
+// ─── Revenue log ────────────────────────────────────────────
 app.use('/api/x402', (req, _res, next) => {
-  const payment = req.headers['x-payment'];
-  if (payment) {
+  if (req.headers['x-payment']) {
     console.log(`[x402:paid] ${req.method} ${req.path} from ${req.ip}`);
   }
   next();
-});
-
-// ─── Fallback: serve index.html ─────────────────────────────
-app.get('*', (_req, res) => {
-  res.sendFile(path.join(staticDir, 'index.html'));
-});
-
-// ─── Start Server ────────────────────────────────────────────
-app.listen(PORT, () => {
-  console.log('');
-  console.log('╔══════════════════════════════════════════════════════╗');
-  console.log('║         VelocityVault x402 Monetization Server      ║');
-  console.log('╠══════════════════════════════════════════════════════╣');
-  console.log(`║  Server:    http://localhost:${PORT}                    ║`);
-  console.log(`║  Network:   ${NETWORK.padEnd(40)}║`);
-  console.log(`║  Wallet:    ${WALLET_ADDRESS.slice(0, 10)}...${WALLET_ADDRESS.slice(-6)}                    ║`);
-  console.log('║                                                      ║');
-  console.log('║  Free endpoints:                                     ║');
-  console.log('║    GET /api/health        — health check             ║');
-  console.log('║    GET /api/pricing       — x402 pricing table       ║');
-  console.log('║    GET /api/preview       — catalog teaser           ║');
-  console.log('║    GET /api/x402/info     — protocol discovery       ║');
-  console.log('║                                                      ║');
-  console.log('║  x402-gated endpoints (USDC on Base):                ║');
-  console.log('║    GET /api/x402/products      — $0.001              ║');
-  console.log('║    GET /api/x402/products/:id  — $0.001              ║');
-  console.log('║    GET /api/x402/categories    — $0.001              ║');
-  console.log('║    GET /api/x402/recommend     — $0.005              ║');
-  console.log('║    GET /api/x402/compare       — $0.005              ║');
-  console.log('║    GET /api/x402/search        — $0.005              ║');
-  console.log('║    GET /api/x402/affiliate-intel — $0.01             ║');
-  console.log('║    GET /api/x402/market-data   — $0.01               ║');
-  console.log('║    GET /api/x402/analytics     — $0.01               ║');
-  console.log('║    GET /api/x402/export        — $0.05               ║');
-  console.log('║                                                      ║');
-  console.log('║  Security:                                           ║');
-  console.log('║    Rate limiting .............. ACTIVE                ║');
-  console.log('║    WAF / Input filter ......... ACTIVE                ║');
-  console.log('║    Threat detection ........... ACTIVE                ║');
-  console.log('║    CORS lockdown .............. ACTIVE                ║');
-  console.log('║    IP ban (auto) .............. ACTIVE                ║');
-  console.log('║    Bot fingerprint ............ ACTIVE                ║');
-  console.log('╚══════════════════════════════════════════════════════╝');
-  console.log('');
 });
 
 export default app;

@@ -5,8 +5,9 @@
   "main": "server/index.js",
   "type": "module",
   "scripts": {
-    "start": "node server/index.js",
-    "dev": "node --watch server/index.js",
+    "start": "node server/start.js",
+    "dev": "node --watch server/start.js",
+    "vercel-build": "echo 'No build step needed'",
     "start:static": "npx serve . -p 3001"
   },
   "dependencies": {
