@@ -1,0 +1,1126 @@
+{
+  "store": "CrownKinetics",
+  "generated": "2026-02-07",
+  "collections": {
+    "hair_type_collections": [
+      {
+        "handle": "type-3-curls",
+        "title": "Type 3 Curls (3A-3C)",
+        "body_html": "<p>Celebrate your natural curl pattern with CrownKinetics' curated collection for Type 3 hair. Whether you rock loose, bouncy 3A waves, springy 3B ringlets, or tight 3C corkscrews, every product here is formulated to honor the unique moisture and definition needs of curly-textured hair. Our sulfate-free cleansers gently remove buildup without stripping the natural oils your curls depend on, while our deep conditioners and leave-ins deliver lasting hydration that keeps frizz at bay and bounce intact.</p><p>Type 3 curls thrive with the right balance of moisture and lightweight hold. That is why we have assembled curl creams, defining jellies, and refresher sprays that enhance your pattern without weighing it down or leaving flaky residue. From wash day essentials to second-day revival products, this collection supports every step of your curly hair journey. Each formula draws on nourishing botanicals like flaxseed, marshmallow root, and baobab oil, ingredients rooted in traditions of natural hair care across the African diaspora. Define your curls. Own your crown.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Woman with beautifully defined Type 3 curls showcasing bounce and shine from CrownKinetics curl care products"
+        },
+        "seo": {
+          "title": "Type 3 Curl Products (3A-3C) | Curl Definers & Moisturizers | CrownKinetics",
+          "description": "Shop CrownKinetics' Type 3 curl collection for 3A, 3B, and 3C hair. Sulfate-free shampoos, deep conditioners, curl creams, and defining gels formulated for curly textured hair. Frizz-free definition starts here."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "type-3-curls"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "3a-hair"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "3b-hair"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "3c-hair"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "curly-hair"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["type-3-curls", "3a-hair", "3b-hair", "3c-hair", "curly-hair", "curl-definition", "frizz-control"]
+      },
+      {
+        "handle": "type-4-coils",
+        "title": "Type 4 Coils (4A-4C)",
+        "body_html": "<p>CrownKinetics' Type 4 collection is built for the beautifully dense, richly textured coils and kinks that define 4A, 4B, and 4C hair patterns. Our ancestors carried this crown with pride, and so do you. Every product in this collection addresses the specific needs of tightly coiled hair: deep moisture penetration, gentle detangling, maximum shrinkage management, and long-lasting softness without heavy residue.</p><p>Type 4 hair is naturally drier because sebum has a harder time traveling down the coil pattern. That is why our formulas prioritize intense hydration through ingredients like shea butter, mango butter, Jamaican black castor oil, and avocado oil. From creamy co-washes and protein-balancing deep conditioners to thick twist butters and sealing oils, every product works to lock in moisture and reduce breakage. Whether you are rocking a wash-and-go, twist-out, bantu knots, or a sleek puff, this collection has you covered. Nurture your coils with ingredients and intention that understand your texture from root to tip.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Woman proudly wearing her natural Type 4 coils styled in a twist-out with visible moisture and definition"
+        },
+        "seo": {
+          "title": "Type 4 Coil Products (4A-4C) | Deep Moisture & Coil Care | CrownKinetics",
+          "description": "Discover CrownKinetics' Type 4 coil collection for 4A, 4B, and 4C natural hair. Intense moisture butters, detangling conditioners, twist creams, and sealing oils designed for coily and kinky hair textures."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "type-4-coils"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "4a-hair"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "4b-hair"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "4c-hair"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "coily-hair"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "kinky-hair"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["type-4-coils", "4a-hair", "4b-hair", "4c-hair", "coily-hair", "kinky-hair", "deep-moisture", "twist-out"]
+      },
+      {
+        "handle": "protective-styles",
+        "title": "Protective Styles",
+        "body_html": "<p>Protective styling is more than a look; it is a time-honored strategy for length retention, low-manipulation care, and creative self-expression deeply rooted in Black hair culture. CrownKinetics' Protective Styles collection brings together everything you need to install, maintain, and safely remove braids, twists, cornrows, crochet styles, sew-ins, and wigs. From pre-install scalp prep to take-down day recovery, we have thought of every step.</p><p>Healthy protective styling starts with a nourished scalp and well-moisturized natural hair underneath. Our lightweight scalp oils keep your roots hydrated without causing buildup, while our braid sprays refresh and condition your hair between wash days. When it is time to take your style down, our detangling and clarifying products make the process gentle and breakage-free. We also carry edge-friendly adhesives, wig caps, and styling accessories that protect your hairline. Protective styles should protect, and with CrownKinetics, they truly do. Keep your hair thriving while you serve every single look.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Elegant knotless braids protective style maintained with CrownKinetics scalp care and braid spray products"
+        },
+        "seo": {
+          "title": "Protective Style Products | Braids, Twists & Wig Care | CrownKinetics",
+          "description": "Shop CrownKinetics' protective style collection for braids, twists, cornrows, wigs, and sew-ins. Scalp oils, braid sprays, edge control, and take-down products that keep your natural hair healthy underneath."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "protective-styles"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "braids"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "twists"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "wigs"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "sew-in"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "crochet"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["protective-styles", "braids", "twists", "wigs", "sew-in", "crochet", "braid-spray", "scalp-oil"]
+      },
+      {
+        "handle": "loc-maintenance",
+        "title": "Loc Maintenance",
+        "body_html": "<p>Locs are a sacred expression of identity, culture, and patience. Whether you are in the starter loc phase, cultivating teenage locs, or rocking fully mature freeform or manicured locs, CrownKinetics has developed a dedicated collection to keep your journey healthy and thriving. Our loc care line addresses the unique challenges at every stage: buildup prevention, moisture balance, retwisting hold, and scalp health beneath the locs.</p><p>Traditional loc care often relies on heavy waxes and petroleum-based products that cause residue buildup and suffocate the scalp. CrownKinetics takes a different approach with lightweight, water-soluble formulas that provide hold without the heaviness. Our rosewater-infused loc sprays deliver daily moisture, while our tea tree and peppermint scalp serums soothe itchiness and promote healthy follicle function. For retwist days, our natural-hold gels keep your parts crisp without flaking. We also carry lint-free loc wraps and satin-lined caps for overnight protection. From starter locs to waist-length ropes, honor your loc journey with products that respect the process and nourish every strand.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Person with well-maintained mature locs displaying healthy shine and moisture from CrownKinetics loc care products"
+        },
+        "seo": {
+          "title": "Loc Maintenance Products | Retwist Gels, Loc Sprays & Scalp Care | CrownKinetics",
+          "description": "Shop CrownKinetics' loc maintenance collection. Residue-free retwist gels, moisturizing loc sprays, scalp serums, and accessories for starter locs through mature locs. Lightweight, buildup-free formulas."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "loc-maintenance"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "locs"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "dreadlocks"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "retwist"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "loc-spray"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["loc-maintenance", "locs", "dreadlocks", "retwist", "loc-spray", "loc-gel", "starter-locs", "mature-locs"]
+      },
+      {
+        "handle": "mens-grooming",
+        "title": "Men's Grooming",
+        "body_html": "<p>CrownKinetics' Men's Grooming collection is built specifically for the textured hair and skin needs of Black men and men of color. From tight fades and tapers to grown-out curls, locs, and waves, our products address the unique challenges that come with coily and curly hair textures: razor bumps, ingrown hairs, dry scalp, beard maintenance, and curl definition without the shine or fragrance overload many men want to avoid.</p><p>Our lightweight moisturizers absorb quickly without leaving a greasy feel, while our beard oils and balms soften coarse facial hair and soothe the skin underneath. For men rocking waves, our wave creams and pomades provide hold and moisture without flaking. Our post-shave treatments with willow bark and tea tree extract calm irritation and prevent the pseudofolliculitis barbae (razor bumps) that disproportionately affects men with curly hair follicles. Every formula is designed with clean, effective ingredients and understated scents. Step up your grooming game with products that actually understand your hair and skin. Built for kings, by a brand that knows the crown.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Man with well-groomed textured hair and beard styled using CrownKinetics men's grooming products"
+        },
+        "seo": {
+          "title": "Men's Ethnic Hair & Beard Care | Grooming Products | CrownKinetics",
+          "description": "Shop CrownKinetics men's grooming for textured hair and beards. Wave creams, beard oils, anti-razor bump treatments, and scalp care for Black men and men of color. Clean ingredients, no-fuss results."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "mens-grooming"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "mens"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "beard-care"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "waves"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "razor-bumps"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["mens-grooming", "mens", "beard-care", "beard-oil", "waves", "wave-cream", "razor-bumps", "post-shave"]
+      },
+      {
+        "handle": "scalp-health",
+        "title": "Scalp Health",
+        "body_html": "<p>Healthy hair starts at the scalp, and CrownKinetics' Scalp Health collection is dedicated to creating the optimal foundation for growth, retention, and comfort. For those with textured hair, scalp issues like dryness, flaking, product buildup, tension from tight styles, and follicular irritation are common but often overlooked. This collection puts your scalp first with targeted treatments, serums, and cleansers that address these concerns head-on.</p><p>Our formulas draw on proven botanicals alongside modern dermatological science. Tea tree oil and peppermint stimulate circulation and provide antimicrobial protection. Salicylic acid gently exfoliates dead skin cells and dissolves buildup from styling products. Rosemary and biotin serums support follicle strength at the root level. For those experiencing thinning edges from tight braids or ponytails, our traction alopecia recovery treatments deliver targeted nourishment to stressed hairlines. Whether you are dealing with dandruff, an itchy scalp under protective styles, or simply want to maintain a clean and balanced scalp environment, CrownKinetics gives your foundation the attention it deserves. A healthy crown starts with a healthy scalp.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Close-up of a healthy moisturized scalp along a natural hair part line treated with CrownKinetics scalp serum"
+        },
+        "seo": {
+          "title": "Scalp Health Products | Scalp Serums, Treatments & Exfoliators | CrownKinetics",
+          "description": "Shop CrownKinetics scalp health collection. Scalp serums, exfoliating treatments, anti-dandruff solutions, and traction alopecia recovery for textured hair. Healthy hair starts at the scalp."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "scalp-health"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "scalp-treatment"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "scalp-serum"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "dandruff"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "scalp-exfoliant"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["scalp-health", "scalp-treatment", "scalp-serum", "dandruff", "scalp-exfoliant", "traction-alopecia", "scalp-oil", "itchy-scalp"]
+      }
+    ],
+    "product_type_collections": [
+      {
+        "handle": "shampoos-conditioners",
+        "title": "Shampoos & Conditioners",
+        "body_html": "<p>CrownKinetics' Shampoos and Conditioners collection is the foundation of every healthy textured hair regimen. We understand that wash day for curly, coily, and kinky hair is a ritual, not a rush. That is why every cleanser and conditioner in this collection is sulfate-free, silicone-conscious, and formulated to respect your hair's natural moisture balance while thoroughly cleansing and conditioning from root to tip.</p><p>Choose from clarifying shampoos that remove weeks of product buildup without stripping, gentle co-washes for mid-week refreshes, moisturizing shampoos infused with honey and coconut milk, and protein-rich deep conditioners that restore elasticity and strength. Our rinse-out conditioners deliver instant slip for painless detangling, while our deep conditioning masks provide 20-minute transformations with ingredients like hydrolyzed keratin, argan oil, and murumuru butter. Every formula is pH-balanced for textured hair, which tends to be more alkaline and porous. Build your wash day around products that work as hard as you do. Clean hair, deep moisture, zero compromise.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "CrownKinetics sulfate-free shampoo and deep conditioner bottles arranged on a warm cream background"
+        },
+        "seo": {
+          "title": "Sulfate-Free Shampoos & Deep Conditioners for Textured Hair | CrownKinetics",
+          "description": "Shop CrownKinetics sulfate-free shampoos and deep conditioners for curly, coily, and kinky hair. Clarifying cleansers, co-washes, protein treatments, and moisturizing masks. pH-balanced for textured hair."
+        },
+        "rules": [
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Shampoo"
+          },
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Conditioner"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "shampoo"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "conditioner"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "co-wash"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "deep-conditioner"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["shampoo", "conditioner", "co-wash", "deep-conditioner", "clarifying-shampoo", "moisturizing-shampoo", "protein-treatment", "wash-day"]
+      },
+      {
+        "handle": "oils-scalp-serums",
+        "title": "Oils & Scalp Serums",
+        "body_html": "<p>Oils and serums have been central to Black and ethnic hair care traditions for generations, from Jamaican black castor oil passed down through Caribbean families to the shea and baobab oils used across West Africa. CrownKinetics honors this heritage with a collection of premium hair oils and targeted scalp serums that deliver moisture, shine, and scalp nourishment rooted in both tradition and modern formulation science.</p><p>Our collection includes lightweight daily oils for sealing in moisture after your leave-in conditioner, hot oil treatment blends for deep weekly restoration, and concentrated scalp serums that target specific concerns like thinning, dryness, and inflammation. Key ingredients include cold-pressed Jamaican black castor oil for thickness and growth support, rosemary oil for follicle stimulation, tea tree for antimicrobial scalp cleansing, and sweet almond oil for gentle everyday moisture. Whether you are sealing a twist-out, treating your scalp between protective styles, or adding shine to your locs, our oils and serums are versatile staples for every textured hair type. Feed your crown from the outside in.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Amber glass bottles of CrownKinetics hair oils and scalp serums with natural botanical ingredients"
+        },
+        "seo": {
+          "title": "Hair Oils & Scalp Serums for Natural Hair | CrownKinetics",
+          "description": "Shop CrownKinetics hair oils and scalp serums. Jamaican black castor oil, rosemary growth serums, hot oil treatments, and sealing oils for curly, coily, and kinky hair. Tradition meets science."
+        },
+        "rules": [
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Hair Oil"
+          },
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Scalp Serum"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "hair-oil"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "scalp-serum"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "sealing-oil"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "hot-oil-treatment"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["hair-oil", "scalp-serum", "sealing-oil", "hot-oil-treatment", "castor-oil", "growth-oil", "rosemary-oil", "tea-tree"]
+      },
+      {
+        "handle": "butters-moisturizers",
+        "title": "Butters & Moisturizers",
+        "body_html": "<p>For textured hair that craves deep, lasting moisture, CrownKinetics' Butters and Moisturizers collection delivers rich hydration that penetrates the hair shaft and stays put. Curly, coily, and kinky hair textures lose moisture faster due to their structure, making quality moisturizers not a luxury but an absolute necessity. Our collection features whipped hair butters, creamy leave-in moisturizers, and daily refresher creams formulated to quench even the thirstiest strands.</p><p>We use a carefully balanced blend of humectants, emollients, and occlusives in every formula. Glycerin and honey draw moisture from the air. Shea butter, mango butter, and cocoa butter soften and condition. Castor oil and olive oil seal everything in to prevent moisture loss throughout the day. Our LOC and LCO method-friendly formulas layer beautifully, giving you the flexibility to customize your moisturizing routine to your specific porosity and density. From lightweight daily creams for fine curls to thick, rich butters for dense 4C coils, find the moisture match your hair has been waiting for. Soft, supple, and defined, all day long.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Rich whipped shea hair butter from CrownKinetics in a gold-accented jar with natural ingredients displayed"
+        },
+        "seo": {
+          "title": "Hair Butters & Moisturizers for Curly & Coily Hair | CrownKinetics",
+          "description": "Shop CrownKinetics hair butters and moisturizers for textured hair. Whipped shea butter, leave-in creams, and daily moisturizers for Type 3 and Type 4 hair. Deep hydration, lasting softness."
+        },
+        "rules": [
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Hair Butter"
+          },
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Moisturizer"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "hair-butter"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "moisturizer"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "leave-in"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "whipped-butter"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["hair-butter", "moisturizer", "leave-in", "whipped-butter", "shea-butter", "mango-butter", "daily-cream", "loc-method"]
+      },
+      {
+        "handle": "curl-definers-gels",
+        "title": "Curl Definers & Gels",
+        "body_html": "<p>Unlock your curl pattern's full potential with CrownKinetics' Curl Definers and Gels collection. Whether you are going for a wash-and-go with maximum definition, a soft and fluffy twist-out, or a sleek finger-coil set, our defining products provide the hold, moisture, and frizz resistance your curls need to pop and last. Every formula is designed specifically for textured hair, delivering strong hold without the crunch, stiffness, or flaking that generic gels leave behind.</p><p>Our collection features a range of hold levels and textures to match your hair type and desired style. Lightweight curl jellies with flaxseed and aloe vera are perfect for 3A through 3C curls that need flexible hold. Thicker custards and defining creams give 4A through 4C coils the structure and moisture to stretch and define. For maximum hold without dryness, our botanical gels use natural polymers instead of harsh alcohols. Every product is enriched with humectants and oils to keep your hair moisturized even under strong hold. Say goodbye to gel-cast crunchiness and hello to touchably soft, beautifully defined curls and coils.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "CrownKinetics curl defining gel and custard products beside beautifully defined natural curls"
+        },
+        "seo": {
+          "title": "Curl Defining Gels & Creams for Natural Hair | CrownKinetics",
+          "description": "Shop CrownKinetics curl definers and gels for curly and coily hair. Flake-free botanical gels, curl custards, defining creams, and styling jellies. Strong hold with lasting moisture."
+        },
+        "rules": [
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Curl Definer"
+          },
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Hair Gel"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "curl-definer"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "gel"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "curl-custard"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "wash-and-go"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["curl-definer", "gel", "curl-custard", "wash-and-go", "curl-jelly", "defining-cream", "flaxseed-gel", "hold"]
+      },
+      {
+        "handle": "edge-control",
+        "title": "Edge Control",
+        "body_html": "<p>Laid edges are an art form, and CrownKinetics' Edge Control collection gives you the tools to master it. Our edge control products are formulated specifically for textured hairlines, delivering strong, long-lasting hold that keeps your edges sleek and smooth through humidity, sweat, and everything in between, without causing the dryness, breakage, or traction damage that inferior products leave behind.</p><p>We know that edges are delicate. The hairline is one of the most fragile areas, especially for those who frequently wear tight styles. That is why every edge control in our collection is enriched with nourishing ingredients like biotin, castor oil, and vitamin E to strengthen and protect while they hold. Our non-greasy, water-based formulas lay down even the most resistant edges without leaving a white cast or sticky residue. Available in regular and extra-firm hold, our edge controls are humidity-proof for up to 72 hours. We also carry edge brushes and styling tools designed for precision. From everyday slicked ponytails to intricate baby hair designs, CrownKinetics keeps your edges laid and your hairline healthy.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Perfectly laid edges and baby hair design achieved with CrownKinetics edge control product"
+        },
+        "seo": {
+          "title": "Edge Control for Natural Hair | Non-Drying, Strong Hold | CrownKinetics",
+          "description": "Shop CrownKinetics edge control for textured hairlines. Humidity-proof, non-drying formulas with biotin and castor oil. Up to 72-hour hold without flaking. Protect your edges while you slay."
+        },
+        "rules": [
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Edge Control"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "edge-control"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "edges"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "baby-hair"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "edge-tamer"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["edge-control", "edges", "baby-hair", "edge-tamer", "strong-hold", "humidity-proof", "hairline-care"]
+      },
+      {
+        "handle": "loc-products",
+        "title": "Loc Products",
+        "body_html": "<p>CrownKinetics' dedicated Loc Products collection brings together every essential for starting, maintaining, and styling locs at any stage. Locs represent one of the oldest and most meaningful hairstyles across African and diasporic cultures, and they deserve products formulated with that legacy in mind. Our loc-specific line avoids the heavy waxes, petroleum, and silicones that cause buildup, residue, and suffocated scalps.</p><p>For those starting their loc journey, our lightweight starter gels provide grip and hold during the budding phase without attracting lint or leaving residue. For maintaining and retwisting established locs, our natural-hold retwist creams and gels deliver clean parts and lasting hold that washes out easily. Daily loc sprays with rosewater and essential oils keep your locs moisturized, fresh-smelling, and soft to the touch. Our clarifying loc shampoos use apple cider vinegar and activated charcoal to remove internal buildup without unraveling your locs. We also carry loc jewelry, wraps, and satin-lined accessories. From microlocs to freeform, traditional to sisterlocks, honor your loc journey with products worthy of the commitment.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Assortment of CrownKinetics loc care products including retwist gel, loc spray, and clarifying shampoo"
+        },
+        "seo": {
+          "title": "Loc Products | Retwist Gels, Loc Sprays & Clarifying Shampoos | CrownKinetics",
+          "description": "Shop CrownKinetics loc products for all loc stages. Residue-free retwist gels, moisturizing loc sprays, clarifying shampoos, and loc accessories. No wax, no buildup, just healthy locs."
+        },
+        "rules": [
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Loc Product"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "loc-products"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "locs"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "retwist"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "loc-spray"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "loc-shampoo"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["loc-products", "locs", "retwist", "loc-spray", "loc-shampoo", "loc-gel", "starter-locs", "sisterlocks", "freeform-locs"]
+      },
+      {
+        "handle": "wig-care",
+        "title": "Wig Care",
+        "body_html": "<p>Wigs are a cornerstone of versatility in the Black hair community, offering the freedom to switch up your look while keeping your natural hair protected underneath. CrownKinetics' Wig Care collection provides everything you need to keep your wigs, frontals, and closures looking fresh, natural, and long-lasting. From revitalizing shampoos to knot-sealing sprays, we treat your wig investment with the care it deserves.</p><p>Our wig-specific shampoos and conditioners are formulated to cleanse and condition both human hair and high-quality synthetic fibers without tangling, matting, or stripping color. Wig detangling sprays restore smoothness and manageability between washes. For lace front wearers, our adhesive removers are gentle on both the lace and your natural hairline, while our got-to-have lace melting sprays deliver seamless, undetectable installations. We also carry wig caps that protect your natural hair, wig stands for proper storage, and styling tools designed for wig maintenance. Whether you rotate through units weekly or keep a signature wig in heavy rotation, CrownKinetics ensures every install looks day-one fresh.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "CrownKinetics wig care products including wig shampoo, detangling spray, and lace melting spray"
+        },
+        "seo": {
+          "title": "Wig Care Products | Wig Shampoo, Lace Glue & Detanglers | CrownKinetics",
+          "description": "Shop CrownKinetics wig care products. Wig shampoos, conditioners, lace melting sprays, adhesive removers, and detanglers for human hair and synthetic wigs. Keep every install flawless."
+        },
+        "rules": [
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Wig Care"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "wig-care"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "wigs"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "lace-front"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "wig-shampoo"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "lace-glue"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["wig-care", "wigs", "lace-front", "wig-shampoo", "lace-glue", "adhesive-remover", "wig-cap", "lace-melting"]
+      },
+      {
+        "handle": "satin-accessories",
+        "title": "Satin Accessories",
+        "body_html": "<p>Satin is not a luxury for textured hair; it is a necessity. Cotton pillowcases and hair ties rob curly, coily, and kinky hair of moisture and cause friction that leads to breakage, frizz, and tangled mornings. CrownKinetics' Satin Accessories collection offers beautifully designed satin and silk-lined products that protect your hair around the clock, whether you are sleeping, working out, or simply running errands.</p><p>Our collection features premium satin bonnets in various sizes to accommodate everything from short TWAs to waist-length locs, satin-lined headbands that protect your edges during workouts, satin scrunchies that hold without pulling, and satin pillowcases in colors that complement any bedroom aesthetic. Every bonnet features adjustable elastic bands for a secure, comfortable fit that stays on all night. Our satin-lined beanies and hats let you protect your hair while staying warm and stylish in cooler months. We also carry satin-lined wig caps and edge wraps for overnight edge training. Invest in the protective accessories that make a noticeable difference in your moisture retention, style longevity, and breakage reduction. Your hair will thank you every morning.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "CrownKinetics satin bonnets, scrunchies, and pillowcases in brand colors of gold, purple, and cream"
+        },
+        "seo": {
+          "title": "Satin Hair Accessories | Bonnets, Pillowcases & Scrunchies | CrownKinetics",
+          "description": "Shop CrownKinetics satin accessories for textured hair. Satin bonnets, silk pillowcases, satin scrunchies, lined headbands, and edge wraps. Reduce breakage, retain moisture, protect your style overnight."
+        },
+        "rules": [
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Accessory"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "satin-accessories"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "satin-bonnet"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "satin-pillowcase"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "satin-scrunchie"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "silk"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["satin-accessories", "satin-bonnet", "satin-pillowcase", "satin-scrunchie", "silk", "edge-wrap", "satin-lined", "sleep-protection"]
+      },
+      {
+        "handle": "combs-brushes",
+        "title": "Combs & Brushes",
+        "body_html": "<p>The right tools make all the difference for textured hair. CrownKinetics' Combs and Brushes collection features detangling tools, styling brushes, and specialty combs designed specifically for the unique needs of curly, coily, and kinky hair. Generic brushes and fine-tooth combs can rip through textured hair, causing breakage, split ends, and unnecessary pain. Our tools work with your hair's natural pattern, not against it.</p><p>Our wide-tooth seamless combs glide through wet, conditioner-saturated hair for pain-free detangling. Our flexible detangling brushes feature strategically spaced, flexible bristles that bend around curls and coils instead of tearing through them. For styling, our boar-bristle edge brushes deliver precision for baby hair designs, while our pick combs with smooth rounded tips lift and shape afros without snagging. We also carry scalp massager brushes that stimulate blood flow during wash day, promoting healthier hair growth. Every tool is ergonomically designed, heat-resistant, and built to last. Stop fighting your hair with the wrong tools. Detangle, style, and shape with implements that respect your texture and make hair care a pleasure, not a battle.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "CrownKinetics textured hair tools including wide-tooth comb, detangling brush, and edge brush"
+        },
+        "seo": {
+          "title": "Combs & Brushes for Natural Hair | Detangling Tools | CrownKinetics",
+          "description": "Shop CrownKinetics combs and brushes for textured hair. Wide-tooth detangling combs, flexible brushes, edge brushes, afro picks, and scalp massagers. Pain-free tools for curly, coily, and kinky hair."
+        },
+        "rules": [
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Comb"
+          },
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Brush"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "combs"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "brushes"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "detangling-brush"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "wide-tooth-comb"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "edge-brush"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["combs", "brushes", "detangling-brush", "wide-tooth-comb", "edge-brush", "afro-pick", "scalp-massager", "tools"]
+      },
+      {
+        "handle": "heat-protection",
+        "title": "Heat Protection",
+        "body_html": "<p>When you choose to straighten, blow-dry, or use heated tools on your textured hair, CrownKinetics' Heat Protection collection ensures your strands stay shielded from thermal damage. Curly and coily hair is naturally more vulnerable to heat damage because its structure makes it more porous, and heat can permanently alter your curl pattern if applied without proper protection. Our heat protectants form an invisible barrier that significantly reduces moisture loss and cuticle damage during heat styling.</p><p>Our lightweight heat protectant sprays and serums provide thermal protection up to 450 degrees Fahrenheit without weighing down your hair or leaving greasy residue. Infused with ingredients like argan oil, silk amino acids, and ceramides, they simultaneously protect and condition, leaving your blowout or press silky, shiny, and bouncy. For those who occasionally straighten their natural hair, our products help ensure that your curls bounce back after washing. We also carry thermal styling tools with adjustable temperature settings, because lower heat with the right product is always better than high heat with none. Protect the curl pattern you love, even when you choose to temporarily change it.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "CrownKinetics heat protectant spray being applied to natural hair before a silk press"
+        },
+        "seo": {
+          "title": "Heat Protectants for Natural Hair | Thermal Sprays & Serums | CrownKinetics",
+          "description": "Shop CrownKinetics heat protection for textured hair. Lightweight thermal sprays and serums protecting up to 450F. Prevent heat damage during blowouts, silk presses, and flat ironing."
+        },
+        "rules": [
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Heat Protectant"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "heat-protection"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "heat-protectant"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "thermal-protection"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "silk-press"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "blowout"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["heat-protection", "heat-protectant", "thermal-protection", "silk-press", "blowout", "flat-iron", "blow-dry", "ceramides"]
+      },
+      {
+        "handle": "kids-collection",
+        "title": "Kids Collection",
+        "body_html": "<p>CrownKinetics' Kids Collection is formulated with the gentlest, most effective ingredients for young crowns. Children's textured hair requires special care: their scalps are more sensitive, their hair is finer and more delicate, and wash day should be a positive experience that teaches them to love and care for their natural texture from an early age. Every product in this collection is pediatrician-tested, tear-free, and designed to make hair care fun rather than a struggle.</p><p>Our kids' line features gentle cleansing shampoos that remove dirt without irritating sensitive scalps, easy-rinse conditioners with extra slip for painless detangling, and lightweight moisturizers that keep little curls and coils soft and manageable between styles. Our two-in-one detangling sprays dramatically reduce the tears and tangles that make many children dread wash day. Fruity, kid-approved scents make the experience enjoyable, while thoughtful packaging with pump dispensers makes it easy for older children to begin caring for their own hair. We also carry soft-hold styling products for two-strand twists, puffs, and braids. Help your little ones build a healthy, joyful relationship with their natural hair from the very beginning.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Smiling child with natural textured hair styled in puffs using CrownKinetics kids hair care products"
+        },
+        "seo": {
+          "title": "Kids Natural Hair Care Products | Gentle & Tear-Free | CrownKinetics",
+          "description": "Shop CrownKinetics kids collection for textured hair. Tear-free shampoos, gentle detanglers, moisturizing creams, and soft-hold styling products. Pediatrician-tested for sensitive scalps ages 2 and up."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "kids"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "kids-collection"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "children"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "tear-free"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "gentle"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["kids", "kids-collection", "children", "tear-free", "gentle", "detangling-spray", "kids-shampoo", "kids-conditioner"]
+      }
+    ],
+    "concern_based_collections": [
+      {
+        "handle": "growth-retention",
+        "title": "Growth & Retention",
+        "body_html": "<p>Length retention is the holy grail of textured hair care, and CrownKinetics' Growth and Retention collection brings together the most effective products for supporting healthy hair growth and keeping every inch you earn. For curly, coily, and kinky hair, the challenge is often not growing hair but retaining length, since breakage, dryness, and mechanical damage from styling can set back months of progress in a single session.</p><p>Our growth-focused products work on two fronts: stimulating the scalp to optimize the growth environment and strengthening the hair shaft to prevent breakage along the length. Our rosemary and peppermint scalp serums increase blood circulation to the follicles, delivering nutrients where growth begins. Biotin-infused leave-ins and strengthening masks fortify hair from the inside out with proteins and amino acids. Our protective sealants and end-repair serums target the oldest, most vulnerable parts of your hair to prevent split ends from traveling up the shaft. Combined with protective styling and gentle handling, this collection gives your hair the best possible chance to reach its full length potential. Grow long, stay strong.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Woman measuring her natural hair length growth progress with CrownKinetics growth and retention products"
+        },
+        "seo": {
+          "title": "Hair Growth & Length Retention Products | CrownKinetics",
+          "description": "Shop CrownKinetics growth and retention collection. Rosemary scalp serums, biotin treatments, strengthening masks, and anti-breakage sealants for natural hair length goals. Stimulate growth, prevent breakage."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "growth"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "retention"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "hair-growth"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "length-retention"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "biotin"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "rosemary"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["growth", "retention", "hair-growth", "length-retention", "biotin", "rosemary", "scalp-stimulation", "strengthening"]
+      },
+      {
+        "handle": "damage-repair",
+        "title": "Damage Repair",
+        "body_html": "<p>Whether it is from heat damage, chemical processing, color treatments, or years of harsh styling practices, damaged textured hair needs targeted repair to restore its health, elasticity, and natural curl pattern. CrownKinetics' Damage Repair collection features intensive treatments and daily-use products specifically formulated to rebuild, restore, and revive compromised curly, coily, and kinky hair from the inside out.</p><p>Our protein-moisture balanced approach addresses both symptoms and root causes of hair damage. Hydrolyzed keratin and silk protein treatments fill in gaps along the hair cuticle, restoring strength and reducing porosity. Bond-building treatments work at the molecular level to repair broken disulfide bonds caused by chemical and thermal stress. Moisture-rich masks with baobab oil, avocado butter, and hyaluronic acid replenish the hydration that damaged hair struggles to retain on its own. For those transitioning from relaxed to natural hair, our big chop and transition products support you through every stage of the journey. Damage does not have to be permanent. With consistent use of the right repair products, your hair can regain its bounce, strength, and vitality. Rebuild your crown strand by strand.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Before and after comparison of damaged textured hair restored with CrownKinetics damage repair treatments"
+        },
+        "seo": {
+          "title": "Hair Damage Repair for Textured Hair | Protein & Bond Treatments | CrownKinetics",
+          "description": "Shop CrownKinetics damage repair collection for natural hair. Bond-building treatments, protein masks, keratin repair, and transition products. Rebuild heat-damaged, chemically processed, and over-styled hair."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "damage-repair"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "protein-treatment"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "bond-repair"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "heat-damage"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "transitioning"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "keratin"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["damage-repair", "protein-treatment", "bond-repair", "heat-damage", "transitioning", "keratin", "restorative", "cuticle-repair"]
+      },
+      {
+        "handle": "anti-breakage",
+        "title": "Anti-Breakage",
+        "body_html": "<p>Breakage is the number one enemy of length retention for textured hair, and CrownKinetics' Anti-Breakage collection tackles it from every angle. Curly, coily, and kinky hair types are structurally more prone to breakage because the bends and kinks in each strand create natural weak points where the cuticle can crack and the cortex can snap. Add in manipulation from styling, dryness from the environment, and friction from cotton fabrics, and breakage becomes a daily battle.</p><p>Our anti-breakage products are formulated to fortify these vulnerable points and reduce the mechanical stress that causes snapping and shedding. Strengthening leave-ins with ceramides and amino acids reinforce the hair shaft along its entire length. Our pre-poo oil treatments coat and protect hair before the cleansing process, when wet hair is at its most fragile. Protein-moisture balanced deep conditioners ensure your hair has the structural integrity and flexibility it needs to withstand manipulation. Detangling products with maximum slip minimize the friction and force required during combing and styling. Combined with satin accessories and gentle handling techniques, this collection creates a comprehensive anti-breakage system. Keep every strand where it belongs: on your head.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Strong, healthy textured hair strands demonstrating flexibility and resilience from CrownKinetics anti-breakage care"
+        },
+        "seo": {
+          "title": "Anti-Breakage Products for Natural Hair | Strengthening Treatments | CrownKinetics",
+          "description": "Shop CrownKinetics anti-breakage collection. Strengthening leave-ins, pre-poo treatments, ceramide-rich products, and protective accessories for curly, coily, and kinky hair. Stop breakage, retain length."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "anti-breakage"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "strengthening"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "breakage-prevention"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "ceramides"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "pre-poo"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "fortifying"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["anti-breakage", "strengthening", "breakage-prevention", "ceramides", "pre-poo", "fortifying", "amino-acids", "slip"]
+      },
+      {
+        "handle": "hydration-therapy",
+        "title": "Hydration Therapy",
+        "body_html": "<p>Moisture is life for textured hair, and CrownKinetics' Hydration Therapy collection is your complete moisture restoration system. Curly, coily, and kinky hair textures are inherently moisture-hungry because the twists and bends in each strand make it difficult for natural sebum to travel from the scalp to the ends. Without proper hydration, textured hair becomes brittle, dull, tangled, and prone to breakage. This collection is your answer to chronic dryness.</p><p>Our Hydration Therapy products utilize a multi-layer moisturizing approach based on the LOC and LCO methods that have been foundational in the natural hair community. Water-based leave-ins deliver initial hydration. Creamy moisturizers with humectants like glycerin, honey, and aloe vera attract and bind moisture to the hair shaft. Rich oils and butters seal everything in, creating a protective layer that dramatically slows moisture loss. For emergency moisture rescue, our intensive hydrating masks with hyaluronic acid and marshmallow root extract deliver salon-level deep hydration in just fifteen minutes. Every product is formulated for lasting softness without the heavy, greasy feel. Bring your driest, thirstiest hair to this collection and watch the transformation. From straw-like to soft and supple, Hydration Therapy delivers.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Deeply moisturized natural curls glistening with hydration from CrownKinetics Hydration Therapy products"
+        },
+        "seo": {
+          "title": "Hydration Therapy for Dry Natural Hair | Deep Moisture Products | CrownKinetics",
+          "description": "Shop CrownKinetics Hydration Therapy for chronically dry textured hair. Hydrating masks, moisture-rich leave-ins, humectant creams, and sealing oils. LOC method essentials for curly, coily, and kinky hair."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "hydration"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "hydration-therapy"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "deep-moisture"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "dry-hair"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "moisture-rich"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "hydrating-mask"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["hydration", "hydration-therapy", "deep-moisture", "dry-hair", "moisture-rich", "hydrating-mask", "loc-method", "humectant"]
+      },
+      {
+        "handle": "protective-style-maintenance",
+        "title": "Protective Style Maintenance",
+        "body_html": "<p>Installing a protective style is only half the equation. Proper maintenance between install and takedown is what determines whether your natural hair comes out healthier or more damaged than when it went in. CrownKinetics' Protective Style Maintenance collection provides the specialized products you need to keep your scalp healthy, your natural hair moisturized, and your style looking fresh for the full duration of your protective style.</p><p>Our lightweight braid and twist sprays deliver moisture directly to your natural hair underneath without causing frizz or unraveling your style. Witch hazel and tea tree scalp cleansing sprays refresh your scalp between wash days, removing sweat and product buildup without requiring you to take your style down. Scalp oil applicator bottles with precision tips let you nourish your scalp along the parts without making a mess. Our style-extending edge refreshers keep your hairline sleek, and our anti-itch scalp serums provide relief from the tightness and itching that can occur, especially in the first week of a new install. We also carry satin-lined caps sized to fit over braids, twists, and locs. Make every protective style truly protective with proper maintenance from install to takedown.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "Person maintaining box braids protective style with CrownKinetics braid spray and scalp oil"
+        },
+        "seo": {
+          "title": "Protective Style Maintenance | Braid Sprays & Scalp Care | CrownKinetics",
+          "description": "Shop CrownKinetics protective style maintenance products. Braid sprays, scalp cleansing sprays, anti-itch serums, and satin caps for braids, twists, and locs. Keep your style fresh and your hair healthy underneath."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "protective-style-maintenance"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "braid-spray"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "scalp-refresh"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "anti-itch"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "style-maintenance"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "between-wash"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["protective-style-maintenance", "braid-spray", "scalp-refresh", "anti-itch", "style-maintenance", "between-wash", "scalp-cleanser", "style-extending"]
+      }
+    ],
+    "featured_collections": [
+      {
+        "handle": "best-sellers",
+        "title": "Best Sellers",
+        "body_html": "<p>Discover the CrownKinetics products that the natural hair community cannot stop raving about. Our Best Sellers collection features the top-performing products chosen by thousands of customers with Type 3 and Type 4 hair textures. These are the formulas that have earned their spot through real results: defined curls, moisturized coils, healthy scalps, and thriving edges. When you are not sure where to start your CrownKinetics journey, this collection is your roadmap.</p><p>Every product here has been validated by our community through verified reviews, repeat purchases, and social media love. From our signature deep conditioner that transforms wash day to the scalp serum that has become a holy grail for length retention, these best sellers represent the very best of what CrownKinetics offers. We update this collection regularly based on sales data and customer feedback, so you are always seeing what is genuinely trending, not just what we want to promote. Whether you are a first-time buyer looking for a reliable starting point or a loyal customer curious about what the rest of the community is loving, start here. These products earned their crown.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "CrownKinetics best-selling natural hair care products arranged in a curated flat lay display"
+        },
+        "seo": {
+          "title": "Best Sellers | Top-Rated Natural Hair Products | CrownKinetics",
+          "description": "Shop CrownKinetics best sellers, the most-loved products for curly, coily, and kinky hair. Community-validated deep conditioners, scalp serums, curl definers, and moisturizers. Start your journey here."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "best-seller"
+          }
+        ],
+        "rules_disjunctive": false,
+        "product_tags": ["best-seller"]
+      },
+      {
+        "handle": "new-arrivals",
+        "title": "New Arrivals",
+        "body_html": "<p>Be the first to try the latest innovations from CrownKinetics. Our New Arrivals collection showcases the freshest additions to our textured hair care lineup, from newly formulated products and seasonal limited editions to exciting brand collaborations and reformulated favorites. We are constantly researching, testing, and developing new solutions for the diverse needs of curly, coily, and kinky hair, and this is where those innovations land first.</p><p>Every new product goes through extensive development and testing with real people who have textured hair before it earns a spot in our store. We listen to our community's feedback, identify gaps in the market, and formulate solutions that address the specific challenges and desires of the natural hair community. Sign up for our email list and follow us on social media to get early access notifications and launch-day discounts on new arrivals. Many of our limited-edition drops sell out quickly, so check back often to stay ahead of the curve. Your next holy grail product might have just arrived. Explore what is new and experience the cutting edge of textured hair care innovation.</p>",
+        "sort_order": "created-descending",
+        "image": {
+          "alt": "Newly launched CrownKinetics products with fresh packaging and new arrival badges"
+        },
+        "seo": {
+          "title": "New Arrivals | Latest Natural Hair Care Products | CrownKinetics",
+          "description": "Shop the newest CrownKinetics products for textured hair. Fresh launches, limited editions, and innovative formulas for curly, coily, and kinky hair. Be the first to try our latest drops."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "new-arrival"
+          }
+        ],
+        "rules_disjunctive": false,
+        "product_tags": ["new-arrival", "new", "just-launched"]
+      },
+      {
+        "handle": "bundles-kits",
+        "title": "Bundles & Kits",
+        "body_html": "<p>Why buy one when you can get the complete system? CrownKinetics Bundles and Kits take the guesswork out of building a textured hair care routine by pairing complementary products that work better together. Each bundle is thoughtfully curated by our team of textured hair specialists to address specific hair types, concerns, or routines, and every kit comes at a better price than buying products individually.</p><p>Our collection features starter kits for those new to natural hair care, complete wash day bundles with everything from cleanser to sealant, targeted treatment kits for growth or repair, and seasonal sets that make perfect gifts. Our hair type-specific bundles ensure that every product in the set is formulated for your particular curl or coil pattern, eliminating the trial-and-error frustration of mixing and matching products that were not designed to work together. Custom build-your-own bundle options let you select your favorites and save. Each bundle includes a routine card with step-by-step instructions so you know exactly how to use every product for the best results. Save money, simplify your routine, and discover new favorites in every bundle.</p>",
+        "sort_order": "best-selling",
+        "image": {
+          "alt": "CrownKinetics curated hair care bundles and kits with products arranged in gift-ready packaging"
+        },
+        "seo": {
+          "title": "Hair Care Bundles & Kits | Save on Sets | CrownKinetics",
+          "description": "Shop CrownKinetics bundles and kits for textured hair. Curated wash day sets, growth kits, starter bundles, and gift sets for curly, coily, and kinky hair. Better together, better price."
+        },
+        "rules": [
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "bundle"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "kit"
+          },
+          {
+            "column": "tag",
+            "relation": "equals",
+            "condition": "set"
+          },
+          {
+            "column": "product_type",
+            "relation": "equals",
+            "condition": "Bundle"
+          }
+        ],
+        "rules_disjunctive": true,
+        "product_tags": ["bundle", "kit", "set", "value-set", "starter-kit", "wash-day-bundle", "gift-set"]
+      },
+      {
+        "handle": "under-15",
+        "title": "Under $15",
+        "body_html": "<p>Great textured hair care does not have to break the bank. CrownKinetics' Under $15 collection proves that effective, high-quality products for curly, coily, and kinky hair are accessible to every budget. We believe that everyone deserves to care for their crown with clean, nourishing products, regardless of their financial situation. Every item in this collection delivers real results at an everyday price point.</p><p>This collection features travel-sized versions of our most popular products, perfect for trying something new before committing to a full size. You will also find everyday essentials like satin scrunchies, edge brushes, detangling combs, refresher sprays, and sample-sized styling products that punch well above their price point. Our mini deep conditioner sachets are a wash-day game changer for those on a budget, delivering salon-quality conditioning for under five dollars. This collection is also perfect for stocking stuffers, gift bag additions, and first-time CrownKinetics customers who want to sample the line. Affordable does not mean watered down. Every product in this collection meets the same quality and formulation standards as our full-priced items. Treat your crown without stressing your wallet.</p>",
+        "sort_order": "price-ascending",
+        "image": {
+          "alt": "Affordable CrownKinetics products under fifteen dollars including minis, accessories, and sample sizes"
+        },
+        "seo": {
+          "title": "Under $15 | Affordable Natural Hair Products | CrownKinetics",
+          "description": "Shop CrownKinetics products under $15. Affordable minis, travel sizes, accessories, and essentials for curly, coily, and kinky hair. High-quality textured hair care that fits every budget."
+        },
+        "rules": [
+          {
+            "column": "variant_price",
+            "relation": "less_than",
+            "condition": "15.00"
+          }
+        ],
+        "rules_disjunctive": false,
+        "product_tags": ["under-15", "affordable", "mini", "travel-size", "sample", "budget-friendly"]
+      }
+    ]
+  }
+}
