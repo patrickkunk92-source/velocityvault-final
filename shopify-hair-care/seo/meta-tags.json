@@ -1,0 +1,357 @@
+{
+  "_meta": {
+    "description": "CrownKinetics SEO Meta Tags - All page meta titles and descriptions optimized for CTR and keyword targeting",
+    "guidelines": {
+      "title_max_length": "60 characters (Google truncates at ~60)",
+      "description_max_length": "160 characters (Google truncates at ~155-160)",
+      "title_format": "Primary Keyword | Brand Modifier or Value Proposition",
+      "description_format": "Action-oriented, includes keyword, ends with CTA or value prop"
+    }
+  },
+
+  "core_pages": {
+    "homepage": {
+      "title": "CrownKinetics | Natural Hair Care Products for Textured Hair",
+      "description": "Clean, effective hair care for curly, coily, and loc'd hair. Shop sulfate-free shampoos, deep conditioners, growth oils, and styling products made for you.",
+      "target_keywords": ["natural hair care products", "textured hair products", "Black hair care"],
+      "og_title": "CrownKinetics — Hair Care That Honors Your Crown",
+      "og_description": "Clean, effective products designed specifically for curly, coily, and loc'd hair. Discover your perfect routine."
+    },
+    "about": {
+      "title": "Our Story | CrownKinetics — Black-Owned Natural Hair Care",
+      "description": "CrownKinetics was born from the belief that textured hair deserves better. Learn about our mission, clean ingredients, and the community behind the brand.",
+      "target_keywords": ["Black owned hair care brand", "natural hair care company", "CrownKinetics about"],
+      "og_title": "About CrownKinetics — Our Mission and Story",
+      "og_description": "We believe textured hair deserves clean, effective, and joyful care. Learn how CrownKinetics is changing the game."
+    },
+    "contact": {
+      "title": "Contact Us | CrownKinetics Customer Support",
+      "description": "Questions about your order, hair type, or products? Our team is here to help. Reach CrownKinetics by email, chat, or phone — we respond within 24 hours.",
+      "target_keywords": ["CrownKinetics contact", "CrownKinetics customer service"],
+      "og_title": "Contact CrownKinetics",
+      "og_description": "Have a question? Our team is here to help with orders, product recommendations, and hair advice."
+    },
+    "hair_quiz": {
+      "title": "Hair Type & Porosity Quiz | Find Your Perfect Routine",
+      "description": "Take the 2-minute CrownKinetics quiz to discover your hair type, porosity, and a personalized product routine built just for your curls, coils, or locs.",
+      "target_keywords": ["hair type quiz", "hair porosity quiz", "natural hair quiz"],
+      "og_title": "What Does Your Hair Really Need? Take the Quiz",
+      "og_description": "Answer 5 quick questions and get a personalized hair care routine with product recommendations matched to your hair."
+    },
+    "blog_index": {
+      "title": "CrownKinetics Blog | Natural Hair Tips, Guides & Education",
+      "description": "Expert guides on wash day routines, hair typing, scalp care, protective styles, and more. Real advice for curly, coily, and loc'd hair — no fluff.",
+      "target_keywords": ["natural hair blog", "Black hair care tips", "textured hair guides"],
+      "og_title": "The CrownKinetics Blog — Your Natural Hair Knowledge Hub",
+      "og_description": "In-depth guides, tips, and education for every stage of your natural hair journey."
+    },
+    "hair_guide": {
+      "title": "The Complete Natural Hair Guide | CrownKinetics Learning Center",
+      "description": "Everything you need to know about natural hair in one place. Hair types, porosity, routines, ingredients, and techniques — your free comprehensive resource.",
+      "target_keywords": ["natural hair guide", "hair care guide", "textured hair education"],
+      "og_title": "The CrownKinetics Natural Hair Guide",
+      "og_description": "Your free, comprehensive resource for understanding and caring for curly, coily, and loc'd hair."
+    },
+    "faq": {
+      "title": "FAQ | CrownKinetics — Shipping, Returns & Product Questions",
+      "description": "Find answers to common questions about CrownKinetics products, shipping, returns, ingredients, and hair care advice. Can't find your answer? Contact us.",
+      "target_keywords": ["CrownKinetics FAQ", "CrownKinetics shipping", "CrownKinetics returns"],
+      "og_title": "Frequently Asked Questions — CrownKinetics",
+      "og_description": "Quick answers about our products, shipping, returns, and ingredients."
+    },
+    "ingredient_glossary": {
+      "title": "Ingredient Glossary | What's in Your Hair Products | CrownKinetics",
+      "description": "Look up any hair care ingredient and learn what it does, whether it's safe, and if it's right for your hair type. Transparent ingredient education from CrownKinetics.",
+      "target_keywords": ["hair product ingredients", "natural hair ingredients", "ingredient glossary"],
+      "og_title": "CrownKinetics Ingredient Glossary",
+      "og_description": "Know exactly what's in your hair products. Search any ingredient for a plain-English breakdown."
+    }
+  },
+
+  "collection_pages": {
+    "all_products": {
+      "title": "Shop All Natural Hair Care Products | CrownKinetics",
+      "description": "Browse the full CrownKinetics collection — shampoos, conditioners, oils, butters, styling products, and more. Clean ingredients for every curl, coil, and loc.",
+      "target_keywords": ["natural hair products", "shop natural hair care", "ethnic hair care products"],
+      "og_title": "Shop All CrownKinetics Products",
+      "og_description": "Clean, effective hair care for curly, coily, and loc'd hair. Browse our full collection."
+    },
+    "shampoos_cleansers": {
+      "title": "Sulfate-Free Shampoos for Natural Hair | CrownKinetics",
+      "description": "Gentle, sulfate-free shampoos that cleanse without stripping. Formulated for curly, coily, and loc'd hair — remove buildup while keeping moisture locked in.",
+      "target_keywords": ["sulfate free shampoo natural hair", "moisturizing shampoo black hair", "natural hair shampoo"],
+      "og_title": "Sulfate-Free Shampoos — CrownKinetics",
+      "og_description": "Cleanse without stripping. Our sulfate-free shampoos keep your natural moisture intact."
+    },
+    "conditioners": {
+      "title": "Deep Conditioners & Leave-Ins for Natural Hair | CrownKinetics",
+      "description": "Intensive deep conditioners and lightweight leave-ins for type 3 and type 4 hair. Detangle, hydrate, and strengthen with every wash day.",
+      "target_keywords": ["deep conditioner natural hair", "leave in conditioner 4C hair", "natural hair conditioner"],
+      "og_title": "Conditioners for Natural Hair — CrownKinetics",
+      "og_description": "Deep conditioners and leave-ins that deliver real hydration to curly and coily hair."
+    },
+    "styling_products": {
+      "title": "Natural Hair Styling Products — Creams, Gels & Edge Control",
+      "description": "Define curls, lay edges, and hold styles without the crunch. CrownKinetics styling products deliver flexible hold with nourishing, clean ingredients.",
+      "target_keywords": ["natural hair styling products", "curl defining cream", "edge control black hair"],
+      "og_title": "Styling Products — CrownKinetics",
+      "og_description": "Flexible hold, zero crunch. Curl creams, gels, edge control, and more for textured hair."
+    },
+    "hair_oils": {
+      "title": "Hair Growth Oils & Treatment Oils | CrownKinetics",
+      "description": "Nourishing oils for hair growth, sealing, hot oil treatments, and scalp care. Featuring Jamaican black castor oil, argan, and custom growth blends.",
+      "target_keywords": ["hair growth oil natural hair", "jamaican black castor oil", "natural hair oils"],
+      "og_title": "Hair Oils — CrownKinetics",
+      "og_description": "Growth oils, scalp oils, and sealing oils formulated for textured hair."
+    },
+    "hair_butters_creams": {
+      "title": "Hair Butters & Moisturizing Creams for Natural Hair | CrownKinetics",
+      "description": "Rich, whipped hair butters and moisturizing creams that seal in hydration without the grease. Perfect for type 4 hair, twist outs, and protective styles.",
+      "target_keywords": ["natural hair butter", "hair moisturizer for black hair", "whipped shea butter hair"],
+      "og_title": "Hair Butters & Creams — CrownKinetics",
+      "og_description": "Seal in moisture without the weight. Whipped butters and creams for textured hair."
+    },
+    "loc_care": {
+      "title": "Loc Care Products — Shampoo, Oil & Moisturizer for Locs",
+      "description": "Residue-free loc care products that moisturize without buildup. Loc shampoo, oil, gel, and spray designed for every stage — starter locs to mature locs.",
+      "target_keywords": ["loc maintenance products", "loc care products", "dreadlock shampoo"],
+      "og_title": "Loc Care Collection — CrownKinetics",
+      "og_description": "Lightweight, residue-free formulas for starter locs to mature locs."
+    },
+    "scalp_care": {
+      "title": "Scalp Treatment & Scalp Oil for Natural Hair | CrownKinetics",
+      "description": "Treat dry scalp, itchiness, and buildup with targeted scalp care. Tea tree, peppermint, and rosemary-infused treatments that promote healthy hair growth.",
+      "target_keywords": ["scalp treatment natural hair", "scalp oil for hair growth", "dry scalp treatment black hair"],
+      "og_title": "Scalp Care — CrownKinetics",
+      "og_description": "Healthy hair starts at the scalp. Targeted treatments for dryness, buildup, and growth."
+    },
+    "kids_collection": {
+      "title": "Kids Natural Hair Care — Gentle Products for Curly Kids",
+      "description": "Tear-free, gentle hair care made for kids' delicate curls and coils. Safe ingredients, easy detangling, and fun routines that make hair time bonding time.",
+      "target_keywords": ["natural hair products for kids", "kids curly hair products", "gentle shampoo kids"],
+      "og_title": "Kids Collection — CrownKinetics",
+      "og_description": "Gentle, safe hair care for your little one's curls and coils. Made for kids, loved by parents."
+    },
+    "mens_collection": {
+      "title": "Men's Natural Hair Care Products | CrownKinetics",
+      "description": "No-nonsense hair care for men with textured hair. Lightweight moisturizers, curl creams, loc care, and beard oils — effective formulas without the fuss.",
+      "target_keywords": ["mens natural hair care", "hair care for black men", "mens curl cream"],
+      "og_title": "Men's Collection — CrownKinetics",
+      "og_description": "Straightforward, effective hair care for men with textured, curly, and loc'd hair."
+    },
+    "wig_protective_style_care": {
+      "title": "Wig Care & Protective Style Products | CrownKinetics",
+      "description": "Keep your wigs fresh and your natural hair healthy underneath. Wig shampoo, braid spray, scalp oil for under wigs, and take-down day essentials.",
+      "target_keywords": ["wig care products", "braid spray", "protective style products"],
+      "og_title": "Wig & Protective Style Care — CrownKinetics",
+      "og_description": "Protect your wigs and the hair underneath. Products for install, maintenance, and take-down."
+    },
+    "bundles_kits": {
+      "title": "Hair Care Bundles & Starter Kits | CrownKinetics",
+      "description": "Save up to 25% with curated hair care bundles. Wash day kits, starter sets, and targeted bundles matched to your hair type. The easiest way to start.",
+      "target_keywords": ["natural hair care kit", "hair care bundle", "starter kit natural hair"],
+      "og_title": "Bundles & Kits — CrownKinetics",
+      "og_description": "Curated bundles for every hair type and goal. Save up to 25% when you buy the set."
+    },
+    "new_arrivals": {
+      "title": "New Arrivals | Latest Natural Hair Care Products | CrownKinetics",
+      "description": "Be the first to try our newest formulas. Fresh drops in styling, treatment, and daily care — crafted based on what our community asked for.",
+      "target_keywords": ["new natural hair products", "CrownKinetics new arrivals"],
+      "og_title": "New Arrivals — CrownKinetics",
+      "og_description": "Our latest launches, formulated based on what our community asked for."
+    },
+    "bestsellers": {
+      "title": "Bestselling Natural Hair Products | CrownKinetics",
+      "description": "Our community has spoken. Shop CrownKinetics' most-loved products — the deep conditioner, growth oil, and edge control that earned 5-star reviews.",
+      "target_keywords": ["best natural hair products", "popular Black hair care products"],
+      "og_title": "Bestsellers — CrownKinetics",
+      "og_description": "Our community's most-loved products. See what everyone is raving about."
+    },
+    "sale": {
+      "title": "Sale — Natural Hair Care Products on Sale | CrownKinetics",
+      "description": "Stock up and save. Shop discounted CrownKinetics products — same clean formulas, better prices. Limited quantities available.",
+      "target_keywords": ["natural hair products on sale", "discount hair care"],
+      "og_title": "Sale — CrownKinetics",
+      "og_description": "Same clean formulas at better prices. Shop our current sale."
+    }
+  },
+
+  "hair_type_collections": {
+    "type_3_hair": {
+      "title": "Products for Type 3 Curly Hair (3A, 3B, 3C) | CrownKinetics",
+      "description": "Lightweight curly hair products for type 3A, 3B, and 3C curls. Define, hydrate, and fight frizz without weighing down your natural curl pattern.",
+      "target_keywords": ["type 3 hair products", "3A 3B 3C hair products", "curly hair products"],
+      "og_title": "Type 3 Curly Hair Products — CrownKinetics",
+      "og_description": "Lightweight products that define and hydrate type 3 curls without the weight."
+    },
+    "type_4a_hair": {
+      "title": "Products for 4A Hair — Coily Hair Care | CrownKinetics",
+      "description": "Moisturizing products designed for 4A coily hair. Tight curls need targeted hydration — our formulas deliver moisture and definition without buildup.",
+      "target_keywords": ["4A hair products", "coily hair products", "type 4A hair care"],
+      "og_title": "4A Hair Products — CrownKinetics",
+      "og_description": "Targeted moisture and definition for 4A coily curls."
+    },
+    "type_4b_hair": {
+      "title": "Products for 4B Hair — Zigzag Coil Hair Care | CrownKinetics",
+      "description": "Hydrating, nourishing products made for 4B hair's unique zigzag pattern. Deep moisture, gentle detangling, and flexible hold for your coils.",
+      "target_keywords": ["4B hair products", "zigzag hair products", "type 4B hair care"],
+      "og_title": "4B Hair Products — CrownKinetics",
+      "og_description": "Deep hydration and gentle care for 4B zigzag coils."
+    },
+    "type_4c_hair": {
+      "title": "Products for 4C Hair — Tight Coil & Kink Hair Care | CrownKinetics",
+      "description": "The richest, most moisturizing formulas for 4C hair. Seal in hydration, reduce breakage, and celebrate your coils with products that understand your texture.",
+      "target_keywords": ["4C hair products", "natural hair products for 4C hair", "kinky hair products"],
+      "og_title": "4C Hair Products — CrownKinetics",
+      "og_description": "Rich, moisturizing products formulated specifically for 4C coils and kinks."
+    },
+    "low_porosity": {
+      "title": "Products for Low Porosity Hair | CrownKinetics",
+      "description": "Lightweight, water-based products that actually penetrate low porosity hair. No buildup, no heavy residue — just hydration your hair can absorb.",
+      "target_keywords": ["low porosity hair products", "products for low porosity hair"],
+      "og_title": "Low Porosity Hair Products — CrownKinetics",
+      "og_description": "Lightweight formulas that penetrate low porosity hair without buildup."
+    },
+    "high_porosity": {
+      "title": "Products for High Porosity Hair | CrownKinetics",
+      "description": "Sealing, protein-rich products for high porosity hair. Repair damage, lock in moisture, and strengthen your strands with formulas that fill the gaps.",
+      "target_keywords": ["high porosity hair products", "products for high porosity hair"],
+      "og_title": "High Porosity Hair Products — CrownKinetics",
+      "og_description": "Protein-rich, sealing formulas that repair and strengthen high porosity hair."
+    }
+  },
+
+  "blog_posts": {
+    "hair_type_guide": {
+      "title": "Hair Type Chart: Complete Guide from 3A to 4C | CrownKinetics",
+      "description": "Not sure what your hair type is? Our complete guide breaks down every curl pattern from 3A to 4C with photos, care tips, and the best products for each.",
+      "target_keywords": ["hair type chart", "hair type guide 3A to 4C", "what is my hair type"]
+    },
+    "ingredients_to_avoid": {
+      "title": "10 Ingredients to Avoid in Natural Hair Products | CrownKinetics",
+      "description": "Sulfates, parabens, silicones — and 7 more ingredients sabotaging your hair. Learn what to avoid and what to look for in clean hair products.",
+      "target_keywords": ["ingredients to avoid natural hair", "bad hair product ingredients"]
+    },
+    "wash_day_routine": {
+      "title": "Wash Day Routine for Type 4 Hair: Step by Step | CrownKinetics",
+      "description": "Master wash day with this step-by-step guide for type 4 natural hair. Pre-poo to styling — every phase explained with products and time-saving tips.",
+      "target_keywords": ["wash day routine natural hair", "type 4 wash day"]
+    },
+    "loc_maintenance": {
+      "title": "How to Maintain Locs: A Beginner's Complete Guide | CrownKinetics",
+      "description": "Starting or maintaining locs? This guide covers retwisting, washing, moisturizing, and the best products for every stage of your loc journey.",
+      "target_keywords": ["how to maintain locs", "loc care for beginners"]
+    },
+    "protective_styles": {
+      "title": "Protective Styles That Actually Protect Your Hair | CrownKinetics",
+      "description": "Not all protective styles are protective. Learn which styles promote growth, how long to keep them, and mistakes that cause damage instead of preventing it.",
+      "target_keywords": ["protective styles for natural hair", "best protective styles"]
+    },
+    "edge_control_truth": {
+      "title": "The Truth About Edge Control: What's in Your Products | CrownKinetics",
+      "description": "Your edge control might be thinning your edges. We break down ingredients in popular edge controls and show you how to lay edges without the damage.",
+      "target_keywords": ["best edge control for black hair", "edge control ingredients"]
+    },
+    "rice_water_rinse": {
+      "title": "Rice Water Rinse for Hair Growth: Does It Work? | CrownKinetics",
+      "description": "Used for centuries in Asia, the rice water rinse is trending for growth. Learn the science, how to make it, how often to use it, and what to expect.",
+      "target_keywords": ["rice water rinse for hair growth", "how to make rice water for hair"]
+    },
+    "transitioning_guide": {
+      "title": "Transitioning to Natural Hair: Your 12-Month Guide | CrownKinetics",
+      "description": "Going natural? This 12-month guide walks you through every stage — managing two textures, transition hairstyles, products, and your first big chop.",
+      "target_keywords": ["transitioning from relaxed to natural", "going natural hair guide"]
+    },
+    "nighttime_routine": {
+      "title": "Best Nighttime Routine for Natural Hair | CrownKinetics",
+      "description": "What you do at night determines how your hair looks tomorrow. Discover pineapple method, bonnet tips, and overnight treatments for natural hair.",
+      "target_keywords": ["nighttime routine natural hair", "how to sleep with natural hair"]
+    },
+    "mens_hair_care": {
+      "title": "Men's Natural Hair Care Guide: Routines & Products | CrownKinetics",
+      "description": "Hair care isn't gendered. Everything men need to know about caring for natural, textured, and loc'd hair — simple routines and the right products.",
+      "target_keywords": ["mens natural hair care", "hair care for Black men"]
+    },
+    "summer_hair_care": {
+      "title": "Summer Hair Care Tips for Textured Hair | CrownKinetics",
+      "description": "Sun, chlorine, salt water, and humidity — summer is tough on textured hair. Get tips for protecting, moisturizing, and styling all summer long.",
+      "target_keywords": ["summer hair care natural hair", "protecting natural hair in summer"]
+    },
+    "porosity_test": {
+      "title": "Hair Porosity Test: Why It Changes Everything | CrownKinetics",
+      "description": "Porosity is the most overlooked factor in hair care. Learn how to test yours in 60 seconds, what results mean, and how to choose products that work.",
+      "target_keywords": ["hair porosity test", "what is hair porosity"]
+    },
+    "kids_hair_care": {
+      "title": "Natural Hair Care for Kids: Gentle Products & Tips | CrownKinetics",
+      "description": "Caring for your child's natural hair shouldn't mean tears. Gentle techniques, safe products, and fun styles that make hair time bonding time.",
+      "target_keywords": ["natural hair care for kids", "kids curly hair products"]
+    },
+    "curl_definition": {
+      "title": "How to Define Curls Without Crunchiness | CrownKinetics",
+      "description": "Love defined curls but hate the crunch? Learn techniques and product swaps for soft, touchable, defined curls — no flaking or stiffness.",
+      "target_keywords": ["how to define curls without gel", "curl definition natural hair"]
+    },
+    "scalp_health": {
+      "title": "Scalp Health: The Foundation of Hair Growth | CrownKinetics",
+      "description": "Healthy hair starts at the scalp. Build a scalp care routine that treats dryness, buildup, and itchiness while promoting thicker, stronger growth.",
+      "target_keywords": ["scalp health hair growth", "dry scalp treatment black hair"]
+    },
+    "hot_oil_treatment": {
+      "title": "DIY Hot Oil Treatment for Natural Hair | CrownKinetics",
+      "description": "A hot oil treatment can transform dry hair in one session. Step-by-step guide with the best oils, customizations by hair type, and safety tips.",
+      "target_keywords": ["DIY hot oil treatment", "hot oil treatment natural hair"]
+    },
+    "wig_care": {
+      "title": "Wig Care 101: Making Your Investment Last | CrownKinetics",
+      "description": "Your wig is an investment. Learn professional washing, conditioning, styling, and storage techniques that keep your wigs looking fresh for months.",
+      "target_keywords": ["wig care products", "how to wash a wig"]
+    },
+    "black_hair_history": {
+      "title": "The History and Culture of Black Hair | CrownKinetics",
+      "description": "From ancient Africa to the modern natural hair movement, Black hair has always been more than hair. Explore the rich history and ongoing fight for freedom.",
+      "target_keywords": ["history of Black hair", "Black hair culture"]
+    },
+    "protein_moisture_balance": {
+      "title": "Protein vs. Moisture Balance for Natural Hair | CrownKinetics",
+      "description": "Hair mushy or snapping? You might have a protein-moisture imbalance. Learn to identify the problem and restore the perfect balance for healthy hair.",
+      "target_keywords": ["protein vs moisture balance hair", "protein overload natural hair"]
+    },
+    "product_stash_guide": {
+      "title": "Building Your Natural Hair Product Stash: A Smart Guide | CrownKinetics",
+      "description": "You don't need 30 products. Learn which natural hair products are essential, which are nice-to-have, and how to build a stash that works and saves money.",
+      "target_keywords": ["natural hair care essentials", "must have natural hair products"]
+    }
+  },
+
+  "policy_pages": {
+    "shipping": {
+      "title": "Shipping Policy — Free Shipping Over $50 | CrownKinetics",
+      "description": "Free standard shipping on orders over $50. CrownKinetics ships within 1-2 business days. See delivery times, tracking info, and international options.",
+      "target_keywords": ["CrownKinetics shipping"],
+      "og_title": "Shipping Information — CrownKinetics",
+      "og_description": "Free shipping over $50. Orders ship within 1-2 business days."
+    },
+    "returns": {
+      "title": "Return & Refund Policy | CrownKinetics",
+      "description": "Not happy? Return unopened products within 30 days for a full refund. See our hassle-free return process and satisfaction guarantee details.",
+      "target_keywords": ["CrownKinetics returns", "CrownKinetics refund policy"],
+      "og_title": "Returns & Refunds — CrownKinetics",
+      "og_description": "30-day hassle-free returns on unopened products. Your satisfaction guaranteed."
+    },
+    "privacy_policy": {
+      "title": "Privacy Policy | CrownKinetics",
+      "description": "Your privacy matters. Read how CrownKinetics collects, uses, and protects your personal information when you shop with us.",
+      "target_keywords": ["CrownKinetics privacy policy"],
+      "og_title": "Privacy Policy — CrownKinetics",
+      "og_description": "How we collect, use, and protect your personal information."
+    },
+    "terms_of_service": {
+      "title": "Terms of Service | CrownKinetics",
+      "description": "Read the terms and conditions for using the CrownKinetics website and purchasing our products. Last updated 2026.",
+      "target_keywords": ["CrownKinetics terms of service"],
+      "og_title": "Terms of Service — CrownKinetics",
+      "og_description": "Terms and conditions for using CrownKinetics."
+    }
+  }
+}
