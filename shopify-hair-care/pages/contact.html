@@ -1,0 +1,891 @@
+<!-- CrownKinetics Contact Page -->
+<!-- Shopify Page Template: page.contact -->
+
+<style>
+  :root {
+    --ck-brown: #5C3A1E;
+    --ck-brown-light: #8B6914;
+    --ck-gold: #C5960C;
+    --ck-gold-light: #D4AF37;
+    --ck-gold-pale: #F5E6B8;
+    --ck-purple: #2D1B4E;
+    --ck-purple-mid: #4A2C6A;
+    --ck-purple-light: #7B5EA7;
+    --ck-charcoal: #2C2C2C;
+    --ck-charcoal-light: #444444;
+    --ck-cream: #FDF8F0;
+    --ck-white: #FFFFFF;
+  }
+
+  .ck-contact-page {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--ck-charcoal);
+    line-height: 1.8;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .ck-contact-page * {
+    box-sizing: border-box;
+  }
+
+  /* Hero */
+  .ck-contact-hero {
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-brown) 100%);
+    color: var(--ck-cream);
+    text-align: center;
+    padding: 80px 20px 60px;
+  }
+
+  .ck-contact-hero h1 {
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ck-gold-light);
+    margin: 0 0 15px;
+  }
+
+  .ck-contact-hero p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    color: var(--ck-gold-pale);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .ck-gold-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--ck-gold-light), transparent);
+    margin: 25px auto;
+    border: none;
+  }
+
+  /* Contact Quick Info */
+  .ck-contact-quick {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    max-width: 1200px;
+    margin: -30px auto 0;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+  }
+
+  .ck-quick-card {
+    background: var(--ck-white);
+    text-align: center;
+    padding: 40px 25px;
+    border: 1px solid rgba(197,150,12,0.15);
+    transition: all 0.3s ease;
+  }
+
+  .ck-quick-card:first-child {
+    border-radius: 12px 0 0 12px;
+  }
+
+  .ck-quick-card:last-child {
+    border-radius: 0 12px 12px 0;
+  }
+
+  .ck-quick-card:hover {
+    box-shadow: 0 8px 30px rgba(45,27,78,0.08);
+    transform: translateY(-4px);
+    z-index: 3;
+  }
+
+  .ck-quick-icon {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-purple-mid) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+  }
+
+  .ck-quick-card h3 {
+    font-size: 20px;
+    color: var(--ck-purple);
+    margin-bottom: 8px;
+  }
+
+  .ck-quick-card p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--ck-charcoal-light);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .ck-quick-card a {
+    color: var(--ck-gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+
+  .ck-quick-card a:hover {
+    color: var(--ck-purple);
+  }
+
+  /* Main Contact Layout */
+  .ck-contact-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+  }
+
+  /* Contact Form */
+  .ck-form-section h2 {
+    font-size: 34px;
+    color: var(--ck-purple);
+    margin-bottom: 10px;
+  }
+
+  .ck-form-section > p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--ck-charcoal-light);
+    margin-bottom: 30px;
+    line-height: 1.7;
+  }
+
+  .ck-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ck-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .ck-form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ck-form-group label {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ck-purple);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .ck-form-group label .ck-required {
+    color: #C0392B;
+    margin-left: 3px;
+  }
+
+  .ck-form-group input,
+  .ck-form-group select,
+  .ck-form-group textarea {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    padding: 14px 18px;
+    border: 1px solid rgba(197,150,12,0.3);
+    border-radius: 6px;
+    background: var(--ck-cream);
+    color: var(--ck-charcoal);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+  }
+
+  .ck-form-group input:focus,
+  .ck-form-group select:focus,
+  .ck-form-group textarea:focus {
+    border-color: var(--ck-gold-light);
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+  }
+
+  .ck-form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  .ck-submit-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-purple-mid) 100%);
+    color: var(--ck-gold-light);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 16px 45px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+  }
+
+  .ck-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45,27,78,0.2);
+  }
+
+  .ck-form-note {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    color: var(--ck-charcoal-light);
+    font-style: italic;
+  }
+
+  /* Business Hours & Social */
+  .ck-sidebar-section h2 {
+    font-size: 34px;
+    color: var(--ck-purple);
+    margin-bottom: 30px;
+  }
+
+  .ck-hours-card {
+    background: var(--ck-cream);
+    border-radius: 12px;
+    padding: 35px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(197,150,12,0.15);
+  }
+
+  .ck-hours-card h3 {
+    font-size: 22px;
+    color: var(--ck-purple);
+    margin-bottom: 20px;
+  }
+
+  .ck-hours-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .ck-hours-table tr {
+    border-bottom: 1px solid rgba(197,150,12,0.1);
+  }
+
+  .ck-hours-table td {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    padding: 10px 0;
+    color: var(--ck-charcoal-light);
+  }
+
+  .ck-hours-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+    color: var(--ck-charcoal);
+  }
+
+  .ck-hours-note {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    color: var(--ck-purple-light);
+    margin-top: 15px;
+    font-style: italic;
+  }
+
+  /* Social Links */
+  .ck-social-card {
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-brown) 100%);
+    border-radius: 12px;
+    padding: 35px;
+    margin-bottom: 30px;
+  }
+
+  .ck-social-card h3 {
+    font-size: 22px;
+    color: var(--ck-gold-light);
+    margin-bottom: 20px;
+  }
+
+  .ck-social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ck-social-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--ck-gold-pale);
+    text-decoration: none;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .ck-social-link:hover {
+    background: rgba(255,255,255,0.12);
+    color: var(--ck-gold-light);
+    transform: translateX(5px);
+  }
+
+  .ck-social-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(212,175,55,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Newsletter Card */
+  .ck-newsletter-card {
+    background: var(--ck-cream);
+    border-radius: 12px;
+    padding: 35px;
+    border: 1px solid rgba(197,150,12,0.15);
+  }
+
+  .ck-newsletter-card h3 {
+    font-size: 22px;
+    color: var(--ck-purple);
+    margin-bottom: 10px;
+  }
+
+  .ck-newsletter-card p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--ck-charcoal-light);
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  .ck-newsletter-form {
+    display: flex;
+    gap: 10px;
+  }
+
+  .ck-newsletter-form input {
+    flex: 1;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    padding: 12px 18px;
+    border: 1px solid rgba(197,150,12,0.3);
+    border-radius: 6px;
+    background: var(--ck-white);
+    outline: none;
+  }
+
+  .ck-newsletter-form input:focus {
+    border-color: var(--ck-gold-light);
+  }
+
+  .ck-newsletter-form button {
+    background: var(--ck-gold-light);
+    color: var(--ck-purple);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+
+  .ck-newsletter-form button:hover {
+    background: var(--ck-gold);
+    transform: translateY(-2px);
+  }
+
+  /* FAQ Section */
+  .ck-faq-section {
+    background: var(--ck-cream);
+    padding: 80px 20px;
+  }
+
+  .ck-faq-inner {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  .ck-faq-section h2 {
+    font-size: 38px;
+    color: var(--ck-purple);
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .ck-faq-subtitle {
+    text-align: center;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 15px;
+    color: var(--ck-charcoal-light);
+    margin-bottom: 50px;
+  }
+
+  .ck-faq-item {
+    background: var(--ck-white);
+    border: 1px solid rgba(197,150,12,0.15);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .ck-faq-item:hover {
+    border-color: var(--ck-gold-light);
+  }
+
+  .ck-faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 28px;
+    cursor: pointer;
+    user-select: none;
+    gap: 15px;
+  }
+
+  .ck-faq-question h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ck-purple);
+    margin: 0;
+    flex: 1;
+  }
+
+  .ck-faq-toggle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-purple-mid) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+
+  .ck-faq-toggle svg {
+    transition: transform 0.3s;
+  }
+
+  .ck-faq-item.ck-active .ck-faq-toggle svg {
+    transform: rotate(45deg);
+  }
+
+  .ck-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+
+  .ck-faq-item.ck-active .ck-faq-answer {
+    max-height: 500px;
+    padding: 0 28px 25px;
+  }
+
+  .ck-faq-answer p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--ck-charcoal-light);
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  .ck-faq-answer a {
+    color: var(--ck-gold);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .ck-faq-answer a:hover {
+    color: var(--ck-purple);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .ck-contact-quick { grid-template-columns: repeat(2, 1fr); }
+    .ck-contact-main { grid-template-columns: 1fr; }
+    .ck-quick-card:first-child { border-radius: 12px 0 0 0; }
+    .ck-quick-card:nth-child(2) { border-radius: 0 12px 0 0; }
+    .ck-quick-card:nth-child(3) { border-radius: 0 0 0 12px; }
+    .ck-quick-card:last-child { border-radius: 0 0 12px 0; }
+  }
+
+  @media (max-width: 600px) {
+    .ck-contact-quick { grid-template-columns: 1fr; }
+    .ck-quick-card, .ck-quick-card:first-child, .ck-quick-card:last-child,
+    .ck-quick-card:nth-child(2), .ck-quick-card:nth-child(3) {
+      border-radius: 0;
+    }
+    .ck-quick-card:first-child { border-radius: 12px 12px 0 0; }
+    .ck-quick-card:last-child { border-radius: 0 0 12px 12px; }
+    .ck-form-row { grid-template-columns: 1fr; }
+    .ck-contact-hero h1 { font-size: 32px; }
+    .ck-newsletter-form { flex-direction: column; }
+  }
+</style>
+
+<div class="ck-contact-page">
+
+  <!-- Hero -->
+  <section class="ck-contact-hero">
+    <h1>Get in Touch</h1>
+    <hr class="ck-gold-divider">
+    <p>
+      We are here to help you on your hair journey. Whether you have a question about
+      your order, need product guidance, or simply want to connect &mdash; your crown is our priority.
+    </p>
+  </section>
+
+  <!-- Quick Contact Cards -->
+  <div class="ck-contact-quick">
+    <div class="ck-quick-card">
+      <div class="ck-quick-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <h3>Email Us</h3>
+      <p><a href="mailto:hello@crownkinetics.com">hello@crownkinetics.com</a></p>
+    </div>
+
+    <div class="ck-quick-card">
+      <div class="ck-quick-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <h3>Call Us</h3>
+      <p><a href="tel:+18885276965">1-888-CROWNGK</a><br>(1-888-527-6965)</p>
+    </div>
+
+    <div class="ck-quick-card">
+      <div class="ck-quick-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <h3>Live Chat</h3>
+      <p>Available Mon&ndash;Fri<br>9 AM &ndash; 6 PM EST</p>
+    </div>
+
+    <div class="ck-quick-card">
+      <div class="ck-quick-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h3>Response Time</h3>
+      <p>We respond within<br><strong>24 business hours</strong></p>
+    </div>
+  </div>
+
+  <!-- Main Contact Section -->
+  <div class="ck-contact-main">
+
+    <!-- Contact Form -->
+    <div class="ck-form-section">
+      <h2>Send Us a Message</h2>
+      <p>
+        Fill out the form below and a member of our Crown Care team will get back to you
+        within one business day. For urgent order inquiries, please call us directly.
+      </p>
+
+      <!-- Shopify form: {% form 'contact' %} -->
+      <form class="ck-contact-form" method="post" action="/contact#contact_form" accept-charset="UTF-8">
+        <input type="hidden" name="form_type" value="contact">
+        <input type="hidden" name="utf8" value="&#x2713;">
+
+        <div class="ck-form-row">
+          <div class="ck-form-group">
+            <label for="contact-name">Your Name <span class="ck-required">*</span></label>
+            <input type="text" id="contact-name" name="contact[name]" placeholder="Full name" required>
+          </div>
+          <div class="ck-form-group">
+            <label for="contact-email">Email Address <span class="ck-required">*</span></label>
+            <input type="email" id="contact-email" name="contact[email]" placeholder="your@email.com" required>
+          </div>
+        </div>
+
+        <div class="ck-form-row">
+          <div class="ck-form-group">
+            <label for="contact-phone">Phone Number</label>
+            <input type="tel" id="contact-phone" name="contact[phone]" placeholder="(555) 123-4567">
+          </div>
+          <div class="ck-form-group">
+            <label for="contact-order">Order Number</label>
+            <input type="text" id="contact-order" name="contact[order_number]" placeholder="CK-00000">
+          </div>
+        </div>
+
+        <div class="ck-form-group">
+          <label for="contact-subject">Subject <span class="ck-required">*</span></label>
+          <select id="contact-subject" name="contact[subject]" required>
+            <option value="" disabled selected>Select a topic...</option>
+            <option value="Order Inquiry">Order Inquiry</option>
+            <option value="Product Question">Product Question</option>
+            <option value="Hair Care Advice">Hair Care Advice</option>
+            <option value="Return or Exchange">Return or Exchange</option>
+            <option value="Wholesale Inquiry">Wholesale Inquiry</option>
+            <option value="Press & Media">Press &amp; Media</option>
+            <option value="Partnership Opportunity">Partnership Opportunity</option>
+            <option value="Feedback">Feedback &amp; Suggestions</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="ck-form-group">
+          <label for="contact-message">Your Message <span class="ck-required">*</span></label>
+          <textarea id="contact-message" name="contact[body]" placeholder="Tell us how we can help you on your hair journey..." required></textarea>
+        </div>
+
+        <p class="ck-form-note">
+          Fields marked with <span style="color:#C0392B;">*</span> are required. We will never share
+          your information with third parties. See our <a href="/pages/privacy-policy" style="color:var(--ck-gold);">Privacy Policy</a>.
+        </p>
+
+        <button type="submit" class="ck-submit-btn">Send Message</button>
+      </form>
+      <!-- {% endform %} -->
+    </div>
+
+    <!-- Sidebar: Hours, Social, Newsletter -->
+    <div class="ck-sidebar-section">
+      <h2>Connect With Us</h2>
+
+      <!-- Business Hours -->
+      <div class="ck-hours-card">
+        <h3>Customer Care Hours</h3>
+        <table class="ck-hours-table">
+          <tr>
+            <td>Monday &ndash; Friday</td>
+            <td>9:00 AM &ndash; 6:00 PM EST</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>10:00 AM &ndash; 4:00 PM EST</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>Closed</td>
+          </tr>
+        </table>
+        <p class="ck-hours-note">
+          Holiday hours may vary. We will announce any schedule changes on our social
+          media channels and via email newsletter.
+        </p>
+      </div>
+
+      <!-- Social Links -->
+      <div class="ck-social-card">
+        <h3>Follow the Crown</h3>
+        <div class="ck-social-links">
+          <a href="https://instagram.com/crownkinetics" class="ck-social-link" target="_blank" rel="noopener">
+            <div class="ck-social-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="#D4AF37"/></svg>
+            </div>
+            @crownkinetics
+          </a>
+          <a href="https://tiktok.com/@crownkinetics" class="ck-social-link" target="_blank" rel="noopener">
+            <div class="ck-social-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#D4AF37"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.11v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46V13.2a8.27 8.27 0 005.58 2.17V11.9a4.83 4.83 0 01-3.77-1.44V6.69h3.77z"/></svg>
+            </div>
+            @crownkinetics
+          </a>
+          <a href="https://youtube.com/@crownkinetics" class="ck-social-link" target="_blank" rel="noopener">
+            <div class="ck-social-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="#D4AF37"/></svg>
+            </div>
+            CrownKinetics Official
+          </a>
+          <a href="https://facebook.com/crownkinetics" class="ck-social-link" target="_blank" rel="noopener">
+            <div class="ck-social-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#D4AF37"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </div>
+            CrownKinetics
+          </a>
+          <a href="https://twitter.com/crownkinetics" class="ck-social-link" target="_blank" rel="noopener">
+            <div class="ck-social-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#D4AF37"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            @crownkinetics
+          </a>
+          <a href="https://pinterest.com/crownkinetics" class="ck-social-link" target="_blank" rel="noopener">
+            <div class="ck-social-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#D4AF37"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            </div>
+            CrownKinetics
+          </a>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="ck-newsletter-card">
+        <h3>Join the Crown Circle</h3>
+        <p>
+          Get exclusive hair care tips, early access to new products, and 15% off your
+          first order when you subscribe to our newsletter.
+        </p>
+        <form class="ck-newsletter-form" action="/contact#newsletter" method="post">
+          <input type="hidden" name="form_type" value="customer">
+          <input type="hidden" name="utf8" value="&#x2713;">
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email" name="contact[email]" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <section class="ck-faq-section">
+    <div class="ck-faq-inner">
+      <h2>Frequently Asked Questions</h2>
+      <p class="ck-faq-subtitle">Quick answers to the questions we hear most often.</p>
+
+      <div class="ck-faq-item">
+        <div class="ck-faq-question" onclick="this.parentElement.classList.toggle('ck-active')">
+          <h3>How do I know which products are right for my hair type?</h3>
+          <div class="ck-faq-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="ck-faq-answer">
+          <p>
+            We recommend starting with our <a href="/pages/hair-type-quiz">Hair Type Quiz</a>.
+            It takes about two minutes and considers your curl pattern, porosity, density, and
+            styling goals to recommend a personalized CrownKinetics regimen. You can also browse
+            products by hair type in our collections, or reach out to us directly for one-on-one guidance.
+          </p>
+        </div>
+      </div>
+
+      <div class="ck-faq-item">
+        <div class="ck-faq-question" onclick="this.parentElement.classList.toggle('ck-active')">
+          <h3>Are CrownKinetics products safe for color-treated hair?</h3>
+          <div class="ck-faq-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="ck-faq-answer">
+          <p>
+            Yes. All CrownKinetics products are sulfate-free and formulated with gentle, pH-balanced
+            cleansers that will not strip color. Our products actually help preserve vibrancy by sealing
+            the cuticle with natural oils and butters. We recommend our Monarch Seal Leave-In Conditioner
+            specifically for color-treated hair.
+          </p>
+        </div>
+      </div>
+
+      <div class="ck-faq-item">
+        <div class="ck-faq-question" onclick="this.parentElement.classList.toggle('ck-active')">
+          <h3>Where are your products made?</h3>
+          <div class="ck-faq-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="ck-faq-answer">
+          <p>
+            All CrownKinetics products are formulated and manufactured in our facility in Brooklyn,
+            New York. Our raw ingredients are ethically sourced from women-led cooperatives in Ghana,
+            Senegal, Jamaica, and Nigeria. Every batch undergoes third-party safety and efficacy testing
+            before it reaches your crown.
+          </p>
+        </div>
+      </div>
+
+      <div class="ck-faq-item">
+        <div class="ck-faq-question" onclick="this.parentElement.classList.toggle('ck-active')">
+          <h3>What is your shipping policy?</h3>
+          <div class="ck-faq-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="ck-faq-answer">
+          <p>
+            We offer free standard shipping on all orders over $50 within the United States (3&ndash;7
+            business days). Expedited shipping (1&ndash;3 business days) is available for a flat fee. We
+            also ship internationally to select countries (7&ndash;21 business days). Visit our
+            <a href="/pages/shipping-policy">Shipping Policy</a> page for full details.
+          </p>
+        </div>
+      </div>
+
+      <div class="ck-faq-item">
+        <div class="ck-faq-question" onclick="this.parentElement.classList.toggle('ck-active')">
+          <h3>Can I return a product if it does not work for me?</h3>
+          <div class="ck-faq-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="ck-faq-answer">
+          <p>
+            Absolutely. We stand behind every product with our 30-Day Crown Confidence Guarantee.
+            If you are not fully satisfied, you can return any product within 30 days of delivery
+            for a full refund or exchange, even if it has been opened or partially used. See our
+            <a href="/pages/refund-policy">Refund Policy</a> for the complete process.
+          </p>
+        </div>
+      </div>
+
+      <div class="ck-faq-item">
+        <div class="ck-faq-question" onclick="this.parentElement.classList.toggle('ck-active')">
+          <h3>Are your products tested on animals?</h3>
+          <div class="ck-faq-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="ck-faq-answer">
+          <p>
+            Never. CrownKinetics is proudly cruelty-free and 100% vegan. We do not test on animals
+            at any stage of product development, and we never use animal-derived ingredients. We are
+            Leaping Bunny certified and committed to ethical practices throughout our entire supply chain.
+          </p>
+        </div>
+      </div>
+
+      <div class="ck-faq-item">
+        <div class="ck-faq-question" onclick="this.parentElement.classList.toggle('ck-active')">
+          <h3>Do you offer wholesale or salon partnerships?</h3>
+          <div class="ck-faq-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="ck-faq-answer">
+          <p>
+            Yes. We partner with salons, barbershops, and retailers who share our commitment to
+            textured hair excellence. Our wholesale program includes competitive pricing, marketing
+            support, and product training for your team. Select "Wholesale Inquiry" in the contact
+            form above, or email us directly at <a href="mailto:wholesale@crownkinetics.com">wholesale@crownkinetics.com</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="ck-faq-item">
+        <div class="ck-faq-question" onclick="this.parentElement.classList.toggle('ck-active')">
+          <h3>How should I store CrownKinetics products?</h3>
+          <div class="ck-faq-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="ck-faq-answer">
+          <p>
+            Because we use natural preservatives rather than synthetic chemicals, we recommend
+            storing your products in a cool, dry place away from direct sunlight. Keep lids
+            tightly closed after each use. Most products have a shelf life of 12&ndash;18 months
+            once opened. Each product label includes a Period After Opening (PAO) symbol for reference.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
