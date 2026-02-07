@@ -6,6 +6,7 @@
  * 2. Exposes free public API endpoints (health, pricing, preview)
  * 3. Gates premium API endpoints behind x402 paymentMiddleware
  *    so AI agents pay USDC on Base per request
+ * 4. Full security hardening (rate limiting, WAF, agent auth, CORS lockdown)
  *
  * Usage:
  *   cp .env.example .env   # fill in wallet address + CDP keys
@@ -32,14 +33,27 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// ─── Trust proxy (for Vercel / Cloudflare) ──────────────────
+app.set('trust proxy', 1);
+
 // ─── Global Middleware ───────────────────────────────────────
-app.use(cors());
-app.use(helmet({ contentSecurityPolicy: false })); // CSP off for CDN assets
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production'
+    ? ['https://velocityvault.pro', 'https://www.velocityvault.pro']
+    : true,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'X-PAYMENT', 'Authorization', 'X-API-Key'],
+  exposedHeaders: ['X-PAYMENT-RESPONSE', 'X-RateLimit-Limit', 'X-RateLimit-Remaining'],
+  maxAge: 86400,
+}));
+app.use(helmet({
+  contentSecurityPolicy: false,
+  crossOriginEmbedderPolicy: false,
+}));
 app.use(morgan('combined'));
 app.use(express.json({ limit: '100kb' }));
 
 // ─── Security Gatekeeper ────────────────────────────────────
-// Rate limiting, input sanitization, threat detection, security headers
 securityMiddleware(app);
 
 // ─── Static Site ─────────────────────────────────────────────
@@ -50,36 +64,40 @@ app.use(express.static(staticDir));
 app.use('/api', publicRoutes);
 
 // ─── x402 Payment Middleware ─────────────────────────────────
-// Dynamic import so the server still starts even if the x402
-// packages aren't installed yet (graceful degradation).
 async function mountX402() {
   try {
     const { paymentMiddleware } = await import('x402-express');
 
-    // Try to use the Coinbase facilitator if CDP keys are configured
-    let facilitator;
+    // Use Coinbase facilitator (reads CDP_API_KEY_ID and CDP_API_KEY_SECRET from env)
+    let facilitatorConfig;
     try {
+      const { createFacilitatorConfig, facilitator } = await import('@coinbase/x402');
       if (process.env.CDP_API_KEY_ID && process.env.CDP_API_KEY_SECRET) {
-        const coinbase = await import('@coinbase/x402');
-        facilitator = coinbase.facilitator;
-        console.log('[x402] Using Coinbase facilitator (production)');
+        facilitatorConfig = createFacilitatorConfig(
+          process.env.CDP_API_KEY_ID,
+          process.env.CDP_API_KEY_SECRET,
+        );
+        console.log('[x402] Coinbase facilitator configured with CDP API keys');
+      } else {
+        // Default facilitator reads env vars at request time
+        facilitatorConfig = facilitator;
+        console.log('[x402] Coinbase facilitator (env-based auth)');
       }
     } catch {
-      // Coinbase facilitator not available — use default
+      console.warn('[x402] @coinbase/x402 not loaded — using default facilitator');
     }
 
-    const middlewareArgs = [WALLET_ADDRESS, ROUTE_PRICING];
-    if (facilitator) middlewareArgs.push(facilitator);
+    const args = [WALLET_ADDRESS, ROUTE_PRICING];
+    if (facilitatorConfig) args.push(facilitatorConfig);
 
-    app.use(paymentMiddleware(...middlewareArgs));
-    console.log('[x402] Payment middleware active');
-    console.log(`[x402] Wallet: ${WALLET_ADDRESS}`);
+    app.use(paymentMiddleware(...args));
+    console.log('[x402] Payment middleware ACTIVE');
+    console.log(`[x402] Collecting fees at: ${WALLET_ADDRESS}`);
     console.log(`[x402] Network: ${NETWORK}`);
     console.log(`[x402] Protected routes: ${Object.keys(ROUTE_PRICING).length}`);
   } catch (err) {
-    console.warn('[x402] Payment middleware not loaded — running in OPEN mode (no payment required)');
-    console.warn('[x402] Install packages: npm install x402-express @coinbase/x402');
-    console.warn(`[x402] Error: ${err.message}`);
+    console.warn('[x402] Payment middleware not loaded — OPEN mode (no payment required)');
+    console.warn(`[x402] Reason: ${err.message}`);
   }
 }
 
@@ -88,17 +106,16 @@ await mountX402();
 // ─── x402-Gated API Routes ──────────────────────────────────
 app.use('/api/x402', x402Routes);
 
-// ─── Revenue Tracking Middleware ─────────────────────────────
-// Logs every paid request for internal analytics
+// ─── Revenue Tracking ───────────────────────────────────────
 app.use('/api/x402', (req, _res, next) => {
-  const payment = req.headers['x-payment'] || req.headers['payment-signature'];
+  const payment = req.headers['x-payment'];
   if (payment) {
-    console.log(`[x402:paid] ${req.method} ${req.path} — payment received`);
+    console.log(`[x402:paid] ${req.method} ${req.path} from ${req.ip}`);
   }
   next();
 });
 
-// ─── Fallback: serve index.html for SPA-like navigation ─────
+// ─── Fallback: serve index.html ─────────────────────────────
 app.get('*', (_req, res) => {
   res.sendFile(path.join(staticDir, 'index.html'));
 });
@@ -132,10 +149,12 @@ app.listen(PORT, () => {
   console.log('║    GET /api/x402/export        — $0.05               ║');
   console.log('║                                                      ║');
   console.log('║  Security:                                           ║');
-  console.log('║    Rate limiting .............. 100 req/min/IP       ║');
-  console.log('║    Input sanitization ......... Active               ║');
-  console.log('║    Threat detection ........... Active               ║');
-  console.log('║    Security headers ........... Active               ║');
+  console.log('║    Rate limiting .............. ACTIVE                ║');
+  console.log('║    WAF / Input filter ......... ACTIVE                ║');
+  console.log('║    Threat detection ........... ACTIVE                ║');
+  console.log('║    CORS lockdown .............. ACTIVE                ║');
+  console.log('║    IP ban (auto) .............. ACTIVE                ║');
+  console.log('║    Bot fingerprint ............ ACTIVE                ║');
   console.log('╚══════════════════════════════════════════════════════╝');
   console.log('');
 });
