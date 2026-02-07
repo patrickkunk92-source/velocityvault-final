@@ -1,0 +1,769 @@
+{
+  "store": "CrownKinetics",
+  "generated": "2026-02-07",
+  "navigation": {
+    "main_menu": {
+      "handle": "main-menu",
+      "title": "Main Navigation",
+      "items": [
+        {
+          "title": "Shop by Type",
+          "url": "/collections",
+          "type": "mega_menu",
+          "mega_menu": {
+            "columns": [
+              {
+                "heading": "Cleanse & Condition",
+                "links": [
+                  {
+                    "title": "Shampoos & Conditioners",
+                    "url": "/collections/shampoos-conditioners",
+                    "handle": "shampoos-conditioners"
+                  },
+                  {
+                    "title": "Deep Conditioners",
+                    "url": "/collections/shampoos-conditioners?tag=deep-conditioner",
+                    "handle": "deep-conditioner"
+                  },
+                  {
+                    "title": "Co-Washes",
+                    "url": "/collections/shampoos-conditioners?tag=co-wash",
+                    "handle": "co-wash"
+                  },
+                  {
+                    "title": "Clarifying Shampoos",
+                    "url": "/collections/shampoos-conditioners?tag=clarifying-shampoo",
+                    "handle": "clarifying-shampoo"
+                  }
+                ]
+              },
+              {
+                "heading": "Moisturize & Seal",
+                "links": [
+                  {
+                    "title": "Oils & Scalp Serums",
+                    "url": "/collections/oils-scalp-serums",
+                    "handle": "oils-scalp-serums"
+                  },
+                  {
+                    "title": "Butters & Moisturizers",
+                    "url": "/collections/butters-moisturizers",
+                    "handle": "butters-moisturizers"
+                  },
+                  {
+                    "title": "Leave-In Conditioners",
+                    "url": "/collections/butters-moisturizers?tag=leave-in",
+                    "handle": "leave-in"
+                  },
+                  {
+                    "title": "Hot Oil Treatments",
+                    "url": "/collections/oils-scalp-serums?tag=hot-oil-treatment",
+                    "handle": "hot-oil-treatment"
+                  }
+                ]
+              },
+              {
+                "heading": "Style & Define",
+                "links": [
+                  {
+                    "title": "Curl Definers & Gels",
+                    "url": "/collections/curl-definers-gels",
+                    "handle": "curl-definers-gels"
+                  },
+                  {
+                    "title": "Edge Control",
+                    "url": "/collections/edge-control",
+                    "handle": "edge-control"
+                  },
+                  {
+                    "title": "Heat Protection",
+                    "url": "/collections/heat-protection",
+                    "handle": "heat-protection"
+                  },
+                  {
+                    "title": "Loc Products",
+                    "url": "/collections/loc-products",
+                    "handle": "loc-products"
+                  }
+                ]
+              },
+              {
+                "heading": "Wig & Protective Care",
+                "links": [
+                  {
+                    "title": "Wig Care",
+                    "url": "/collections/wig-care",
+                    "handle": "wig-care"
+                  },
+                  {
+                    "title": "Protective Styles",
+                    "url": "/collections/protective-styles",
+                    "handle": "protective-styles"
+                  },
+                  {
+                    "title": "Braid Sprays",
+                    "url": "/collections/protective-style-maintenance?tag=braid-spray",
+                    "handle": "braid-spray"
+                  },
+                  {
+                    "title": "Lace Front Products",
+                    "url": "/collections/wig-care?tag=lace-front",
+                    "handle": "lace-front"
+                  }
+                ]
+              }
+            ],
+            "featured": {
+              "type": "collection",
+              "title": "Best Sellers",
+              "url": "/collections/best-sellers",
+              "image": {
+                "src": "mega-menu-best-sellers.jpg",
+                "alt": "CrownKinetics best-selling natural hair products featured in mega menu"
+              },
+              "cta": "Shop Best Sellers"
+            }
+          }
+        },
+        {
+          "title": "Shop by Concern",
+          "url": "/pages/shop-by-concern",
+          "type": "mega_menu",
+          "mega_menu": {
+            "columns": [
+              {
+                "heading": "Hair Concerns",
+                "links": [
+                  {
+                    "title": "Growth & Retention",
+                    "url": "/collections/growth-retention",
+                    "handle": "growth-retention",
+                    "description": "Stimulate growth and prevent breakage"
+                  },
+                  {
+                    "title": "Damage Repair",
+                    "url": "/collections/damage-repair",
+                    "handle": "damage-repair",
+                    "description": "Rebuild heat and chemical damage"
+                  },
+                  {
+                    "title": "Anti-Breakage",
+                    "url": "/collections/anti-breakage",
+                    "handle": "anti-breakage",
+                    "description": "Strengthen and fortify fragile strands"
+                  },
+                  {
+                    "title": "Hydration Therapy",
+                    "url": "/collections/hydration-therapy",
+                    "handle": "hydration-therapy",
+                    "description": "Deep moisture for dry, thirsty hair"
+                  }
+                ]
+              },
+              {
+                "heading": "Scalp & Maintenance",
+                "links": [
+                  {
+                    "title": "Scalp Health",
+                    "url": "/collections/scalp-health",
+                    "handle": "scalp-health",
+                    "description": "Treat dryness, flaking, and irritation"
+                  },
+                  {
+                    "title": "Protective Style Maintenance",
+                    "url": "/collections/protective-style-maintenance",
+                    "handle": "protective-style-maintenance",
+                    "description": "Keep styles fresh and hair healthy"
+                  },
+                  {
+                    "title": "Thinning Edges",
+                    "url": "/collections/scalp-health?tag=traction-alopecia",
+                    "handle": "traction-alopecia",
+                    "description": "Restore and regrow stressed hairlines"
+                  },
+                  {
+                    "title": "Dandruff & Flaking",
+                    "url": "/collections/scalp-health?tag=dandruff",
+                    "handle": "dandruff",
+                    "description": "Soothe and balance the scalp"
+                  }
+                ]
+              }
+            ],
+            "featured": {
+              "type": "product",
+              "title": "Hair Quiz",
+              "url": "/pages/hair-quiz",
+              "image": {
+                "src": "mega-menu-hair-quiz.jpg",
+                "alt": "Take the CrownKinetics hair quiz to find your perfect products"
+              },
+              "cta": "Find Your Products"
+            }
+          }
+        },
+        {
+          "title": "Hair Type",
+          "url": "/pages/hair-types",
+          "type": "mega_menu",
+          "mega_menu": {
+            "columns": [
+              {
+                "heading": "Curl Patterns",
+                "links": [
+                  {
+                    "title": "Type 3 Curls (3A-3C)",
+                    "url": "/collections/type-3-curls",
+                    "handle": "type-3-curls",
+                    "description": "Wavy to curly patterns"
+                  },
+                  {
+                    "title": "Type 4 Coils (4A-4C)",
+                    "url": "/collections/type-4-coils",
+                    "handle": "type-4-coils",
+                    "description": "Coily to kinky textures"
+                  }
+                ]
+              },
+              {
+                "heading": "Style Category",
+                "links": [
+                  {
+                    "title": "Protective Styles",
+                    "url": "/collections/protective-styles",
+                    "handle": "protective-styles",
+                    "description": "Braids, twists, wigs, and more"
+                  },
+                  {
+                    "title": "Loc Maintenance",
+                    "url": "/collections/loc-maintenance",
+                    "handle": "loc-maintenance",
+                    "description": "Care for every loc stage"
+                  }
+                ]
+              },
+              {
+                "heading": "Specialty",
+                "links": [
+                  {
+                    "title": "Men's Grooming",
+                    "url": "/collections/mens-grooming",
+                    "handle": "mens-grooming",
+                    "description": "Hair, beard, and skin care for men"
+                  },
+                  {
+                    "title": "Kids Collection",
+                    "url": "/collections/kids-collection",
+                    "handle": "kids-collection",
+                    "description": "Gentle care for young crowns"
+                  }
+                ]
+              }
+            ],
+            "featured": {
+              "type": "content",
+              "title": "Not Sure Your Hair Type?",
+              "url": "/pages/hair-type-guide",
+              "image": {
+                "src": "mega-menu-hair-type-guide.jpg",
+                "alt": "Visual guide showing hair types from 3A through 4C with CrownKinetics product recommendations"
+              },
+              "cta": "View Hair Type Guide"
+            }
+          }
+        },
+        {
+          "title": "Accessories",
+          "url": "/collections/accessories",
+          "type": "dropdown",
+          "children": [
+            {
+              "title": "Satin Accessories",
+              "url": "/collections/satin-accessories",
+              "handle": "satin-accessories"
+            },
+            {
+              "title": "Satin Bonnets",
+              "url": "/collections/satin-accessories?tag=satin-bonnet",
+              "handle": "satin-bonnet"
+            },
+            {
+              "title": "Satin Pillowcases",
+              "url": "/collections/satin-accessories?tag=satin-pillowcase",
+              "handle": "satin-pillowcase"
+            },
+            {
+              "title": "Combs & Brushes",
+              "url": "/collections/combs-brushes",
+              "handle": "combs-brushes"
+            },
+            {
+              "title": "Edge Brushes",
+              "url": "/collections/combs-brushes?tag=edge-brush",
+              "handle": "edge-brush"
+            },
+            {
+              "title": "Detangling Tools",
+              "url": "/collections/combs-brushes?tag=detangling-brush",
+              "handle": "detangling-brush"
+            },
+            {
+              "title": "Scalp Massagers",
+              "url": "/collections/combs-brushes?tag=scalp-massager",
+              "handle": "scalp-massager"
+            }
+          ]
+        },
+        {
+          "title": "Bundles",
+          "url": "/collections/bundles-kits",
+          "type": "dropdown",
+          "children": [
+            {
+              "title": "All Bundles & Kits",
+              "url": "/collections/bundles-kits",
+              "handle": "bundles-kits"
+            },
+            {
+              "title": "Wash Day Bundles",
+              "url": "/collections/bundles-kits?tag=wash-day-bundle",
+              "handle": "wash-day-bundle"
+            },
+            {
+              "title": "Starter Kits",
+              "url": "/collections/bundles-kits?tag=starter-kit",
+              "handle": "starter-kit"
+            },
+            {
+              "title": "Growth Kits",
+              "url": "/collections/bundles-kits?tag=growth",
+              "handle": "growth-kit"
+            },
+            {
+              "title": "Gift Sets",
+              "url": "/collections/bundles-kits?tag=gift-set",
+              "handle": "gift-set"
+            },
+            {
+              "title": "Under $15",
+              "url": "/collections/under-15",
+              "handle": "under-15"
+            }
+          ]
+        },
+        {
+          "title": "New Arrivals",
+          "url": "/collections/new-arrivals",
+          "type": "link",
+          "highlight": true,
+          "badge": "NEW"
+        }
+      ]
+    },
+    "footer_menu": {
+      "handle": "footer-menu",
+      "title": "Footer Navigation",
+      "columns": [
+        {
+          "heading": "About CrownKinetics",
+          "links": [
+            {
+              "title": "Our Story",
+              "url": "/pages/about"
+            },
+            {
+              "title": "Our Ingredients",
+              "url": "/pages/ingredients"
+            },
+            {
+              "title": "Sustainability",
+              "url": "/pages/sustainability"
+            },
+            {
+              "title": "Community Impact",
+              "url": "/pages/community"
+            },
+            {
+              "title": "Careers",
+              "url": "/pages/careers"
+            },
+            {
+              "title": "Press",
+              "url": "/pages/press"
+            }
+          ]
+        },
+        {
+          "heading": "Customer Care",
+          "links": [
+            {
+              "title": "Contact Us",
+              "url": "/pages/contact"
+            },
+            {
+              "title": "FAQs",
+              "url": "/pages/faq"
+            },
+            {
+              "title": "Shipping & Delivery",
+              "url": "/policies/shipping-policy"
+            },
+            {
+              "title": "Returns & Exchanges",
+              "url": "/policies/refund-policy"
+            },
+            {
+              "title": "Order Tracking",
+              "url": "/pages/order-tracking"
+            },
+            {
+              "title": "Wholesale Inquiries",
+              "url": "/pages/wholesale"
+            }
+          ]
+        },
+        {
+          "heading": "Policies",
+          "links": [
+            {
+              "title": "Privacy Policy",
+              "url": "/policies/privacy-policy"
+            },
+            {
+              "title": "Terms of Service",
+              "url": "/policies/terms-of-service"
+            },
+            {
+              "title": "Refund Policy",
+              "url": "/policies/refund-policy"
+            },
+            {
+              "title": "Accessibility",
+              "url": "/pages/accessibility"
+            },
+            {
+              "title": "Do Not Sell My Info",
+              "url": "/pages/ccpa"
+            }
+          ]
+        },
+        {
+          "heading": "Learn & Connect",
+          "links": [
+            {
+              "title": "Hair Type Guide",
+              "url": "/pages/hair-type-guide"
+            },
+            {
+              "title": "Hair Quiz",
+              "url": "/pages/hair-quiz"
+            },
+            {
+              "title": "Blog: The Crown Chronicles",
+              "url": "/blogs/crown-chronicles"
+            },
+            {
+              "title": "Tutorials & How-Tos",
+              "url": "/blogs/crown-chronicles/tagged/tutorials"
+            },
+            {
+              "title": "Ingredient Glossary",
+              "url": "/pages/ingredient-glossary"
+            },
+            {
+              "title": "Affiliate Program",
+              "url": "/pages/affiliates"
+            }
+          ]
+        }
+      ],
+      "bottom_bar": {
+        "copyright": "2026 CrownKinetics. All rights reserved.",
+        "payment_icons": [
+          "visa",
+          "mastercard",
+          "amex",
+          "discover",
+          "apple_pay",
+          "google_pay",
+          "shop_pay",
+          "afterpay",
+          "klarna",
+          "paypal"
+        ],
+        "locale_selector": true,
+        "currency_selector": true
+      }
+    },
+    "mobile_menu": {
+      "handle": "mobile-menu",
+      "title": "Mobile Navigation",
+      "structure": "accordion",
+      "top_level_cta": {
+        "title": "Take Our Hair Quiz",
+        "url": "/pages/hair-quiz",
+        "style": "button_primary",
+        "icon": "sparkle"
+      },
+      "items": [
+        {
+          "title": "Shop All",
+          "url": "/collections/all",
+          "type": "link",
+          "icon": "grid"
+        },
+        {
+          "title": "Shop by Product",
+          "url": "#",
+          "type": "accordion",
+          "icon": "bottle",
+          "children": [
+            {
+              "title": "Shampoos & Conditioners",
+              "url": "/collections/shampoos-conditioners"
+            },
+            {
+              "title": "Oils & Scalp Serums",
+              "url": "/collections/oils-scalp-serums"
+            },
+            {
+              "title": "Butters & Moisturizers",
+              "url": "/collections/butters-moisturizers"
+            },
+            {
+              "title": "Curl Definers & Gels",
+              "url": "/collections/curl-definers-gels"
+            },
+            {
+              "title": "Edge Control",
+              "url": "/collections/edge-control"
+            },
+            {
+              "title": "Loc Products",
+              "url": "/collections/loc-products"
+            },
+            {
+              "title": "Wig Care",
+              "url": "/collections/wig-care"
+            },
+            {
+              "title": "Heat Protection",
+              "url": "/collections/heat-protection"
+            }
+          ]
+        },
+        {
+          "title": "Shop by Hair Type",
+          "url": "#",
+          "type": "accordion",
+          "icon": "curl",
+          "children": [
+            {
+              "title": "Type 3 Curls (3A-3C)",
+              "url": "/collections/type-3-curls"
+            },
+            {
+              "title": "Type 4 Coils (4A-4C)",
+              "url": "/collections/type-4-coils"
+            },
+            {
+              "title": "Protective Styles",
+              "url": "/collections/protective-styles"
+            },
+            {
+              "title": "Loc Maintenance",
+              "url": "/collections/loc-maintenance"
+            },
+            {
+              "title": "Men's Grooming",
+              "url": "/collections/mens-grooming"
+            },
+            {
+              "title": "Kids Collection",
+              "url": "/collections/kids-collection"
+            }
+          ]
+        },
+        {
+          "title": "Shop by Concern",
+          "url": "#",
+          "type": "accordion",
+          "icon": "target",
+          "children": [
+            {
+              "title": "Growth & Retention",
+              "url": "/collections/growth-retention"
+            },
+            {
+              "title": "Damage Repair",
+              "url": "/collections/damage-repair"
+            },
+            {
+              "title": "Anti-Breakage",
+              "url": "/collections/anti-breakage"
+            },
+            {
+              "title": "Hydration Therapy",
+              "url": "/collections/hydration-therapy"
+            },
+            {
+              "title": "Scalp Health",
+              "url": "/collections/scalp-health"
+            },
+            {
+              "title": "Protective Style Maintenance",
+              "url": "/collections/protective-style-maintenance"
+            }
+          ]
+        },
+        {
+          "title": "Accessories",
+          "url": "#",
+          "type": "accordion",
+          "icon": "accessories",
+          "children": [
+            {
+              "title": "Satin Accessories",
+              "url": "/collections/satin-accessories"
+            },
+            {
+              "title": "Combs & Brushes",
+              "url": "/collections/combs-brushes"
+            }
+          ]
+        },
+        {
+          "title": "Bundles & Kits",
+          "url": "/collections/bundles-kits",
+          "type": "link",
+          "icon": "bundle",
+          "badge": "SAVE"
+        },
+        {
+          "title": "New Arrivals",
+          "url": "/collections/new-arrivals",
+          "type": "link",
+          "icon": "sparkle",
+          "badge": "NEW"
+        },
+        {
+          "title": "Best Sellers",
+          "url": "/collections/best-sellers",
+          "type": "link",
+          "icon": "fire"
+        },
+        {
+          "title": "Under $15",
+          "url": "/collections/under-15",
+          "type": "link",
+          "icon": "tag"
+        }
+      ],
+      "bottom_section": {
+        "links": [
+          {
+            "title": "Hair Type Guide",
+            "url": "/pages/hair-type-guide",
+            "icon": "book"
+          },
+          {
+            "title": "Blog",
+            "url": "/blogs/crown-chronicles",
+            "icon": "article"
+          },
+          {
+            "title": "Contact Us",
+            "url": "/pages/contact",
+            "icon": "mail"
+          },
+          {
+            "title": "FAQs",
+            "url": "/pages/faq",
+            "icon": "question"
+          },
+          {
+            "title": "Order Tracking",
+            "url": "/pages/order-tracking",
+            "icon": "truck"
+          }
+        ],
+        "social_icons": [
+          {
+            "platform": "instagram",
+            "url": "https://instagram.com/crownkinetics",
+            "aria_label": "Follow CrownKinetics on Instagram"
+          },
+          {
+            "platform": "tiktok",
+            "url": "https://tiktok.com/@crownkinetics",
+            "aria_label": "Follow CrownKinetics on TikTok"
+          },
+          {
+            "platform": "youtube",
+            "url": "https://youtube.com/@crownkinetics",
+            "aria_label": "Subscribe to CrownKinetics on YouTube"
+          },
+          {
+            "platform": "facebook",
+            "url": "https://facebook.com/crownkinetics",
+            "aria_label": "Follow CrownKinetics on Facebook"
+          },
+          {
+            "platform": "pinterest",
+            "url": "https://pinterest.com/crownkinetics",
+            "aria_label": "Follow CrownKinetics on Pinterest"
+          }
+        ],
+        "account_links": [
+          {
+            "title": "My Account",
+            "url": "/account",
+            "icon": "user"
+          },
+          {
+            "title": "My Orders",
+            "url": "/account/orders",
+            "icon": "package"
+          },
+          {
+            "title": "Wishlist",
+            "url": "/pages/wishlist",
+            "icon": "heart"
+          }
+        ]
+      }
+    },
+    "announcement_bar": {
+      "enabled": true,
+      "messages": [
+        {
+          "text": "Free shipping on orders over $50",
+          "url": "/policies/shipping-policy",
+          "active": true
+        },
+        {
+          "text": "Take our Hair Quiz and get 15% off your first order",
+          "url": "/pages/hair-quiz",
+          "active": true
+        },
+        {
+          "text": "Subscribe & Save 20% on every order",
+          "url": "/pages/subscriptions",
+          "active": true
+        }
+      ],
+      "rotation_speed": 5000,
+      "style": {
+        "background_color": "#4A0E4E",
+        "text_color": "#FFF8F0",
+        "font_size": "13px"
+      }
+    },
+    "breadcrumbs": {
+      "enabled": true,
+      "show_on": ["collection", "product", "page", "blog", "article"],
+      "separator": "/",
+      "schema_markup": true
+    }
+  }
+}
