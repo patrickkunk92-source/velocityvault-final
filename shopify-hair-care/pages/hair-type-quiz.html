@@ -1,0 +1,1074 @@
+<!-- CrownKinetics Hair Type Quiz Page -->
+<!-- Shopify Page Template: page.hair-type-quiz -->
+
+<style>
+  :root {
+    --ck-brown: #5C3A1E;
+    --ck-brown-light: #8B6914;
+    --ck-gold: #C5960C;
+    --ck-gold-light: #D4AF37;
+    --ck-gold-pale: #F5E6B8;
+    --ck-purple: #2D1B4E;
+    --ck-purple-mid: #4A2C6A;
+    --ck-purple-light: #7B5EA7;
+    --ck-charcoal: #2C2C2C;
+    --ck-charcoal-light: #444444;
+    --ck-cream: #FDF8F0;
+    --ck-white: #FFFFFF;
+  }
+
+  .ck-quiz-page {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--ck-charcoal);
+    line-height: 1.8;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .ck-quiz-page * {
+    box-sizing: border-box;
+  }
+
+  /* Hero */
+  .ck-quiz-hero {
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-brown) 100%);
+    color: var(--ck-cream);
+    text-align: center;
+    padding: 80px 20px 60px;
+    position: relative;
+  }
+
+  .ck-quiz-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(212,175,55,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .ck-quiz-hero h1 {
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ck-gold-light);
+    margin: 0 0 15px;
+  }
+
+  .ck-quiz-hero p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    color: var(--ck-gold-pale);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .ck-gold-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--ck-gold-light), transparent);
+    margin: 25px auto;
+    border: none;
+  }
+
+  /* Progress Bar */
+  .ck-quiz-progress {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px 20px 0;
+  }
+
+  .ck-progress-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 8px;
+  }
+
+  .ck-progress-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(197,150,12,0.15);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .ck-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--ck-purple), var(--ck-gold-light));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+
+  .ck-progress-text {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 13px;
+    color: var(--ck-purple-light);
+    white-space: nowrap;
+    min-width: 100px;
+    text-align: right;
+  }
+
+  /* Quiz Container */
+  .ck-quiz-container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+    min-height: 500px;
+  }
+
+  /* Welcome Screen */
+  .ck-quiz-welcome {
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .ck-quiz-welcome h2 {
+    font-size: 34px;
+    color: var(--ck-purple);
+    margin-bottom: 15px;
+  }
+
+  .ck-quiz-welcome p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 15px;
+    color: var(--ck-charcoal-light);
+    max-width: 550px;
+    margin: 0 auto 20px;
+    line-height: 1.8;
+  }
+
+  .ck-quiz-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 40px 0;
+  }
+
+  .ck-quiz-feature {
+    text-align: center;
+    padding: 25px 15px;
+    background: var(--ck-cream);
+    border-radius: 10px;
+    border: 1px solid rgba(197,150,12,0.15);
+  }
+
+  .ck-quiz-feature-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .ck-quiz-feature h4 {
+    font-size: 18px;
+    color: var(--ck-purple);
+    margin-bottom: 6px;
+  }
+
+  .ck-quiz-feature p {
+    font-size: 13px !important;
+    margin: 0 !important;
+  }
+
+  /* Question Slide */
+  .ck-quiz-question {
+    display: none;
+    animation: ckFadeIn 0.5s ease;
+  }
+
+  .ck-quiz-question.ck-active {
+    display: block;
+  }
+
+  @keyframes ckFadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .ck-question-number {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--ck-gold);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .ck-quiz-question h2 {
+    font-size: 30px;
+    color: var(--ck-purple);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .ck-question-desc {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--ck-charcoal-light);
+    margin-bottom: 35px;
+    line-height: 1.7;
+  }
+
+  /* Answer Options */
+  .ck-answer-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .ck-answer-option {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 25px;
+    border: 2px solid rgba(197,150,12,0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--ck-white);
+  }
+
+  .ck-answer-option:hover {
+    border-color: var(--ck-gold-light);
+    background: var(--ck-cream);
+    transform: translateX(5px);
+  }
+
+  .ck-answer-option.ck-selected {
+    border-color: var(--ck-purple);
+    background: linear-gradient(135deg, rgba(45,27,78,0.04) 0%, rgba(92,58,30,0.04) 100%);
+    box-shadow: 0 4px 15px rgba(45,27,78,0.1);
+  }
+
+  .ck-answer-radio {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid rgba(197,150,12,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+
+  .ck-answer-option.ck-selected .ck-answer-radio {
+    border-color: var(--ck-purple);
+    background: var(--ck-purple);
+  }
+
+  .ck-answer-option.ck-selected .ck-answer-radio::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ck-gold-light);
+  }
+
+  .ck-answer-text h4 {
+    font-size: 17px;
+    color: var(--ck-purple);
+    margin: 0 0 3px;
+  }
+
+  .ck-answer-text p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 13px;
+    color: var(--ck-charcoal-light);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Navigation Buttons */
+  .ck-quiz-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .ck-btn-quiz {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 35px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .ck-btn-back {
+    background: transparent;
+    color: var(--ck-charcoal-light);
+    border: 1px solid rgba(0,0,0,0.15);
+  }
+
+  .ck-btn-back:hover {
+    border-color: var(--ck-purple-light);
+    color: var(--ck-purple);
+  }
+
+  .ck-btn-next {
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-purple-mid) 100%);
+    color: var(--ck-gold-light);
+  }
+
+  .ck-btn-next:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45,27,78,0.2);
+  }
+
+  .ck-btn-next:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .ck-btn-start {
+    background: var(--ck-gold-light);
+    color: var(--ck-purple);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 18px 50px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+  }
+
+  .ck-btn-start:hover {
+    background: var(--ck-gold);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212,175,55,0.3);
+  }
+
+  /* Results Screen */
+  .ck-quiz-results {
+    display: none;
+    animation: ckFadeIn 0.6s ease;
+  }
+
+  .ck-quiz-results.ck-active {
+    display: block;
+  }
+
+  .ck-results-header {
+    text-align: center;
+    padding: 30px 0 40px;
+  }
+
+  .ck-results-header .ck-question-number {
+    font-size: 13px;
+    color: var(--ck-gold);
+  }
+
+  .ck-results-header h2 {
+    font-size: 38px;
+    color: var(--ck-purple);
+    margin-bottom: 10px;
+  }
+
+  .ck-results-header p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 15px;
+    color: var(--ck-charcoal-light);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .ck-result-profile {
+    background: var(--ck-cream);
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 35px;
+    border: 1px solid rgba(197,150,12,0.2);
+  }
+
+  .ck-result-profile h3 {
+    font-size: 26px;
+    color: var(--ck-purple);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .ck-profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .ck-profile-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .ck-profile-label {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ck-gold);
+    font-weight: 700;
+    display: block;
+  }
+
+  .ck-profile-value {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--ck-charcoal);
+    display: block;
+    margin-top: 3px;
+  }
+
+  .ck-profile-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--ck-gold-light);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  /* Product Recommendations */
+  .ck-recs-section {
+    margin-top: 40px;
+  }
+
+  .ck-recs-section h3 {
+    font-size: 28px;
+    color: var(--ck-purple);
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .ck-rec-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .ck-rec-card {
+    background: var(--ck-white);
+    border: 1px solid rgba(197,150,12,0.2);
+    border-radius: 10px;
+    padding: 25px;
+    transition: all 0.3s;
+  }
+
+  .ck-rec-card:hover {
+    border-color: var(--ck-gold-light);
+    box-shadow: 0 6px 20px rgba(45,27,78,0.08);
+    transform: translateY(-3px);
+  }
+
+  .ck-rec-badge {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ck-white);
+    background: var(--ck-purple);
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  .ck-rec-card h4 {
+    font-size: 20px;
+    color: var(--ck-purple);
+    margin-bottom: 6px;
+  }
+
+  .ck-rec-card .ck-rec-price {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ck-gold);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .ck-rec-card p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 13px;
+    color: var(--ck-charcoal-light);
+    margin-bottom: 15px;
+    line-height: 1.7;
+  }
+
+  .ck-btn-add {
+    display: inline-block;
+    background: var(--ck-gold-light);
+    color: var(--ck-purple);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .ck-btn-add:hover {
+    background: var(--ck-gold);
+    transform: translateY(-2px);
+  }
+
+  .ck-results-cta {
+    text-align: center;
+    margin-top: 45px;
+    padding: 35px;
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-brown) 100%);
+    border-radius: 12px;
+  }
+
+  .ck-results-cta p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 15px;
+    color: var(--ck-gold-pale);
+    margin-bottom: 20px;
+  }
+
+  .ck-btn-retake {
+    background: transparent;
+    color: var(--ck-gold-light);
+    border: 1px solid var(--ck-gold-light);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-left: 15px;
+  }
+
+  .ck-btn-retake:hover {
+    background: rgba(212,175,55,0.15);
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .ck-quiz-hero h1 { font-size: 32px; }
+    .ck-quiz-features { grid-template-columns: 1fr; }
+    .ck-quiz-question h2 { font-size: 24px; }
+    .ck-profile-grid { grid-template-columns: 1fr; }
+    .ck-rec-cards { grid-template-columns: 1fr; }
+    .ck-quiz-nav { flex-direction: column; }
+    .ck-quiz-nav .ck-btn-quiz { width: 100%; text-align: center; }
+    .ck-results-cta { flex-direction: column; }
+    .ck-btn-retake { margin-left: 0; margin-top: 10px; }
+  }
+</style>
+
+<div class="ck-quiz-page">
+
+  <!-- Hero -->
+  <section class="ck-quiz-hero">
+    <h1>Discover Your Crown Profile</h1>
+    <hr class="ck-gold-divider">
+    <p>
+      Answer a few questions about your hair and we will build a personalized CrownKinetics
+      regimen crafted for your unique texture, porosity, and goals.
+    </p>
+  </section>
+
+  <!-- Progress Bar -->
+  <div class="ck-quiz-progress" id="ckQuizProgress" style="display:none;">
+    <div class="ck-progress-bar-container">
+      <div class="ck-progress-bar">
+        <div class="ck-progress-fill" id="ckProgressFill"></div>
+      </div>
+      <span class="ck-progress-text" id="ckProgressText">Question 1 of 10</span>
+    </div>
+  </div>
+
+  <!-- Quiz Container -->
+  <div class="ck-quiz-container">
+
+    <!-- Welcome Screen -->
+    <div class="ck-quiz-welcome" id="ckQuizWelcome">
+      <h2>Your Personalized Hair Journey Starts Here</h2>
+      <p>
+        No two crowns are alike. This quiz analyzes your curl pattern, strand thickness,
+        porosity, scalp health, styling habits, and goals to match you with the exact
+        CrownKinetics products your hair has been craving.
+      </p>
+
+      <div class="ck-quiz-features">
+        <div class="ck-quiz-feature">
+          <span class="ck-quiz-feature-icon">&#10024;</span>
+          <h4>10 Questions</h4>
+          <p>Quick, guided questions about your hair</p>
+        </div>
+        <div class="ck-quiz-feature">
+          <span class="ck-quiz-feature-icon">&#9878;</span>
+          <h4>Science-Based</h4>
+          <p>Rooted in trichological hair science</p>
+        </div>
+        <div class="ck-quiz-feature">
+          <span class="ck-quiz-feature-icon">&#9733;</span>
+          <h4>Custom Regimen</h4>
+          <p>Products matched to your unique profile</p>
+        </div>
+      </div>
+
+      <button class="ck-btn-start" onclick="ckStartQuiz()">Discover My Crown Profile</button>
+    </div>
+
+    <!-- Questions -->
+    <div id="ckQuizQuestions"></div>
+
+    <!-- Results -->
+    <div class="ck-quiz-results" id="ckQuizResults"></div>
+
+  </div>
+</div>
+
+<script>
+(function() {
+  // Quiz Data
+  var questions = [
+    {
+      id: 'curl_pattern',
+      number: 1,
+      title: 'What best describes your natural curl pattern?',
+      desc: 'If you are unsure, look at a freshly washed strand without product applied. Compare it to the descriptions below.',
+      answers: [
+        { value: 'loose_waves', label: 'Loose Waves (Type 2C/3A)', desc: 'Defined S-shaped waves with some loose curls at the ends. Hair has noticeable volume and a slight spiral.' },
+        { value: 'defined_curls', label: 'Defined Curls (Type 3B/3C)', desc: 'Springy, well-defined ringlets ranging from marker to pencil-sized. Curls bounce and have natural volume.' },
+        { value: 'tight_coils', label: 'Tight Coils (Type 4A/4B)', desc: 'Tightly coiled S or Z-shaped patterns. Coils are dense, spring-like, and shrink significantly when dry.' },
+        { value: 'dense_kinks', label: 'Dense Kinks (Type 4C)', desc: 'Very tight coils with minimal visible curl definition. Significant shrinkage. Hair appears dense and cottony.' }
+      ]
+    },
+    {
+      id: 'strand_thickness',
+      number: 2,
+      title: 'How thick is an individual strand of your hair?',
+      desc: 'Take a single strand and roll it between your fingertips. Compare the sensation to the options below.',
+      answers: [
+        { value: 'fine', label: 'Fine Strands', desc: 'You can barely feel it between your fingers. Strands are thin and delicate, almost like silk thread.' },
+        { value: 'medium', label: 'Medium Strands', desc: 'You can feel the strand but it is not coarse. Similar in thickness to a standard sewing thread.' },
+        { value: 'coarse', label: 'Coarse Strands', desc: 'You can clearly feel the strand. It feels thick and strong, similar to a piece of yarn or twine.' }
+      ]
+    },
+    {
+      id: 'porosity',
+      number: 3,
+      title: 'What is your hair porosity?',
+      desc: 'Drop a clean, product-free strand into a glass of water and wait 4 minutes. Where does it end up?',
+      answers: [
+        { value: 'low', label: 'Low Porosity (Floats on Top)', desc: 'Your strand stays floating on the surface. Water and products tend to sit on top of your hair rather than absorbing.' },
+        { value: 'medium', label: 'Normal Porosity (Floats in Middle)', desc: 'Your strand sinks slowly and hovers in the middle. Hair absorbs moisture well and holds styles effectively.' },
+        { value: 'high', label: 'High Porosity (Sinks Quickly)', desc: 'Your strand sinks rapidly to the bottom. Hair absorbs moisture fast but loses it just as quickly. Often a result of heat or chemical damage.' }
+      ]
+    },
+    {
+      id: 'density',
+      number: 4,
+      title: 'How dense is your hair overall?',
+      desc: 'Pull your hair to one side and look at how much of your scalp is visible.',
+      answers: [
+        { value: 'thin', label: 'Low Density', desc: 'You can see your scalp clearly through your hair without parting it. Hair feels thin or sparse overall.' },
+        { value: 'medium', label: 'Medium Density', desc: 'You can see some scalp but it is mostly covered. Hair has moderate fullness and body.' },
+        { value: 'thick', label: 'High Density', desc: 'You can barely see your scalp at all. Hair is thick, full, and takes a long time to dry completely.' }
+      ]
+    },
+    {
+      id: 'scalp_condition',
+      number: 5,
+      title: 'How would you describe your scalp condition?',
+      desc: 'Think about how your scalp typically feels between wash days.',
+      answers: [
+        { value: 'dry', label: 'Dry & Flaky', desc: 'Scalp often feels tight, itchy, or produces visible flakes. May feel uncomfortable shortly after washing.' },
+        { value: 'balanced', label: 'Balanced & Comfortable', desc: 'Scalp feels healthy and comfortable most of the time. No significant dryness or oiliness between washes.' },
+        { value: 'oily', label: 'Oily & Buildup-Prone', desc: 'Scalp produces excess oil, especially at the roots. Hair may look greasy or feel heavy within a day or two of washing.' },
+        { value: 'sensitive', label: 'Sensitive & Reactive', desc: 'Scalp is easily irritated by products. You experience redness, tingling, or discomfort with many hair care products.' }
+      ]
+    },
+    {
+      id: 'styling_preference',
+      number: 6,
+      title: 'What is your preferred styling approach?',
+      desc: 'Select the routine that best matches how you typically wear and style your hair.',
+      answers: [
+        { value: 'wash_go', label: 'Wash & Go', desc: 'You love wearing your natural texture out and defined. Minimal manipulation with maximum curl definition is your goal.' },
+        { value: 'twist_braid', label: 'Twist-Outs & Braid-Outs', desc: 'You prefer stretched, defined styles achieved through twisting or braiding on damp hair and unraveling when dry.' },
+        { value: 'protective', label: 'Protective Styles', desc: 'You frequently wear braids, locs, twists, wigs, or weaves to protect your hair and minimize manipulation.' },
+        { value: 'versatile', label: 'Versatile & Heat-Styled', desc: 'You enjoy switching between natural and straightened looks. You use heat tools occasionally to monthly.' }
+      ]
+    },
+    {
+      id: 'current_routine',
+      number: 7,
+      title: 'How often do you currently wash your hair?',
+      desc: 'Wash frequency helps us understand your moisture and cleansing needs.',
+      answers: [
+        { value: 'weekly', label: 'Once a Week', desc: 'You wash every 7 days or so, maintaining a structured wash day routine each week.' },
+        { value: 'biweekly', label: 'Every 2 Weeks', desc: 'You wash roughly every 10-14 days, often refreshing curls between washes with water or product.' },
+        { value: 'monthly', label: 'Monthly or Less', desc: 'You wash once a month or less, usually while in a protective style or extended low-manipulation look.' },
+        { value: 'frequent', label: 'Multiple Times a Week', desc: 'You wash 2-3 times per week due to exercise, scalp needs, or personal preference.' }
+      ]
+    },
+    {
+      id: 'hair_goals',
+      number: 8,
+      title: 'What is your primary hair goal right now?',
+      desc: 'Choose the goal that matters most to you. We will tailor your regimen accordingly.',
+      answers: [
+        { value: 'moisture', label: 'Deep Moisture & Softness', desc: 'Your hair feels dry, straw-like, or brittle. You want it to feel consistently hydrated, soft, and supple.' },
+        { value: 'growth', label: 'Length Retention & Growth', desc: 'Your hair grows but breaks before reaching your goal length. You want to maximize retention and minimize breakage.' },
+        { value: 'definition', label: 'Curl Definition & Volume', desc: 'You want more defined, bouncy, and voluminous curls or coils with less frizz and better pattern visibility.' },
+        { value: 'repair', label: 'Damage Repair & Strength', desc: 'Your hair has been damaged by heat, color, or chemicals. You need to rebuild strength and restore elasticity.' },
+        { value: 'scalp', label: 'Scalp Health & Balance', desc: 'Your primary concern is scalp issues: dryness, flaking, itchiness, or excess oil production.' }
+      ]
+    },
+    {
+      id: 'sensitivity',
+      number: 9,
+      title: 'Do you have any product sensitivities or preferences?',
+      desc: 'Let us know about any ingredients or formulation types you prefer to avoid.',
+      answers: [
+        { value: 'fragrance_free', label: 'Fragrance-Sensitive', desc: 'You prefer products with no added fragrance or only naturally derived scents from essential oils.' },
+        { value: 'protein_sensitive', label: 'Protein-Sensitive', desc: 'Your hair reacts negatively to protein treatments, becoming stiff, brittle, or crunchy.' },
+        { value: 'lightweight', label: 'Prefer Lightweight Formulas', desc: 'Heavy butters and creams weigh your hair down. You prefer lighter gels, milks, and water-based products.' },
+        { value: 'no_sensitivity', label: 'No Particular Sensitivities', desc: 'You are open to all types of formulas and ingredients. No known sensitivities or strong preferences.' }
+      ]
+    },
+    {
+      id: 'environment',
+      number: 10,
+      title: 'What climate do you live in?',
+      desc: 'Your environment affects how your hair behaves and what it needs to thrive.',
+      answers: [
+        { value: 'humid', label: 'Warm & Humid', desc: 'You live in a tropical or subtropical climate with high humidity. Frizz and swelling are constant battles.' },
+        { value: 'dry_hot', label: 'Hot & Dry', desc: 'Your climate is warm but dry, like a desert or arid region. Hair loses moisture quickly and feels parched.' },
+        { value: 'cold_dry', label: 'Cold & Dry', desc: 'You experience cold winters with dry indoor heating. Hair becomes brittle and static-prone in colder months.' },
+        { value: 'temperate', label: 'Temperate & Moderate', desc: 'Your climate is relatively moderate with mild humidity. Seasons change but extremes are infrequent.' }
+      ]
+    }
+  ];
+
+  // Product Recommendation Database
+  var productDb = {
+    cleanser_gentle: { name: 'Royal Cleanse Co-Wash', price: '$28', badge: 'Cleanser', desc: 'Ultra-gentle cleansing conditioner that removes buildup without stripping moisture. Infused with Ghanaian shea butter and coconut milk for a creamy, nourishing wash experience.', url: '/products/royal-cleanse-cowash' },
+    cleanser_clarifying: { name: 'Clarity Crown Shampoo', price: '$26', badge: 'Cleanser', desc: 'Sulfate-free clarifying shampoo with apple cider vinegar and tea tree oil. Removes product buildup and rebalances scalp pH without harsh stripping.', url: '/products/clarity-crown-shampoo' },
+    cleanser_scalp: { name: 'Sacred Scalp Purifying Wash', price: '$30', badge: 'Scalp Care', desc: 'Therapeutic scalp cleanser with rosemary, peppermint, and charcoal. Soothes irritation, fights flakes, and promotes healthy follicle function.', url: '/products/sacred-scalp-wash' },
+    conditioner_deep: { name: 'Ancestral Roots Deep Conditioner', price: '$34', badge: 'Deep Treatment', desc: 'Intensive moisture treatment with Jamaican black castor oil, baobab protein, and mango butter. Penetrates the cortex to restore elasticity and extreme softness.', url: '/products/ancestral-roots-deep-conditioner' },
+    conditioner_protein: { name: 'Resilience Protein Masque', price: '$36', badge: 'Strengthening', desc: 'Bond-rebuilding treatment with rice protein, quinoa extract, and keratin amino acids. Repairs damage from heat, color, and chemical processing.', url: '/products/resilience-protein-masque' },
+    conditioner_light: { name: 'Featherlight Moisture Veil', price: '$28', badge: 'Conditioner', desc: 'Weightless hydrating conditioner with aloe vera gel, marshmallow root, and slippery elm. Maximum moisture without heaviness or buildup.', url: '/products/featherlight-moisture-veil' },
+    leave_in_cream: { name: 'Monarch Seal Leave-In Cream', price: '$32', badge: 'Leave-In', desc: 'Rich leave-in cream that seals in moisture for up to 72 hours. Formulated with shea butter, avocado oil, and blue tansy for supreme hydration and frizz control.', url: '/products/monarch-seal-leave-in' },
+    leave_in_milk: { name: 'Silk Mist Leave-In Milk', price: '$26', badge: 'Leave-In', desc: 'Lightweight spray-on leave-in with coconut milk, rose water, and vegetable glycerin. Perfect for fine strands and low-porosity hair that needs moisture without weight.', url: '/products/silk-mist-leave-in' },
+    styling_gel: { name: 'Crown Definer Curl Gel', price: '$24', badge: 'Styling', desc: 'Flaxseed and aloe-based styling gel that delivers strong hold with zero crunch. Defines curls and coils while fighting humidity-induced frizz all day.', url: '/products/crown-definer-curl-gel' },
+    styling_custard: { name: 'Coil Custard Defining Cream', price: '$28', badge: 'Styling', desc: 'Thick defining custard with agave nectar, marshmallow root, and argan oil. Creates elongated, defined coils with brilliant shine and lasting hold.', url: '/products/coil-custard-defining-cream' },
+    styling_butter: { name: 'Twist & Seal Butter', price: '$30', badge: 'Styling', desc: 'Luxurious styling butter for twist-outs, braid-outs, and protective styles. Blended from shea, mango, and kokum butters with Jamaican black castor oil.', url: '/products/twist-seal-butter' },
+    oil_growth: { name: 'Heritage Growth Oil', price: '$38', badge: 'Oil Treatment', desc: 'Potent growth-stimulating oil blend with Jamaican black castor oil, rosemary, peppermint, and biotin. Nourishes follicles and promotes thicker, longer growth.', url: '/products/heritage-growth-oil' },
+    oil_seal: { name: 'Golden Seal Oil Elixir', price: '$34', badge: 'Oil Treatment', desc: 'Lightweight sealing oil with argan, jojoba, and sweet almond oils infused with vitamin E. Locks in moisture and adds luminous shine without greasiness.', url: '/products/golden-seal-oil-elixir' },
+    scalp_treatment: { name: 'Roots Revival Scalp Serum', price: '$42', badge: 'Scalp Treatment', desc: 'Concentrated scalp treatment with tea tree, neem, and salicylic acid from willow bark. Combats dryness, flaking, and irritation while stimulating circulation.', url: '/products/roots-revival-scalp-serum' },
+    refresher: { name: 'Morning Crown Refresh Mist', price: '$18', badge: 'Refresh', desc: 'Daily curl refresher with rose water, glycerin, and aloe. Revives second and third-day curls with moisture and light hold without rewetting.', url: '/products/morning-crown-refresh-mist' },
+    heat_protectant: { name: 'Thermal Shield Protectant', price: '$28', badge: 'Heat Protection', desc: 'Silicone-free heat protectant with hydrolyzed quinoa protein and argan oil. Shields strands up to 450 degrees while maintaining natural moisture balance.', url: '/products/thermal-shield-protectant' }
+  };
+
+  // Results logic: maps quiz answers to product recommendations
+  function getResults(answers) {
+    var profile = {};
+    var recs = [];
+
+    // Determine curl pattern label
+    var curlLabels = { 'loose_waves': 'Type 2C/3A - Loose Waves & Curls', 'defined_curls': 'Type 3B/3C - Defined Curls', 'tight_coils': 'Type 4A/4B - Tight Coils', 'dense_kinks': 'Type 4C - Dense Kinks & Coils' };
+    profile.curlPattern = curlLabels[answers.curl_pattern] || 'Not determined';
+
+    var thicknessLabels = { 'fine': 'Fine Strands', 'medium': 'Medium Strands', 'coarse': 'Coarse Strands' };
+    profile.thickness = thicknessLabels[answers.strand_thickness] || 'Not determined';
+
+    var porosityLabels = { 'low': 'Low Porosity', 'medium': 'Normal Porosity', 'high': 'High Porosity' };
+    profile.porosity = porosityLabels[answers.porosity] || 'Not determined';
+
+    var densityLabels = { 'thin': 'Low Density', 'medium': 'Medium Density', 'thick': 'High Density' };
+    profile.density = densityLabels[answers.density] || 'Not determined';
+
+    var scalpLabels = { 'dry': 'Dry & Flaky', 'balanced': 'Balanced', 'oily': 'Oily & Buildup-Prone', 'sensitive': 'Sensitive & Reactive' };
+    profile.scalp = scalpLabels[answers.scalp_condition] || 'Not determined';
+
+    var goalLabels = { 'moisture': 'Deep Moisture & Softness', 'growth': 'Length Retention & Growth', 'definition': 'Curl Definition & Volume', 'repair': 'Damage Repair & Strength', 'scalp': 'Scalp Health & Balance' };
+    profile.goal = goalLabels[answers.hair_goals] || 'Not determined';
+
+    // Build regimen recommendations based on answers
+
+    // 1. Cleanser selection
+    if (answers.scalp_condition === 'dry' || answers.scalp_condition === 'sensitive') {
+      recs.push(productDb.cleanser_gentle);
+    } else if (answers.scalp_condition === 'oily' || answers.current_routine === 'frequent') {
+      recs.push(productDb.cleanser_clarifying);
+    } else if (answers.hair_goals === 'scalp') {
+      recs.push(productDb.cleanser_scalp);
+    } else {
+      recs.push(productDb.cleanser_gentle);
+    }
+
+    // 2. Conditioner / Treatment
+    if (answers.hair_goals === 'repair') {
+      recs.push(productDb.conditioner_protein);
+    } else if (answers.strand_thickness === 'fine' || answers.sensitivity === 'lightweight') {
+      recs.push(productDb.conditioner_light);
+    } else {
+      recs.push(productDb.conditioner_deep);
+    }
+
+    // 3. Leave-in
+    if (answers.strand_thickness === 'fine' || answers.porosity === 'low' || answers.sensitivity === 'lightweight') {
+      recs.push(productDb.leave_in_milk);
+    } else {
+      recs.push(productDb.leave_in_cream);
+    }
+
+    // 4. Styling product
+    if (answers.styling_preference === 'wash_go') {
+      if (answers.curl_pattern === 'tight_coils' || answers.curl_pattern === 'dense_kinks') {
+        recs.push(productDb.styling_custard);
+      } else {
+        recs.push(productDb.styling_gel);
+      }
+    } else if (answers.styling_preference === 'twist_braid' || answers.styling_preference === 'protective') {
+      recs.push(productDb.styling_butter);
+    } else if (answers.styling_preference === 'versatile') {
+      recs.push(productDb.heat_protectant);
+    } else {
+      recs.push(productDb.styling_gel);
+    }
+
+    // 5. Oil treatment
+    if (answers.hair_goals === 'growth') {
+      recs.push(productDb.oil_growth);
+    } else {
+      recs.push(productDb.oil_seal);
+    }
+
+    // 6. Bonus: scalp treatment if scalp issues
+    if (answers.scalp_condition === 'dry' || answers.scalp_condition === 'sensitive' || answers.hair_goals === 'scalp') {
+      recs.push(productDb.scalp_treatment);
+    }
+
+    // 7. Bonus: refresher for wash-and-go lovers
+    if (answers.styling_preference === 'wash_go' && (answers.current_routine === 'weekly' || answers.current_routine === 'biweekly')) {
+      recs.push(productDb.refresher);
+    }
+
+    // Build description based on profile
+    var summaryParts = [];
+    if (answers.curl_pattern === 'dense_kinks' || answers.curl_pattern === 'tight_coils') {
+      summaryParts.push('Your coily texture thrives with rich moisture and gentle handling.');
+    } else if (answers.curl_pattern === 'defined_curls') {
+      summaryParts.push('Your defined curls need balanced moisture and hold for maximum bounce.');
+    } else {
+      summaryParts.push('Your wavy-curly pattern benefits from lightweight moisture and frizz control.');
+    }
+
+    if (answers.porosity === 'low') {
+      summaryParts.push('With low porosity, heat and steam during conditioning will help products penetrate your cuticle layer.');
+    } else if (answers.porosity === 'high') {
+      summaryParts.push('High porosity hair needs heavier sealants like butters and oils to lock in moisture after hydrating.');
+    }
+
+    if (answers.environment === 'humid') {
+      summaryParts.push('In humid climates, anti-humectant sealers will help control frizz and puffiness.');
+    } else if (answers.environment === 'cold_dry' || answers.environment === 'dry_hot') {
+      summaryParts.push('Your dry climate means extra attention to sealing in moisture is essential year-round.');
+    }
+
+    profile.summary = summaryParts.join(' ');
+
+    return { profile: profile, recommendations: recs };
+  }
+
+  // Render functions
+  var userAnswers = {};
+  var currentQuestion = 0;
+
+  function renderQuestion(index) {
+    var q = questions[index];
+    var container = document.getElementById('ckQuizQuestions');
+    var selected = userAnswers[q.id] || null;
+
+    var html = '<div class="ck-quiz-question ck-active">';
+    html += '<span class="ck-question-number">Question ' + q.number + ' of ' + questions.length + '</span>';
+    html += '<h2>' + q.title + '</h2>';
+    html += '<p class="ck-question-desc">' + q.desc + '</p>';
+    html += '<div class="ck-answer-options">';
+
+    for (var i = 0; i < q.answers.length; i++) {
+      var a = q.answers[i];
+      var isSelected = selected === a.value;
+      html += '<div class="ck-answer-option' + (isSelected ? ' ck-selected' : '') + '" data-question="' + q.id + '" data-value="' + a.value + '" onclick="ckSelectAnswer(this)">';
+      html += '<div class="ck-answer-radio"></div>';
+      html += '<div class="ck-answer-text"><h4>' + a.label + '</h4><p>' + a.desc + '</p></div>';
+      html += '</div>';
+    }
+
+    html += '</div>';
+
+    html += '<div class="ck-quiz-nav">';
+    if (index > 0) {
+      html += '<button class="ck-btn-quiz ck-btn-back" onclick="ckPrevQuestion()">Back</button>';
+    } else {
+      html += '<div></div>';
+    }
+    var nextLabel = (index === questions.length - 1) ? 'See My Results' : 'Next Question';
+    html += '<button class="ck-btn-quiz ck-btn-next" id="ckNextBtn" onclick="ckNextQuestion()"' + (!selected ? ' disabled' : '') + '>' + nextLabel + '</button>';
+    html += '</div>';
+
+    html += '</div>';
+    container.innerHTML = html;
+
+    // Update progress
+    var pct = ((index + 1) / questions.length) * 100;
+    document.getElementById('ckProgressFill').style.width = pct + '%';
+    document.getElementById('ckProgressText').textContent = 'Question ' + (index + 1) + ' of ' + questions.length;
+  }
+
+  function renderResults() {
+    var results = getResults(userAnswers);
+    var p = results.profile;
+    var recs = results.recommendations;
+
+    var html = '<div class="ck-results-header">';
+    html += '<span class="ck-question-number">Your Crown Profile</span>';
+    html += '<h2>Your Personalized Regimen</h2>';
+    html += '<p>' + p.summary + '</p>';
+    html += '</div>';
+
+    html += '<div class="ck-result-profile">';
+    html += '<h3>Your Hair Profile</h3>';
+    html += '<div class="ck-profile-grid">';
+
+    var profileItems = [
+      { label: 'Curl Pattern', value: p.curlPattern },
+      { label: 'Strand Thickness', value: p.thickness },
+      { label: 'Porosity', value: p.porosity },
+      { label: 'Density', value: p.density },
+      { label: 'Scalp Condition', value: p.scalp },
+      { label: 'Primary Goal', value: p.goal }
+    ];
+
+    for (var i = 0; i < profileItems.length; i++) {
+      html += '<div class="ck-profile-item">';
+      html += '<div class="ck-profile-dot"></div>';
+      html += '<div><span class="ck-profile-label">' + profileItems[i].label + '</span>';
+      html += '<span class="ck-profile-value">' + profileItems[i].value + '</span></div>';
+      html += '</div>';
+    }
+
+    html += '</div></div>';
+
+    html += '<div class="ck-recs-section">';
+    html += '<h3>Your Recommended CrownKinetics Regimen</h3>';
+    html += '<div class="ck-rec-cards">';
+
+    for (var j = 0; j < recs.length; j++) {
+      var r = recs[j];
+      html += '<div class="ck-rec-card">';
+      html += '<span class="ck-rec-badge">' + r.badge + '</span>';
+      html += '<h4>' + r.name + '</h4>';
+      html += '<span class="ck-rec-price">' + r.price + '</span>';
+      html += '<p>' + r.desc + '</p>';
+      html += '<a href="' + r.url + '" class="ck-btn-add">View Product</a>';
+      html += '</div>';
+    }
+
+    html += '</div></div>';
+
+    html += '<div class="ck-results-cta">';
+    html += '<p>Want to try a different combination? Retake the quiz or shop the full collection.</p>';
+    html += '<a href="/collections/all" class="ck-btn-add" style="padding:14px 35px;">Shop All Products</a>';
+    html += '<button class="ck-btn-retake" onclick="ckRetakeQuiz()">Retake Quiz</button>';
+    html += '</div>';
+
+    var container = document.getElementById('ckQuizResults');
+    container.innerHTML = html;
+    container.classList.add('ck-active');
+  }
+
+  // Global functions
+  window.ckStartQuiz = function() {
+    document.getElementById('ckQuizWelcome').style.display = 'none';
+    document.getElementById('ckQuizProgress').style.display = 'block';
+    currentQuestion = 0;
+    userAnswers = {};
+    renderQuestion(0);
+  };
+
+  window.ckSelectAnswer = function(el) {
+    var questionId = el.getAttribute('data-question');
+    var value = el.getAttribute('data-value');
+    userAnswers[questionId] = value;
+
+    // Update visual state
+    var siblings = el.parentElement.querySelectorAll('.ck-answer-option');
+    for (var i = 0; i < siblings.length; i++) {
+      siblings[i].classList.remove('ck-selected');
+    }
+    el.classList.add('ck-selected');
+
+    // Enable next button
+    var nextBtn = document.getElementById('ckNextBtn');
+    if (nextBtn) nextBtn.disabled = false;
+  };
+
+  window.ckNextQuestion = function() {
+    var q = questions[currentQuestion];
+    if (!userAnswers[q.id]) return;
+
+    if (currentQuestion < questions.length - 1) {
+      currentQuestion++;
+      renderQuestion(currentQuestion);
+      window.scrollTo({ top: document.getElementById('ckQuizProgress').offsetTop - 20, behavior: 'smooth' });
+    } else {
+      // Show results
+      document.getElementById('ckQuizQuestions').innerHTML = '';
+      document.getElementById('ckQuizProgress').style.display = 'none';
+      renderResults();
+      window.scrollTo({ top: document.getElementById('ckQuizResults').offsetTop - 20, behavior: 'smooth' });
+    }
+  };
+
+  window.ckPrevQuestion = function() {
+    if (currentQuestion > 0) {
+      currentQuestion--;
+      renderQuestion(currentQuestion);
+      window.scrollTo({ top: document.getElementById('ckQuizProgress').offsetTop - 20, behavior: 'smooth' });
+    }
+  };
+
+  window.ckRetakeQuiz = function() {
+    document.getElementById('ckQuizResults').classList.remove('ck-active');
+    document.getElementById('ckQuizResults').innerHTML = '';
+    userAnswers = {};
+    currentQuestion = 0;
+    document.getElementById('ckQuizProgress').style.display = 'block';
+    renderQuestion(0);
+    window.scrollTo({ top: document.getElementById('ckQuizProgress').offsetTop - 20, behavior: 'smooth' });
+  };
+
+})();
+</script>
