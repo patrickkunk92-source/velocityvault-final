@@ -1,0 +1,1271 @@
+{
+  "store": "CrownKinetics",
+  "generated": "2026-02-07",
+  "store_info": {
+    "name": "CrownKinetics",
+    "legal_name": "CrownKinetics LLC",
+    "tagline": "Science-Backed Care for Every Crown",
+    "email": "hello@crownkinetics.com",
+    "support_email": "support@crownkinetics.com",
+    "phone": "+1 (888) 276-9654",
+    "domain": "crownkinetics.com",
+    "myshopify_domain": "crownkinetics.myshopify.com",
+    "address": {
+      "street": "1200 Crown Boulevard, Suite 400",
+      "city": "Atlanta",
+      "state": "Georgia",
+      "zip": "30318",
+      "country": "United States",
+      "country_code": "US"
+    },
+    "currency": "USD",
+    "currency_format": "${{amount}}",
+    "timezone": "America/New_York",
+    "unit_system": "imperial",
+    "weight_unit": "oz",
+    "language": "en",
+    "enabled_languages": ["en", "es", "fr"],
+    "password_protected": false,
+    "industry": "Health & Beauty"
+  },
+  "checkout_settings": {
+    "style": "one_page",
+    "customer_accounts": "optional",
+    "customer_contact_method": "email",
+    "require_full_name": true,
+    "require_company_name": false,
+    "require_phone_number": false,
+    "address_autocomplete": true,
+    "order_notes": true,
+    "order_notes_placeholder": "Special instructions (e.g., gift message, hair type for personalized samples)",
+    "tipping": {
+      "enabled": false
+    },
+    "marketing_consent": {
+      "email_opt_in": true,
+      "sms_opt_in": true,
+      "preselected": false,
+      "email_label": "Email me with new arrivals, hair care tips, and exclusive offers",
+      "sms_label": "Text me with flash sales and restock alerts"
+    },
+    "abandoned_checkout": {
+      "enabled": true,
+      "delay_hours": 1,
+      "subject_line": "Your crown is waiting - complete your CrownKinetics order",
+      "send_to": "anyone_who_abandons",
+      "include_discount": true,
+      "discount_code": "COMEBACK10",
+      "discount_percentage": 10,
+      "discount_valid_hours": 48
+    },
+    "gift_cards": {
+      "enabled": true,
+      "amounts": [15, 25, 50, 75, 100, 150],
+      "custom_amounts": true,
+      "min_amount": 10,
+      "max_amount": 500
+    },
+    "express_checkout": {
+      "shop_pay": true,
+      "apple_pay": true,
+      "google_pay": true,
+      "paypal_express": true,
+      "amazon_pay": false
+    },
+    "buy_now_pay_later": {
+      "afterpay": {
+        "enabled": true,
+        "min_order": 35,
+        "max_order": 1000,
+        "display_on_product_page": true,
+        "display_on_cart": true,
+        "display_on_checkout": true
+      },
+      "klarna": {
+        "enabled": true,
+        "min_order": 35,
+        "max_order": 1000,
+        "display_on_product_page": true,
+        "display_on_cart": true,
+        "display_on_checkout": true
+      }
+    },
+    "post_purchase": {
+      "upsell_enabled": true,
+      "thank_you_page_customizations": {
+        "show_social_share": true,
+        "show_referral_program": true,
+        "show_hair_quiz_cta": true,
+        "show_subscription_upsell": true
+      }
+    }
+  },
+  "shipping": {
+    "zones": [
+      {
+        "name": "United States - Domestic",
+        "countries": ["US"],
+        "rates": [
+          {
+            "name": "Standard Shipping",
+            "description": "Delivered in 5-7 business days",
+            "price": 5.99,
+            "min_order_subtotal": 0,
+            "max_order_subtotal": 49.99,
+            "min_weight_oz": 0,
+            "max_weight_oz": 999,
+            "carrier": "USPS",
+            "service": "Priority Mail"
+          },
+          {
+            "name": "Free Standard Shipping",
+            "description": "Free shipping on orders over $50. Delivered in 5-7 business days",
+            "price": 0,
+            "min_order_subtotal": 50,
+            "max_order_subtotal": null,
+            "min_weight_oz": 0,
+            "max_weight_oz": 999,
+            "carrier": "USPS",
+            "service": "Priority Mail"
+          },
+          {
+            "name": "Expedited Shipping",
+            "description": "Delivered in 2-3 business days",
+            "price": 12.99,
+            "min_order_subtotal": 0,
+            "max_order_subtotal": null,
+            "min_weight_oz": 0,
+            "max_weight_oz": 999,
+            "carrier": "UPS",
+            "service": "2nd Day Air"
+          },
+          {
+            "name": "Overnight Shipping",
+            "description": "Delivered next business day (order by 12PM EST)",
+            "price": 24.99,
+            "min_order_subtotal": 0,
+            "max_order_subtotal": null,
+            "min_weight_oz": 0,
+            "max_weight_oz": 999,
+            "carrier": "UPS",
+            "service": "Next Day Air"
+          }
+        ]
+      },
+      {
+        "name": "US Territories",
+        "countries": ["PR", "VI", "GU", "AS", "MP"],
+        "rates": [
+          {
+            "name": "Standard Shipping",
+            "description": "Delivered in 7-14 business days",
+            "price": 9.99,
+            "min_order_subtotal": 0,
+            "max_order_subtotal": 74.99,
+            "carrier": "USPS",
+            "service": "Priority Mail"
+          },
+          {
+            "name": "Free Standard Shipping",
+            "description": "Free shipping on orders over $75. Delivered in 7-14 business days",
+            "price": 0,
+            "min_order_subtotal": 75,
+            "max_order_subtotal": null,
+            "carrier": "USPS",
+            "service": "Priority Mail"
+          }
+        ]
+      },
+      {
+        "name": "Canada",
+        "countries": ["CA"],
+        "rates": [
+          {
+            "name": "Standard International",
+            "description": "Delivered in 7-14 business days. Duties and taxes may apply at delivery.",
+            "price": 14.99,
+            "min_order_subtotal": 0,
+            "max_order_subtotal": 99.99,
+            "carrier": "USPS",
+            "service": "First Class International"
+          },
+          {
+            "name": "Free International Shipping",
+            "description": "Free shipping on orders over $100 CAD equivalent. Delivered in 7-14 business days.",
+            "price": 0,
+            "min_order_subtotal": 100,
+            "max_order_subtotal": null,
+            "carrier": "USPS",
+            "service": "Priority Mail International"
+          },
+          {
+            "name": "Express International",
+            "description": "Delivered in 3-5 business days. Duties and taxes may apply at delivery.",
+            "price": 29.99,
+            "min_order_subtotal": 0,
+            "max_order_subtotal": null,
+            "carrier": "UPS",
+            "service": "Worldwide Expedited"
+          }
+        ]
+      },
+      {
+        "name": "United Kingdom",
+        "countries": ["GB"],
+        "rates": [
+          {
+            "name": "Standard International",
+            "description": "Delivered in 10-18 business days. Duties and taxes may apply at delivery.",
+            "price": 16.99,
+            "min_order_subtotal": 0,
+            "max_order_subtotal": 99.99,
+            "carrier": "USPS",
+            "service": "Priority Mail International"
+          },
+          {
+            "name": "Free International Shipping",
+            "description": "Free shipping on orders over $100. Delivered in 10-18 business days.",
+            "price": 0,
+            "min_order_subtotal": 100,
+            "max_order_subtotal": null,
+            "carrier": "USPS",
+            "service": "Priority Mail International"
+          },
+          {
+            "name": "Express International",
+            "description": "Delivered in 5-7 business days. Duties and taxes may apply at delivery.",
+            "price": 34.99,
+            "min_order_subtotal": 0,
+            "max_order_subtotal": null,
+            "carrier": "UPS",
+            "service": "Worldwide Express"
+          }
+        ]
+      },
+      {
+        "name": "Caribbean & Africa",
+        "countries": ["JM", "TT", "BB", "BS", "GY", "HT", "NG", "GH", "KE", "ZA", "ET", "TZ", "SN"],
+        "rates": [
+          {
+            "name": "Standard International",
+            "description": "Delivered in 14-28 business days. Duties and taxes may apply at delivery.",
+            "price": 19.99,
+            "min_order_subtotal": 0,
+            "max_order_subtotal": 124.99,
+            "carrier": "USPS",
+            "service": "Priority Mail International"
+          },
+          {
+            "name": "Free International Shipping",
+            "description": "Free shipping on orders over $125. Delivered in 14-28 business days.",
+            "price": 0,
+            "min_order_subtotal": 125,
+            "max_order_subtotal": null,
+            "carrier": "USPS",
+            "service": "Priority Mail International"
+          }
+        ]
+      },
+      {
+        "name": "Rest of World",
+        "countries": ["*"],
+        "exclude_countries": ["US", "CA", "GB", "PR", "VI", "GU", "AS", "MP", "JM", "TT", "BB", "BS", "GY", "HT", "NG", "GH", "KE", "ZA", "ET", "TZ", "SN"],
+        "rates": [
+          {
+            "name": "Standard International",
+            "description": "Delivered in 14-28 business days. Duties and taxes may apply at delivery.",
+            "price": 22.99,
+            "min_order_subtotal": 0,
+            "max_order_subtotal": null,
+            "carrier": "USPS",
+            "service": "Priority Mail International"
+          },
+          {
+            "name": "Express International",
+            "description": "Delivered in 5-10 business days. Duties and taxes may apply at delivery.",
+            "price": 39.99,
+            "min_order_subtotal": 0,
+            "max_order_subtotal": null,
+            "carrier": "UPS",
+            "service": "Worldwide Express"
+          }
+        ]
+      }
+    ],
+    "handling_time": {
+      "processing_days": 2,
+      "cutoff_time": "14:00",
+      "cutoff_timezone": "America/New_York",
+      "business_days_only": true,
+      "holiday_schedule": "US_federal"
+    },
+    "packaging": {
+      "branded_boxes": true,
+      "tissue_paper": true,
+      "samples_included": true,
+      "sample_policy": "Include 2 free samples with every order based on customer hair type if known",
+      "eco_friendly": true,
+      "recyclable_materials": true
+    },
+    "returns": {
+      "enabled": true,
+      "window_days": 30,
+      "condition": "unopened",
+      "restocking_fee_percent": 0,
+      "return_shipping": "customer_paid",
+      "exchange_shipping": "free",
+      "refund_method": "original_payment",
+      "final_sale_tags": ["clearance", "final-sale", "sample"]
+    }
+  },
+  "tax_settings": {
+    "tax_inclusive_pricing": false,
+    "charge_tax_on_shipping": false,
+    "auto_calculate_tax": true,
+    "tax_service": "shopify_tax",
+    "tax_registrations": [
+      {
+        "country": "US",
+        "type": "state_sales_tax",
+        "states_registered": ["GA", "NY", "CA", "TX", "FL", "IL", "NJ", "PA", "OH", "NC"],
+        "note": "Register in additional states as nexus thresholds are met"
+      }
+    ],
+    "tax_exemptions": {
+      "wholesale_customers": true,
+      "tax_exempt_tag": "tax-exempt"
+    },
+    "vat": {
+      "eu_vat_collection": false,
+      "uk_vat_collection": false,
+      "note": "Enable when international sales reach thresholds requiring VAT registration"
+    },
+    "duty_and_import_tax": {
+      "collection_method": "at_delivery",
+      "hs_codes": {
+        "hair_care_products": "3305.90",
+        "shampoos": "3305.10",
+        "hair_accessories": "9615.19",
+        "combs_brushes": "9615.11"
+      }
+    }
+  },
+  "social_media": {
+    "instagram": {
+      "url": "https://instagram.com/crownkinetics",
+      "handle": "@crownkinetics",
+      "shop_enabled": true,
+      "feed_on_homepage": true,
+      "hashtag": "#CrownKinetics"
+    },
+    "tiktok": {
+      "url": "https://tiktok.com/@crownkinetics",
+      "handle": "@crownkinetics",
+      "shop_enabled": true,
+      "pixel_enabled": true
+    },
+    "youtube": {
+      "url": "https://youtube.com/@crownkinetics",
+      "handle": "@crownkinetics",
+      "channel_description": "Tutorials, product demos, and hair care education for textured hair"
+    },
+    "facebook": {
+      "url": "https://facebook.com/crownkinetics",
+      "page_id": "PLACEHOLDER_FB_PAGE_ID",
+      "shop_enabled": true
+    },
+    "pinterest": {
+      "url": "https://pinterest.com/crownkinetics",
+      "verification_tag": "PLACEHOLDER_PINTEREST_VERIFICATION",
+      "rich_pins_enabled": true
+    },
+    "twitter_x": {
+      "url": "https://x.com/crownkinetics",
+      "handle": "@crownkinetics"
+    },
+    "community_hashtags": [
+      "#CrownKinetics",
+      "#MyCrownKinetics",
+      "#CrownKineticsResults",
+      "#CrownKineticsWashDay",
+      "#NaturalHairCare",
+      "#TexturedHairCare"
+    ]
+  },
+  "analytics_and_tracking": {
+    "google_analytics": {
+      "measurement_id": "G-XXXXXXXXXX",
+      "gtm_container_id": "GTM-XXXXXXX",
+      "enhanced_ecommerce": true,
+      "events_tracked": [
+        "page_view",
+        "view_item",
+        "add_to_cart",
+        "remove_from_cart",
+        "begin_checkout",
+        "add_shipping_info",
+        "add_payment_info",
+        "purchase",
+        "refund",
+        "view_item_list",
+        "select_item",
+        "search",
+        "view_promotion",
+        "select_promotion"
+      ],
+      "custom_dimensions": {
+        "hair_type": "dimension1",
+        "customer_type": "dimension2",
+        "subscription_status": "dimension3"
+      }
+    },
+    "meta_pixel": {
+      "pixel_id": "PLACEHOLDER_META_PIXEL_ID",
+      "conversions_api": true,
+      "access_token": "PLACEHOLDER_META_CAPI_TOKEN",
+      "events_tracked": [
+        "PageView",
+        "ViewContent",
+        "AddToCart",
+        "InitiateCheckout",
+        "AddPaymentInfo",
+        "Purchase",
+        "Lead",
+        "CompleteRegistration",
+        "Search"
+      ],
+      "advanced_matching": true,
+      "automatic_events": true
+    },
+    "tiktok_pixel": {
+      "pixel_id": "PLACEHOLDER_TIKTOK_PIXEL_ID",
+      "events_api": true,
+      "events_tracked": [
+        "ViewContent",
+        "AddToCart",
+        "PlaceAnOrder",
+        "CompletePayment",
+        "InitiateCheckout"
+      ]
+    },
+    "pinterest_tag": {
+      "tag_id": "PLACEHOLDER_PINTEREST_TAG_ID",
+      "enhanced_match": true,
+      "events_tracked": [
+        "pagevisit",
+        "viewcategory",
+        "addtocart",
+        "checkout",
+        "signup",
+        "lead"
+      ]
+    },
+    "klaviyo": {
+      "public_api_key": "PLACEHOLDER_KLAVIYO_PUBLIC_KEY",
+      "private_api_key": "PLACEHOLDER_KLAVIYO_PRIVATE_KEY",
+      "onsite_tracking": true,
+      "back_in_stock_enabled": true,
+      "browse_abandonment": true,
+      "lists": {
+        "newsletter": "PLACEHOLDER_LIST_ID",
+        "sms": "PLACEHOLDER_SMS_LIST_ID",
+        "hair_quiz_completions": "PLACEHOLDER_QUIZ_LIST_ID"
+      }
+    },
+    "hotjar": {
+      "site_id": "PLACEHOLDER_HOTJAR_SITE_ID",
+      "heatmaps": true,
+      "recordings": true,
+      "surveys": true
+    }
+  },
+  "theme_settings": {
+    "theme": "Dawn",
+    "theme_version": "2.0",
+    "brand_palette": {
+      "primary": {
+        "rich_brown": {
+          "hex": "#8B4513",
+          "rgb": "139, 69, 19",
+          "usage": "Primary buttons, headers, navigation active states, links"
+        },
+        "gold": {
+          "hex": "#D4A574",
+          "rgb": "212, 165, 116",
+          "usage": "Accent elements, hover states, badges, icons, star ratings"
+        }
+      },
+      "secondary": {
+        "deep_purple": {
+          "hex": "#4A0E4E",
+          "rgb": "74, 14, 78",
+          "usage": "Announcement bar, promotional banners, secondary buttons, sale tags"
+        },
+        "charcoal": {
+          "hex": "#2C2C2C",
+          "rgb": "44, 44, 44",
+          "usage": "Body text, footer background, product descriptions, headings"
+        }
+      },
+      "neutral": {
+        "warm_cream": {
+          "hex": "#FFF8F0",
+          "rgb": "255, 248, 240",
+          "usage": "Page backgrounds, card backgrounds, input field backgrounds"
+        },
+        "soft_beige": {
+          "hex": "#F5E6D3",
+          "rgb": "245, 230, 211",
+          "usage": "Section backgrounds, alternating row backgrounds, dividers"
+        },
+        "white": {
+          "hex": "#FFFFFF",
+          "rgb": "255, 255, 255",
+          "usage": "Card surfaces, modal backgrounds, input fields"
+        }
+      },
+      "feedback": {
+        "success": "#2D6A4F",
+        "error": "#D62828",
+        "warning": "#E9C46A",
+        "info": "#457B9D"
+      }
+    },
+    "typography": {
+      "heading_font": {
+        "family": "Playfair Display",
+        "weights": [400, 700],
+        "fallback": "Georgia, serif",
+        "usage": "Page titles, collection titles, hero headings"
+      },
+      "body_font": {
+        "family": "Nunito Sans",
+        "weights": [300, 400, 600, 700],
+        "fallback": "Helvetica Neue, Arial, sans-serif",
+        "usage": "Body text, product descriptions, navigation, buttons"
+      },
+      "accent_font": {
+        "family": "Cormorant Garamond",
+        "weights": [400, 500, 600],
+        "fallback": "Georgia, serif",
+        "usage": "Quotes, testimonials, special callouts"
+      },
+      "base_size": "16px",
+      "scale_ratio": 1.25,
+      "sizes": {
+        "xs": "0.75rem",
+        "sm": "0.875rem",
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem",
+        "5xl": "3rem",
+        "6xl": "3.75rem"
+      }
+    },
+    "layout": {
+      "max_width": "1440px",
+      "content_width": "1200px",
+      "grid_columns": 12,
+      "gutter": "24px",
+      "section_spacing": "60px",
+      "section_spacing_mobile": "40px",
+      "border_radius": {
+        "small": "4px",
+        "medium": "8px",
+        "large": "12px",
+        "pill": "50px"
+      }
+    },
+    "buttons": {
+      "primary": {
+        "background": "#8B4513",
+        "text": "#FFF8F0",
+        "hover_background": "#6B3410",
+        "hover_text": "#FFFFFF",
+        "border_radius": "4px",
+        "padding": "14px 32px",
+        "font_weight": 600,
+        "text_transform": "none",
+        "letter_spacing": "0.5px"
+      },
+      "secondary": {
+        "background": "transparent",
+        "text": "#8B4513",
+        "border": "2px solid #8B4513",
+        "hover_background": "#8B4513",
+        "hover_text": "#FFF8F0",
+        "border_radius": "4px",
+        "padding": "12px 30px",
+        "font_weight": 600
+      },
+      "accent": {
+        "background": "#4A0E4E",
+        "text": "#FFF8F0",
+        "hover_background": "#380B3C",
+        "hover_text": "#FFFFFF",
+        "border_radius": "4px",
+        "padding": "14px 32px",
+        "font_weight": 600
+      },
+      "add_to_cart": {
+        "background": "#8B4513",
+        "text": "#FFF8F0",
+        "hover_background": "#6B3410",
+        "icon": "cart",
+        "full_width": true,
+        "sticky_mobile": true
+      }
+    },
+    "header": {
+      "layout": "logo_center_nav_below",
+      "logo": {
+        "max_width": 200,
+        "max_width_mobile": 140,
+        "alt_text": "CrownKinetics - Science-Backed Care for Every Crown"
+      },
+      "sticky": true,
+      "transparent_on_homepage": true,
+      "background_color": "#FFFFFF",
+      "text_color": "#2C2C2C",
+      "border_bottom": "1px solid #F5E6D3",
+      "search": {
+        "enabled": true,
+        "type": "predictive",
+        "placeholder": "Search products, ingredients, hair types...",
+        "show_popular_searches": true,
+        "popular_searches": [
+          "deep conditioner",
+          "edge control",
+          "growth oil",
+          "twist butter",
+          "curl cream",
+          "scalp serum"
+        ]
+      },
+      "cart_icon": {
+        "type": "drawer",
+        "show_count": true,
+        "show_free_shipping_bar": true,
+        "free_shipping_threshold": 50
+      },
+      "account_icon": true,
+      "wishlist_icon": true
+    },
+    "homepage_sections": {
+      "hero": {
+        "type": "slideshow",
+        "slides": [
+          {
+            "heading": "Your Crown, Your Science",
+            "subheading": "Formulated for the unique beauty of textured hair",
+            "cta_primary": {
+              "text": "Shop Best Sellers",
+              "url": "/collections/best-sellers"
+            },
+            "cta_secondary": {
+              "text": "Take Hair Quiz",
+              "url": "/pages/hair-quiz"
+            },
+            "image_alt": "Diverse group of people with beautifully styled natural textured hair showcasing CrownKinetics results",
+            "overlay_opacity": 0.3
+          },
+          {
+            "heading": "Deep Moisture, Zero Compromise",
+            "subheading": "Our Hydration Therapy line is here",
+            "cta_primary": {
+              "text": "Shop Hydration Therapy",
+              "url": "/collections/hydration-therapy"
+            },
+            "image_alt": "Close-up of deeply moisturized natural curls glistening with CrownKinetics Hydration Therapy products",
+            "overlay_opacity": 0.3
+          },
+          {
+            "heading": "Bundles That Build Your Routine",
+            "subheading": "Save up to 25% with curated kits for your hair type",
+            "cta_primary": {
+              "text": "Shop Bundles",
+              "url": "/collections/bundles-kits"
+            },
+            "image_alt": "CrownKinetics curated hair care bundle sets in branded packaging",
+            "overlay_opacity": 0.3
+          }
+        ],
+        "autoplay": true,
+        "autoplay_speed": 6000,
+        "height": "80vh",
+        "height_mobile": "60vh"
+      },
+      "shop_by_hair_type": {
+        "type": "featured_collections_grid",
+        "heading": "Shop by Hair Type",
+        "subheading": "Find your perfect match",
+        "collections": [
+          {
+            "title": "Type 3 Curls",
+            "handle": "type-3-curls",
+            "image_alt": "Type 3 curly hair pattern"
+          },
+          {
+            "title": "Type 4 Coils",
+            "handle": "type-4-coils",
+            "image_alt": "Type 4 coily hair pattern"
+          },
+          {
+            "title": "Protective Styles",
+            "handle": "protective-styles",
+            "image_alt": "Protective braided hairstyle"
+          },
+          {
+            "title": "Loc Care",
+            "handle": "loc-maintenance",
+            "image_alt": "Well-maintained locs"
+          }
+        ],
+        "layout": "4_column",
+        "card_style": "overlay_text"
+      },
+      "featured_products": {
+        "type": "product_carousel",
+        "heading": "Community Favorites",
+        "subheading": "Loved by thousands of crowned beauties",
+        "collection": "best-sellers",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_mobile": 2,
+        "show_rating": true,
+        "show_quick_add": true,
+        "show_secondary_image": true
+      },
+      "value_propositions": {
+        "type": "icon_bar",
+        "items": [
+          {
+            "icon": "leaf",
+            "heading": "Clean Ingredients",
+            "text": "No sulfates, parabens, or mineral oil"
+          },
+          {
+            "icon": "heart",
+            "heading": "Black-Owned",
+            "text": "Founded and formulated by us, for us"
+          },
+          {
+            "icon": "shield",
+            "heading": "Dermatologist Tested",
+            "text": "Safe for sensitive scalps"
+          },
+          {
+            "icon": "recycle",
+            "heading": "Eco-Conscious",
+            "text": "Recyclable packaging and sustainable sourcing"
+          }
+        ],
+        "background_color": "#F5E6D3"
+      },
+      "shop_by_concern": {
+        "type": "featured_collections_grid",
+        "heading": "Shop by Concern",
+        "subheading": "Targeted solutions for your hair goals",
+        "collections": [
+          {
+            "title": "Growth & Retention",
+            "handle": "growth-retention",
+            "image_alt": "Hair growth products"
+          },
+          {
+            "title": "Hydration Therapy",
+            "handle": "hydration-therapy",
+            "image_alt": "Deep hydration products"
+          },
+          {
+            "title": "Damage Repair",
+            "handle": "damage-repair",
+            "image_alt": "Hair repair products"
+          },
+          {
+            "title": "Scalp Health",
+            "handle": "scalp-health",
+            "image_alt": "Scalp treatment products"
+          }
+        ],
+        "layout": "4_column",
+        "card_style": "card_with_text_below"
+      },
+      "testimonials": {
+        "type": "testimonial_carousel",
+        "heading": "Crown Stories",
+        "subheading": "Real results from our community",
+        "show_rating": true,
+        "show_photo": true,
+        "show_hair_type": true,
+        "autoplay": true,
+        "background_color": "#4A0E4E",
+        "text_color": "#FFF8F0"
+      },
+      "new_arrivals": {
+        "type": "product_carousel",
+        "heading": "Just Dropped",
+        "subheading": "The newest additions to the CrownKinetics family",
+        "collection": "new-arrivals",
+        "products_to_show": 6,
+        "columns_desktop": 3,
+        "columns_mobile": 2,
+        "show_badge": true,
+        "badge_text": "NEW"
+      },
+      "hair_quiz_cta": {
+        "type": "image_with_text",
+        "heading": "Not Sure Where to Start?",
+        "text": "Take our 2-minute hair quiz to get a personalized routine built for your unique curl pattern, porosity, and goals.",
+        "cta": {
+          "text": "Take the Quiz",
+          "url": "/pages/hair-quiz"
+        },
+        "image_alt": "CrownKinetics hair quiz illustration showing different hair types and product recommendations",
+        "image_position": "left",
+        "background_color": "#FFF8F0"
+      },
+      "instagram_feed": {
+        "type": "instagram_grid",
+        "heading": "#MyCrownKinetics",
+        "subheading": "Share your crown with us on Instagram",
+        "posts_to_show": 6,
+        "columns_desktop": 6,
+        "columns_mobile": 3,
+        "link_to_profile": true
+      },
+      "email_signup": {
+        "type": "newsletter",
+        "heading": "Join the Crown Community",
+        "subheading": "Get 15% off your first order plus hair care tips, early access to new drops, and exclusive offers.",
+        "placeholder": "Enter your email",
+        "button_text": "Subscribe",
+        "success_message": "Welcome to the CrownKinetics community! Check your email for your 15% off code.",
+        "background_color": "#2C2C2C",
+        "text_color": "#FFF8F0",
+        "button_color": "#D4A574"
+      }
+    },
+    "product_page": {
+      "layout": "two_column",
+      "image_gallery": {
+        "type": "thumbnails_below",
+        "zoom_enabled": true,
+        "video_enabled": true,
+        "model_3d_enabled": false
+      },
+      "show_vendor": false,
+      "show_sku": false,
+      "show_type": true,
+      "show_tags": false,
+      "show_share_buttons": true,
+      "show_rating": true,
+      "show_review_count": true,
+      "variant_selector_type": "buttons",
+      "quantity_selector": true,
+      "sticky_add_to_cart": true,
+      "sticky_add_to_cart_mobile": true,
+      "trust_badges": {
+        "enabled": true,
+        "items": [
+          "Sulfate-Free",
+          "Paraben-Free",
+          "Cruelty-Free",
+          "Black-Owned"
+        ]
+      },
+      "tabs": [
+        {
+          "title": "Description",
+          "content_source": "product_description"
+        },
+        {
+          "title": "Ingredients",
+          "content_source": "metafield_ingredients"
+        },
+        {
+          "title": "How to Use",
+          "content_source": "metafield_how_to_use"
+        },
+        {
+          "title": "Hair Type Guide",
+          "content_source": "metafield_hair_type_guide"
+        },
+        {
+          "title": "Reviews",
+          "content_source": "reviews_widget"
+        }
+      ],
+      "complementary_products": {
+        "enabled": true,
+        "heading": "Complete Your Routine",
+        "source": "metafield",
+        "fallback": "automated_recommendations",
+        "max_products": 4
+      },
+      "recently_viewed": {
+        "enabled": true,
+        "heading": "Recently Viewed",
+        "max_products": 6
+      }
+    },
+    "collection_page": {
+      "layout": "grid",
+      "products_per_page": 24,
+      "columns_desktop": 4,
+      "columns_mobile": 2,
+      "show_collection_image": true,
+      "show_collection_description": true,
+      "show_sort": true,
+      "show_filter": true,
+      "filter_type": "sidebar",
+      "filters": [
+        {
+          "label": "Hair Type",
+          "type": "tag",
+          "values": ["3A", "3B", "3C", "4A", "4B", "4C"]
+        },
+        {
+          "label": "Concern",
+          "type": "tag",
+          "values": ["Growth", "Moisture", "Breakage", "Scalp Health", "Definition", "Damage Repair"]
+        },
+        {
+          "label": "Product Type",
+          "type": "product_type"
+        },
+        {
+          "label": "Price",
+          "type": "price_range"
+        },
+        {
+          "label": "Rating",
+          "type": "rating",
+          "values": ["4+", "3+"]
+        }
+      ],
+      "sort_options": [
+        "best-selling",
+        "title-ascending",
+        "title-descending",
+        "price-ascending",
+        "price-descending",
+        "created-descending"
+      ],
+      "empty_state": {
+        "heading": "No products found",
+        "text": "Try adjusting your filters or browse our full collection.",
+        "cta_text": "Shop All",
+        "cta_url": "/collections/all"
+      }
+    },
+    "cart": {
+      "type": "drawer",
+      "show_free_shipping_bar": true,
+      "free_shipping_threshold": 50,
+      "free_shipping_message": "You're {{amount}} away from free shipping!",
+      "free_shipping_success_message": "You've unlocked free shipping!",
+      "show_upsell": true,
+      "upsell_heading": "Don't forget these",
+      "upsell_collection": "best-sellers",
+      "upsell_max_products": 3,
+      "show_order_notes": true,
+      "show_terms_checkbox": false,
+      "show_trust_badges": true,
+      "empty_cart": {
+        "heading": "Your cart is empty",
+        "text": "Looks like you haven't added anything to your cart yet.",
+        "cta_text": "Start Shopping",
+        "cta_url": "/collections/best-sellers"
+      }
+    },
+    "popup": {
+      "newsletter_popup": {
+        "enabled": true,
+        "delay_seconds": 5,
+        "show_on_exit_intent": true,
+        "show_once_per_session": true,
+        "heading": "Get 15% Off Your First Order",
+        "subheading": "Join the Crown Community for exclusive deals, hair care tips, and early access to new products.",
+        "image_alt": "CrownKinetics products displayed with 15% off first order promotion",
+        "input_placeholder": "Enter your email",
+        "button_text": "Unlock My 15% Off",
+        "success_message": "Check your email for your exclusive discount code!",
+        "dismiss_text": "No thanks, I'll pay full price",
+        "background_color": "#FFF8F0",
+        "accent_color": "#8B4513"
+      },
+      "age_gate": {
+        "enabled": false
+      }
+    },
+    "seo": {
+      "homepage_title": "CrownKinetics | Science-Backed Natural Hair Care for Curly, Coily & Kinky Textures",
+      "homepage_description": "CrownKinetics offers premium, science-backed hair care products formulated for Type 3 and Type 4 textured hair. Sulfate-free shampoos, deep conditioners, curl definers, scalp serums, and protective style essentials. Black-owned. Clean ingredients.",
+      "structured_data": {
+        "organization": true,
+        "local_business": true,
+        "product": true,
+        "breadcrumbs": true,
+        "faq": true,
+        "article": true,
+        "review": true
+      },
+      "sitemap": {
+        "auto_generated": true,
+        "include_images": true,
+        "update_frequency": "daily"
+      },
+      "robots_txt": {
+        "disallow": [
+          "/admin",
+          "/cart",
+          "/orders",
+          "/checkouts",
+          "/*.json",
+          "/account"
+        ],
+        "sitemap_url": "https://crownkinetics.com/sitemap.xml"
+      },
+      "social_sharing": {
+        "og_image_default": "crownkinetics-og-default.jpg",
+        "og_image_alt": "CrownKinetics - Science-Backed Care for Every Crown",
+        "twitter_card_type": "summary_large_image",
+        "twitter_handle": "@crownkinetics"
+      }
+    },
+    "accessibility": {
+      "skip_to_content": true,
+      "focus_visible_outlines": true,
+      "aria_labels": true,
+      "alt_text_required": true,
+      "color_contrast_AA": true,
+      "keyboard_navigation": true,
+      "screen_reader_optimized": true,
+      "reduced_motion_support": true
+    }
+  },
+  "apps_and_integrations": {
+    "reviews": {
+      "app": "Judge.me",
+      "auto_request_review": true,
+      "request_delay_days": 14,
+      "include_photo_request": true,
+      "review_incentive": "10% off next order for photo reviews",
+      "display_on_product_page": true,
+      "display_on_collection_page": true,
+      "ugc_carousel": true
+    },
+    "subscriptions": {
+      "app": "Recharge",
+      "enabled": true,
+      "discount_percentage": 20,
+      "frequency_options": ["30 days", "60 days", "90 days"],
+      "default_frequency": "60 days",
+      "subscribe_and_save_badge": true,
+      "customer_portal": true
+    },
+    "loyalty_program": {
+      "app": "Smile.io",
+      "points_name": "Crown Points",
+      "earn_rules": {
+        "purchase": "1 point per $1 spent",
+        "account_creation": 100,
+        "birthday": 200,
+        "instagram_follow": 50,
+        "tiktok_follow": 50,
+        "product_review": 75,
+        "photo_review": 150,
+        "referral": 500
+      },
+      "redeem_rules": {
+        "100_points": "$5 off",
+        "200_points": "$10 off",
+        "500_points": "$30 off",
+        "1000_points": "$65 off"
+      },
+      "tiers": [
+        {
+          "name": "Crown Starter",
+          "min_points": 0,
+          "benefits": ["Earn 1 point per $1"]
+        },
+        {
+          "name": "Crown Builder",
+          "min_points": 500,
+          "benefits": ["Earn 1.5 points per $1", "Early access to sales", "Free shipping on all orders"]
+        },
+        {
+          "name": "Crown Royalty",
+          "min_points": 1500,
+          "benefits": ["Earn 2 points per $1", "Early access to new products", "Free shipping", "Exclusive gifts", "Annual crown care package"]
+        }
+      ]
+    },
+    "referral": {
+      "app": "ReferralCandy",
+      "advocate_reward": "$15 store credit",
+      "friend_reward": "15% off first order",
+      "sharing_channels": ["email", "facebook", "twitter", "copy_link", "sms"]
+    },
+    "hair_quiz": {
+      "app": "Octane AI",
+      "questions": [
+        "What is your curl/coil pattern?",
+        "How would you describe your hair porosity?",
+        "What is your primary hair concern?",
+        "How often do you wash your hair?",
+        "Do you currently wear protective styles?",
+        "What is your styling goal?"
+      ],
+      "output": "personalized_routine",
+      "email_capture": true,
+      "discount_on_completion": "15% off first order"
+    },
+    "email_marketing": {
+      "app": "Klaviyo",
+      "flows": [
+        "Welcome Series (4 emails)",
+        "Abandoned Cart (3 emails)",
+        "Browse Abandonment (2 emails)",
+        "Post-Purchase (3 emails)",
+        "Win-Back (3 emails)",
+        "Review Request",
+        "Subscription Reminder",
+        "Birthday",
+        "VIP Tier Upgrade",
+        "Replenishment Reminder",
+        "Hair Quiz Results"
+      ]
+    },
+    "sms_marketing": {
+      "app": "Klaviyo SMS",
+      "enabled": true,
+      "use_cases": [
+        "Flash sale alerts",
+        "Back in stock notifications",
+        "Shipping updates",
+        "Restock reminders"
+      ]
+    },
+    "user_generated_content": {
+      "app": "Yotpo",
+      "instagram_ugc_gallery": true,
+      "shoppable_ugc": true,
+      "visual_reviews": true
+    }
+  },
+  "metafield_definitions": {
+    "product": [
+      {
+        "namespace": "custom",
+        "key": "ingredients",
+        "name": "Full Ingredients List",
+        "type": "multi_line_text_field"
+      },
+      {
+        "namespace": "custom",
+        "key": "key_ingredients",
+        "name": "Key Ingredients",
+        "type": "list.single_line_text_field"
+      },
+      {
+        "namespace": "custom",
+        "key": "how_to_use",
+        "name": "How to Use",
+        "type": "multi_line_text_field"
+      },
+      {
+        "namespace": "custom",
+        "key": "hair_type_compatibility",
+        "name": "Compatible Hair Types",
+        "type": "list.single_line_text_field"
+      },
+      {
+        "namespace": "custom",
+        "key": "porosity",
+        "name": "Best for Porosity",
+        "type": "list.single_line_text_field"
+      },
+      {
+        "namespace": "custom",
+        "key": "concern",
+        "name": "Addresses Concerns",
+        "type": "list.single_line_text_field"
+      },
+      {
+        "namespace": "custom",
+        "key": "free_from",
+        "name": "Free From",
+        "type": "list.single_line_text_field"
+      },
+      {
+        "namespace": "custom",
+        "key": "scent_profile",
+        "name": "Scent Profile",
+        "type": "single_line_text_field"
+      },
+      {
+        "namespace": "custom",
+        "key": "size_oz",
+        "name": "Product Size (oz)",
+        "type": "number_decimal"
+      },
+      {
+        "namespace": "custom",
+        "key": "routine_step",
+        "name": "Routine Step Number",
+        "type": "number_integer"
+      },
+      {
+        "namespace": "custom",
+        "key": "complementary_products",
+        "name": "Complementary Products",
+        "type": "list.product_reference"
+      }
+    ],
+    "collection": [
+      {
+        "namespace": "custom",
+        "key": "featured_video",
+        "name": "Featured Video URL",
+        "type": "url"
+      },
+      {
+        "namespace": "custom",
+        "key": "routine_guide",
+        "name": "Routine Guide Content",
+        "type": "multi_line_text_field"
+      }
+    ],
+    "customer": [
+      {
+        "namespace": "custom",
+        "key": "hair_type",
+        "name": "Hair Type",
+        "type": "single_line_text_field"
+      },
+      {
+        "namespace": "custom",
+        "key": "hair_porosity",
+        "name": "Hair Porosity",
+        "type": "single_line_text_field"
+      },
+      {
+        "namespace": "custom",
+        "key": "primary_concern",
+        "name": "Primary Hair Concern",
+        "type": "single_line_text_field"
+      },
+      {
+        "namespace": "custom",
+        "key": "quiz_completed",
+        "name": "Hair Quiz Completed",
+        "type": "boolean"
+      }
+    ]
+  }
+}
