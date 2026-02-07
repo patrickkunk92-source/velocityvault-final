@@ -1,0 +1,847 @@
+<!-- CrownKinetics About Us Page -->
+<!-- Shopify Page Template: page.about-us -->
+
+<style>
+  :root {
+    --ck-brown: #5C3A1E;
+    --ck-brown-light: #8B6914;
+    --ck-gold: #C5960C;
+    --ck-gold-light: #D4AF37;
+    --ck-gold-pale: #F5E6B8;
+    --ck-purple: #2D1B4E;
+    --ck-purple-mid: #4A2C6A;
+    --ck-purple-light: #7B5EA7;
+    --ck-charcoal: #2C2C2C;
+    --ck-charcoal-light: #444444;
+    --ck-cream: #FDF8F0;
+    --ck-white: #FFFFFF;
+  }
+
+  .ck-about-page {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--ck-charcoal);
+    line-height: 1.8;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .ck-about-page * {
+    box-sizing: border-box;
+  }
+
+  /* Hero Section */
+  .ck-about-hero {
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-brown) 100%);
+    color: var(--ck-cream);
+    text-align: center;
+    padding: 100px 20px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ck-about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(197,150,12,0.15) 0%, transparent 60%),
+                radial-gradient(circle at 70% 30%, rgba(212,175,55,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .ck-about-hero h1 {
+    font-size: 52px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+    color: var(--ck-gold-light);
+  }
+
+  .ck-about-hero .ck-hero-subtitle {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--ck-gold-pale);
+    margin-bottom: 30px;
+  }
+
+  .ck-about-hero .ck-hero-tagline {
+    font-size: 22px;
+    font-style: italic;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: rgba(253,248,240,0.9);
+  }
+
+  .ck-gold-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--ck-gold-light), transparent);
+    margin: 30px auto;
+    border: none;
+  }
+
+  /* Section Styles */
+  .ck-about-section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .ck-about-section h2 {
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--ck-purple);
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+  }
+
+  .ck-about-section h3 {
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--ck-brown);
+    margin-bottom: 15px;
+  }
+
+  .ck-about-section p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--ck-charcoal-light);
+    margin-bottom: 18px;
+  }
+
+  .ck-section-intro {
+    text-align: center;
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: 20px !important;
+    font-style: italic;
+    color: var(--ck-purple-light) !important;
+    max-width: 750px;
+    margin: 0 auto 50px !important;
+  }
+
+  /* Origin Story */
+  .ck-origin-section {
+    background: var(--ck-cream);
+  }
+
+  .ck-origin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+  }
+
+  .ck-origin-image-placeholder {
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-brown) 100%);
+    border-radius: 12px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ck-origin-image-placeholder::after {
+    content: 'Founder Portrait';
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ck-gold-pale);
+    border: 1px solid var(--ck-gold-light);
+    padding: 15px 30px;
+    border-radius: 4px;
+  }
+
+  .ck-origin-text h2 {
+    text-align: left;
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  .ck-origin-text .ck-founder-name {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--ck-gold);
+    margin-bottom: 30px;
+  }
+
+  /* Quote Block */
+  .ck-quote-block {
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-purple-mid) 100%);
+    color: var(--ck-cream);
+    text-align: center;
+    padding: 80px 20px;
+  }
+
+  .ck-quote-block blockquote {
+    font-size: 28px;
+    font-style: italic;
+    max-width: 850px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+    color: var(--ck-gold-pale);
+  }
+
+  .ck-quote-block cite {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-style: normal;
+    color: var(--ck-gold-light);
+  }
+
+  /* Mission & Values */
+  .ck-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 50px;
+  }
+
+  .ck-value-card {
+    text-align: center;
+    padding: 45px 30px;
+    border: 1px solid rgba(197,150,12,0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: var(--ck-white);
+  }
+
+  .ck-value-card:hover {
+    border-color: var(--ck-gold-light);
+    box-shadow: 0 8px 30px rgba(45,27,78,0.08);
+    transform: translateY(-4px);
+  }
+
+  .ck-value-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-purple-mid) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 28px;
+  }
+
+  .ck-value-card h3 {
+    font-size: 22px;
+    color: var(--ck-purple);
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .ck-value-card p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* Ingredients Commitment */
+  .ck-ingredients-commitment {
+    background: var(--ck-cream);
+    padding: 80px 20px;
+  }
+
+  .ck-ingredients-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .ck-commitment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
+  }
+
+  .ck-commitment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ck-commitment-list li {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 15px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(197,150,12,0.15);
+    color: var(--ck-charcoal-light);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ck-commitment-list li::before {
+    content: '\2726';
+    color: var(--ck-gold);
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .ck-never-list li::before {
+    content: '\2716';
+    color: #C0392B;
+  }
+
+  .ck-commitment-col h3 {
+    text-align: center;
+    color: var(--ck-purple);
+    margin-bottom: 25px;
+  }
+
+  /* Community Impact */
+  .ck-impact-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin: 50px 0;
+  }
+
+  .ck-stat-card {
+    text-align: center;
+    padding: 35px 20px;
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-brown) 100%);
+    border-radius: 12px;
+    color: var(--ck-cream);
+  }
+
+  .ck-stat-number {
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--ck-gold-light);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .ck-stat-label {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ck-gold-pale);
+  }
+
+  .ck-impact-initiatives {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    margin-top: 50px;
+  }
+
+  .ck-initiative-card {
+    padding: 35px;
+    border: 1px solid rgba(197,150,12,0.2);
+    border-radius: 12px;
+    background: var(--ck-white);
+  }
+
+  .ck-initiative-card h3 {
+    font-size: 20px;
+    color: var(--ck-purple);
+    margin-bottom: 12px;
+  }
+
+  .ck-initiative-card p {
+    font-size: 14px;
+  }
+
+  /* Team Section */
+  .ck-team-section {
+    background: var(--ck-cream);
+    padding: 80px 20px;
+  }
+
+  .ck-team-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .ck-team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+    margin-top: 50px;
+  }
+
+  .ck-team-card {
+    text-align: center;
+  }
+
+  .ck-team-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-brown) 100%);
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--ck-gold-light);
+  }
+
+  .ck-team-photo span {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ck-gold-pale);
+  }
+
+  .ck-team-card h3 {
+    font-size: 20px;
+    color: var(--ck-purple);
+    margin-bottom: 4px;
+    text-align: center;
+  }
+
+  .ck-team-role {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ck-gold);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .ck-team-card p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 13px;
+    color: var(--ck-charcoal-light);
+    line-height: 1.7;
+  }
+
+  /* CTA Section */
+  .ck-about-cta {
+    background: linear-gradient(135deg, var(--ck-purple) 0%, var(--ck-brown) 100%);
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--ck-cream);
+  }
+
+  .ck-about-cta h2 {
+    color: var(--ck-gold-light);
+    font-size: 38px;
+    margin-bottom: 15px;
+  }
+
+  .ck-about-cta p {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    color: var(--ck-gold-pale);
+    max-width: 600px;
+    margin: 0 auto 35px;
+    line-height: 1.8;
+  }
+
+  .ck-btn-gold {
+    display: inline-block;
+    background: var(--ck-gold-light);
+    color: var(--ck-purple);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 16px 45px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .ck-btn-gold:hover {
+    background: var(--ck-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212,175,55,0.3);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .ck-origin-grid { grid-template-columns: 1fr; gap: 40px; }
+    .ck-values-grid { grid-template-columns: 1fr; }
+    .ck-commitment-grid { grid-template-columns: 1fr; }
+    .ck-impact-stats { grid-template-columns: repeat(2, 1fr); }
+    .ck-impact-initiatives { grid-template-columns: 1fr; }
+    .ck-team-grid { grid-template-columns: repeat(2, 1fr); }
+    .ck-about-hero h1 { font-size: 36px; }
+    .ck-quote-block blockquote { font-size: 22px; }
+  }
+
+  @media (max-width: 600px) {
+    .ck-impact-stats { grid-template-columns: 1fr; }
+    .ck-team-grid { grid-template-columns: 1fr; }
+    .ck-about-hero { padding: 60px 20px 50px; }
+    .ck-about-hero h1 { font-size: 28px; letter-spacing: 1px; }
+    .ck-about-section { padding: 50px 15px; }
+  }
+</style>
+
+<div class="ck-about-page">
+
+  <!-- Hero Section -->
+  <section class="ck-about-hero">
+    <p class="ck-hero-subtitle">Our Story</p>
+    <h1>About CrownKinetics</h1>
+    <hr class="ck-gold-divider">
+    <p class="ck-hero-tagline">
+      Born from the belief that every coil, curl, and kink deserves reverence &mdash;
+      we craft luxury hair care rooted in African botanical wisdom and modern science.
+    </p>
+  </section>
+
+  <!-- Origin Story -->
+  <section class="ck-origin-section">
+    <div class="ck-origin-grid">
+      <div class="ck-origin-image-placeholder">
+        <!-- Replace with: {{ 'founder-portrait.jpg' | asset_img_url: 'master' | img_tag }} -->
+      </div>
+      <div class="ck-origin-text">
+        <h2>Where It All Began</h2>
+        <p class="ck-founder-name">Founded by Amara Okafor-Williams</p>
+        <p>
+          CrownKinetics was born in 2019, in a small Brooklyn kitchen, out of frustration that
+          turned into a revolution. Our founder, Amara Okafor-Williams, had spent over fifteen
+          years searching for hair care products that truly understood her 4C coils. Instead,
+          she found shelves lined with products loaded with sulfates, silicones, mineral oil,
+          and ingredients she could barely pronounce &mdash; products marketed to Black women
+          yet formulated with little regard for the unique science of textured hair.
+        </p>
+        <p>
+          After a devastating experience with chemical damage from a so-called "natural" product
+          that left her with breakage and scalp burns, Amara made a decision: she would create the
+          products she had been searching for her entire life. She enrolled in cosmetic chemistry
+          courses, traveled to Ghana, Nigeria, and Jamaica to study ancestral hair care traditions,
+          and spent eighteen months developing formulations that blended time-honored African and
+          Caribbean botanical wisdom with cutting-edge trichological science.
+        </p>
+        <p>
+          The name <strong>CrownKinetics</strong> embodies our philosophy: your hair is your crown,
+          and its movement &mdash; its kinetics &mdash; tells the story of where you have been and
+          where you are going. Every coil pattern is a fingerprint. Every curl is a celebration.
+          Every kink carries the memory of ancestral brilliance.
+        </p>
+        <p>
+          What started as five handcrafted products sold at a local farmers market has grown into a
+          full line of luxury hair care trusted by thousands of women and men across the globe. But
+          our mission has never changed: to give Black hair the scientific respect and cultural
+          reverence it has always deserved.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="ck-quote-block">
+    <blockquote>
+      &ldquo;I did not start CrownKinetics to build a brand. I started it because I was tired
+      of an industry that treated Black hair as an afterthought. Our hair is not difficult &mdash;
+      it has simply been misunderstood.&rdquo;
+    </blockquote>
+    <cite>&mdash; Amara Okafor-Williams, Founder &amp; CEO</cite>
+  </section>
+
+  <!-- Mission & Values -->
+  <section class="ck-about-section">
+    <h2>Our Mission &amp; Values</h2>
+    <p class="ck-section-intro">
+      We exist to transform the relationship between Black communities and hair care &mdash;
+      replacing damage with nourishment, shame with pride, and guesswork with science.
+    </p>
+
+    <div class="ck-values-grid">
+
+      <div class="ck-value-card">
+        <div class="ck-value-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Rooted in Science</h3>
+        <p>
+          Every CrownKinetics formula is developed using peer-reviewed trichological research specific
+          to textured hair. We study the structural differences of elliptical hair follicles, melanin
+          distribution, and sebum production patterns to create products that work with your biology,
+          not against it.
+        </p>
+      </div>
+
+      <div class="ck-value-card">
+        <div class="ck-value-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Cultural Reverence</h3>
+        <p>
+          We draw inspiration from centuries of African and Caribbean hair care traditions. From West
+          African shea butter rituals to Jamaican black castor oil remedies, we honor the wisdom of
+          our ancestors while advancing it with modern formulation science. Your crown carries history;
+          our products protect that legacy.
+        </p>
+      </div>
+
+      <div class="ck-value-card">
+        <div class="ck-value-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Clean Integrity</h3>
+        <p>
+          Transparency is non-negotiable. We publish every ingredient, explain why it is included,
+          and voluntarily submit to third-party testing. Our formulas are free from sulfates, parabens,
+          phthalates, mineral oil, petrolatum, formaldehyde, and synthetic fragrances. If it cannot
+          nourish your crown, it does not belong in our bottles.
+        </p>
+      </div>
+
+      <div class="ck-value-card">
+        <div class="ck-value-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Community First</h3>
+        <p>
+          CrownKinetics is more than a product line &mdash; it is a movement. We reinvest in the
+          communities that inspire us through educational partnerships, cosmetology school scholarships,
+          and by ensuring our supply chain directly supports women-led cooperatives across West Africa
+          and the Caribbean.
+        </p>
+      </div>
+
+      <div class="ck-value-card">
+        <div class="ck-value-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Ethically Sourced</h3>
+        <p>
+          Every raw ingredient is traced from origin to formula. Our shea butter comes from a
+          women-owned cooperative in northern Ghana. Our Jamaican black castor oil is traditionally
+          roasted and cold-pressed in St. Thomas Parish. Our baobab oil is harvested sustainably in
+          Senegal. Fair wages and ecological stewardship are built into every product.
+        </p>
+      </div>
+
+      <div class="ck-value-card">
+        <div class="ck-value-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </div>
+        <h3>Sustainability</h3>
+        <p>
+          Our packaging is crafted from post-consumer recycled materials and is fully recyclable.
+          We use soy-based inks, biodegradable shipping materials, and carbon-offset delivery.
+          By 2026, we are committed to achieving fully closed-loop packaging across our entire product line.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Clean Ingredients Commitment -->
+  <section class="ck-ingredients-commitment">
+    <div class="ck-ingredients-inner">
+      <h2>Our Clean Ingredients Promise</h2>
+      <p class="ck-section-intro">
+        We believe what you put on your crown matters as much as what you put in your body.
+        Every ingredient earns its place through proven efficacy and absolute safety.
+      </p>
+
+      <div class="ck-commitment-grid">
+        <div class="ck-commitment-col">
+          <h3>What We Embrace</h3>
+          <ul class="ck-commitment-list">
+            <li>Cold-pressed, unrefined plant oils and butters</li>
+            <li>Organic botanical extracts and essential oils</li>
+            <li>Plant-derived proteins (rice, quinoa, baobab)</li>
+            <li>Raw, fair-trade shea butter and cocoa butter</li>
+            <li>Traditionally prepared Jamaican black castor oil</li>
+            <li>Fermented rice water and herbal infusions</li>
+            <li>Naturally derived preservatives (vitamin E, rosemary extract)</li>
+            <li>Sustainably harvested African botanicals</li>
+            <li>Low-pH, curl-friendly cleansing agents</li>
+            <li>Ingredients backed by trichological research</li>
+          </ul>
+        </div>
+        <div class="ck-commitment-col">
+          <h3>What We Refuse</h3>
+          <ul class="ck-commitment-list ck-never-list">
+            <li>Sulfates (SLS, SLES, ALS)</li>
+            <li>Parabens (methylparaben, propylparaben)</li>
+            <li>Silicones (dimethicone, cyclomethicone)</li>
+            <li>Mineral oil and petrolatum</li>
+            <li>Phthalates and synthetic fragrances</li>
+            <li>Formaldehyde and formaldehyde releasers</li>
+            <li>DEA, MEA, and TEA compounds</li>
+            <li>Synthetic dyes and colorants</li>
+            <li>Animal-derived ingredients (100% vegan)</li>
+            <li>Any ingredient not fully disclosed on label</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Impact -->
+  <section class="ck-about-section">
+    <h2>Community Impact</h2>
+    <p class="ck-section-intro">
+      CrownKinetics was built by community, and we grow by giving back to it. Here is the
+      impact we have made together since our founding.
+    </p>
+
+    <div class="ck-impact-stats">
+      <div class="ck-stat-card">
+        <span class="ck-stat-number">$250K+</span>
+        <span class="ck-stat-label">Scholarships Awarded</span>
+      </div>
+      <div class="ck-stat-card">
+        <span class="ck-stat-number">15</span>
+        <span class="ck-stat-label">Partner Cooperatives</span>
+      </div>
+      <div class="ck-stat-card">
+        <span class="ck-stat-number">5,000+</span>
+        <span class="ck-stat-label">Students Educated</span>
+      </div>
+      <div class="ck-stat-card">
+        <span class="ck-stat-number">100%</span>
+        <span class="ck-stat-label">Black-Owned Supply Chain</span>
+      </div>
+    </div>
+
+    <div class="ck-impact-initiatives">
+      <div class="ck-initiative-card">
+        <h3>Crown Scholars Program</h3>
+        <p>
+          Each year, we fund full-ride scholarships for ten aspiring cosmetologists from
+          underserved communities. Our Crown Scholars receive tuition coverage, a complete
+          CrownKinetics professional kit, mentorship from industry veterans, and guaranteed
+          placement support upon graduation. Since 2020, we have graduated 35 Crown Scholars
+          who now serve their communities with excellence.
+        </p>
+      </div>
+      <div class="ck-initiative-card">
+        <h3>Roots &amp; Wisdom Initiative</h3>
+        <p>
+          In partnership with schools across Atlanta, Houston, Detroit, and Brooklyn, we lead
+          workshops that teach young people the science and cultural history of Black hair. These
+          sessions cover hair biology, ancestral care traditions, and self-affirmation &mdash;
+          ensuring the next generation grows up celebrating their crowns rather than hiding them.
+        </p>
+      </div>
+      <div class="ck-initiative-card">
+        <h3>Fair Trade Partnerships</h3>
+        <p>
+          Our direct partnerships with women-led cooperatives in Ghana, Senegal, Jamaica, and
+          Nigeria guarantee fair wages that exceed market rates by at least 40%. We also invest
+          in community infrastructure including clean water access, school supplies, and
+          healthcare resources for cooperative families.
+        </p>
+      </div>
+      <div class="ck-initiative-card">
+        <h3>Crown Confidence Campaign</h3>
+        <p>
+          Our annual Crown Confidence campaign partners with therapists and wellness practitioners
+          to address the emotional impact of hair discrimination. We provide free resources on
+          healing from texturism and colorism, host community healing circles, and advocate for
+          CROWN Act legislation in every state where it has not yet been passed.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="ck-team-section">
+    <div class="ck-team-inner">
+      <h2>The Visionaries Behind the Crown</h2>
+      <p class="ck-section-intro">
+        Our team brings together expertise in cosmetic chemistry, trichology, African botanical
+        studies, and cultural advocacy &mdash; united by a shared reverence for textured hair.
+      </p>
+
+      <div class="ck-team-grid">
+
+        <div class="ck-team-card">
+          <div class="ck-team-photo">
+            <span>Photo</span>
+            <!-- Replace with: {{ 'team-amara.jpg' | asset_img_url: '300x' | img_tag }} -->
+          </div>
+          <h3>Amara Okafor-Williams</h3>
+          <span class="ck-team-role">Founder &amp; CEO</span>
+          <p>
+            Cosmetic chemist, certified trichologist, and lifelong advocate for Black hair
+            education. Amara brings fifteen years of formulation expertise and a personal mission
+            to rewrite the standards of ethnic hair care.
+          </p>
+        </div>
+
+        <div class="ck-team-card">
+          <div class="ck-team-photo">
+            <span>Photo</span>
+            <!-- Replace with: {{ 'team-kofi.jpg' | asset_img_url: '300x' | img_tag }} -->
+          </div>
+          <h3>Dr. Kofi Mensah</h3>
+          <span class="ck-team-role">Head of Research &amp; Development</span>
+          <p>
+            PhD in Biochemistry from Howard University with a specialization in melanin-rich
+            hair fiber analysis. Dr. Mensah leads our lab in developing formulas that bridge
+            ancestral wisdom and molecular science.
+          </p>
+        </div>
+
+        <div class="ck-team-card">
+          <div class="ck-team-photo">
+            <span>Photo</span>
+            <!-- Replace with: {{ 'team-jasmine.jpg' | asset_img_url: '300x' | img_tag }} -->
+          </div>
+          <h3>Jasmine Thibodeaux</h3>
+          <span class="ck-team-role">Creative Director</span>
+          <p>
+            An award-winning designer whose work celebrates the visual poetry of Black
+            culture. Jasmine ensures every touchpoint of the CrownKinetics brand reflects
+            the luxury and dignity our community deserves.
+          </p>
+        </div>
+
+        <div class="ck-team-card">
+          <div class="ck-team-photo">
+            <span>Photo</span>
+            <!-- Replace with: {{ 'team-nia.jpg' | asset_img_url: '300x' | img_tag }} -->
+          </div>
+          <h3>Nia Baptiste</h3>
+          <span class="ck-team-role">Community &amp; Education Lead</span>
+          <p>
+            Former educator turned community organizer, Nia oversees our Crown Scholars
+            program, workshop curriculum, and advocacy partnerships. She is the heart
+            of our mission to educate and empower.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="ck-about-cta">
+    <h2>Ready to Honor Your Crown?</h2>
+    <p>
+      Discover the difference that science-backed, culturally rooted hair care makes.
+      Your coils, curls, and kinks have been waiting for this.
+    </p>
+    <a href="/collections/all" class="ck-btn-gold">Shop the Collection</a>
+    <br><br>
+    <a href="/pages/hair-type-quiz" class="ck-btn-gold" style="background: transparent; border: 2px solid var(--ck-gold-light); color: var(--ck-gold-light);">Take the Hair Quiz</a>
+  </section>
+
+</div>
