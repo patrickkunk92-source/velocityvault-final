@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rider Community & Resources | Tips, Safety, Guides | VelocityVault</title>
+    <meta name="description" content="Join the VelocityVault rider community. Safety tips, riding guides, trick tutorials, commuting advice, and resources for BMX and e-bike riders.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; background: #f8f9fa; color: #1a1a1a; line-height: 1.6; }
+        .navbar { background: white !important; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 12px 0; }
+        .navbar-brand { font-size: 1.4rem; font-weight: 900; color: #1a1a1a !important; }
+        .navbar-brand i { color: #ff6b35; }
+        .nav-link { font-weight: 600; color: #666 !important; font-size: 0.95rem; transition: all 0.3s; }
+        .nav-link:hover, .nav-link.active { color: #ff6b35 !important; }
+
+        .page-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: white; padding: 120px 0 80px; margin-top: 60px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; bottom: -40%; right: -10%; width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(0,255,65,0.08) 0%, transparent 70%); border-radius: 50%;
+        }
+        .page-hero::after {
+            content: ''; position: absolute; top: -30%; left: -15%; width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(255,107,53,0.1) 0%, transparent 70%); border-radius: 50%;
+        }
+        .page-hero h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 900; margin-bottom: 1rem; position: relative; z-index: 2; }
+        .page-hero p { font-size: 1.15rem; opacity: 0.9; max-width: 650px; margin: 0 auto; position: relative; z-index: 2; }
+
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-label { color: #ff6b35; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+        .section-title { font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 900; color: #1a1a1a; margin-bottom: 0.5rem; }
+        .section-sub { font-size: 1rem; color: #666; }
+
+        /* Stats Bar */
+        .stats-bar { background: white; padding: 40px 0; border-bottom: 1px solid #e8e8e8; }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 900; color: #ff6b35; }
+        .stat-label { font-size: 0.9rem; color: #666; font-weight: 600; }
+
+        /* Safety Section */
+        .safety-section { background: white; padding: 70px 0; }
+        .safety-card {
+            background: white; border: 1px solid #e8e8e8; border-radius: 12px; padding: 30px;
+            transition: all 0.3s; height: 100%; border-top: 4px solid transparent;
+        }
+        .safety-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); border-top-color: #ff6b35; }
+        .safety-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .safety-title { font-weight: 800; font-size: 1.15rem; margin-bottom: 0.5rem; }
+        .safety-desc { font-size: 0.9rem; color: #666; margin-bottom: 1rem; }
+        .safety-list { list-style: none; padding: 0; }
+        .safety-list li { font-size: 0.88rem; color: #555; padding: 5px 0; display: flex; align-items: flex-start; gap: 8px; }
+        .safety-list li i { color: #28a745; margin-top: 3px; font-size: 0.8rem; }
+
+        /* Riding Guides */
+        .guides-section { background: #f8f9fa; padding: 70px 0; }
+        .guide-card {
+            background: white; border: 1px solid #e8e8e8; border-radius: 12px;
+            overflow: hidden; transition: all 0.3s; height: 100%;
+        }
+        .guide-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); border-color: #ff6b35; }
+        .guide-header {
+            padding: 25px; color: white; position: relative;
+        }
+        .guide-header.beginner { background: linear-gradient(135deg, #28a745, #20c997); }
+        .guide-header.intermediate { background: linear-gradient(135deg, #ff6b35, #f7931e); }
+        .guide-header.advanced { background: linear-gradient(135deg, #6f42c1, #b300ff); }
+        .guide-header.commuter { background: linear-gradient(135deg, #007bff, #00d4ff); }
+        .guide-level { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; font-weight: 700; }
+        .guide-title { font-weight: 800; font-size: 1.2rem; margin-top: 5px; }
+        .guide-body { padding: 20px; }
+        .guide-text { font-size: 0.9rem; color: #666; margin-bottom: 1rem; }
+        .guide-topics { list-style: none; padding: 0; }
+        .guide-topics li { font-size: 0.88rem; color: #555; padding: 6px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 8px; }
+        .guide-topics li:last-child { border-bottom: none; }
+        .guide-topics li i { color: #ff6b35; font-size: 0.8rem; }
+
+        /* BMX Tricks Section */
+        .tricks-section { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: white; padding: 70px 0; }
+        .tricks-section .section-title { color: white; }
+        .tricks-section .section-sub { color: #ccc; }
+        .trick-card {
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px; padding: 25px; transition: all 0.3s; height: 100%;
+        }
+        .trick-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); border-color: #ff6b35; }
+        .trick-level {
+            display: inline-block; padding: 3px 12px; border-radius: 15px;
+            font-size: 0.72rem; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;
+        }
+        .trick-level.l1 { background: rgba(40,167,69,0.2); color: #28a745; }
+        .trick-level.l2 { background: rgba(255,107,53,0.2); color: #ff6b35; }
+        .trick-level.l3 { background: rgba(111,66,193,0.2); color: #b300ff; }
+        .trick-name { font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .trick-desc { font-size: 0.88rem; color: #bbb; margin-bottom: 0.8rem; }
+        .trick-steps { font-size: 0.82rem; color: #999; }
+        .trick-steps strong { color: #ff6b35; }
+
+        /* E-Bike Laws Section */
+        .laws-section { background: white; padding: 70px 0; }
+        .law-card {
+            background: white; border: 1px solid #e8e8e8; border-radius: 12px;
+            padding: 25px; transition: all 0.3s; height: 100%;
+        }
+        .law-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+        .law-class {
+            display: inline-block; padding: 6px 14px; border-radius: 8px;
+            font-weight: 700; font-size: 0.85rem; margin-bottom: 10px;
+        }
+        .law-class.c1 { background: #d4edda; color: #155724; }
+        .law-class.c2 { background: #fff3cd; color: #856404; }
+        .law-class.c3 { background: #f8d7da; color: #721c24; }
+        .law-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .law-detail { font-size: 0.9rem; color: #666; }
+        .law-detail strong { color: #1a1a1a; }
+
+        /* Newsletter */
+        .newsletter-section {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white; padding: 70px 0; text-align: center;
+        }
+        .newsletter-section h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 0.5rem; }
+        .newsletter-section p { font-size: 1.1rem; opacity: 0.95; margin-bottom: 2rem; }
+        .newsletter-form { max-width: 500px; margin: 0 auto; display: flex; gap: 10px; }
+        .newsletter-input {
+            flex: 1; padding: 14px 20px; border: none; border-radius: 50px;
+            font-size: 1rem; outline: none;
+        }
+        .newsletter-btn {
+            background: #1a1a1a; color: white; border: none; padding: 14px 30px;
+            border-radius: 50px; font-weight: 700; font-size: 1rem; cursor: pointer;
+            transition: all 0.3s;
+        }
+        .newsletter-btn:hover { background: #333; transform: scale(1.05); }
+        .newsletter-success { display: none; font-size: 1.1rem; font-weight: 700; margin-top: 15px; }
+
+        /* Commuter Planner */
+        .planner-section { background: #f8f9fa; padding: 70px 0; }
+        .planner-card {
+            background: white; border: 1px solid #e8e8e8; border-radius: 12px;
+            padding: 30px; transition: all 0.3s; height: 100%;
+        }
+        .planner-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+        .planner-icon { font-size: 2rem; color: #ff6b35; margin-bottom: 1rem; }
+        .planner-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .planner-desc { font-size: 0.9rem; color: #666; }
+
+        footer { background: #1a1a1a; color: #ccc; padding: 60px 0 20px; }
+        footer h5 { color: white; font-weight: 700; margin-bottom: 1.5rem; }
+        footer a { color: #ccc; text-decoration: none; transition: all 0.3s; font-size: 0.95rem; }
+        footer a:hover { color: #ff6b35; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 0.8rem; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 2rem; margin-top: 2rem; text-align: center; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .page-hero { padding: 90px 0 60px; }
+            .newsletter-form { flex-direction: column; }
+            .stat-item { margin-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-bicycle"></i> VelocityVault</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="products.html">Bikes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="accessories.html">Gear</a></li>
+                    <li class="nav-item"><a class="nav-link" href="maintenance.html">Maintenance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1><i class="fas fa-users"></i> Rider Community</h1>
+            <p>Tips, guides, safety resources, and everything you need to become a better rider. Welcome to the VelocityVault crew.</p>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">19+</div>
+                        <div class="stat-label">Curated Bikes</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">42+</div>
+                        <div class="stat-label">Gear & Accessories</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">DIY Repair Guides</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Free Resources</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SAFETY ESSENTIALS -->
+    <section class="safety-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label"><i class="fas fa-shield-alt"></i> Ride Safe</p>
+                <h2 class="section-title">Safety Essentials</h2>
+                <p class="section-sub">The most important thing is getting home safe. Every ride, every time.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="safety-card">
+                        <div class="safety-icon" style="color:#ff6b35"><i class="fas fa-hard-hat"></i></div>
+                        <h3 class="safety-title">Helmet Always</h3>
+                        <p class="safety-desc">A helmet reduces head injury risk by 85%. No ride is too short.</p>
+                        <ul class="safety-list">
+                            <li><i class="fas fa-check"></i> CPSC or ASTM certified</li>
+                            <li><i class="fas fa-check"></i> Replace after any impact</li>
+                            <li><i class="fas fa-check"></i> Replace every 3-5 years</li>
+                            <li><i class="fas fa-check"></i> Must fit snug, not loose</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="safety-card">
+                        <div class="safety-icon" style="color:#007bff"><i class="fas fa-eye"></i></div>
+                        <h3 class="safety-title">Be Visible</h3>
+                        <p class="safety-desc">Most bike accidents happen because drivers don't see the rider.</p>
+                        <ul class="safety-list">
+                            <li><i class="fas fa-check"></i> Front white light (required)</li>
+                            <li><i class="fas fa-check"></i> Rear red light (required)</li>
+                            <li><i class="fas fa-check"></i> Reflective clothing at dusk</li>
+                            <li><i class="fas fa-check"></i> Use hand signals always</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="safety-card">
+                        <div class="safety-icon" style="color:#28a745"><i class="fas fa-road"></i></div>
+                        <h3 class="safety-title">Road Rules</h3>
+                        <p class="safety-desc">Bikes are vehicles. Follow the same rules as cars on the road.</p>
+                        <ul class="safety-list">
+                            <li><i class="fas fa-check"></i> Ride with traffic, not against</li>
+                            <li><i class="fas fa-check"></i> Obey all traffic signals</li>
+                            <li><i class="fas fa-check"></i> Use bike lanes when available</li>
+                            <li><i class="fas fa-check"></i> Yield to pedestrians</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="safety-card">
+                        <div class="safety-icon" style="color:#6f42c1"><i class="fas fa-lock"></i></div>
+                        <h3 class="safety-title">Theft Prevention</h3>
+                        <p class="safety-desc">2 million bikes are stolen every year in the US. Protect yours.</p>
+                        <ul class="safety-list">
+                            <li><i class="fas fa-check"></i> U-lock through frame + wheel</li>
+                            <li><i class="fas fa-check"></i> Lock to immovable objects only</li>
+                            <li><i class="fas fa-check"></i> Register your serial number</li>
+                            <li><i class="fas fa-check"></i> Take photos for insurance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RIDING GUIDES -->
+    <section class="guides-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label"><i class="fas fa-graduation-cap"></i> Level Up</p>
+                <h2 class="section-title">Riding Guides</h2>
+                <p class="section-sub">Whether you're brand new or leveling up, we've got you covered</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="guide-card">
+                        <div class="guide-header beginner">
+                            <p class="guide-level">Beginner</p>
+                            <h3 class="guide-title">Getting Started</h3>
+                        </div>
+                        <div class="guide-body">
+                            <p class="guide-text">New to biking? Start here with the fundamentals.</p>
+                            <ul class="guide-topics">
+                                <li><i class="fas fa-chevron-right"></i> Choosing your first bike</li>
+                                <li><i class="fas fa-chevron-right"></i> Proper saddle height setup</li>
+                                <li><i class="fas fa-chevron-right"></i> Basic braking technique</li>
+                                <li><i class="fas fa-chevron-right"></i> Shifting gears 101</li>
+                                <li><i class="fas fa-chevron-right"></i> Riding in a straight line</li>
+                                <li><i class="fas fa-chevron-right"></i> Essential gear checklist</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="guide-card">
+                        <div class="guide-header intermediate">
+                            <p class="guide-level">Intermediate</p>
+                            <h3 class="guide-title">Build Confidence</h3>
+                        </div>
+                        <div class="guide-body">
+                            <p class="guide-text">Ready to push your limits? Improve your skills.</p>
+                            <ul class="guide-topics">
+                                <li><i class="fas fa-chevron-right"></i> Cornering at speed</li>
+                                <li><i class="fas fa-chevron-right"></i> Bunny hops on flat ground</li>
+                                <li><i class="fas fa-chevron-right"></i> Riding in traffic safely</li>
+                                <li><i class="fas fa-chevron-right"></i> Hill climbing technique</li>
+                                <li><i class="fas fa-chevron-right"></i> Emergency stops</li>
+                                <li><i class="fas fa-chevron-right"></i> Night riding setup</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="guide-card">
+                        <div class="guide-header advanced">
+                            <p class="guide-level">Advanced</p>
+                            <h3 class="guide-title">Master Your Ride</h3>
+                        </div>
+                        <div class="guide-body">
+                            <p class="guide-text">Take it to the next level with advanced techniques.</p>
+                            <ul class="guide-topics">
+                                <li><i class="fas fa-chevron-right"></i> Manual & wheelie training</li>
+                                <li><i class="fas fa-chevron-right"></i> Jump progression</li>
+                                <li><i class="fas fa-chevron-right"></i> Rail and ledge grinds</li>
+                                <li><i class="fas fa-chevron-right"></i> Pump track technique</li>
+                                <li><i class="fas fa-chevron-right"></i> Competition preparation</li>
+                                <li><i class="fas fa-chevron-right"></i> Bike customization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="guide-card">
+                        <div class="guide-header commuter">
+                            <p class="guide-level">Commuter</p>
+                            <h3 class="guide-title">Daily Riding</h3>
+                        </div>
+                        <div class="guide-body">
+                            <p class="guide-text">Make biking your daily transport. Save money and get fit.</p>
+                            <ul class="guide-topics">
+                                <li><i class="fas fa-chevron-right"></i> Route planning tips</li>
+                                <li><i class="fas fa-chevron-right"></i> Weather-proof your commute</li>
+                                <li><i class="fas fa-chevron-right"></i> Carrying work gear</li>
+                                <li><i class="fas fa-chevron-right"></i> Workplace bike storage</li>
+                                <li><i class="fas fa-chevron-right"></i> Maintaining your commuter</li>
+                                <li><i class="fas fa-chevron-right"></i> Cost savings calculator</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BMX TRICKS -->
+    <section class="tricks-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label" style="color:#ff6b35;"><i class="fas fa-fire"></i> Show Off</p>
+                <h2 class="section-title">BMX Trick Guide</h2>
+                <p class="section-sub">From beginner bunny hops to advanced aerials — learn the fundamentals</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="trick-card">
+                        <span class="trick-level l1">Beginner</span>
+                        <h4 class="trick-name">Bunny Hop</h4>
+                        <p class="trick-desc">The foundation of all BMX tricks. Lift both wheels off the ground simultaneously.</p>
+                        <p class="trick-steps"><strong>Key:</strong> Pull up handlebars first, then scoop the pedals to lift the rear. Practice on flat ground before obstacles.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="trick-card">
+                        <span class="trick-level l1">Beginner</span>
+                        <h4 class="trick-name">Manual</h4>
+                        <p class="trick-desc">Ride on your back wheel without pedaling. Pure balance and body positioning.</p>
+                        <p class="trick-steps"><strong>Key:</strong> Shift weight behind the seat, arms extended. Use rear brake as your safety net. Start on slight downhill.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="trick-card">
+                        <span class="trick-level l1">Beginner</span>
+                        <h4 class="trick-name">180</h4>
+                        <p class="trick-desc">Half rotation in the air, landing fakie (backwards). The first spin trick you'll learn.</p>
+                        <p class="trick-steps"><strong>Key:</strong> Carve into the spin, look over your shoulder where you want to go. Commit to the rotation fully.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="trick-card">
+                        <span class="trick-level l2">Intermediate</span>
+                        <h4 class="trick-name">Bar Spin</h4>
+                        <p class="trick-desc">Spin the handlebars 360 degrees while in the air or on a manual.</p>
+                        <p class="trick-steps"><strong>Key:</strong> Practice throwing the bars while standing still first. Use your dominant hand to throw, catch with both. Gyro or detangler helps.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="trick-card">
+                        <span class="trick-level l2">Intermediate</span>
+                        <h4 class="trick-name">Tailwhip</h4>
+                        <p class="trick-desc">Kick the frame around the handlebars while you stay in the air. Iconic BMX move.</p>
+                        <p class="trick-steps"><strong>Key:</strong> Get comfortable with big bunny hops first. Kick the frame with your back foot, catch the pedals with both feet.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="trick-card">
+                        <span class="trick-level l3">Advanced</span>
+                        <h4 class="trick-name">360</h4>
+                        <p class="trick-desc">Full rotation in the air. The signature spin trick that separates intermediates from pros.</p>
+                        <p class="trick-steps"><strong>Key:</strong> Master 180s first. Need height and commitment. Carve hard into the spin, spot your landing early. Quarter pipes make this easier to learn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-BIKE LAWS -->
+    <section class="laws-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label"><i class="fas fa-gavel"></i> Know the Law</p>
+                <h2 class="section-title">E-Bike Classifications & Laws</h2>
+                <p class="section-sub">Understanding e-bike classes helps you ride legally and avoid fines</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="law-card">
+                        <span class="law-class c1">Class 1</span>
+                        <h3 class="law-title">Pedal Assist Only</h3>
+                        <div class="law-detail">
+                            <p><strong>Motor:</strong> Up to 750W</p>
+                            <p><strong>Max Speed:</strong> 20 MPH (with pedaling)</p>
+                            <p><strong>Throttle:</strong> No</p>
+                            <p><strong>Where:</strong> Allowed on most bike paths, bike lanes, and roads. Most permissive class. No license or registration needed in most states.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="law-card">
+                        <span class="law-class c2">Class 2</span>
+                        <h3 class="law-title">Throttle Assist</h3>
+                        <div class="law-detail">
+                            <p><strong>Motor:</strong> Up to 750W</p>
+                            <p><strong>Max Speed:</strong> 20 MPH (with or without pedaling)</p>
+                            <p><strong>Throttle:</strong> Yes</p>
+                            <p><strong>Where:</strong> Allowed on most roads and bike lanes. Some bike paths restrict throttle use. Check local regulations. No license needed in most states.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="law-card">
+                        <span class="law-class c3">Class 3</span>
+                        <h3 class="law-title">Speed Pedelec</h3>
+                        <div class="law-detail">
+                            <p><strong>Motor:</strong> Up to 750W</p>
+                            <p><strong>Max Speed:</strong> 28 MPH (with pedaling)</p>
+                            <p><strong>Throttle:</strong> Optional (up to 20 MPH)</p>
+                            <p><strong>Where:</strong> Roads and some bike lanes only. NOT allowed on most multi-use paths. Helmet required in many states. Minimum age 16+ in some areas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2rem;">
+                <p style="color:#888;font-size:0.9rem;"><i class="fas fa-exclamation-triangle" style="color:#ff6b35;"></i> Note: E-bikes over 750W or 28+ MPH may require registration, insurance, or a license in some states. Our high-power e-bikes (1500W-3000W) may be classified differently — always check your local laws.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMUTER PLANNER -->
+    <section class="planner-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label"><i class="fas fa-map-marked-alt"></i> Plan Your Ride</p>
+                <h2 class="section-title">Commuter Toolkit</h2>
+                <p class="section-sub">Resources to make bike commuting easier and more enjoyable</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="planner-card">
+                        <div class="planner-icon"><i class="fas fa-calculator"></i></div>
+                        <h4 class="planner-title">Cost Savings</h4>
+                        <p class="planner-desc">Average bike commuter saves $3,000-$10,000/year compared to car ownership. Gas, insurance, parking — it all adds up.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="planner-card">
+                        <div class="planner-icon"><i class="fas fa-heartbeat"></i></div>
+                        <h4 class="planner-title">Health Benefits</h4>
+                        <p class="planner-desc">30 min of cycling burns 200-500 calories. Regular riders have 46% lower risk of heart disease and improved mental health.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="planner-card">
+                        <div class="planner-icon"><i class="fas fa-cloud-sun"></i></div>
+                        <h4 class="planner-title">Weather Prep</h4>
+                        <p class="planner-desc">Rain gear, fenders, and proper layering make year-round commuting possible. Waterproof panniers keep your stuff dry.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="planner-card">
+                        <div class="planner-icon"><i class="fas fa-leaf"></i></div>
+                        <h4 class="planner-title">Eco Impact</h4>
+                        <p class="planner-desc">Each mile biked instead of driven prevents 1 lb of CO2 emissions. A 10-mile daily commute saves over a ton of CO2 per year.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Join the VelocityVault Crew</h2>
+            <p>Get riding tips, new product drops, and exclusive deals delivered to your inbox</p>
+            <div class="newsletter-form" id="newsletterForm">
+                <input type="email" class="newsletter-input" id="emailInput" placeholder="Enter your email address" required>
+                <button class="newsletter-btn" onclick="subscribe()">Subscribe</button>
+            </div>
+            <p class="newsletter-success" id="successMsg">You're in! Welcome to the crew.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <h5>VelocityVault</h5>
+                    <p>Your one-stop destination for bikes, gear, and everything riding.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Shop</h5>
+                    <ul>
+                        <li><a href="products.html">All Bikes</a></li>
+                        <li><a href="bmx-bikes.html">BMX Bikes</a></li>
+                        <li><a href="electric-bikes.html">E-Bikes</a></li>
+                        <li><a href="accessories.html">Accessories & Gear</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="maintenance.html">Maintenance Hub</a></li>
+                        <li><a href="compare.html">Bike Comparison</a></li>
+                        <li><a href="community.html">Rider Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Info</h5>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p><strong>Affiliate Disclosure:</strong> VelocityVault earns commissions on qualifying Amazon purchases through the bicycles0b3-20 affiliate program.</p>
+                <p>&copy; 2026 VelocityVault. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function subscribe() {
+        const email = document.getElementById('emailInput').value;
+        if (email && email.includes('@')) {
+            // Store locally
+            const subs = JSON.parse(localStorage.getItem('vv_subscribers') || '[]');
+            subs.push({ email, date: new Date().toISOString() });
+            localStorage.setItem('vv_subscribers', JSON.stringify(subs));
+
+            document.getElementById('newsletterForm').style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+        }
+    }
+    </script>
+</body>
+</html>

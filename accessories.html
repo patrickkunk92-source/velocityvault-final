@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Accessories & Gear | Helmets, Locks, Lights & More | VelocityVault</title>
+    <meta name="description" content="Shop the best bike accessories on Amazon: helmets, locks, lights, tools, bags, and riding gear. Curated for BMX and e-bike riders.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; background: #f8f9fa; color: #1a1a1a; line-height: 1.6; }
+        .navbar { background: white !important; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 12px 0; }
+        .navbar-brand { font-size: 1.4rem; font-weight: 900; color: #1a1a1a !important; }
+        .navbar-brand i { color: #ff6b35; }
+        .nav-link { font-weight: 600; color: #666 !important; font-size: 0.95rem; transition: all 0.3s; }
+        .nav-link:hover, .nav-link.active { color: #ff6b35 !important; }
+
+        .page-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: white; padding: 120px 0 80px; margin-top: 60px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(255,107,53,0.12) 0%, transparent 70%); border-radius: 50%;
+        }
+        .page-hero::after {
+            content: ''; position: absolute; bottom: -30%; left: -10%; width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%); border-radius: 50%;
+        }
+        .page-hero h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 900; margin-bottom: 1rem; position: relative; z-index: 2; }
+        .page-hero p { font-size: 1.15rem; opacity: 0.9; max-width: 600px; margin: 0 auto; position: relative; z-index: 2; }
+
+        .category-tabs {
+            background: white; padding: 20px 0; border-bottom: 1px solid #e8e8e8;
+            position: sticky; top: 60px; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .tab-btn {
+            background: #f5f5f5; border: 2px solid #f5f5f5; padding: 10px 22px;
+            border-radius: 25px; font-weight: 600; color: #666; font-size: 0.9rem;
+            cursor: pointer; transition: all 0.3s; margin: 4px;
+        }
+        .tab-btn:hover { border-color: #ff6b35; color: #ff6b35; }
+        .tab-btn.active { background: #ff6b35; border-color: #ff6b35; color: white; }
+
+        .gear-section { padding: 60px 0; }
+        .gear-section:nth-child(even) { background: #f8f9fa; }
+        .section-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .section-header { margin-bottom: 2.5rem; }
+        .section-title { font-size: 2rem; font-weight: 900; color: #1a1a1a; margin-bottom: 0.3rem; }
+        .section-sub { font-size: 1rem; color: #666; }
+
+        .gear-card {
+            background: white; border: 1px solid #e8e8e8; border-radius: 12px;
+            overflow: hidden; transition: all 0.3s; height: 100%; display: flex; flex-direction: column;
+        }
+        .gear-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); border-color: #ff6b35; }
+        .gear-img {
+            height: 220px; background: linear-gradient(135deg, #f5f5f5, #efefef);
+            display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;
+        }
+        .gear-img img { max-height: 100%; max-width: 100%; object-fit: contain; padding: 15px; }
+        .gear-badge {
+            position: absolute; top: 10px; right: 10px; background: #ff6b35;
+            color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.72rem; font-weight: 700;
+        }
+        .gear-body { padding: 18px; flex-grow: 1; display: flex; flex-direction: column; }
+        .gear-cat { font-size: 0.75rem; color: #ff6b35; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .gear-name { font-weight: 700; color: #1a1a1a; font-size: 0.95rem; margin-bottom: 6px; line-height: 1.3; }
+        .gear-desc { font-size: 0.85rem; color: #888; margin-bottom: 10px; flex-grow: 1; }
+        .gear-price { font-size: 1.5rem; color: #ff6b35; font-weight: 900; margin-bottom: 10px; }
+        .gear-stars { color: #f7931e; font-size: 0.85rem; margin-bottom: 10px; }
+        .btn-amazon {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white;
+            border: none; padding: 11px 18px; border-radius: 8px; font-weight: 700;
+            font-size: 0.9rem; text-decoration: none; transition: all 0.3s;
+            text-align: center; display: block; box-shadow: 0 4px 12px rgba(255,107,53,0.2);
+        }
+        .btn-amazon:hover { transform: scale(1.02); box-shadow: 0 6px 18px rgba(255,107,53,0.3); color: white; }
+
+        .essentials-banner {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white; padding: 60px 0; text-align: center;
+        }
+        .essentials-banner h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem; }
+        .essentials-banner p { font-size: 1.1rem; opacity: 0.95; margin-bottom: 2rem; }
+        .checklist { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; text-align: left; }
+        .checklist-item { display: flex; align-items: center; gap: 12px; font-size: 1.05rem; font-weight: 600; }
+        .checklist-item i { font-size: 1.2rem; }
+
+        footer { background: #1a1a1a; color: #ccc; padding: 60px 0 20px; }
+        footer h5 { color: white; font-weight: 700; margin-bottom: 1.5rem; }
+        footer a { color: #ccc; text-decoration: none; transition: all 0.3s; font-size: 0.95rem; }
+        footer a:hover { color: #ff6b35; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 0.8rem; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 2rem; margin-top: 2rem; text-align: center; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .page-hero { padding: 90px 0 60px; }
+            .gear-section { padding: 40px 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-bicycle"></i> VelocityVault</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="products.html">Bikes</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="accessories.html">Gear</a></li>
+                    <li class="nav-item"><a class="nav-link" href="maintenance.html">Maintenance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Bike Accessories & Gear</h1>
+            <p>Everything you need to ride safe, ride smart, and look good doing it. Curated picks from Amazon.</p>
+        </div>
+    </section>
+
+    <section class="category-tabs">
+        <div class="container text-center">
+            <button class="tab-btn active" onclick="filterGear('all')">All Gear</button>
+            <button class="tab-btn" onclick="filterGear('helmets')"><i class="fas fa-hard-hat"></i> Helmets</button>
+            <button class="tab-btn" onclick="filterGear('locks')"><i class="fas fa-lock"></i> Locks</button>
+            <button class="tab-btn" onclick="filterGear('lights')"><i class="fas fa-lightbulb"></i> Lights</button>
+            <button class="tab-btn" onclick="filterGear('tools')"><i class="fas fa-wrench"></i> Tools</button>
+            <button class="tab-btn" onclick="filterGear('bags')"><i class="fas fa-briefcase"></i> Bags</button>
+            <button class="tab-btn" onclick="filterGear('protection')"><i class="fas fa-shield-alt"></i> Protection</button>
+            <button class="tab-btn" onclick="filterGear('pumps')"><i class="fas fa-tachometer-alt"></i> Pumps</button>
+        </div>
+    </section>
+
+    <div id="gear-container"></div>
+
+    <section class="essentials-banner">
+        <div class="container">
+            <h2>New Rider Essentials Checklist</h2>
+            <p>Don't hit the road without these must-haves</p>
+            <div class="checklist">
+                <div class="checklist-item"><i class="fas fa-check-circle"></i> Certified Helmet (CPSC / ASTM)</div>
+                <div class="checklist-item"><i class="fas fa-check-circle"></i> U-Lock or Heavy Chain Lock</div>
+                <div class="checklist-item"><i class="fas fa-check-circle"></i> Front & Rear Lights</div>
+                <div class="checklist-item"><i class="fas fa-check-circle"></i> Multi-Tool Kit</div>
+                <div class="checklist-item"><i class="fas fa-check-circle"></i> Floor Pump with Gauge</div>
+                <div class="checklist-item"><i class="fas fa-check-circle"></i> Spare Inner Tube</div>
+                <div class="checklist-item"><i class="fas fa-check-circle"></i> Water Bottle & Cage</div>
+                <div class="checklist-item"><i class="fas fa-check-circle"></i> Saddle Bag for Essentials</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <h5>VelocityVault</h5>
+                    <p>Your one-stop destination for bikes, gear, and everything riding.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Shop</h5>
+                    <ul>
+                        <li><a href="products.html">All Bikes</a></li>
+                        <li><a href="bmx-bikes.html">BMX Bikes</a></li>
+                        <li><a href="electric-bikes.html">E-Bikes</a></li>
+                        <li><a href="accessories.html">Accessories & Gear</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="maintenance.html">Maintenance Hub</a></li>
+                        <li><a href="compare.html">Bike Comparison</a></li>
+                        <li><a href="community.html">Rider Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Info</h5>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p><strong>Affiliate Disclosure:</strong> VelocityVault earns commissions on qualifying Amazon purchases through the bicycles0b3-20 affiliate program.</p>
+                <p>&copy; 2026 VelocityVault. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const TAG = 'bicycles0b3-20';
+
+    const gearData = {
+        helmets: {
+            icon: 'fa-hard-hat',
+            title: 'Helmets & Head Protection',
+            sub: 'CPSC-certified helmets for every riding style',
+            items: [
+                { name: 'Retrospec Dakota Bike Helmet - Adult', desc: 'Lightweight commuter helmet with adjustable dial fit', price: 24.99, badge: 'Best Seller', stars: 4.5, asin: 'B07JGCBFMX', img: 'https://m.media-amazon.com/images/I/71cM2g8oURL._AC_SL1500_.jpg' },
+                { name: 'Triple Eight Sweatsaver Helmet', desc: 'Pro-level BMX/skate helmet with moisture-wicking liner', price: 39.99, badge: 'BMX Pick', stars: 4.6, asin: 'B003UWKM2W', img: 'https://m.media-amazon.com/images/I/71bUQqv3zyL._AC_SL1500_.jpg' },
+                { name: 'Bell Rally Child Helmet', desc: 'Kids bike helmet with fun designs and PinchGuard buckle', price: 15.99, badge: 'Kids', stars: 4.7, asin: 'B00AVCZR0K', img: 'https://m.media-amazon.com/images/I/81dL59QuT3L._AC_SL1500_.jpg' },
+                { name: 'Giro Fixture MIPS Adult Helmet', desc: 'Mountain/trail helmet with MIPS brain protection', price: 54.95, badge: 'Premium', stars: 4.6, asin: 'B075RTDR3Y', img: 'https://m.media-amazon.com/images/I/71w9YM0zCBL._AC_SL1500_.jpg' },
+                { name: 'JBM Adult Bike Helmet', desc: 'Lightweight ventilated helmet for urban commuting', price: 19.99, badge: 'Value', stars: 4.4, asin: 'B07GXSL86R', img: 'https://m.media-amazon.com/images/I/71UJOc8TaaL._AC_SL1500_.jpg' },
+                { name: 'Fox Racing Rampage Full-Face', desc: 'Downhill/BMX full-face helmet with MIPS', price: 129.95, badge: 'Pro', stars: 4.7, asin: 'B09J2FGJQS', img: 'https://m.media-amazon.com/images/I/71f3N13xJBL._AC_SL1500_.jpg' },
+            ]
+        },
+        locks: {
+            icon: 'fa-lock',
+            title: 'Bike Locks & Security',
+            sub: 'Keep your ride safe with heavy-duty locks',
+            items: [
+                { name: 'Kryptonite Evolution Mini-7 U-Lock', desc: '13mm hardened steel shackle with anti-theft protection', price: 44.95, badge: 'Top Rated', stars: 4.6, asin: 'B06XCMWW9H', img: 'https://m.media-amazon.com/images/I/71vqYZAMdBL._AC_SL1500_.jpg' },
+                { name: 'ABUS Bordo Granit X-Plus 6500', desc: 'Folding lock with ABUS security level 15', price: 109.99, badge: 'Premium', stars: 4.5, asin: 'B005UPTS1C', img: 'https://m.media-amazon.com/images/I/71HPsYOqCiL._AC_SL1500_.jpg' },
+                { name: 'Kryptonite New York Fahgettaboudit Chain', desc: '14mm six-sided chain links - virtually unbreakable', price: 119.99, badge: 'Maximum', stars: 4.7, asin: 'B001SMUB5G', img: 'https://m.media-amazon.com/images/I/81JRbJI5twL._AC_SL1500_.jpg' },
+                { name: 'Titanker Bike Cable Lock 4-Digit', desc: 'Lightweight cable combo lock for quick stops', price: 10.99, badge: 'Budget', stars: 4.3, asin: 'B07GY1FHSQ', img: 'https://m.media-amazon.com/images/I/71Hh6nVs1kL._AC_SL1500_.jpg' },
+                { name: 'ROCKBROS Bike Lock Heavy Duty Chain', desc: '8mm manganese steel chain with keyhole cover', price: 25.99, badge: 'Popular', stars: 4.4, asin: 'B0BHNMQS5D', img: 'https://m.media-amazon.com/images/I/71p-a5A8JRL._AC_SL1500_.jpg' },
+                { name: 'Kryptonite Keeper 585 Folding Lock', desc: 'Compact folding lock for commuters', price: 34.95, badge: 'Commuter', stars: 4.3, asin: 'B06XCHW131', img: 'https://m.media-amazon.com/images/I/71c-vRBtAHL._AC_SL1500_.jpg' },
+            ]
+        },
+        lights: {
+            icon: 'fa-lightbulb',
+            title: 'Bike Lights & Visibility',
+            sub: 'Be seen day and night with powerful bike lights',
+            items: [
+                { name: 'BLITZU Gator 390 USB Rechargeable Set', desc: 'Front 400 lumen + rear light combo set', price: 19.99, badge: 'Best Value', stars: 4.5, asin: 'B075ZN7FML', img: 'https://m.media-amazon.com/images/I/71mZt5H8N6L._AC_SL1500_.jpg' },
+                { name: 'Cygolite Metro Pro 1100 Headlight', desc: '1100 lumen high-performance USB rechargeable', price: 59.95, badge: 'Powerful', stars: 4.6, asin: 'B07DJQDXHX', img: 'https://m.media-amazon.com/images/I/61xoMF-1cHL._AC_SL1500_.jpg' },
+                { name: 'VONT Pyro Bike Light Set', desc: 'Ultra bright front and back LED light set', price: 15.99, badge: 'Popular', stars: 4.5, asin: 'B078TB9TMK', img: 'https://m.media-amazon.com/images/I/71oDEt0sG1L._AC_SL1500_.jpg' },
+                { name: 'NiteRider Lumina Micro 900 + Sabre 110', desc: 'Pro combo with daylight visible mode', price: 74.99, badge: 'Pro', stars: 4.6, asin: 'B085RSMJLG', img: 'https://m.media-amazon.com/images/I/71vqp-OKDVL._AC_SL1500_.jpg' },
+                { name: 'Ascher USB Rechargeable Bike Light Set', desc: 'Compact waterproof front/rear LED set', price: 11.99, badge: 'Budget', stars: 4.4, asin: 'B00SSWLNNE', img: 'https://m.media-amazon.com/images/I/71l7ZEb3QeL._AC_SL1500_.jpg' },
+                { name: 'Light & Motion Urban 1000 Headlight', desc: '1000 lumen side-visible commuter light', price: 89.99, badge: 'Premium', stars: 4.5, asin: 'B084GTTBNC', img: 'https://m.media-amazon.com/images/I/61hLlBPWk0L._AC_SL1500_.jpg' },
+            ]
+        },
+        tools: {
+            icon: 'fa-wrench',
+            title: 'Bike Tools & Repair Kits',
+            sub: 'Be prepared for any trailside or garage repair',
+            items: [
+                { name: 'Park Tool PCS-10.3 Repair Stand', desc: 'Professional-grade home mechanic repair stand', price: 219.95, badge: 'Pro', stars: 4.8, asin: 'B07CYZMM3N', img: 'https://m.media-amazon.com/images/I/61U8yw-MblL._AC_SL1006_.jpg' },
+                { name: 'BIKEHAND Complete Bike Repair Tool Kit', desc: '37-piece tool kit with torque wrench & case', price: 89.99, badge: 'Complete', stars: 4.6, asin: 'B00B135SSE', img: 'https://m.media-amazon.com/images/I/81fZWoRNnvL._AC_SL1500_.jpg' },
+                { name: 'Crankbrothers M19 Multi-Tool', desc: '19 functions including chain tool, compact design', price: 29.99, badge: 'Essential', stars: 4.7, asin: 'B000S6HZCY', img: 'https://m.media-amazon.com/images/I/81LJlRNVsSL._AC_SL1500_.jpg' },
+                { name: 'Pro Bike Tool Bike Puncture Repair Kit', desc: 'Complete flat tire fix kit with tire levers', price: 9.99, badge: 'Must Have', stars: 4.5, asin: 'B07BB8RLBK', img: 'https://m.media-amazon.com/images/I/71J93dUOyuL._AC_SL1500_.jpg' },
+                { name: 'Park Tool AWS-10 Hex Wrench Set', desc: 'Folding hex set with 1.5mm to 6mm sizes', price: 14.95, badge: 'Popular', stars: 4.8, asin: 'B000OZFJQ2', img: 'https://m.media-amazon.com/images/I/61nq8suwsaL._AC_SL1200_.jpg' },
+                { name: 'Topeak Alien III Multi-Tool', desc: '25-function multi-tool with chain breaker', price: 39.95, badge: 'Trail Ready', stars: 4.6, asin: 'B000FIE4WE', img: 'https://m.media-amazon.com/images/I/71FQ84ZUKQL._AC_SL1500_.jpg' },
+            ]
+        },
+        bags: {
+            icon: 'fa-briefcase',
+            title: 'Bike Bags & Storage',
+            sub: 'Carry your gear with purpose-built bike bags',
+            items: [
+                { name: 'ROCKBROS Bike Saddle Bag Under Seat', desc: 'Waterproof wedge bag for essentials and tools', price: 15.99, badge: 'Best Seller', stars: 4.5, asin: 'B07PYCR94N', img: 'https://m.media-amazon.com/images/I/71ov3fZ8pEL._AC_SL1500_.jpg' },
+                { name: 'Topeak Explorer Trunk Bag', desc: 'Expandable rear rack bag with rain cover', price: 49.95, badge: 'Commuter', stars: 4.5, asin: 'B000FIAXW0', img: 'https://m.media-amazon.com/images/I/81hx5yrAFIL._AC_SL1500_.jpg' },
+                { name: 'ROCKBROS Bike Phone Bag Top Tube', desc: 'Touchscreen phone mount bag, waterproof', price: 16.99, badge: 'Popular', stars: 4.4, asin: 'B0811R42YZ', img: 'https://m.media-amazon.com/images/I/71lF37c5A0L._AC_SL1500_.jpg' },
+                { name: 'Ortlieb Back-Roller Classic Pannier Set', desc: 'Waterproof roll-top panniers, 40L total capacity', price: 160.00, badge: 'Premium', stars: 4.8, asin: 'B005HMCB8Y', img: 'https://m.media-amazon.com/images/I/71hqqQ3O1xL._AC_SL1200_.jpg' },
+                { name: 'Rhinowalk Bike Handlebar Bag', desc: 'Waterproof front bag with quick-release mount', price: 28.99, badge: 'Versatile', stars: 4.4, asin: 'B07RLPQR28', img: 'https://m.media-amazon.com/images/I/71Yh87iK+bL._AC_SL1500_.jpg' },
+                { name: 'Ibera Bicycle Triangle Frame Bag', desc: 'Strap-on triangle bag for water bottle/tools', price: 17.99, badge: 'Value', stars: 4.3, asin: 'B00FW2GLOM', img: 'https://m.media-amazon.com/images/I/91MjR5RuTWL._AC_SL1500_.jpg' },
+            ]
+        },
+        protection: {
+            icon: 'fa-shield-alt',
+            title: 'Pads, Gloves & Protection',
+            sub: 'Protect yourself on every ride',
+            items: [
+                { name: 'Triple Eight Saver Series Pad Set', desc: 'Knee, elbow, and wrist guards combo pack', price: 29.99, badge: 'Essential', stars: 4.5, asin: 'B004KNMM74', img: 'https://m.media-amazon.com/images/I/81O1fy-fT9L._AC_SL1500_.jpg' },
+                { name: 'G-Form Pro-X3 Knee Pads', desc: 'Flexible D3O impact protection for BMX/MTB', price: 59.99, badge: 'Pro', stars: 4.6, asin: 'B09H3DWWGR', img: 'https://m.media-amazon.com/images/I/71E6i3KW7eL._AC_SL1500_.jpg' },
+                { name: 'GIRO Bravo Gel Cycling Gloves', desc: 'Gel-padded short finger road/commuter gloves', price: 25.00, badge: 'Comfort', stars: 4.5, asin: 'B00NOOQ12Y', img: 'https://m.media-amazon.com/images/I/71o7RwYK9-L._AC_SL1500_.jpg' },
+                { name: 'Fox Racing Ranger Gel Gloves', desc: 'Trail-ready gloves with gel palm cushioning', price: 30.00, badge: 'MTB', stars: 4.5, asin: 'B08Z3FMJVR', img: 'https://m.media-amazon.com/images/I/81UBexZKnvL._AC_SL1500_.jpg' },
+                { name: 'Leatt 3DF 5.0 Knee Guard', desc: 'CE-certified 3D flexible knee protection', price: 69.99, badge: 'Premium', stars: 4.6, asin: 'B07JFQSQQF', img: 'https://m.media-amazon.com/images/I/71LFwwl2KaL._AC_SL1500_.jpg' },
+                { name: 'JBM BMX Knee & Elbow Pad Set', desc: 'Affordable protective gear for kids and adults', price: 18.99, badge: 'Budget', stars: 4.4, asin: 'B017J5CJTW', img: 'https://m.media-amazon.com/images/I/71BzW2CrjPL._AC_SL1500_.jpg' },
+            ]
+        },
+        pumps: {
+            icon: 'fa-tachometer-alt',
+            title: 'Bike Pumps & Inflation',
+            sub: 'Keep your tires at the perfect pressure',
+            items: [
+                { name: 'BV Bicycle Ergonomic Floor Pump', desc: 'Presta & Schrader compatible with gauge, 160 PSI', price: 25.99, badge: 'Best Seller', stars: 4.6, asin: 'B008R5MDHI', img: 'https://m.media-amazon.com/images/I/71cCpP4tC5L._AC_SL1500_.jpg' },
+                { name: 'Topeak JoeBlow Sport III Floor Pump', desc: 'TwinHead DX5 with large 3.5" gauge, 160 PSI', price: 39.95, badge: 'Premium', stars: 4.7, asin: 'B01IUZJQXQ', img: 'https://m.media-amazon.com/images/I/71kFLgQ0jRL._AC_SL1500_.jpg' },
+                { name: 'Lezyne Sport Floor Drive Pump', desc: 'Pro-level pump with steel barrel and ABS-1 chuck', price: 49.99, badge: 'Pro', stars: 4.6, asin: 'B00BIYRGUC', img: 'https://m.media-amazon.com/images/I/51uEEJwB6nL._AC_SL1000_.jpg' },
+                { name: 'Vibrelli Mini Bike Pump & Glueless Kit', desc: 'Compact portable pump with frame mount', price: 16.97, badge: 'Portable', stars: 4.5, asin: 'B00E7GR53C', img: 'https://m.media-amazon.com/images/I/71WPV1LPDbL._AC_SL1500_.jpg' },
+                { name: 'AerGun X-1000 Bike Floor Pump', desc: 'Oversized gauge, 160 PSI, fits all valves', price: 29.99, badge: 'Popular', stars: 4.5, asin: 'B01IQPZEDY', img: 'https://m.media-amazon.com/images/I/71a9BT2ygxL._AC_SL1500_.jpg' },
+                { name: 'CO2 Inflator Kit with Cartridges', desc: 'Instant tire inflation with threaded CO2 cartridges', price: 19.99, badge: 'Emergency', stars: 4.4, asin: 'B01DKSXHF0', img: 'https://m.media-amazon.com/images/I/71Y7dlSiVGL._AC_SL1500_.jpg' },
+            ]
+        }
+    };
+
+    function renderStars(rating) {
+        let html = '';
+        for (let i = 1; i <= 5; i++) {
+            if (i <= Math.floor(rating)) html += '<i class="fas fa-star"></i>';
+            else if (i - 0.5 <= rating) html += '<i class="fas fa-star-half-alt"></i>';
+            else html += '<i class="far fa-star"></i>';
+        }
+        return html + ` <span style="color:#666;font-size:0.8rem">(${rating})</span>`;
+    }
+
+    function renderSection(key, data) {
+        const items = data.items.map(item => `
+            <div class="col-md-6 col-lg-4">
+                <div class="gear-card">
+                    <div class="gear-img">
+                        <div class="gear-badge">${item.badge}</div>
+                        <img src="${item.img}" alt="${item.name}" loading="lazy">
+                    </div>
+                    <div class="gear-body">
+                        <div class="gear-cat"><i class="fas ${data.icon}"></i> ${key}</div>
+                        <h3 class="gear-name">${item.name}</h3>
+                        <p class="gear-desc">${item.desc}</p>
+                        <div class="gear-stars">${renderStars(item.stars)}</div>
+                        <p class="gear-price">$${item.price.toFixed(2)}</p>
+                        <a href="https://www.amazon.com/dp/${item.asin}/?tag=${TAG}" target="_blank" rel="noopener noreferrer" class="btn-amazon">
+                            <i class="fas fa-shopping-cart"></i> View on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        return `
+            <section class="gear-section" data-category="${key}">
+                <div class="container">
+                    <div class="section-header">
+                        <div class="section-icon"><i class="fas ${data.icon}" style="color:#ff6b35"></i></div>
+                        <h2 class="section-title">${data.title}</h2>
+                        <p class="section-sub">${data.sub}</p>
+                    </div>
+                    <div class="row g-4">${items}</div>
+                </div>
+            </section>
+        `;
+    }
+
+    function renderAll() {
+        const container = document.getElementById('gear-container');
+        container.innerHTML = Object.entries(gearData).map(([key, data]) => renderSection(key, data)).join('');
+    }
+
+    function filterGear(category) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+
+        if (category === 'all') {
+            document.querySelectorAll('.gear-section').forEach(s => s.style.display = 'block');
+        } else {
+            document.querySelectorAll('.gear-section').forEach(s => {
+                s.style.display = s.dataset.category === category ? 'block' : 'none';
+            });
+        }
+    }
+
+    renderAll();
+    </script>
+</body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Maintenance & Repair Hub | DIY Guides | VelocityVault</title>
+    <meta name="description" content="Learn bike maintenance and repair with our free guides. Tire changes, brake adjustments, chain care, and more for BMX and e-bike riders.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; background: #f8f9fa; color: #1a1a1a; line-height: 1.6; }
+        .navbar { background: white !important; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 12px 0; }
+        .navbar-brand { font-size: 1.4rem; font-weight: 900; color: #1a1a1a !important; }
+        .navbar-brand i { color: #ff6b35; }
+        .nav-link { font-weight: 600; color: #666 !important; font-size: 0.95rem; transition: all 0.3s; }
+        .nav-link:hover, .nav-link.active { color: #ff6b35 !important; }
+
+        .page-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: white; padding: 120px 0 80px; margin-top: 60px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; top: -40%; left: -15%; width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 70%); border-radius: 50%;
+        }
+        .page-hero h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 900; margin-bottom: 1rem; position: relative; z-index: 2; }
+        .page-hero p { font-size: 1.15rem; opacity: 0.9; max-width: 650px; margin: 0 auto; position: relative; z-index: 2; }
+
+        .schedule-section { background: white; padding: 70px 0; }
+        .guides-section { background: #f8f9fa; padding: 70px 0; }
+        .tools-section { background: white; padding: 70px 0; }
+        .tips-section { background: #f8f9fa; padding: 70px 0; }
+
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-label { color: #ff6b35; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+        .section-title { font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 900; color: #1a1a1a; margin-bottom: 0.5rem; }
+        .section-sub { font-size: 1rem; color: #666; }
+
+        /* Schedule Table */
+        .schedule-card {
+            background: white; border: 1px solid #e8e8e8; border-radius: 12px;
+            overflow: hidden; transition: all 0.3s; height: 100%;
+        }
+        .schedule-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+        .schedule-header {
+            padding: 20px; text-align: center; color: white; font-weight: 700; font-size: 1.1rem;
+        }
+        .schedule-header.weekly { background: linear-gradient(135deg, #28a745, #20c997); }
+        .schedule-header.monthly { background: linear-gradient(135deg, #ff6b35, #f7931e); }
+        .schedule-header.quarterly { background: linear-gradient(135deg, #007bff, #00d4ff); }
+        .schedule-header.annual { background: linear-gradient(135deg, #6f42c1, #b300ff); }
+        .schedule-body { padding: 20px; }
+        .schedule-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+        .schedule-item:last-child { border-bottom: none; }
+        .schedule-check { color: #28a745; font-size: 1.1rem; margin-top: 2px; flex-shrink: 0; }
+        .schedule-text { font-size: 0.95rem; color: #444; }
+        .schedule-text strong { color: #1a1a1a; }
+
+        /* Guide Cards */
+        .guide-card {
+            background: white; border: 1px solid #e8e8e8; border-radius: 12px;
+            padding: 30px; transition: all 0.3s; height: 100%; cursor: pointer;
+        }
+        .guide-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); border-color: #ff6b35; }
+        .guide-icon { font-size: 2.5rem; color: #ff6b35; margin-bottom: 1rem; }
+        .guide-title { font-weight: 800; font-size: 1.15rem; color: #1a1a1a; margin-bottom: 0.5rem; }
+        .guide-difficulty {
+            display: inline-block; padding: 3px 12px; border-radius: 15px;
+            font-size: 0.75rem; font-weight: 700; margin-bottom: 0.8rem;
+        }
+        .diff-easy { background: #d4edda; color: #155724; }
+        .diff-medium { background: #fff3cd; color: #856404; }
+        .diff-hard { background: #f8d7da; color: #721c24; }
+        .guide-desc { font-size: 0.9rem; color: #666; margin-bottom: 1rem; }
+        .guide-steps { list-style: none; padding: 0; margin: 0; }
+        .guide-steps li { font-size: 0.88rem; color: #555; padding: 5px 0; display: flex; align-items: flex-start; gap: 8px; }
+        .guide-steps li::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #ff6b35; margin-top: 7px; flex-shrink: 0; }
+        .guide-time { font-size: 0.8rem; color: #999; margin-top: 10px; }
+        .guide-time i { color: #ff6b35; }
+
+        /* Expandable Guide Detail */
+        .guide-detail { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #e8e8e8; }
+        .guide-detail.active { display: block; }
+        .guide-detail h5 { font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; color: #1a1a1a; }
+        .guide-detail ol { padding-left: 20px; }
+        .guide-detail ol li { font-size: 0.88rem; color: #555; margin-bottom: 8px; line-height: 1.5; }
+        .guide-detail .pro-tip {
+            background: #fff3cd; border-left: 4px solid #ff6b35; padding: 12px 15px;
+            border-radius: 0 8px 8px 0; margin-top: 12px; font-size: 0.88rem;
+        }
+
+        /* Tool Recommendations */
+        .tool-card {
+            background: white; border: 1px solid #e8e8e8; border-radius: 12px;
+            padding: 20px; text-align: center; transition: all 0.3s; height: 100%;
+        }
+        .tool-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-color: #ff6b35; }
+        .tool-img { height: 140px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+        .tool-img img { max-height: 100%; max-width: 100%; object-fit: contain; }
+        .tool-name { font-weight: 700; font-size: 0.9rem; color: #1a1a1a; margin-bottom: 4px; }
+        .tool-use { font-size: 0.8rem; color: #888; margin-bottom: 8px; }
+        .tool-price { font-size: 1.2rem; color: #ff6b35; font-weight: 900; margin-bottom: 8px; }
+        .btn-sm-amazon {
+            background: linear-gradient(135deg, #ff6b35, #f7931e); color: white;
+            border: none; padding: 8px 16px; border-radius: 6px; font-weight: 700;
+            font-size: 0.8rem; text-decoration: none; display: inline-block; transition: all 0.3s;
+        }
+        .btn-sm-amazon:hover { transform: scale(1.05); color: white; }
+
+        /* E-Bike Specific Section */
+        .ebike-section { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: white; padding: 70px 0; }
+        .ebike-section .section-title { color: white; }
+        .ebike-section .section-sub { color: #ccc; }
+        .ebike-tip {
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px; padding: 25px; height: 100%; transition: all 0.3s;
+        }
+        .ebike-tip:hover { background: rgba(255,255,255,0.12); transform: translateY(-5px); }
+        .ebike-tip h4 { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .ebike-tip p { color: #ccc; font-size: 0.9rem; }
+        .ebike-tip .tip-icon { font-size: 2rem; margin-bottom: 0.8rem; color: #ff6b35; }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white; padding: 60px 0; text-align: center;
+        }
+        .cta-section h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.1rem; opacity: 0.95; margin-bottom: 2rem; }
+        .btn-cta-white {
+            background: white; color: #ff6b35; padding: 14px 35px; font-size: 1rem;
+            font-weight: 700; border-radius: 50px; text-decoration: none; display: inline-block;
+            transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); color: #ff6b35; }
+
+        footer { background: #1a1a1a; color: #ccc; padding: 60px 0 20px; }
+        footer h5 { color: white; font-weight: 700; margin-bottom: 1.5rem; }
+        footer a { color: #ccc; text-decoration: none; transition: all 0.3s; font-size: 0.95rem; }
+        footer a:hover { color: #ff6b35; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 0.8rem; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 2rem; margin-top: 2rem; text-align: center; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .page-hero { padding: 90px 0 60px; }
+            .schedule-section, .guides-section, .tools-section, .tips-section, .ebike-section { padding: 50px 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-bicycle"></i> VelocityVault</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="products.html">Bikes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="accessories.html">Gear</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="maintenance.html">Maintenance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="compare.html">Compare</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1><i class="fas fa-tools"></i> Bike Maintenance Hub</h1>
+            <p>Keep your ride running smooth. Free DIY guides, maintenance schedules, and tool recommendations for every rider.</p>
+        </div>
+    </section>
+
+    <!-- MAINTENANCE SCHEDULE -->
+    <section class="schedule-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label"><i class="fas fa-calendar-check"></i> Stay on Schedule</p>
+                <h2 class="section-title">Maintenance Schedule</h2>
+                <p class="section-sub">Follow this schedule to keep your bike in peak condition</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="schedule-card">
+                        <div class="schedule-header weekly">Every Ride / Weekly</div>
+                        <div class="schedule-body">
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Tire pressure</strong> — Check PSI before every ride</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Brakes</strong> — Squeeze levers, check pad clearance</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Quick releases</strong> — Wheels and seat post secure</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Chain lube</strong> — Light lube if dry or noisy</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Lights</strong> — Test front and rear lights</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="schedule-card">
+                        <div class="schedule-header monthly">Monthly</div>
+                        <div class="schedule-body">
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Chain clean</strong> — Degrease and re-lube chain</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Tire inspection</strong> — Check for cuts, wear, debris</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Brake pads</strong> — Check thickness and alignment</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Bolt check</strong> — Tighten stem, bars, seat clamp</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Wheel true</strong> — Spin wheels, check for wobble</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="schedule-card">
+                        <div class="schedule-header quarterly">Every 3 Months</div>
+                        <div class="schedule-body">
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Cables</strong> — Check for fraying, replace if needed</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Headset</strong> — Check for play, adjust bearings</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Bottom bracket</strong> — Check for creaks and play</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Deep clean</strong> — Full frame wash and inspection</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Hub bearings</strong> — Check front and rear hubs</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="schedule-card">
+                        <div class="schedule-header annual">Annual / As Needed</div>
+                        <div class="schedule-body">
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Chain replace</strong> — Replace chain every 2,000-3,000 miles</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Brake pads</strong> — Full replacement if worn</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Tires</strong> — Replace worn tires for grip/safety</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Cables & housing</strong> — Full cable replacement</div></div>
+                            <div class="schedule-item"><i class="fas fa-check-circle schedule-check"></i><div class="schedule-text"><strong>Full tune-up</strong> — Professional shop overhaul</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIY REPAIR GUIDES -->
+    <section class="guides-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label"><i class="fas fa-book-open"></i> Learn by Doing</p>
+                <h2 class="section-title">DIY Repair Guides</h2>
+                <p class="section-sub">Step-by-step guides for the most common bike repairs</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="guide-card" onclick="toggleGuide(this)">
+                        <div class="guide-icon"><i class="fas fa-circle-notch"></i></div>
+                        <h3 class="guide-title">Fix a Flat Tire</h3>
+                        <span class="guide-difficulty diff-easy">Easy</span>
+                        <p class="guide-desc">The #1 most common repair. Learn to patch or replace an inner tube in under 10 minutes.</p>
+                        <ul class="guide-steps">
+                            <li>Remove the wheel from the bike</li>
+                            <li>Unseat the tire with tire levers</li>
+                            <li>Remove and inspect the inner tube</li>
+                            <li>Patch the hole or install new tube</li>
+                            <li>Reseat tire and inflate to proper PSI</li>
+                        </ul>
+                        <p class="guide-time"><i class="fas fa-clock"></i> 10-15 min | Tools: tire levers, pump, patch kit</p>
+                        <div class="guide-detail">
+                            <h5>Detailed Steps:</h5>
+                            <ol>
+                                <li>Flip the bike upside down or use a stand. Release the brake if needed and loosen the quick-release or axle nuts.</li>
+                                <li>Deflate the tube fully. Insert a tire lever under the bead about 2 inches from the valve. Hook it to a spoke.</li>
+                                <li>Slide a second lever along the rim to unseat one side of the tire completely.</li>
+                                <li>Pull out the inner tube. Inflate it and listen/feel for the leak. Mark it with a pen.</li>
+                                <li>Rough up the area around the hole with sandpaper. Apply vulcanizing glue, wait 30 seconds, press patch firmly.</li>
+                                <li>Run your fingers inside the tire to feel for thorns, glass, or wire that caused the flat.</li>
+                                <li>Slightly inflate the new/patched tube so it holds shape. Tuck it into the tire starting at the valve.</li>
+                                <li>Push the tire bead back onto the rim using your hands (avoid levers here to prevent pinching the tube).</li>
+                                <li>Inflate to the PSI listed on the tire sidewall. Spin the wheel to check it's seated evenly.</li>
+                            </ol>
+                            <div class="pro-tip"><strong>Pro Tip:</strong> Always carry a spare tube on rides. Patching is great for the garage, but a fresh tube is faster on the road.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="guide-card" onclick="toggleGuide(this)">
+                        <div class="guide-icon"><i class="fas fa-cog"></i></div>
+                        <h3 class="guide-title">Adjust Your Brakes</h3>
+                        <span class="guide-difficulty diff-easy">Easy</span>
+                        <p class="guide-desc">Spongy or squeaky brakes? Dial them in for reliable stopping power.</p>
+                        <ul class="guide-steps">
+                            <li>Identify brake type (rim, disc, or coaster)</li>
+                            <li>Check pad alignment and wear</li>
+                            <li>Adjust cable tension with barrel adjuster</li>
+                            <li>Center the brake calipers</li>
+                            <li>Test squeeze and stopping distance</li>
+                        </ul>
+                        <p class="guide-time"><i class="fas fa-clock"></i> 5-10 min | Tools: hex wrenches, cable puller</p>
+                        <div class="guide-detail">
+                            <h5>For Rim Brakes (V-Brakes):</h5>
+                            <ol>
+                                <li>Check that brake pads are hitting the rim flat, not the tire. Loosen the pad bolt to reposition if needed.</li>
+                                <li>Pads should be 1-2mm from the rim on each side. Use the barrel adjuster on the lever to fine-tune.</li>
+                                <li>If one pad is closer than the other, use the small screw on the brake arm to center them.</li>
+                                <li>Replace pads if the grooves are worn smooth or if you can see the metal backing.</li>
+                            </ol>
+                            <h5>For Disc Brakes:</h5>
+                            <ol>
+                                <li>Loosen the caliper mounting bolts slightly so the caliper can move.</li>
+                                <li>Squeeze the brake lever firmly to center the caliper on the rotor, then tighten bolts while holding lever.</li>
+                                <li>Spin the wheel. If you hear rubbing, fine-tune by loosening one bolt slightly and nudging the caliper.</li>
+                            </ol>
+                            <div class="pro-tip"><strong>Pro Tip:</strong> Never touch disc brake rotors with your fingers. Oil from skin causes contamination and squealing.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="guide-card" onclick="toggleGuide(this)">
+                        <div class="guide-icon"><i class="fas fa-link"></i></div>
+                        <h3 class="guide-title">Clean & Lube Your Chain</h3>
+                        <span class="guide-difficulty diff-easy">Easy</span>
+                        <p class="guide-desc">A clean chain shifts smoother, lasts longer, and saves you money on drivetrain parts.</p>
+                        <ul class="guide-steps">
+                            <li>Apply degreaser to the chain</li>
+                            <li>Scrub with a chain cleaning tool or brush</li>
+                            <li>Rinse and dry thoroughly</li>
+                            <li>Apply chain lube (wet or dry type)</li>
+                            <li>Wipe excess lube with a rag</li>
+                        </ul>
+                        <p class="guide-time"><i class="fas fa-clock"></i> 10-15 min | Tools: degreaser, brush, chain lube, rag</p>
+                        <div class="guide-detail">
+                            <h5>Detailed Steps:</h5>
+                            <ol>
+                                <li>Shift to the smallest chainring and smallest cog so the chain has maximum slack.</li>
+                                <li>Apply degreaser generously along the chain while slowly back-pedaling. Let it sit 2-3 minutes.</li>
+                                <li>Use a stiff brush or chain cleaning device to scrub each link. Pay attention to the rollers.</li>
+                                <li>Rinse with water (avoid high-pressure directly at bearings). Dry with a clean rag.</li>
+                                <li>Apply one drop of lube per chain link on the inside (roller side). Back-pedal 20-30 revolutions.</li>
+                                <li>Wait 5 minutes, then wipe off all excess lube with a clean rag. The lube should be IN the rollers, not on the outside.</li>
+                            </ol>
+                            <div class="pro-tip"><strong>Pro Tip:</strong> Use DRY lube in summer/dry conditions and WET lube in winter/rain. Dry lube attracts less dirt.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="guide-card" onclick="toggleGuide(this)">
+                        <div class="guide-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <h3 class="guide-title">True a Wheel</h3>
+                        <span class="guide-difficulty diff-medium">Medium</span>
+                        <p class="guide-desc">Fix a wobbly wheel by adjusting spoke tension. A critical skill for any serious rider.</p>
+                        <ul class="guide-steps">
+                            <li>Mount the wheel and spin to find the wobble</li>
+                            <li>Mark the high spot with tape</li>
+                            <li>Identify which spokes to tighten/loosen</li>
+                            <li>Make quarter-turn adjustments with spoke wrench</li>
+                            <li>Recheck and fine-tune until straight</li>
+                        </ul>
+                        <p class="guide-time"><i class="fas fa-clock"></i> 15-30 min | Tools: spoke wrench, truing stand (or zip ties)</p>
+                        <div class="guide-detail">
+                            <h5>Detailed Steps:</h5>
+                            <ol>
+                                <li>If you don't have a truing stand, flip the bike and use the brake pads as reference points.</li>
+                                <li>Spin the wheel slowly and note where it pulls left or right relative to the brake pads.</li>
+                                <li>Spokes on the RIGHT side pull the rim right when tightened. Left side pulls left.</li>
+                                <li>At the wobble point: if the rim goes RIGHT, tighten the LEFT spoke(s) and loosen the RIGHT spoke(s) by 1/4 turn.</li>
+                                <li>Work in small increments (1/4 turn max). Over-tightening can crack the rim or break spokes.</li>
+                                <li>Recheck after each adjustment. Repeat until the wobble is under 1mm.</li>
+                            </ol>
+                            <div class="pro-tip"><strong>Pro Tip:</strong> Always adjust spokes in pairs (one tighter, one looser) to maintain even tension across the wheel.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="guide-card" onclick="toggleGuide(this)">
+                        <div class="guide-icon"><i class="fas fa-arrows-alt-v"></i></div>
+                        <h3 class="guide-title">Adjust Seat Height & Position</h3>
+                        <span class="guide-difficulty diff-easy">Easy</span>
+                        <p class="guide-desc">Proper saddle height prevents knee pain and maximizes pedaling power.</p>
+                        <ul class="guide-steps">
+                            <li>Stand next to bike, saddle should be at hip height</li>
+                            <li>Sit on saddle, put heel on pedal at bottom</li>
+                            <li>Leg should be fully extended (not locked)</li>
+                            <li>Adjust fore/aft so knee is over pedal spindle</li>
+                            <li>Tighten seat clamp to proper torque</li>
+                        </ul>
+                        <p class="guide-time"><i class="fas fa-clock"></i> 5 min | Tools: hex wrench (4mm or 5mm)</p>
+                        <div class="guide-detail">
+                            <h5>The Heel Method:</h5>
+                            <ol>
+                                <li>Loosen the seat post clamp bolt with a 4mm or 5mm hex wrench.</li>
+                                <li>Sit on the saddle and place your HEEL on the pedal at its lowest point (6 o'clock).</li>
+                                <li>Your leg should be completely straight. When you put the ball of your foot on the pedal, you'll have the perfect slight bend.</li>
+                                <li>For BMX: saddle is often lower for trick riding. Only raise it for cruising.</li>
+                                <li>Tighten the seat clamp firmly. If using a quick-release, it should leave an imprint on your palm when closing.</li>
+                            </ol>
+                            <div class="pro-tip"><strong>Pro Tip:</strong> Mark your ideal seat height with electrical tape on the seat post so you can always return to it.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="guide-card" onclick="toggleGuide(this)">
+                        <div class="guide-icon"><i class="fas fa-bolt"></i></div>
+                        <h3 class="guide-title">Replace Brake Pads</h3>
+                        <span class="guide-difficulty diff-medium">Medium</span>
+                        <p class="guide-desc">Worn brake pads are dangerous. Learn when and how to replace them for safe stopping.</p>
+                        <ul class="guide-steps">
+                            <li>Inspect current pads for wear indicators</li>
+                            <li>Remove the wheel for easier access</li>
+                            <li>Unbolt old pads noting orientation</li>
+                            <li>Install new pads with toe-in alignment</li>
+                            <li>Readjust cable tension and test</li>
+                        </ul>
+                        <p class="guide-time"><i class="fas fa-clock"></i> 15-20 min | Tools: hex wrenches, new brake pads</p>
+                        <div class="guide-detail">
+                            <h5>Detailed Steps:</h5>
+                            <ol>
+                                <li>Check your current pads. If the grooves are gone or you see metal, it's time to replace.</li>
+                                <li>Remove the wheel. This gives you better access and lets you see the pad alignment clearly.</li>
+                                <li>Note which way the old pad is oriented (there's usually an arrow showing rotation direction).</li>
+                                <li>Unbolt the old pad. On V-brakes, this is usually a single bolt with washers in a specific order — remember the order!</li>
+                                <li>Install the new pad. Set it so the front edge contacts the rim slightly before the rear edge (toe-in) to prevent squealing.</li>
+                                <li>Reinstall the wheel, squeeze the brakes, and check alignment. Adjust cable tension with the barrel adjuster.</li>
+                            </ol>
+                            <div class="pro-tip"><strong>Pro Tip:</strong> Replace both pads at the same time, even if only one is worn. Mismatched pads cause uneven braking.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align:center;margin-top:2rem;color:#888;font-size:0.9rem;"><i class="fas fa-hand-pointer"></i> Click any guide to expand detailed step-by-step instructions</p>
+        </div>
+    </section>
+
+    <!-- E-BIKE SPECIFIC MAINTENANCE -->
+    <section class="ebike-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label" style="color:#ff6b35;"><i class="fas fa-bolt"></i> E-Bike Owners</p>
+                <h2 class="section-title">E-Bike Specific Maintenance</h2>
+                <p class="section-sub">Electric bikes need extra care. Here's what to watch for.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="ebike-tip">
+                        <div class="tip-icon"><i class="fas fa-battery-full"></i></div>
+                        <h4>Battery Care</h4>
+                        <p>Store at 40-80% charge. Avoid full drain or full charge for long storage. Keep between 32-100F. Charge after every ride, don't let it sit dead.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="ebike-tip">
+                        <div class="tip-icon"><i class="fas fa-microchip"></i></div>
+                        <h4>Motor & Controller</h4>
+                        <p>Keep motor area clean and free of debris. Check connector pins for corrosion. Listen for unusual sounds. Never pressure-wash the motor directly.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="ebike-tip">
+                        <div class="tip-icon"><i class="fas fa-plug"></i></div>
+                        <h4>Electrical Connections</h4>
+                        <p>Inspect all wiring monthly. Look for frayed cables, loose connectors, or water intrusion. Apply dielectric grease to connectors in wet climates.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="ebike-tip">
+                        <div class="tip-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <h4>Brake Wear (Higher!)</h4>
+                        <p>E-bikes are heavier and faster, so brakes wear 2-3x faster than regular bikes. Check pads every 500 miles. Upgrade to metallic pads for better heat handling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESSENTIAL TOOLS -->
+    <section class="tools-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label"><i class="fas fa-toolbox"></i> Gear Up</p>
+                <h2 class="section-title">Essential Tools for Home Mechanics</h2>
+                <p class="section-sub">Everything you need to handle repairs at home</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tool-card">
+                        <div class="tool-img"><img src="https://m.media-amazon.com/images/I/81LJlRNVsSL._AC_SL1500_.jpg" alt="Multi-Tool" loading="lazy"></div>
+                        <h4 class="tool-name">Crankbrothers M19</h4>
+                        <p class="tool-use">19-in-1 Multi-Tool</p>
+                        <p class="tool-price">$29.99</p>
+                        <a href="https://www.amazon.com/dp/B000S6HZCY/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-sm-amazon">View</a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tool-card">
+                        <div class="tool-img"><img src="https://m.media-amazon.com/images/I/71cCpP4tC5L._AC_SL1500_.jpg" alt="Floor Pump" loading="lazy"></div>
+                        <h4 class="tool-name">BV Floor Pump</h4>
+                        <p class="tool-use">160 PSI with Gauge</p>
+                        <p class="tool-price">$25.99</p>
+                        <a href="https://www.amazon.com/dp/B008R5MDHI/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-sm-amazon">View</a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tool-card">
+                        <div class="tool-img"><img src="https://m.media-amazon.com/images/I/71J93dUOyuL._AC_SL1500_.jpg" alt="Repair Kit" loading="lazy"></div>
+                        <h4 class="tool-name">Puncture Kit</h4>
+                        <p class="tool-use">Flat Tire Fix</p>
+                        <p class="tool-price">$9.99</p>
+                        <a href="https://www.amazon.com/dp/B07BB8RLBK/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-sm-amazon">View</a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tool-card">
+                        <div class="tool-img"><img src="https://m.media-amazon.com/images/I/61nq8suwsaL._AC_SL1200_.jpg" alt="Hex Set" loading="lazy"></div>
+                        <h4 class="tool-name">Park Tool Hex Set</h4>
+                        <p class="tool-use">Folding Allen Keys</p>
+                        <p class="tool-price">$14.95</p>
+                        <a href="https://www.amazon.com/dp/B000OZFJQ2/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-sm-amazon">View</a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tool-card">
+                        <div class="tool-img"><img src="https://m.media-amazon.com/images/I/81fZWoRNnvL._AC_SL1500_.jpg" alt="Tool Kit" loading="lazy"></div>
+                        <h4 class="tool-name">BIKEHAND 37pc Kit</h4>
+                        <p class="tool-use">Complete Tool Set</p>
+                        <p class="tool-price">$89.99</p>
+                        <a href="https://www.amazon.com/dp/B00B135SSE/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-sm-amazon">View</a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tool-card">
+                        <div class="tool-img"><img src="https://m.media-amazon.com/images/I/61U8yw-MblL._AC_SL1006_.jpg" alt="Repair Stand" loading="lazy"></div>
+                        <h4 class="tool-name">Park Tool Stand</h4>
+                        <p class="tool-use">Pro Repair Stand</p>
+                        <p class="tool-price">$219.95</p>
+                        <a href="https://www.amazon.com/dp/B07CYZMM3N/?tag=bicycles0b3-20" target="_blank" rel="noopener noreferrer" class="btn-sm-amazon">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need the Right Tools?</h2>
+            <p>Check out our full accessories & gear collection on Amazon</p>
+            <a href="accessories.html" class="btn-cta-white">Browse All Gear & Tools</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <h5>VelocityVault</h5>
+                    <p>Your one-stop destination for bikes, gear, and everything riding.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Shop</h5>
+                    <ul>
+                        <li><a href="products.html">All Bikes</a></li>
+                        <li><a href="bmx-bikes.html">BMX Bikes</a></li>
+                        <li><a href="electric-bikes.html">E-Bikes</a></li>
+                        <li><a href="accessories.html">Accessories & Gear</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="maintenance.html">Maintenance Hub</a></li>
+                        <li><a href="compare.html">Bike Comparison</a></li>
+                        <li><a href="community.html">Rider Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Info</h5>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p><strong>Affiliate Disclosure:</strong> VelocityVault earns commissions on qualifying Amazon purchases through the bicycles0b3-20 affiliate program.</p>
+                <p>&copy; 2026 VelocityVault. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function toggleGuide(card) {
+        const detail = card.querySelector('.guide-detail');
+        if (detail) {
+            detail.classList.toggle('active');
+        }
+    }
+    </script>
+</body>
+</html>

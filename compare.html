@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Comparison Tool | Compare BMX & E-Bikes Side by Side | VelocityVault</title>
+    <meta name="description" content="Compare BMX bikes and e-bikes side by side. See specs, prices, and features to find the perfect ride for your needs.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; background: #f8f9fa; color: #1a1a1a; line-height: 1.6; }
+        .navbar { background: white !important; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 12px 0; }
+        .navbar-brand { font-size: 1.4rem; font-weight: 900; color: #1a1a1a !important; }
+        .navbar-brand i { color: #ff6b35; }
+        .nav-link { font-weight: 600; color: #666 !important; font-size: 0.95rem; transition: all 0.3s; }
+        .nav-link:hover, .nav-link.active { color: #ff6b35 !important; }
+
+        .page-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: white; padding: 120px 0 80px; margin-top: 60px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; top: -50%; left: 30%; width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255,107,53,0.1) 0%, transparent 70%); border-radius: 50%;
+        }
+        .page-hero h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 900; margin-bottom: 1rem; position: relative; z-index: 2; }
+        .page-hero p { font-size: 1.15rem; opacity: 0.9; max-width: 600px; margin: 0 auto; position: relative; z-index: 2; }
+
+        .compare-section { background: white; padding: 60px 0; }
+        .selector-area { background: #f8f9fa; padding: 40px 0; border-bottom: 1px solid #e8e8e8; }
+
+        .bike-selector {
+            background: white; border: 2px solid #e8e8e8; border-radius: 12px;
+            padding: 25px; text-align: center; transition: all 0.3s; height: 100%;
+        }
+        .bike-selector:hover { border-color: #ff6b35; }
+        .selector-label { font-weight: 700; font-size: 0.85rem; color: #ff6b35; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+        .bike-select {
+            width: 100%; padding: 12px 15px; border: 2px solid #e8e8e8; border-radius: 8px;
+            font-size: 0.95rem; font-weight: 600; color: #1a1a1a; background: white;
+            cursor: pointer; transition: all 0.3s; appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 12px center;
+        }
+        .bike-select:focus { border-color: #ff6b35; outline: none; box-shadow: 0 0 0 3px rgba(255,107,53,0.15); }
+
+        .preview-img {
+            width: 100%; height: 180px; display: flex; align-items: center; justify-content: center;
+            margin-top: 15px; background: #f8f9fa; border-radius: 8px;
+        }
+        .preview-img img { max-height: 100%; max-width: 100%; object-fit: contain; }
+        .preview-name { font-weight: 700; font-size: 1rem; margin-top: 10px; color: #1a1a1a; min-height: 24px; }
+        .preview-price { font-size: 1.4rem; color: #ff6b35; font-weight: 900; }
+
+        .vs-badge {
+            display: flex; align-items: center; justify-content: center;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e); color: white;
+            font-weight: 900; font-size: 1.2rem; margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(255,107,53,0.3);
+        }
+
+        .compare-table { margin-top: 40px; }
+        .compare-table table { width: 100%; border-collapse: collapse; }
+        .compare-table th {
+            background: #1a1a1a; color: white; padding: 14px 20px;
+            font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px;
+        }
+        .compare-table td {
+            padding: 14px 20px; border-bottom: 1px solid #e8e8e8;
+            font-size: 0.95rem; vertical-align: middle;
+        }
+        .compare-table tr:hover td { background: #fff8f5; }
+        .spec-label { font-weight: 700; color: #1a1a1a; background: #f8f9fa !important; width: 25%; }
+        .winner { background: #f0fff4 !important; font-weight: 700; color: #28a745; }
+        .btn-compare {
+            background: linear-gradient(135deg, #ff6b35, #f7931e); color: white;
+            border: none; padding: 14px 40px; border-radius: 50px; font-weight: 700;
+            font-size: 1rem; cursor: pointer; transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255,107,53,0.3);
+        }
+        .btn-compare:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255,107,53,0.4); }
+        .btn-compare:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        .result-area { display: none; }
+        .result-area.active { display: block; }
+        .verdict-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white; border-radius: 12px; padding: 30px; margin-top: 30px; text-align: center;
+        }
+        .verdict-box h3 { font-weight: 900; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .verdict-box p { opacity: 0.9; font-size: 1rem; }
+        .verdict-winner { color: #ff6b35; font-weight: 900; font-size: 1.3rem; }
+
+        .btn-amazon-cta {
+            background: linear-gradient(135deg, #ff6b35, #f7931e); color: white;
+            border: none; padding: 12px 25px; border-radius: 8px; font-weight: 700;
+            font-size: 0.95rem; text-decoration: none; display: inline-block;
+            transition: all 0.3s; margin: 5px; box-shadow: 0 4px 12px rgba(255,107,53,0.2);
+        }
+        .btn-amazon-cta:hover { transform: scale(1.05); color: white; }
+
+        /* Quick Compare Cards */
+        .quick-section { background: #f8f9fa; padding: 70px 0; }
+        .quick-card {
+            background: white; border: 1px solid #e8e8e8; border-radius: 12px;
+            padding: 25px; text-align: center; transition: all 0.3s; height: 100%;
+        }
+        .quick-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); border-color: #ff6b35; }
+        .quick-icon { font-size: 2.5rem; color: #ff6b35; margin-bottom: 1rem; }
+        .quick-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .quick-desc { font-size: 0.9rem; color: #666; }
+
+        footer { background: #1a1a1a; color: #ccc; padding: 60px 0 20px; }
+        footer h5 { color: white; font-weight: 700; margin-bottom: 1.5rem; }
+        footer a { color: #ccc; text-decoration: none; transition: all 0.3s; font-size: 0.95rem; }
+        footer a:hover { color: #ff6b35; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 0.8rem; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 2rem; margin-top: 2rem; text-align: center; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .page-hero { padding: 90px 0 60px; }
+            .compare-table { overflow-x: auto; }
+            .vs-badge { margin: 15px auto; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-bicycle"></i> VelocityVault</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="products.html">Bikes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="accessories.html">Gear</a></li>
+                    <li class="nav-item"><a class="nav-link" href="maintenance.html">Maintenance</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="compare.html">Compare</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1><i class="fas fa-balance-scale"></i> Bike Comparison Tool</h1>
+            <p>Compare any two bikes side by side. See specs, prices, and our verdict to make the right choice.</p>
+        </div>
+    </section>
+
+    <section class="selector-area">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-md-5">
+                    <div class="bike-selector">
+                        <p class="selector-label">Bike #1</p>
+                        <select class="bike-select" id="bike1" onchange="updatePreview(1)">
+                            <option value="">-- Select a bike --</option>
+                        </select>
+                        <div class="preview-img" id="preview1"><span style="color:#ccc">Select a bike above</span></div>
+                        <p class="preview-name" id="name1"></p>
+                        <p class="preview-price" id="price1"></p>
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                    <div class="vs-badge">VS</div>
+                </div>
+                <div class="col-md-5">
+                    <div class="bike-selector">
+                        <p class="selector-label">Bike #2</p>
+                        <select class="bike-select" id="bike2" onchange="updatePreview(2)">
+                            <option value="">-- Select a bike --</option>
+                        </select>
+                        <div class="preview-img" id="preview2"><span style="color:#ccc">Select a bike above</span></div>
+                        <p class="preview-name" id="name2"></p>
+                        <p class="preview-price" id="price2"></p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:30px;">
+                <button class="btn-compare" id="compareBtn" onclick="runComparison()" disabled>
+                    <i class="fas fa-balance-scale"></i> Compare Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="compare-section">
+        <div class="container">
+            <div class="result-area" id="resultArea">
+                <div class="compare-table" id="compareTable"></div>
+                <div class="verdict-box" id="verdictBox"></div>
+                <div style="text-align:center;margin-top:25px;" id="buyButtons"></div>
+            </div>
+
+            <div id="emptyState" style="text-align:center;padding:60px 0;">
+                <i class="fas fa-arrows-alt-h" style="font-size:4rem;color:#ddd;margin-bottom:1rem;"></i>
+                <h3 style="color:#999;font-weight:700;">Select Two Bikes to Compare</h3>
+                <p style="color:#bbb;">Pick a bike from each dropdown above to see a detailed side-by-side comparison</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK COMPARISON SUGGESTIONS -->
+    <section class="quick-section">
+        <div class="container">
+            <div class="section-header" style="text-align:center;margin-bottom:3rem;">
+                <h2 style="font-size:2rem;font-weight:900;">Popular Comparisons</h2>
+                <p style="color:#666;">Quick-compare the most common matchups</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="quick-card" onclick="quickCompare(1,2)">
+                        <div class="quick-icon"><i class="fas fa-trophy"></i></div>
+                        <h4 class="quick-title">WEIZE vs JOYSTAR</h4>
+                        <p class="quick-desc">The two best-selling budget 20" BMX bikes head-to-head</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="quick-card" onclick="quickCompare(17,18)">
+                        <div class="quick-icon"><i class="fas fa-bolt"></i></div>
+                        <h4 class="quick-title">3000W vs 3000W</h4>
+                        <p class="quick-desc">Electric Dirt Bike 45MPH vs GT 50MPH - which e-bike wins?</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="quick-card" onclick="quickCompare(3,7)">
+                        <div class="quick-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <h4 class="quick-title">Budget BMX Battle</h4>
+                        <p class="quick-desc">Hiland vs cubsala - best BMX under $100</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="quick-card" onclick="quickCompare(16,19)">
+                        <div class="quick-icon"><i class="fas fa-road"></i></div>
+                        <h4 class="quick-title">TST vs TST</h4>
+                        <p class="quick-desc">TST 1500W $599 vs TST 1500W $649 - what's the difference?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <h5>VelocityVault</h5>
+                    <p>Your one-stop destination for bikes, gear, and everything riding.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Shop</h5>
+                    <ul>
+                        <li><a href="products.html">All Bikes</a></li>
+                        <li><a href="bmx-bikes.html">BMX Bikes</a></li>
+                        <li><a href="electric-bikes.html">E-Bikes</a></li>
+                        <li><a href="accessories.html">Accessories & Gear</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="maintenance.html">Maintenance Hub</a></li>
+                        <li><a href="compare.html">Bike Comparison</a></li>
+                        <li><a href="community.html">Rider Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Info</h5>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p><strong>Affiliate Disclosure:</strong> VelocityVault earns commissions on qualifying Amazon purchases through the bicycles0b3-20 affiliate program.</p>
+                <p>&copy; 2026 VelocityVault. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const TAG = 'bicycles0b3-20';
+
+    const bikes = [
+        { id:1, name:'WEIZE Freestyle BMX 20"', brand:'WEIZE', cat:'BMX', price:109.99, wheel:'20"', weight:'~28 lbs', frame:'Hi-Ten Steel', brakes:'U-Brake + Coaster', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'Beginners, Freestyle', asin:'B0F9WZ75SB', img:'https://m.media-amazon.com/images/I/711JPV27c7L._AC_SY300_SX300_QL70_FMwebp_.jpg' },
+        { id:2, name:'JOYSTAR Brockway BMX 20"', brand:'JOYSTAR', cat:'BMX', price:129.99, wheel:'20"', weight:'~26 lbs', frame:'Hi-Ten Steel', brakes:'Hand Brake + Coaster', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'Kids 6-10, Street', asin:'B0CNK4RSP3', img:'https://m.media-amazon.com/images/I/717BGgvgpaL._AC_SY300_SX300_QL70_FMwebp_.jpg' },
+        { id:3, name:'Hiland 20" Freestyle BMX', brand:'Hiland', cat:'BMX', price:99.99, wheel:'20"', weight:'~27 lbs', frame:'Hi-Ten Steel', brakes:'U-Brake + Coaster', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'Budget Freestyle', asin:'B0BWQ8X8FZ', img:'https://m.media-amazon.com/images/I/71GTXsX9msL._AC_SY300_SX300_QL70_FMwebp_.jpg' },
+        { id:4, name:'Hiland 20" 3/5 Spoke BMX', brand:'Hiland', cat:'BMX', price:119.99, wheel:'20"', weight:'~29 lbs', frame:'Hi-Ten Steel', brakes:'U-Brake + Coaster', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'Style, Street', asin:'B0B3J42BBB', img:'https://m.media-amazon.com/images/I/71XwTg7KffL._AC_SY300_SX300_QL70_FMwebp_.jpg' },
+        { id:5, name:'67i Boys BMX 18"/20"', brand:'67i', cat:'BMX', price:139.99, wheel:'18"/20"', weight:'~30 lbs', frame:'Carbon Steel', brakes:'V-Brake + Coaster', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'Kids/Teens', asin:'B0DXDVJDG2', img:'https://m.media-amazon.com/images/I/71LZM725qpL._AC_SX466_.jpg' },
+        { id:6, name:'cubsala Yaphet BMX 20"', brand:'cubsala', cat:'BMX', price:119.99, wheel:'20"', weight:'~28 lbs', frame:'Hi-Ten Steel', brakes:'U-Brake + Coaster', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'Freestyle, Tricks', asin:'B0FYDLB4PT', img:'https://m.media-amazon.com/images/I/71Fnmfisg7L._AC_SL1500_.jpg' },
+        { id:7, name:'cubsala Freestyle BMX 20"', brand:'cubsala', cat:'BMX', price:99.99, wheel:'20"', weight:'~27 lbs', frame:'Hi-Ten Steel', brakes:'U-Brake + Coaster', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'Budget, Park', asin:'B0C88GN3VR', img:'https://m.media-amazon.com/images/I/71lFEz1wEvL._AC_SY300_SX300_QL70_FMwebp_.jpg' },
+        { id:8, name:'Elite BMX Stealth 20"', brand:'Elite', cat:'BMX', price:149.99, wheel:'20"', weight:'~25 lbs', frame:'Cr-Mo/Hi-Ten', brakes:'U-Brake + Coaster', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'Intermediate, Street', asin:'B09239HYM8', img:'https://m.media-amazon.com/images/I/81fjB8II9FL._AC_SL1500_.jpg' },
+        { id:9, name:'Elite BMX 26"/29" Big Wheel', brand:'Elite', cat:'BMX', price:199.99, wheel:'26"/29"', weight:'~32 lbs', frame:'Hi-Ten Steel', brakes:'Disc Brakes', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'Adults, Cruising', asin:'B0C95Q1W12', img:'https://m.media-amazon.com/images/I/714VPD4aluL._AC_SY300_SX300_QL70_FMwebp_.jpg' },
+        { id:10, name:'Elite BMX 18"/20"/26"', brand:'Elite', cat:'BMX', price:169.99, wheel:'18-26"', weight:'~28 lbs', frame:'Hi-Ten Steel', brakes:'U-Brake', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'All Ages, Versatile', asin:'B0C4G4ZF4K', img:'https://m.media-amazon.com/images/I/61o4YR-gpuL._AC_SY300_SX300_QL70_FMwebp_.jpg' },
+        { id:11, name:'Hyper 29" Jet Fuel BMX', brand:'Hyper', cat:'BMX', price:229.99, wheel:'29"', weight:'~35 lbs', frame:'Aluminum', brakes:'Mechanical Disc', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'Adults, Cruising', asin:'B0BG4JN6GM', img:'https://m.media-amazon.com/images/I/81Uksi9WEVL._AC_SX679_.jpg' },
+        { id:12, name:'Mongoose Hooligan Fat Tire 29"', brand:'Mongoose', cat:'BMX', price:249.99, wheel:'29"', weight:'~38 lbs', frame:'Aluminum', brakes:'Mechanical Disc', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'Fat Tire, All-Terrain', asin:'B0CVHY8Y59', img:'https://m.media-amazon.com/images/I/81szVxEiUSL._AC_SL1500_.jpg' },
+        { id:13, name:'VEVOR BMX 18"/20"/24"', brand:'VEVOR', cat:'BMX', price:139.99, wheel:'18-24"', weight:'~29 lbs', frame:'Carbon Steel', brakes:'V-Brake + Coaster', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'Race & Freestyle', asin:'B0DMLRY39D', img:'https://m.media-amazon.com/images/I/71nInwgGpOL._AC_SL1500_.jpg' },
+        { id:14, name:'Mongoose Legion Kids BMX 20"', brand:'Mongoose', cat:'BMX', price:159.99, wheel:'20"', weight:'~25 lbs', frame:'Hi-Ten Steel', brakes:'U-Brake + Coaster', gears:'Single Speed', motor:'-', battery:'-', range:'-', speed:'-', best:'Kids, Competition', asin:'B07G1CS5QF', img:'https://m.media-amazon.com/images/I/81sxU-jSs1L._AC_SL1500_.jpg' },
+        { id:15, name:'Folding E-Bike 14" 560W', brand:'Folding', cat:'E-Bike', price:399.99, wheel:'14"', weight:'~55 lbs', frame:'Aluminum Alloy', brakes:'Disc Brakes', gears:'Single Speed', motor:'560W Hub', battery:'48V', range:'25-35 miles', speed:'20 MPH', best:'Commuting, Portable', asin:'B0F24B7DNY', img:'https://m.media-amazon.com/images/I/71t1TzFzetL._AC_SY300_SX300_QL70_FMwebp_.jpg' },
+        { id:16, name:'TST E-Bike 20" 1500W', brand:'TST', cat:'E-Bike', price:599.99, wheel:'20"', weight:'~75 lbs', frame:'Aluminum Alloy', brakes:'Hydraulic Disc', gears:'7 Speed Shimano', motor:'1500W Hub', battery:'48V 15Ah', range:'40-60 miles', speed:'28 MPH', best:'Fat Tire Cruising', asin:'B0G2XL97QH', img:'https://m.media-amazon.com/images/I/81fXfJYQzvL._AC_SL1500_.jpg' },
+        { id:17, name:'Electric Dirt Bike 3000W 45MPH', brand:'Generic', cat:'E-Bike', price:899.99, wheel:'19"', weight:'~110 lbs', frame:'Steel Alloy', brakes:'Hydraulic Disc', gears:'N/A (Direct)', motor:'3000W Hub', battery:'60V 35Ah', range:'100+ miles', speed:'45 MPH', best:'Off-Road, Power', asin:'B0FT2D12X4', img:'https://m.media-amazon.com/images/I/712Gt6Ze-sL._AC_SL1200_.jpg' },
+        { id:18, name:'GT Electric Dirt Bike 3000W 50MPH', brand:'GT', cat:'E-Bike', price:949.99, wheel:'25"', weight:'~120 lbs', frame:'Steel Alloy', brakes:'Hydraulic Disc', gears:'N/A (Direct)', motor:'3000W Hub', battery:'60V 35Ah', range:'80-100 miles', speed:'50 MPH', best:'Max Performance', asin:'B0F1MX53GS', img:'https://m.media-amazon.com/images/I/71jLARaOa4L._AC_SL1500_.jpg' },
+        { id:19, name:'TST Electric Dirt Bike 1500W', brand:'TST', cat:'E-Bike', price:649.99, wheel:'20"', weight:'~80 lbs', frame:'Aluminum Alloy', brakes:'Hydraulic Disc', gears:'7 Speed Shimano', motor:'1500W Hub', battery:'48V 20Ah', range:'60-110 miles', speed:'28 MPH', best:'Long Range Commute', asin:'B0FS6BXP1P', img:'https://m.media-amazon.com/images/I/81eEJMRDiAL._AC_SY300_SX300_QL70_FMwebp_.jpg' },
+    ];
+
+    function init() {
+        const s1 = document.getElementById('bike1');
+        const s2 = document.getElementById('bike2');
+        const bmx = bikes.filter(b => b.cat === 'BMX');
+        const ebikes = bikes.filter(b => b.cat === 'E-Bike');
+
+        let options = '<option value="">-- Select a bike --</option>';
+        options += '<optgroup label="BMX Bikes">';
+        bmx.forEach(b => options += `<option value="${b.id}">${b.name} - $${b.price}</option>`);
+        options += '</optgroup><optgroup label="E-Bikes">';
+        ebikes.forEach(b => options += `<option value="${b.id}">${b.name} - $${b.price}</option>`);
+        options += '</optgroup>';
+
+        s1.innerHTML = options;
+        s2.innerHTML = options;
+    }
+
+    function updatePreview(num) {
+        const sel = document.getElementById('bike' + num);
+        const bike = bikes.find(b => b.id == sel.value);
+        const imgEl = document.getElementById('preview' + num);
+        const nameEl = document.getElementById('name' + num);
+        const priceEl = document.getElementById('price' + num);
+
+        if (bike) {
+            imgEl.innerHTML = `<img src="${bike.img}" alt="${bike.name}">`;
+            nameEl.textContent = bike.name;
+            priceEl.textContent = '$' + bike.price.toFixed(2);
+        } else {
+            imgEl.innerHTML = '<span style="color:#ccc">Select a bike above</span>';
+            nameEl.textContent = '';
+            priceEl.textContent = '';
+        }
+
+        const b1 = document.getElementById('bike1').value;
+        const b2 = document.getElementById('bike2').value;
+        document.getElementById('compareBtn').disabled = !(b1 && b2 && b1 !== b2);
+    }
+
+    function runComparison() {
+        const b1 = bikes.find(b => b.id == document.getElementById('bike1').value);
+        const b2 = bikes.find(b => b.id == document.getElementById('bike2').value);
+        if (!b1 || !b2) return;
+
+        document.getElementById('emptyState').style.display = 'none';
+        document.getElementById('resultArea').classList.add('active');
+
+        const specs = [
+            { label: 'Brand', key: 'brand' },
+            { label: 'Category', key: 'cat' },
+            { label: 'Price', key: 'price', format: v => '$' + v.toFixed(2), lower: true },
+            { label: 'Wheel Size', key: 'wheel' },
+            { label: 'Weight', key: 'weight' },
+            { label: 'Frame', key: 'frame' },
+            { label: 'Brakes', key: 'brakes' },
+            { label: 'Gears', key: 'gears' },
+            { label: 'Motor', key: 'motor' },
+            { label: 'Battery', key: 'battery' },
+            { label: 'Range', key: 'range' },
+            { label: 'Top Speed', key: 'speed' },
+            { label: 'Best For', key: 'best' },
+        ];
+
+        let rows = specs.map(s => {
+            const v1 = s.format ? s.format(b1[s.key]) : b1[s.key];
+            const v2 = s.format ? s.format(b2[s.key]) : b2[s.key];
+            let c1 = '', c2 = '';
+
+            if (s.key === 'price') {
+                if (b1.price < b2.price) c1 = 'winner';
+                else if (b2.price < b1.price) c2 = 'winner';
+            }
+
+            if (v1 === '-' && v2 === '-') return '';
+
+            return `<tr>
+                <td class="spec-label">${s.label}</td>
+                <td class="${c1}">${v1}${c1 ? ' <i class="fas fa-check-circle" style="color:#28a745"></i>' : ''}</td>
+                <td class="${c2}">${v2}${c2 ? ' <i class="fas fa-check-circle" style="color:#28a745"></i>' : ''}</td>
+            </tr>`;
+        }).join('');
+
+        document.getElementById('compareTable').innerHTML = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>Specification</th>
+                        <th>${b1.name}</th>
+                        <th>${b2.name}</th>
+                    </tr>
+                </thead>
+                <tbody>${rows}</tbody>
+            </table>
+        `;
+
+        let verdict = '';
+        if (b1.cat !== b2.cat) {
+            verdict = `<h3>Different Categories</h3><p>You're comparing a <strong>${b1.cat}</strong> with an <strong>${b2.cat}</strong>. These serve different purposes — a BMX is for tricks and street riding, while an E-Bike is for powered commuting and trail riding. Consider what type of riding you'll do most.</p>`;
+        } else if (b1.price < b2.price) {
+            const savings = (b2.price - b1.price).toFixed(2);
+            verdict = `<h3>Our Verdict</h3><p class="verdict-winner">${b1.name} saves you $${savings}</p><p>The <strong>${b1.name}</strong> offers great value at <strong>$${b1.price}</strong>. If budget matters, it's the better pick. The <strong>${b2.name}</strong> at <strong>$${b2.price}</strong> may offer additional features that justify the price difference for some riders.</p>`;
+        } else if (b2.price < b1.price) {
+            const savings = (b1.price - b2.price).toFixed(2);
+            verdict = `<h3>Our Verdict</h3><p class="verdict-winner">${b2.name} saves you $${savings}</p><p>The <strong>${b2.name}</strong> offers great value at <strong>$${b2.price}</strong>. If budget matters, it's the better pick. The <strong>${b1.name}</strong> at <strong>$${b1.price}</strong> may offer additional features that justify the price difference for some riders.</p>`;
+        } else {
+            verdict = `<h3>Our Verdict</h3><p class="verdict-winner">Same price — $${b1.price.toFixed(2)}</p><p>Both bikes are priced identically. Compare the specs above and read reviews on Amazon to see which one fits your riding style better.</p>`;
+        }
+
+        document.getElementById('verdictBox').innerHTML = verdict;
+        document.getElementById('buyButtons').innerHTML = `
+            <a href="https://www.amazon.com/dp/${b1.asin}/?tag=${TAG}" target="_blank" rel="noopener noreferrer" class="btn-amazon-cta">
+                <i class="fas fa-shopping-cart"></i> Buy ${b1.brand} on Amazon
+            </a>
+            <a href="https://www.amazon.com/dp/${b2.asin}/?tag=${TAG}" target="_blank" rel="noopener noreferrer" class="btn-amazon-cta">
+                <i class="fas fa-shopping-cart"></i> Buy ${b2.brand} on Amazon
+            </a>
+        `;
+
+        document.getElementById('resultArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function quickCompare(id1, id2) {
+        document.getElementById('bike1').value = id1;
+        document.getElementById('bike2').value = id2;
+        updatePreview(1);
+        updatePreview(2);
+        runComparison();
+        document.querySelector('.selector-area').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    init();
+    </script>
+</body>
+</html>
